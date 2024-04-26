@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace DesktopBankWF
+namespace DesktopBankUI
 {
     partial class FormLogin
     {

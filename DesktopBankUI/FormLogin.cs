@@ -1,4 +1,4 @@
-namespace DesktopBankWF
+namespace DesktopBankUI
 {
     public partial class FormLogin : Form
     {

@@ -1,4 +1,4 @@
-namespace DesktopBankWF
+namespace DesktopBankUI
 {
     internal static class Program
     {
