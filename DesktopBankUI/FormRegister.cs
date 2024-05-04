@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace StudentSystem.WindowsFormsCliente
 {
-    public partial class FormRegistro : Form
+    public partial class FormRegister : Form
     {
         MailService mailService = new MailService();
-        public FormRegistro()
+        public FormRegister()
         {
             InitializeComponent();
         }

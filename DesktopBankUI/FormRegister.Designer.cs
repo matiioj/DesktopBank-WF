@@ -1,6 +1,6 @@
 ﻿namespace StudentSystem.WindowsFormsCliente
 {
-    partial class FormRegistro
+    partial class FormRegister
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegister));
             groupBox1 = new GroupBox();
             TxtUser = new TextBox();
             TxtCorreo = new TextBox();
