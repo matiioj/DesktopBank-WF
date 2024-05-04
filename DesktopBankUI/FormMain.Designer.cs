@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             panelMenu = new Panel();
+            exitButton = new FontAwesome.Sharp.IconButton();
+            iconButton4 = new FontAwesome.Sharp.IconButton();
+            transferButton = new FontAwesome.Sharp.IconButton();
+            cardButton = new FontAwesome.Sharp.IconButton();
+            profileButton = new FontAwesome.Sharp.IconButton();
+            homeButton = new FontAwesome.Sharp.IconButton();
+            panelTitle = new Panel();
+            menuButton = new FontAwesome.Sharp.IconButton();
             panelBanner = new Panel();
             panelScreen = new Panel();
-            menuButton = new FontAwesome.Sharp.IconButton();
-            panelTitle = new Panel();
-            homeButton = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
-            iconButton4 = new FontAwesome.Sharp.IconButton();
-            iconButton5 = new FontAwesome.Sharp.IconButton();
-            iconButton6 = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             panelTitle.SuspendLayout();
             SuspendLayout();
@@ -47,12 +46,11 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.Teal;
-            panelMenu.Controls.Add(iconButton6);
-            panelMenu.Controls.Add(iconButton5);
+            panelMenu.Controls.Add(exitButton);
             panelMenu.Controls.Add(iconButton4);
-            panelMenu.Controls.Add(iconButton3);
-            panelMenu.Controls.Add(iconButton2);
-            panelMenu.Controls.Add(iconButton1);
+            panelMenu.Controls.Add(transferButton);
+            panelMenu.Controls.Add(cardButton);
+            panelMenu.Controls.Add(profileButton);
             panelMenu.Controls.Add(homeButton);
             panelMenu.Controls.Add(panelTitle);
             panelMenu.Dock = DockStyle.Left;
@@ -61,45 +59,115 @@
             panelMenu.Size = new Size(160, 450);
             panelMenu.TabIndex = 0;
             // 
-            // panelBanner
+            // exitButton
             // 
-            panelBanner.Dock = DockStyle.Top;
-            panelBanner.Location = new Point(160, 0);
-            panelBanner.Name = "panelBanner";
-            panelBanner.Size = new Size(640, 60);
-            panelBanner.TabIndex = 1;
+            exitButton.Dock = DockStyle.Top;
+            exitButton.FlatAppearance.BorderSize = 0;
+            exitButton.FlatStyle = FlatStyle.Flat;
+            exitButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            exitButton.ForeColor = Color.White;
+            exitButton.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+            exitButton.IconColor = Color.White;
+            exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            exitButton.IconSize = 30;
+            exitButton.ImageAlign = ContentAlignment.MiddleLeft;
+            exitButton.Location = new Point(0, 260);
+            exitButton.Name = "exitButton";
+            exitButton.Padding = new Padding(10, 0, 0, 0);
+            exitButton.Size = new Size(160, 35);
+            exitButton.TabIndex = 8;
+            exitButton.Text = "  Exit";
+            exitButton.TextAlign = ContentAlignment.MiddleLeft;
+            exitButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            exitButton.UseVisualStyleBackColor = true;
             // 
-            // panelScreen
+            // iconButton4
             // 
-            panelScreen.BackColor = Color.FromArgb(224, 224, 224);
-            panelScreen.Dock = DockStyle.Fill;
-            panelScreen.Location = new Point(160, 60);
-            panelScreen.Name = "panelScreen";
-            panelScreen.Size = new Size(640, 390);
-            panelScreen.TabIndex = 2;
+            iconButton4.Dock = DockStyle.Top;
+            iconButton4.FlatAppearance.BorderSize = 0;
+            iconButton4.FlatStyle = FlatStyle.Flat;
+            iconButton4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            iconButton4.ForeColor = Color.White;
+            iconButton4.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            iconButton4.IconColor = Color.White;
+            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton4.IconSize = 30;
+            iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton4.Location = new Point(0, 225);
+            iconButton4.Name = "iconButton4";
+            iconButton4.Padding = new Padding(10, 0, 0, 0);
+            iconButton4.Size = new Size(160, 35);
+            iconButton4.TabIndex = 6;
+            iconButton4.Text = "  History";
+            iconButton4.TextAlign = ContentAlignment.MiddleLeft;
+            iconButton4.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton4.UseVisualStyleBackColor = true;
             // 
-            // menuButton
+            // transferButton
             // 
-            menuButton.FlatAppearance.BorderSize = 0;
-            menuButton.FlatStyle = FlatStyle.Flat;
-            menuButton.IconChar = FontAwesome.Sharp.IconChar.Navicon;
-            menuButton.IconColor = Color.White;
-            menuButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            menuButton.IconSize = 30;
-            menuButton.Location = new Point(100, 12);
-            menuButton.Name = "menuButton";
-            menuButton.Size = new Size(60, 60);
-            menuButton.TabIndex = 0;
-            menuButton.UseVisualStyleBackColor = true;
+            transferButton.Dock = DockStyle.Top;
+            transferButton.FlatAppearance.BorderSize = 0;
+            transferButton.FlatStyle = FlatStyle.Flat;
+            transferButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            transferButton.ForeColor = Color.White;
+            transferButton.IconChar = FontAwesome.Sharp.IconChar.MoneyBillTransfer;
+            transferButton.IconColor = Color.White;
+            transferButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            transferButton.IconSize = 30;
+            transferButton.ImageAlign = ContentAlignment.MiddleLeft;
+            transferButton.Location = new Point(0, 190);
+            transferButton.Name = "transferButton";
+            transferButton.Padding = new Padding(10, 0, 0, 0);
+            transferButton.Size = new Size(160, 35);
+            transferButton.TabIndex = 5;
+            transferButton.Text = "  Transfer";
+            transferButton.TextAlign = ContentAlignment.MiddleLeft;
+            transferButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            transferButton.UseVisualStyleBackColor = true;
             // 
-            // panelTitle
+            // cardButton
             // 
-            panelTitle.Controls.Add(menuButton);
-            panelTitle.Dock = DockStyle.Top;
-            panelTitle.Location = new Point(0, 0);
-            panelTitle.Name = "panelTitle";
-            panelTitle.Size = new Size(160, 85);
-            panelTitle.TabIndex = 1;
+            cardButton.Dock = DockStyle.Top;
+            cardButton.FlatAppearance.BorderSize = 0;
+            cardButton.FlatStyle = FlatStyle.Flat;
+            cardButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            cardButton.ForeColor = Color.White;
+            cardButton.IconChar = FontAwesome.Sharp.IconChar.CreditCardAlt;
+            cardButton.IconColor = Color.White;
+            cardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            cardButton.IconSize = 30;
+            cardButton.ImageAlign = ContentAlignment.MiddleLeft;
+            cardButton.Location = new Point(0, 155);
+            cardButton.Name = "cardButton";
+            cardButton.Padding = new Padding(10, 0, 0, 0);
+            cardButton.Size = new Size(160, 35);
+            cardButton.TabIndex = 4;
+            cardButton.Text = "  Card";
+            cardButton.TextAlign = ContentAlignment.MiddleLeft;
+            cardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            cardButton.UseVisualStyleBackColor = true;
+            // 
+            // profileButton
+            // 
+            profileButton.Dock = DockStyle.Top;
+            profileButton.FlatAppearance.BorderSize = 0;
+            profileButton.FlatStyle = FlatStyle.Flat;
+            profileButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            profileButton.ForeColor = Color.White;
+            profileButton.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            profileButton.IconColor = Color.White;
+            profileButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            profileButton.IconSize = 30;
+            profileButton.ImageAlign = ContentAlignment.MiddleLeft;
+            profileButton.Location = new Point(0, 120);
+            profileButton.Name = "profileButton";
+            profileButton.Padding = new Padding(10, 0, 0, 0);
+            profileButton.Size = new Size(160, 35);
+            profileButton.TabIndex = 3;
+            profileButton.Text = "  Profile";
+            profileButton.TextAlign = ContentAlignment.MiddleLeft;
+            profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            profileButton.UseVisualStyleBackColor = true;
             // 
             // homeButton
             // 
@@ -123,137 +191,45 @@
             homeButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             homeButton.UseVisualStyleBackColor = true;
             // 
-            // iconButton1
+            // panelTitle
             // 
-            iconButton1.Dock = DockStyle.Top;
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.ForeColor = Color.White;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.House;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 30;
-            iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton1.Location = new Point(0, 120);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Padding = new Padding(10, 0, 0, 0);
-            iconButton1.Size = new Size(160, 35);
-            iconButton1.TabIndex = 3;
-            iconButton1.Text = "  Home";
-            iconButton1.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = true;
+            panelTitle.Controls.Add(menuButton);
+            panelTitle.Dock = DockStyle.Top;
+            panelTitle.Location = new Point(0, 0);
+            panelTitle.Name = "panelTitle";
+            panelTitle.Size = new Size(160, 85);
+            panelTitle.TabIndex = 1;
             // 
-            // iconButton2
+            // menuButton
             // 
-            iconButton2.Dock = DockStyle.Top;
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton2.ForeColor = Color.White;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.House;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 30;
-            iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton2.Location = new Point(0, 155);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Padding = new Padding(10, 0, 0, 0);
-            iconButton2.Size = new Size(160, 35);
-            iconButton2.TabIndex = 4;
-            iconButton2.Text = "  Home";
-            iconButton2.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton2.UseVisualStyleBackColor = true;
+            menuButton.FlatAppearance.BorderSize = 0;
+            menuButton.FlatStyle = FlatStyle.Flat;
+            menuButton.IconChar = FontAwesome.Sharp.IconChar.Navicon;
+            menuButton.IconColor = Color.White;
+            menuButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            menuButton.IconSize = 30;
+            menuButton.Location = new Point(100, 12);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(60, 60);
+            menuButton.TabIndex = 0;
+            menuButton.UseVisualStyleBackColor = true;
             // 
-            // iconButton3
+            // panelBanner
             // 
-            iconButton3.Dock = DockStyle.Top;
-            iconButton3.FlatAppearance.BorderSize = 0;
-            iconButton3.FlatStyle = FlatStyle.Flat;
-            iconButton3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton3.ForeColor = Color.White;
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.House;
-            iconButton3.IconColor = Color.White;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 30;
-            iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton3.Location = new Point(0, 190);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Padding = new Padding(10, 0, 0, 0);
-            iconButton3.Size = new Size(160, 35);
-            iconButton3.TabIndex = 5;
-            iconButton3.Text = "  Home";
-            iconButton3.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton3.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton3.UseVisualStyleBackColor = true;
+            panelBanner.Dock = DockStyle.Top;
+            panelBanner.Location = new Point(160, 0);
+            panelBanner.Name = "panelBanner";
+            panelBanner.Size = new Size(640, 60);
+            panelBanner.TabIndex = 1;
             // 
-            // iconButton4
+            // panelScreen
             // 
-            iconButton4.Dock = DockStyle.Top;
-            iconButton4.FlatAppearance.BorderSize = 0;
-            iconButton4.FlatStyle = FlatStyle.Flat;
-            iconButton4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton4.ForeColor = Color.White;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.House;
-            iconButton4.IconColor = Color.White;
-            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.IconSize = 30;
-            iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(0, 225);
-            iconButton4.Name = "iconButton4";
-            iconButton4.Padding = new Padding(10, 0, 0, 0);
-            iconButton4.Size = new Size(160, 35);
-            iconButton4.TabIndex = 6;
-            iconButton4.Text = "  Home";
-            iconButton4.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // iconButton5
-            // 
-            iconButton5.Dock = DockStyle.Top;
-            iconButton5.FlatAppearance.BorderSize = 0;
-            iconButton5.FlatStyle = FlatStyle.Flat;
-            iconButton5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton5.ForeColor = Color.White;
-            iconButton5.IconChar = FontAwesome.Sharp.IconChar.House;
-            iconButton5.IconColor = Color.White;
-            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton5.IconSize = 30;
-            iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton5.Location = new Point(0, 260);
-            iconButton5.Name = "iconButton5";
-            iconButton5.Padding = new Padding(10, 0, 0, 0);
-            iconButton5.Size = new Size(160, 35);
-            iconButton5.TabIndex = 7;
-            iconButton5.Text = "  Home";
-            iconButton5.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton5.UseVisualStyleBackColor = true;
-            // 
-            // iconButton6
-            // 
-            iconButton6.Dock = DockStyle.Top;
-            iconButton6.FlatAppearance.BorderSize = 0;
-            iconButton6.FlatStyle = FlatStyle.Flat;
-            iconButton6.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton6.ForeColor = Color.White;
-            iconButton6.IconChar = FontAwesome.Sharp.IconChar.House;
-            iconButton6.IconColor = Color.White;
-            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton6.IconSize = 30;
-            iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton6.Location = new Point(0, 295);
-            iconButton6.Name = "iconButton6";
-            iconButton6.Padding = new Padding(10, 0, 0, 0);
-            iconButton6.Size = new Size(160, 35);
-            iconButton6.TabIndex = 8;
-            iconButton6.Text = "  Home";
-            iconButton6.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton6.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton6.UseVisualStyleBackColor = true;
+            panelScreen.BackColor = Color.FromArgb(224, 224, 224);
+            panelScreen.Dock = DockStyle.Fill;
+            panelScreen.Location = new Point(160, 60);
+            panelScreen.Name = "panelScreen";
+            panelScreen.Size = new Size(640, 390);
+            panelScreen.TabIndex = 2;
             // 
             // FormMain
             // 
@@ -278,11 +254,10 @@
         private FontAwesome.Sharp.IconButton menuButton;
         private Panel panelTitle;
         private FontAwesome.Sharp.IconButton homeButton;
-        private FontAwesome.Sharp.IconButton iconButton6;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton exitButton;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton transferButton;
+        private FontAwesome.Sharp.IconButton cardButton;
+        private FontAwesome.Sharp.IconButton profileButton;
     }
 }
