@@ -35,5 +35,15 @@ namespace DesktopBankUI
 
             return Valido;
         }
+
+        private void tituloIniciarSesion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

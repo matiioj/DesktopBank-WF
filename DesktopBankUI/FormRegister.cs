@@ -12,7 +12,7 @@ namespace StudentSystem.WindowsFormsCliente
 {
     public partial class FormRegister : Form
     {
-        MailService mailService = new MailService();
+         // MailService mailService = new MailService();
         public FormRegister()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace StudentSystem.WindowsFormsCliente
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
             //Validaciones
-
+            /*
             var newUsuario = new();
             newUsuario.Nombre = TxtNombre.Text;
             newUsuario.Apellido = TxtApellido.Text;
@@ -41,7 +41,7 @@ namespace StudentSystem.WindowsFormsCliente
 
 
             //this.Close();
-
+        */
         }
     }
 }
