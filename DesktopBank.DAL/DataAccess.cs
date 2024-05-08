@@ -10,7 +10,7 @@ namespace DesktopBank.DAL
 
         public DataAccess()
         {
-            var Section = (NameValueCollection)ConfigurationManager.GetSection("MailSettings");
+            var Section = (NameValueCollection)ConfigurationManager.GetSection("DBSettings");
             dbSettings = new DBSettings(
                 Section["ServerName"], Section["ServerUserName"], Section["ServerPassword"]
                 );

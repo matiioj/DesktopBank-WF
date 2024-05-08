@@ -38,10 +38,11 @@
             panelTitle = new Panel();
             menuButton = new FontAwesome.Sharp.IconButton();
             panelBanner = new Panel();
-            panelScreen = new Panel();
+            minimizeButton = new FontAwesome.Sharp.IconButton();
+            maximizeButton = new FontAwesome.Sharp.IconButton();
+            restoreButton = new FontAwesome.Sharp.IconButton();
             closeButton = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
+            panelScreen = new Panel();
             panelMenu.SuspendLayout();
             panelTitle.SuspendLayout();
             panelBanner.SuspendLayout();
@@ -222,8 +223,9 @@
             // 
             // panelBanner
             // 
-            panelBanner.Controls.Add(iconButton2);
-            panelBanner.Controls.Add(iconButton1);
+            panelBanner.Controls.Add(minimizeButton);
+            panelBanner.Controls.Add(maximizeButton);
+            panelBanner.Controls.Add(restoreButton);
             panelBanner.Controls.Add(closeButton);
             panelBanner.Dock = DockStyle.Top;
             panelBanner.Location = new Point(160, 0);
@@ -231,17 +233,62 @@
             panelBanner.Size = new Size(640, 60);
             panelBanner.TabIndex = 1;
             // 
-            // panelScreen
+            // minimizeButton
             // 
-            panelScreen.BackColor = Color.FromArgb(224, 224, 224);
-            panelScreen.Dock = DockStyle.Fill;
-            panelScreen.Location = new Point(160, 60);
-            panelScreen.Name = "panelScreen";
-            panelScreen.Size = new Size(640, 540);
-            panelScreen.TabIndex = 2;
+            minimizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            minimizeButton.BackColor = Color.Transparent;
+            minimizeButton.FlatAppearance.BorderSize = 0;
+            minimizeButton.FlatStyle = FlatStyle.Flat;
+            minimizeButton.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
+            minimizeButton.IconColor = Color.Black;
+            minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            minimizeButton.IconSize = 25;
+            minimizeButton.Location = new Point(553, 0);
+            minimizeButton.Name = "minimizeButton";
+            minimizeButton.Size = new Size(25, 25);
+            minimizeButton.TabIndex = 3;
+            minimizeButton.UseVisualStyleBackColor = false;
+            minimizeButton.Visible = false;
+            minimizeButton.Click += minimizeButton_Click;
+            // 
+            // maximizeButton
+            // 
+            maximizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            maximizeButton.BackColor = Color.Transparent;
+            maximizeButton.FlatAppearance.BorderSize = 0;
+            maximizeButton.FlatStyle = FlatStyle.Flat;
+            maximizeButton.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            maximizeButton.IconColor = Color.Black;
+            maximizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            maximizeButton.IconSize = 25;
+            maximizeButton.Location = new Point(584, 0);
+            maximizeButton.Name = "maximizeButton";
+            maximizeButton.Size = new Size(25, 25);
+            maximizeButton.TabIndex = 2;
+            maximizeButton.UseVisualStyleBackColor = false;
+            maximizeButton.Visible = false;
+            maximizeButton.Click += maximizeButton_Click;
+            // 
+            // restoreButton
+            // 
+            restoreButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            restoreButton.BackColor = Color.Transparent;
+            restoreButton.FlatAppearance.BorderSize = 0;
+            restoreButton.FlatStyle = FlatStyle.Flat;
+            restoreButton.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
+            restoreButton.IconColor = Color.Black;
+            restoreButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            restoreButton.IconSize = 25;
+            restoreButton.Location = new Point(584, 3);
+            restoreButton.Name = "restoreButton";
+            restoreButton.Size = new Size(25, 25);
+            restoreButton.TabIndex = 1;
+            restoreButton.UseVisualStyleBackColor = false;
+            restoreButton.Visible = false;
             // 
             // closeButton
             // 
+            closeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             closeButton.BackColor = Color.Transparent;
             closeButton.FlatAppearance.BorderSize = 0;
             closeButton.FlatStyle = FlatStyle.Flat;
@@ -254,36 +301,17 @@
             closeButton.Size = new Size(25, 25);
             closeButton.TabIndex = 0;
             closeButton.UseVisualStyleBackColor = false;
+            closeButton.Visible = false;
+            closeButton.Click += closeButton_Click;
             // 
-            // iconButton1
+            // panelScreen
             // 
-            iconButton1.BackColor = Color.Transparent;
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 25;
-            iconButton1.Location = new Point(553, 0);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(25, 25);
-            iconButton1.TabIndex = 1;
-            iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // iconButton2
-            // 
-            iconButton2.BackColor = Color.Transparent;
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Xmark;
-            iconButton2.IconColor = Color.Black;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 25;
-            iconButton2.Location = new Point(584, 0);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(25, 25);
-            iconButton2.TabIndex = 2;
-            iconButton2.UseVisualStyleBackColor = false;
+            panelScreen.BackColor = Color.FromArgb(224, 224, 224);
+            panelScreen.Dock = DockStyle.Fill;
+            panelScreen.Location = new Point(160, 60);
+            panelScreen.Name = "panelScreen";
+            panelScreen.Size = new Size(640, 540);
+            panelScreen.TabIndex = 2;
             // 
             // FormMain
             // 
@@ -316,7 +344,8 @@
         private FontAwesome.Sharp.IconButton cardButton;
         private FontAwesome.Sharp.IconButton profileButton;
         private FontAwesome.Sharp.IconButton closeButton;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton maximizeButton;
+        private FontAwesome.Sharp.IconButton restoreButton;
+        private FontAwesome.Sharp.IconButton minimizeButton;
     }
 }

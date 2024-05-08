@@ -27,5 +27,24 @@ namespace DesktopBankUI
 
         }
 
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void maximizeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void restoreButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
