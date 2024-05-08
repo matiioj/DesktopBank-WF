@@ -30,7 +30,7 @@
         {
             panelMenu = new Panel();
             exitButton = new FontAwesome.Sharp.IconButton();
-            iconButton4 = new FontAwesome.Sharp.IconButton();
+            transactionsButton = new FontAwesome.Sharp.IconButton();
             transferButton = new FontAwesome.Sharp.IconButton();
             cardButton = new FontAwesome.Sharp.IconButton();
             profileButton = new FontAwesome.Sharp.IconButton();
@@ -47,7 +47,7 @@
             // 
             panelMenu.BackColor = Color.Teal;
             panelMenu.Controls.Add(exitButton);
-            panelMenu.Controls.Add(iconButton4);
+            panelMenu.Controls.Add(transactionsButton);
             panelMenu.Controls.Add(transferButton);
             panelMenu.Controls.Add(cardButton);
             panelMenu.Controls.Add(profileButton);
@@ -56,12 +56,13 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
+            panelMenu.Padding = new Padding(0, 0, 0, 25);
             panelMenu.Size = new Size(160, 450);
             panelMenu.TabIndex = 0;
             // 
             // exitButton
             // 
-            exitButton.Dock = DockStyle.Top;
+            exitButton.Dock = DockStyle.Bottom;
             exitButton.FlatAppearance.BorderSize = 0;
             exitButton.FlatStyle = FlatStyle.Flat;
             exitButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -71,7 +72,7 @@
             exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             exitButton.IconSize = 30;
             exitButton.ImageAlign = ContentAlignment.MiddleLeft;
-            exitButton.Location = new Point(0, 260);
+            exitButton.Location = new Point(0, 390);
             exitButton.Name = "exitButton";
             exitButton.Padding = new Padding(10, 0, 0, 0);
             exitButton.Size = new Size(160, 35);
@@ -80,28 +81,29 @@
             exitButton.TextAlign = ContentAlignment.MiddleLeft;
             exitButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             exitButton.UseVisualStyleBackColor = true;
+            exitButton.Click += exitButton_Click;
             // 
-            // iconButton4
+            // transactionsButton
             // 
-            iconButton4.Dock = DockStyle.Top;
-            iconButton4.FlatAppearance.BorderSize = 0;
-            iconButton4.FlatStyle = FlatStyle.Flat;
-            iconButton4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton4.ForeColor = Color.White;
-            iconButton4.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
-            iconButton4.IconColor = Color.White;
-            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton4.IconSize = 30;
-            iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton4.Location = new Point(0, 225);
-            iconButton4.Name = "iconButton4";
-            iconButton4.Padding = new Padding(10, 0, 0, 0);
-            iconButton4.Size = new Size(160, 35);
-            iconButton4.TabIndex = 6;
-            iconButton4.Text = "  History";
-            iconButton4.TextAlign = ContentAlignment.MiddleLeft;
-            iconButton4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton4.UseVisualStyleBackColor = true;
+            transactionsButton.Dock = DockStyle.Top;
+            transactionsButton.FlatAppearance.BorderSize = 0;
+            transactionsButton.FlatStyle = FlatStyle.Flat;
+            transactionsButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            transactionsButton.ForeColor = Color.White;
+            transactionsButton.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            transactionsButton.IconColor = Color.White;
+            transactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            transactionsButton.IconSize = 30;
+            transactionsButton.ImageAlign = ContentAlignment.MiddleLeft;
+            transactionsButton.Location = new Point(0, 225);
+            transactionsButton.Name = "transactionsButton";
+            transactionsButton.Padding = new Padding(10, 0, 0, 0);
+            transactionsButton.Size = new Size(160, 35);
+            transactionsButton.TabIndex = 6;
+            transactionsButton.Text = "  Transactions";
+            transactionsButton.TextAlign = ContentAlignment.MiddleLeft;
+            transactionsButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            transactionsButton.UseVisualStyleBackColor = true;
             // 
             // transferButton
             // 
@@ -255,7 +257,7 @@
         private Panel panelTitle;
         private FontAwesome.Sharp.IconButton homeButton;
         private FontAwesome.Sharp.IconButton exitButton;
-        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton transactionsButton;
         private FontAwesome.Sharp.IconButton transferButton;
         private FontAwesome.Sharp.IconButton cardButton;
         private FontAwesome.Sharp.IconButton profileButton;
