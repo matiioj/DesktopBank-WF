@@ -232,6 +232,7 @@
             panelBanner.Name = "panelBanner";
             panelBanner.Size = new Size(640, 60);
             panelBanner.TabIndex = 1;
+            panelBanner.MouseDown += panelBanner_MouseDown;
             // 
             // minimizeButton
             // 
@@ -248,7 +249,6 @@
             minimizeButton.Size = new Size(25, 25);
             minimizeButton.TabIndex = 3;
             minimizeButton.UseVisualStyleBackColor = false;
-            minimizeButton.Visible = false;
             minimizeButton.Click += minimizeButton_Click;
             // 
             // maximizeButton
@@ -266,7 +266,6 @@
             maximizeButton.Size = new Size(25, 25);
             maximizeButton.TabIndex = 2;
             maximizeButton.UseVisualStyleBackColor = false;
-            maximizeButton.Visible = false;
             maximizeButton.Click += maximizeButton_Click;
             // 
             // restoreButton
@@ -285,6 +284,7 @@
             restoreButton.TabIndex = 1;
             restoreButton.UseVisualStyleBackColor = false;
             restoreButton.Visible = false;
+            restoreButton.Click += restoreButton_Click;
             // 
             // closeButton
             // 
@@ -301,7 +301,6 @@
             closeButton.Size = new Size(25, 25);
             closeButton.TabIndex = 0;
             closeButton.UseVisualStyleBackColor = false;
-            closeButton.Visible = false;
             closeButton.Click += closeButton_Click;
             // 
             // panelScreen
@@ -323,6 +322,7 @@
             Controls.Add(panelMenu);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panelMenu.ResumeLayout(false);
             panelTitle.ResumeLayout(false);
