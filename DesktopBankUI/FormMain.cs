@@ -29,7 +29,8 @@ namespace DesktopBankUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            openFormInsidePanel(FormLogin);
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -60,6 +61,19 @@ namespace DesktopBankUI
         {
             ReleaseCapture();
             SendMessage(Handle, 0xA1, 0x2, 0);
+        }
+
+        private void openFormInsidePanel(Form functionForm)  
+        {
+            if (this.panelScreen.Controls.Count > 0) 
+            {
+                this.panelScreen.Controls.RemoveAt(0);
+            }
+            functionForm.TopLevel = false;
+            functionForm.Dock = DockStyle.Fill;
+            this.panelScreen.Controls.Add(functionForm);
+            this.panelScreen.Tag = functionForm;
+            functionForm.Show();
         }
     }
 }
