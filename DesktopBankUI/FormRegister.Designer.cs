@@ -44,9 +44,7 @@
             labelNombre = new Label();
             BtnCancelar = new Button();
             BtnAceptar = new Button();
-            pictureBox1 = new PictureBox();
             boxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // boxDatos
@@ -63,9 +61,9 @@
             boxDatos.Controls.Add(labelCorreo);
             boxDatos.Controls.Add(labelApellido);
             boxDatos.Controls.Add(labelNombre);
-            boxDatos.Location = new Point(27, 56);
+            boxDatos.Location = new Point(12, 56);
             boxDatos.Name = "boxDatos";
-            boxDatos.Size = new Size(385, 196);
+            boxDatos.Size = new Size(370, 196);
             boxDatos.TabIndex = 0;
             boxDatos.TabStop = false;
             // 
@@ -167,9 +165,10 @@
             // 
             // BtnCancelar
             // 
+            BtnCancelar.Cursor = Cursors.Hand;
             BtnCancelar.Image = (Image)resources.GetObject("BtnCancelar.Image");
             BtnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCancelar.Location = new Point(285, 291);
+            BtnCancelar.Location = new Point(214, 272);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(107, 29);
             BtnCancelar.TabIndex = 1;
@@ -179,7 +178,8 @@
             // 
             // BtnAceptar
             // 
-            BtnAceptar.Location = new Point(159, 291);
+            BtnAceptar.Cursor = Cursors.Hand;
+            BtnAceptar.Location = new Point(61, 272);
             BtnAceptar.Name = "BtnAceptar";
             BtnAceptar.Size = new Size(103, 29);
             BtnAceptar.TabIndex = 2;
@@ -187,21 +187,11 @@
             BtnAceptar.UseVisualStyleBackColor = true;
             BtnAceptar.Click += BtnAceptar_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(468, 56);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(200, 214);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
-            // 
             // FormRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(697, 395);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(399, 395);
             Controls.Add(BtnAceptar);
             Controls.Add(BtnCancelar);
             Controls.Add(boxDatos);
@@ -210,7 +200,6 @@
             Text = "Registrese";
             boxDatos.ResumeLayout(false);
             boxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -227,7 +216,6 @@
         private Label labelApellido;
         private Label labelNombre;
         private Button BtnAceptar;
-        private PictureBox pictureBox1;
         private Label labelContra;
         private TextBox TxtCuil;
         private Label labelCuil;

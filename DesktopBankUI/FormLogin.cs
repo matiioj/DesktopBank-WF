@@ -1,3 +1,5 @@
+using StudentSystem.WindowsFormsCliente;
+
 namespace DesktopBankUI
 {
     public partial class FormLogin : Form
@@ -13,42 +15,31 @@ namespace DesktopBankUI
             FormLogin.Show();
         }
 
-        private void BtnIniciar_Click(object sender, EventArgs e)
+        private void opcionSalir_Click(object sender, EventArgs e)
         {
-            //Buscar en la Lista de Usuarios si el usuario es valido
+            FormRegister formRegister = new FormRegister();
+            formRegister.Show();
+            this.Hide(); // oculta FormLogin
+        }
 
-            if (UsuarioValido(TxtUser.Text, TxtPassword.Text) == true)
+        private void botonIniciarSesion_Click(object sender, EventArgs e)
+        {
+            var usuarioLogin = TxtUser.Text;
+            var contraLogin = TxtPassword.Text;
+            
+            
+            //Buscar en la Lista de Usuarios si el usuario es valido
+            if (usuarioLogin=="asd"&&contraLogin=="asd")
             {
-                //Puedo ingresar al sistema
+                FormMain formMain = new FormMain();
+                formMain.Show();
+                this.Hide(); // oculta FormLogin
             }
             else
             {
                 MessageBox.Show("Usuario incorrecto, por favor revise los datos");
             }
-        }
-
-        private bool UsuarioValido(string username, string clave)
-        {
-            bool Valido = false;
-
-
-
-            return Valido;
-        }
-
-        private void tituloIniciarSesion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            
         }
     }
 }

@@ -34,7 +34,6 @@ namespace DesktopBankUI
         {
             TxtPassword = new TextBox();
             TxtUser = new TextBox();
-            BtnIniciar = new Button();
             panel1 = new Panel();
             panel3 = new Panel();
             iconoChancho = new PictureBox();
@@ -67,16 +66,6 @@ namespace DesktopBankUI
             TxtUser.Size = new Size(172, 23);
             TxtUser.TabIndex = 2;
             // 
-            // BtnIniciar
-            // 
-            BtnIniciar.Location = new Point(762, 522);
-            BtnIniciar.Name = "BtnIniciar";
-            BtnIniciar.Size = new Size(75, 23);
-            BtnIniciar.TabIndex = 1;
-            BtnIniciar.Text = "Iniciar";
-            BtnIniciar.UseVisualStyleBackColor = true;
-            BtnIniciar.Click += BtnIniciar_Click;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.Teal;
@@ -87,7 +76,6 @@ namespace DesktopBankUI
             panel1.Name = "panel1";
             panel1.Size = new Size(382, 213);
             panel1.TabIndex = 3;
-            panel1.Paint += panel1_Paint;
             // 
             // panel3
             // 
@@ -124,22 +112,26 @@ namespace DesktopBankUI
             // 
             // opcionSalir
             // 
+            opcionSalir.Cursor = Cursors.Hand;
             opcionSalir.ImageAlign = ContentAlignment.BottomCenter;
-            opcionSalir.Location = new Point(177, 151);
+            opcionSalir.Location = new Point(160, 150);
             opcionSalir.Name = "opcionSalir";
             opcionSalir.RightToLeft = RightToLeft.No;
-            opcionSalir.Size = new Size(31, 22);
+            opcionSalir.Size = new Size(63, 22);
             opcionSalir.TabIndex = 6;
-            opcionSalir.Text = "Salir";
+            opcionSalir.Text = "Registrate";
+            opcionSalir.Click += opcionSalir_Click;
             // 
             // botonIniciarSesion
             // 
+            botonIniciarSesion.Cursor = Cursors.Hand;
             botonIniciarSesion.Location = new Point(145, 112);
             botonIniciarSesion.Name = "botonIniciarSesion";
             botonIniciarSesion.Size = new Size(95, 32);
             botonIniciarSesion.TabIndex = 5;
             botonIniciarSesion.Text = "Iniciar";
             botonIniciarSesion.UseVisualStyleBackColor = true;
+            botonIniciarSesion.Click += botonIniciarSesion_Click;
             // 
             // contraseñaIniciarSesion
             // 
@@ -159,7 +151,6 @@ namespace DesktopBankUI
             contraseñaIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
             contraseñaIniciarSesion.TextImageRelation = TextImageRelation.ImageBeforeText;
             contraseñaIniciarSesion.UseVisualStyleBackColor = true;
-            contraseñaIniciarSesion.Click += iconButton1_Click;
             // 
             // nombreIniciarSesion
             // 
@@ -200,7 +191,6 @@ namespace DesktopBankUI
             tituloIniciarSesion.TabIndex = 0;
             tituloIniciarSesion.Text = "Inicie sesión";
             tituloIniciarSesion.TextAlign = ContentAlignment.MiddleCenter;
-            tituloIniciarSesion.Click += tituloIniciarSesion_Click;
             // 
             // FormLogin
             // 
@@ -211,7 +201,6 @@ namespace DesktopBankUI
             Controls.Add(panelIniciarSesion);
             Controls.Add(panelCampos);
             Controls.Add(panel1);
-            Controls.Add(BtnIniciar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
@@ -227,7 +216,6 @@ namespace DesktopBankUI
         #endregion
         private TextBox TxtPassword;
         private TextBox TxtUser;
-        private Button BtnIniciar;
         private Panel panel1;
         private PictureBox iconoChancho;
         private Panel panel3;
