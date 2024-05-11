@@ -30,7 +30,8 @@ namespace DesktopBankUI
         private void exitButton_Click(object sender, EventArgs e)
         {
             //Application.Exit();
-            openFormInsidePanel(FormLogin);
+            FormLogin formLogin = new FormLogin();
+            openFormInsidePanel(formLogin);
         }
 
         private void closeButton_Click(object sender, EventArgs e)

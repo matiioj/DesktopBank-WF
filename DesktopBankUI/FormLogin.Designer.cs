@@ -36,15 +36,15 @@ namespace DesktopBankUI
             TxtUser = new TextBox();
             BtnIniciar = new Button();
             panel1 = new Panel();
+            panel3 = new Panel();
             iconoChancho = new PictureBox();
             panelCampos = new Panel();
-            panel3 = new Panel();
+            opcionSalir = new Label();
+            botonIniciarSesion = new Button();
+            contraseñaIniciarSesion = new FontAwesome.Sharp.IconButton();
+            nombreIniciarSesion = new FontAwesome.Sharp.IconButton();
             panelIniciarSesion = new Panel();
             tituloIniciarSesion = new Label();
-            nombreIniciarSesion = new FontAwesome.Sharp.IconButton();
-            contraseñaIniciarSesion = new FontAwesome.Sharp.IconButton();
-            botonIniciarSesion = new Button();
-            opcionSalir = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconoChancho).BeginInit();
             panelCampos.SuspendLayout();
@@ -87,6 +87,14 @@ namespace DesktopBankUI
             panel1.Name = "panel1";
             panel1.Size = new Size(382, 213);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(0, 209);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(385, 66);
+            panel3.TabIndex = 6;
             // 
             // iconoChancho
             // 
@@ -114,12 +122,63 @@ namespace DesktopBankUI
             panelCampos.Size = new Size(382, 176);
             panelCampos.TabIndex = 4;
             // 
-            // panel3
+            // opcionSalir
             // 
-            panel3.Location = new Point(0, 209);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(385, 66);
-            panel3.TabIndex = 6;
+            opcionSalir.ImageAlign = ContentAlignment.BottomCenter;
+            opcionSalir.Location = new Point(177, 151);
+            opcionSalir.Name = "opcionSalir";
+            opcionSalir.RightToLeft = RightToLeft.No;
+            opcionSalir.Size = new Size(31, 22);
+            opcionSalir.TabIndex = 6;
+            opcionSalir.Text = "Salir";
+            // 
+            // botonIniciarSesion
+            // 
+            botonIniciarSesion.Location = new Point(145, 112);
+            botonIniciarSesion.Name = "botonIniciarSesion";
+            botonIniciarSesion.Size = new Size(95, 32);
+            botonIniciarSesion.TabIndex = 5;
+            botonIniciarSesion.Text = "Iniciar";
+            botonIniciarSesion.UseVisualStyleBackColor = true;
+            // 
+            // contraseñaIniciarSesion
+            // 
+            contraseñaIniciarSesion.FlatAppearance.BorderSize = 0;
+            contraseñaIniciarSesion.FlatStyle = FlatStyle.Flat;
+            contraseñaIniciarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            contraseñaIniciarSesion.IconChar = FontAwesome.Sharp.IconChar.Key;
+            contraseñaIniciarSesion.IconColor = Color.Black;
+            contraseñaIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            contraseñaIniciarSesion.IconSize = 30;
+            contraseñaIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
+            contraseñaIniciarSesion.Location = new Point(38, 63);
+            contraseñaIniciarSesion.Name = "contraseñaIniciarSesion";
+            contraseñaIniciarSesion.Size = new Size(119, 41);
+            contraseñaIniciarSesion.TabIndex = 4;
+            contraseñaIniciarSesion.Text = "Contraseña";
+            contraseñaIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            contraseñaIniciarSesion.TextImageRelation = TextImageRelation.ImageBeforeText;
+            contraseñaIniciarSesion.UseVisualStyleBackColor = true;
+            contraseñaIniciarSesion.Click += iconButton1_Click;
+            // 
+            // nombreIniciarSesion
+            // 
+            nombreIniciarSesion.FlatAppearance.BorderSize = 0;
+            nombreIniciarSesion.FlatStyle = FlatStyle.Flat;
+            nombreIniciarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            nombreIniciarSesion.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            nombreIniciarSesion.IconColor = Color.Black;
+            nombreIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            nombreIniciarSesion.IconSize = 30;
+            nombreIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
+            nombreIniciarSesion.Location = new Point(38, 16);
+            nombreIniciarSesion.Name = "nombreIniciarSesion";
+            nombreIniciarSesion.Size = new Size(119, 41);
+            nombreIniciarSesion.TabIndex = 0;
+            nombreIniciarSesion.Text = "Usuario";
+            nombreIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            nombreIniciarSesion.TextImageRelation = TextImageRelation.ImageBeforeText;
+            nombreIniciarSesion.UseVisualStyleBackColor = true;
             // 
             // panelIniciarSesion
             // 
@@ -142,64 +201,6 @@ namespace DesktopBankUI
             tituloIniciarSesion.Text = "Inicie sesión";
             tituloIniciarSesion.TextAlign = ContentAlignment.MiddleCenter;
             tituloIniciarSesion.Click += tituloIniciarSesion_Click;
-            // 
-            // nombreIniciarSesion
-            // 
-            nombreIniciarSesion.FlatAppearance.BorderSize = 0;
-            nombreIniciarSesion.FlatStyle = FlatStyle.Flat;
-            nombreIniciarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            nombreIniciarSesion.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            nombreIniciarSesion.IconColor = Color.Black;
-            nombreIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            nombreIniciarSesion.IconSize = 30;
-            nombreIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            nombreIniciarSesion.Location = new Point(38, 16);
-            nombreIniciarSesion.Name = "nombreIniciarSesion";
-            nombreIniciarSesion.Size = new Size(119, 41);
-            nombreIniciarSesion.TabIndex = 0;
-            nombreIniciarSesion.Text = "Usuario";
-            nombreIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
-            nombreIniciarSesion.TextImageRelation = TextImageRelation.ImageBeforeText;
-            nombreIniciarSesion.UseVisualStyleBackColor = true;
-            // 
-            // contraseñaIniciarSesion
-            // 
-            contraseñaIniciarSesion.FlatAppearance.BorderSize = 0;
-            contraseñaIniciarSesion.FlatStyle = FlatStyle.Flat;
-            contraseñaIniciarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            contraseñaIniciarSesion.IconChar = FontAwesome.Sharp.IconChar.Key;
-            contraseñaIniciarSesion.IconColor = Color.Black;
-            contraseñaIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            contraseñaIniciarSesion.IconSize = 30;
-            contraseñaIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            contraseñaIniciarSesion.Location = new Point(38, 63);
-            contraseñaIniciarSesion.Name = "contraseñaIniciarSesion";
-            contraseñaIniciarSesion.Size = new Size(119, 41);
-            contraseñaIniciarSesion.TabIndex = 4;
-            contraseñaIniciarSesion.Text = "Contraseña";
-            contraseñaIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
-            contraseñaIniciarSesion.TextImageRelation = TextImageRelation.ImageBeforeText;
-            contraseñaIniciarSesion.UseVisualStyleBackColor = true;
-            contraseñaIniciarSesion.Click += iconButton1_Click;
-            // 
-            // botonIniciarSesion
-            // 
-            botonIniciarSesion.Location = new Point(145, 112);
-            botonIniciarSesion.Name = "botonIniciarSesion";
-            botonIniciarSesion.Size = new Size(95, 32);
-            botonIniciarSesion.TabIndex = 5;
-            botonIniciarSesion.Text = "Iniciar";
-            botonIniciarSesion.UseVisualStyleBackColor = true;
-            // 
-            // opcionSalir
-            // 
-            opcionSalir.ImageAlign = ContentAlignment.BottomCenter;
-            opcionSalir.Location = new Point(177, 151);
-            opcionSalir.Name = "opcionSalir";
-            opcionSalir.RightToLeft = RightToLeft.No;
-            opcionSalir.Size = new Size(31, 22);
-            opcionSalir.TabIndex = 6;
-            opcionSalir.Text = "Salir";
             // 
             // FormLogin
             // 

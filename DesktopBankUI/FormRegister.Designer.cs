@@ -29,119 +29,159 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegister));
-            groupBox1 = new GroupBox();
+            boxDatos = new GroupBox();
+            TxtCuil = new TextBox();
+            labelCuil = new Label();
+            TxtContra = new TextBox();
+            labelContra = new Label();
             TxtUser = new TextBox();
             TxtCorreo = new TextBox();
             TxtApellido = new TextBox();
             TxtNombre = new TextBox();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            labelUsuario = new Label();
+            labelCorreo = new Label();
+            labelApellido = new Label();
+            labelNombre = new Label();
             BtnCancelar = new Button();
             BtnAceptar = new Button();
             pictureBox1 = new PictureBox();
-            groupBox1.SuspendLayout();
+            boxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // groupBox1
+            // boxDatos
             // 
-            groupBox1.Controls.Add(TxtUser);
-            groupBox1.Controls.Add(TxtCorreo);
-            groupBox1.Controls.Add(TxtApellido);
-            groupBox1.Controls.Add(TxtNombre);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(27, 24);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(385, 171);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Datos del usuario";
+            boxDatos.Controls.Add(TxtCuil);
+            boxDatos.Controls.Add(labelCuil);
+            boxDatos.Controls.Add(TxtContra);
+            boxDatos.Controls.Add(labelContra);
+            boxDatos.Controls.Add(TxtUser);
+            boxDatos.Controls.Add(TxtCorreo);
+            boxDatos.Controls.Add(TxtApellido);
+            boxDatos.Controls.Add(TxtNombre);
+            boxDatos.Controls.Add(labelUsuario);
+            boxDatos.Controls.Add(labelCorreo);
+            boxDatos.Controls.Add(labelApellido);
+            boxDatos.Controls.Add(labelNombre);
+            boxDatos.Location = new Point(27, 56);
+            boxDatos.Name = "boxDatos";
+            boxDatos.Size = new Size(385, 196);
+            boxDatos.TabIndex = 0;
+            boxDatos.TabStop = false;
+            // 
+            // TxtCuil
+            // 
+            TxtCuil.Location = new Point(86, 100);
+            TxtCuil.Name = "TxtCuil";
+            TxtCuil.Size = new Size(265, 23);
+            TxtCuil.TabIndex = 11;
+            // 
+            // labelCuil
+            // 
+            labelCuil.AutoSize = true;
+            labelCuil.Location = new Point(49, 108);
+            labelCuil.Name = "labelCuil";
+            labelCuil.Size = new Size(31, 15);
+            labelCuil.TabIndex = 10;
+            labelCuil.Text = "Cuil:";
+            // 
+            // TxtContra
+            // 
+            TxtContra.Location = new Point(86, 152);
+            TxtContra.Name = "TxtContra";
+            TxtContra.Size = new Size(265, 23);
+            TxtContra.TabIndex = 9;
+            // 
+            // labelContra
+            // 
+            labelContra.AutoSize = true;
+            labelContra.Location = new Point(10, 160);
+            labelContra.Name = "labelContra";
+            labelContra.Size = new Size(70, 15);
+            labelContra.TabIndex = 8;
+            labelContra.Text = "Contraseña:";
             // 
             // TxtUser
             // 
-            TxtUser.Location = new Point(82, 123);
+            TxtUser.Location = new Point(86, 126);
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(265, 23);
             TxtUser.TabIndex = 7;
             // 
             // TxtCorreo
             // 
-            TxtCorreo.Location = new Point(82, 94);
+            TxtCorreo.Location = new Point(86, 73);
             TxtCorreo.Name = "TxtCorreo";
             TxtCorreo.Size = new Size(265, 23);
             TxtCorreo.TabIndex = 6;
             // 
             // TxtApellido
             // 
-            TxtApellido.Location = new Point(82, 65);
+            TxtApellido.Location = new Point(86, 47);
             TxtApellido.Name = "TxtApellido";
             TxtApellido.Size = new Size(265, 23);
             TxtApellido.TabIndex = 5;
             // 
             // TxtNombre
             // 
-            TxtNombre.Location = new Point(82, 36);
+            TxtNombre.Location = new Point(86, 21);
             TxtNombre.Name = "TxtNombre";
             TxtNombre.Size = new Size(265, 23);
             TxtNombre.TabIndex = 4;
             // 
-            // label4
+            // labelUsuario
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(22, 126);
-            label4.Name = "label4";
-            label4.Size = new Size(50, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Usuario:";
+            labelUsuario.AutoSize = true;
+            labelUsuario.Location = new Point(30, 134);
+            labelUsuario.Name = "labelUsuario";
+            labelUsuario.Size = new Size(50, 15);
+            labelUsuario.TabIndex = 3;
+            labelUsuario.Text = "Usuario:";
             // 
-            // label3
+            // labelCorreo
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(22, 97);
-            label3.Name = "label3";
-            label3.Size = new Size(46, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Correo:";
+            labelCorreo.AutoSize = true;
+            labelCorreo.Location = new Point(34, 81);
+            labelCorreo.Name = "labelCorreo";
+            labelCorreo.Size = new Size(46, 15);
+            labelCorreo.TabIndex = 2;
+            labelCorreo.Text = "Correo:";
             // 
-            // label2
+            // labelApellido
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(22, 68);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Apellido:";
+            labelApellido.AutoSize = true;
+            labelApellido.Location = new Point(26, 55);
+            labelApellido.Name = "labelApellido";
+            labelApellido.Size = new Size(54, 15);
+            labelApellido.TabIndex = 1;
+            labelApellido.Text = "Apellido:";
             // 
-            // label1
+            // labelNombre
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(22, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre:";
+            labelNombre.AutoSize = true;
+            labelNombre.Location = new Point(26, 29);
+            labelNombre.Name = "labelNombre";
+            labelNombre.Size = new Size(54, 15);
+            labelNombre.TabIndex = 0;
+            labelNombre.Text = "Nombre:";
             // 
             // BtnCancelar
             // 
             BtnCancelar.Image = (Image)resources.GetObject("BtnCancelar.Image");
             BtnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCancelar.Location = new Point(284, 214);
+            BtnCancelar.Location = new Point(285, 291);
             BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(128, 29);
+            BtnCancelar.Size = new Size(107, 29);
             BtnCancelar.TabIndex = 1;
-            BtnCancelar.Text = "Cancelar";
+            BtnCancelar.Text = "Limpiar";
             BtnCancelar.UseVisualStyleBackColor = true;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnAceptar
             // 
-            BtnAceptar.Location = new Point(193, 217);
+            BtnAceptar.Location = new Point(159, 291);
             BtnAceptar.Name = "BtnAceptar";
-            BtnAceptar.Size = new Size(75, 23);
+            BtnAceptar.Size = new Size(103, 29);
             BtnAceptar.TabIndex = 2;
             BtnAceptar.Text = "Aceptar";
             BtnAceptar.UseVisualStyleBackColor = true;
@@ -149,45 +189,48 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(472, 26);
+            pictureBox1.Location = new Point(468, 56);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(200, 214);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
-            // FrmRegistrese
+            // FormRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(697, 258);
+            ClientSize = new Size(697, 395);
             Controls.Add(pictureBox1);
             Controls.Add(BtnAceptar);
             Controls.Add(BtnCancelar);
-            Controls.Add(groupBox1);
-            Name = "FrmRegistrese";
+            Controls.Add(boxDatos);
+            Name = "FormRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrese";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            boxDatos.ResumeLayout(false);
+            boxDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox groupBox1;
+        private GroupBox boxDatos;
         private Button BtnCancelar;
         private TextBox TxtUser;
         private TextBox TxtCorreo;
         private TextBox TxtApellido;
         private TextBox TxtNombre;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label labelUsuario;
+        private Label labelCorreo;
+        private Label labelApellido;
+        private Label labelNombre;
         private Button BtnAceptar;
         private PictureBox pictureBox1;
+        private Label labelContra;
+        private TextBox TxtCuil;
+        private Label labelCuil;
+        private TextBox TxtContra;
     }
 }
