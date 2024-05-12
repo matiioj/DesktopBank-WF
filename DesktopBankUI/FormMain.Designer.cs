@@ -109,6 +109,7 @@
             transactionsButton.TextAlign = ContentAlignment.MiddleLeft;
             transactionsButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             transactionsButton.UseVisualStyleBackColor = true;
+            transactionsButton.Click += transactionsButton_Click;
             // 
             // transferButton
             // 
@@ -131,6 +132,7 @@
             transferButton.TextAlign = ContentAlignment.MiddleLeft;
             transferButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             transferButton.UseVisualStyleBackColor = true;
+            transferButton.Click += transferButton_Click;
             // 
             // cardButton
             // 
@@ -153,6 +155,7 @@
             cardButton.TextAlign = ContentAlignment.MiddleLeft;
             cardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             cardButton.UseVisualStyleBackColor = true;
+            cardButton.Click += cardButton_Click;
             // 
             // profileButton
             // 
@@ -175,6 +178,7 @@
             profileButton.TextAlign = ContentAlignment.MiddleLeft;
             profileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             profileButton.UseVisualStyleBackColor = true;
+            profileButton.Click += profileButton_Click;
             // 
             // homeButton
             // 
@@ -197,6 +201,7 @@
             homeButton.TextAlign = ContentAlignment.MiddleLeft;
             homeButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             homeButton.UseVisualStyleBackColor = true;
+            homeButton.Click += homeButton_Click;
             // 
             // panelTitle
             // 
