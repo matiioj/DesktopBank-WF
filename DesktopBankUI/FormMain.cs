@@ -29,13 +29,7 @@ namespace DesktopBankUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            //Application.Exit();
-            FormLogin formLogin = new FormLogin();
-            openFormInsidePanel(formLogin);
-=======
             Application.Exit();
->>>>>>> form-main
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -85,29 +79,29 @@ namespace DesktopBankUI
         {
 
         }
-        /*
+        
         private void profileButton_Click(object sender, EventArgs e)
         {
-            FormProfile profileForm = new();
-            openFormInsidePanel(profileForm);
+            /*FormProfile profileForm = new();
+            openFormInsidePanel(profileForm);*/
         }
 
         private void cardButton_Click(object sender, EventArgs e)
         {
-            FormCard cardForm = new();
-            openFormInsidePanel(cardForm);
+            /*FormCard cardForm = new();
+            openFormInsidePanel(cardForm);*/
         }
 
         private void transferButton_Click(object sender, EventArgs e)
         {
-            FormTransfer transferForm = new();
-            openFormInsidePanel(transferForm);
+            /*FormTransfer transferForm = new();
+            openFormInsidePanel(transferForm);*/
         }
 
         private void transactionsButton_Click(object sender, EventArgs e)
         {
-            FormTransactions transactionsForm = new();
-            openFormInsidePanel(transactionsForm);
-        }*/
+            /*FormTransactions transactionsForm = new();
+            openFormInsidePanel(transactionsForm);*/
+        }
+        }
     }
-}
