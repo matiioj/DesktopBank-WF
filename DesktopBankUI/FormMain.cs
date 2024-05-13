@@ -79,7 +79,7 @@ namespace DesktopBankUI
         {
 
         }
-
+        /*
         private void profileButton_Click(object sender, EventArgs e)
         {
             FormProfile profileForm = new();
@@ -102,6 +102,6 @@ namespace DesktopBankUI
         {
             FormTransactions transactionsForm = new();
             openFormInsidePanel(transactionsForm);
-        }
+        }*/
     }
 }
