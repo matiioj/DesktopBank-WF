@@ -44,6 +44,8 @@
             labelNombre = new Label();
             BtnCancelar = new Button();
             BtnAceptar = new Button();
+            labelTenesCuenta = new Label();
+            botonLogin = new Button();
             boxDatos.SuspendLayout();
             SuspendLayout();
             // 
@@ -187,11 +189,33 @@
             BtnAceptar.UseVisualStyleBackColor = true;
             BtnAceptar.Click += BtnAceptar_Click;
             // 
+            // labelTenesCuenta
+            // 
+            labelTenesCuenta.AutoSize = true;
+            labelTenesCuenta.Location = new Point(35, 317);
+            labelTenesCuenta.Name = "labelTenesCuenta";
+            labelTenesCuenta.Size = new Size(122, 15);
+            labelTenesCuenta.TabIndex = 3;
+            labelTenesCuenta.Text = "¿Ya tenes una cuenta?";
+            // 
+            // botonLogin
+            // 
+            botonLogin.Cursor = Cursors.Hand;
+            botonLogin.Location = new Point(42, 344);
+            botonLogin.Name = "botonLogin";
+            botonLogin.Size = new Size(75, 23);
+            botonLogin.TabIndex = 4;
+            botonLogin.Text = "Login";
+            botonLogin.UseVisualStyleBackColor = true;
+            botonLogin.Click += botonLogin_Click;
+            // 
             // FormRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(399, 395);
+            Controls.Add(botonLogin);
+            Controls.Add(labelTenesCuenta);
             Controls.Add(BtnAceptar);
             Controls.Add(BtnCancelar);
             Controls.Add(boxDatos);
@@ -201,6 +225,7 @@
             boxDatos.ResumeLayout(false);
             boxDatos.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -220,5 +245,7 @@
         private TextBox TxtCuil;
         private Label labelCuil;
         private TextBox TxtContra;
+        private Label labelTenesCuenta;
+        private Button botonLogin;
     }
 }
