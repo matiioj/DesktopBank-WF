@@ -21,5 +21,11 @@ namespace DesktopBankUI
         {
 
         }
+
+        private void BtnCopiar_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(EtqTcNumber.Text);
+            MessageBox.Show("Su número ha sido copiado con éxito");
+        }
     }
 }
