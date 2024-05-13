@@ -16,5 +16,10 @@ namespace DesktopBankUI
         {
             InitializeComponent();
         }
+
+        private void FrmCreditCard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
