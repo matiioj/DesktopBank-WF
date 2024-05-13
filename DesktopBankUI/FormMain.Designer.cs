@@ -43,9 +43,15 @@
             restoreButton = new FontAwesome.Sharp.IconButton();
             closeButton = new FontAwesome.Sharp.IconButton();
             panelScreen = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            recentTransactionsButton = new FontAwesome.Sharp.IconButton();
+            helpButtonPanel = new FontAwesome.Sharp.IconButton();
+            moneySignIcon = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             panelTitle.SuspendLayout();
             panelBanner.SuspendLayout();
+            panelScreen.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelMenu
@@ -310,12 +316,83 @@
             // 
             // panelScreen
             // 
-            panelScreen.BackColor = Color.FromArgb(224, 224, 224);
+            panelScreen.BackColor = Color.White;
+            panelScreen.Controls.Add(flowLayoutPanel1);
+            panelScreen.Controls.Add(recentTransactionsButton);
+            panelScreen.Controls.Add(helpButtonPanel);
             panelScreen.Dock = DockStyle.Fill;
             panelScreen.Location = new Point(160, 60);
             panelScreen.Name = "panelScreen";
             panelScreen.Size = new Size(640, 540);
             panelScreen.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(moneySignIcon);
+            flowLayoutPanel1.Location = new Point(140, 37);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(360, 45);
+            flowLayoutPanel1.TabIndex = 9;
+            // 
+            // recentTransactionsButton
+            // 
+            recentTransactionsButton.BackColor = Color.Gainsboro;
+            recentTransactionsButton.FlatAppearance.BorderColor = Color.Black;
+            recentTransactionsButton.FlatStyle = FlatStyle.Flat;
+            recentTransactionsButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            recentTransactionsButton.ForeColor = Color.Black;
+            recentTransactionsButton.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            recentTransactionsButton.IconColor = Color.Black;
+            recentTransactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            recentTransactionsButton.IconSize = 30;
+            recentTransactionsButton.Location = new Point(140, 334);
+            recentTransactionsButton.Name = "recentTransactionsButton";
+            recentTransactionsButton.Size = new Size(360, 38);
+            recentTransactionsButton.TabIndex = 7;
+            recentTransactionsButton.Text = "  See transactions";
+            recentTransactionsButton.TextAlign = ContentAlignment.MiddleRight;
+            recentTransactionsButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            recentTransactionsButton.UseVisualStyleBackColor = false;
+            // 
+            // helpButtonPanel
+            // 
+            helpButtonPanel.BackColor = Color.Gainsboro;
+            helpButtonPanel.FlatAppearance.BorderColor = Color.Black;
+            helpButtonPanel.FlatStyle = FlatStyle.Flat;
+            helpButtonPanel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            helpButtonPanel.ForeColor = Color.Black;
+            helpButtonPanel.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            helpButtonPanel.IconColor = Color.Black;
+            helpButtonPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            helpButtonPanel.IconSize = 30;
+            helpButtonPanel.Location = new Point(140, 450);
+            helpButtonPanel.Name = "helpButtonPanel";
+            helpButtonPanel.Size = new Size(360, 38);
+            helpButtonPanel.TabIndex = 6;
+            helpButtonPanel.Text = "  Help";
+            helpButtonPanel.TextAlign = ContentAlignment.MiddleRight;
+            helpButtonPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
+            helpButtonPanel.UseVisualStyleBackColor = false;
+            // 
+            // moneySignIcon
+            // 
+            moneySignIcon.AutoSize = true;
+            moneySignIcon.Enabled = false;
+            moneySignIcon.FlatAppearance.BorderSize = 0;
+            moneySignIcon.FlatStyle = FlatStyle.Flat;
+            moneySignIcon.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            moneySignIcon.IconChar = FontAwesome.Sharp.IconChar.DollarSign;
+            moneySignIcon.IconColor = Color.Black;
+            moneySignIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            moneySignIcon.IconSize = 25;
+            moneySignIcon.Location = new Point(3, 3);
+            moneySignIcon.Name = "moneySignIcon";
+            moneySignIcon.Size = new Size(75, 40);
+            moneySignIcon.TabIndex = 0;
+            moneySignIcon.Text = "AR";
+            moneySignIcon.TextAlign = ContentAlignment.TopCenter;
+            moneySignIcon.TextImageRelation = TextImageRelation.TextBeforeImage;
+            moneySignIcon.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -332,6 +409,9 @@
             panelMenu.ResumeLayout(false);
             panelTitle.ResumeLayout(false);
             panelBanner.ResumeLayout(false);
+            panelScreen.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -352,5 +432,9 @@
         private FontAwesome.Sharp.IconButton maximizeButton;
         private FontAwesome.Sharp.IconButton restoreButton;
         private FontAwesome.Sharp.IconButton minimizeButton;
+        private FontAwesome.Sharp.IconButton helpButtonPanel;
+        private FontAwesome.Sharp.IconButton recentTransactionsButton;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton moneySignIcon;
     }
 }
