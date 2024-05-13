@@ -29,9 +29,13 @@ namespace DesktopBankUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             //Application.Exit();
             FormLogin formLogin = new FormLogin();
             openFormInsidePanel(formLogin);
+=======
+            Application.Exit();
+>>>>>>> form-main
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -64,9 +68,9 @@ namespace DesktopBankUI
             SendMessage(Handle, 0xA1, 0x2, 0);
         }
 
-        private void openFormInsidePanel(Form functionForm)  
+        private void openFormInsidePanel(Form functionForm)
         {
-            if (this.panelScreen.Controls.Count > 0) 
+            if (this.panelScreen.Controls.Count > 0)
             {
                 this.panelScreen.Controls.RemoveAt(0);
             }
@@ -76,5 +80,34 @@ namespace DesktopBankUI
             this.panelScreen.Tag = functionForm;
             functionForm.Show();
         }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+        /*
+        private void profileButton_Click(object sender, EventArgs e)
+        {
+            FormProfile profileForm = new();
+            openFormInsidePanel(profileForm);
+        }
+
+        private void cardButton_Click(object sender, EventArgs e)
+        {
+            FormCard cardForm = new();
+            openFormInsidePanel(cardForm);
+        }
+
+        private void transferButton_Click(object sender, EventArgs e)
+        {
+            FormTransfer transferForm = new();
+            openFormInsidePanel(transferForm);
+        }
+
+        private void transactionsButton_Click(object sender, EventArgs e)
+        {
+            FormTransactions transactionsForm = new();
+            openFormInsidePanel(transactionsForm);
+        }*/
     }
 }
