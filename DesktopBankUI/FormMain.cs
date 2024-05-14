@@ -23,13 +23,17 @@ namespace DesktopBankUI
         public FormMain()
         {
             InitializeComponent();
+            FormHome formHome = new();
+            openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            FormLogin formLogin = new();
+            openFormInsidePanel(formLogin);
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -77,9 +81,10 @@ namespace DesktopBankUI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-
+            FormHome formHome = new();
+            openFormInsidePanel(formHome); //abrir en misma ventana
         }
-        
+
         private void profileButton_Click(object sender, EventArgs e)
         {
             /*FormProfile profileForm = new();
@@ -103,5 +108,5 @@ namespace DesktopBankUI
             /*FormTransactions transactionsForm = new();
             openFormInsidePanel(transactionsForm);*/
         }
-        }
     }
+}
