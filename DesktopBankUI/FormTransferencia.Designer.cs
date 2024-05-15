@@ -42,9 +42,9 @@
             labelIngresaDatos.AutoSize = true;
             labelIngresaDatos.Location = new Point(39, 36);
             labelIngresaDatos.Name = "labelIngresaDatos";
-            labelIngresaDatos.Size = new Size(162, 15);
+            labelIngresaDatos.Size = new Size(233, 15);
             labelIngresaDatos.TabIndex = 0;
-            labelIngresaDatos.Text = "Ingresa los datos de la cuenta";
+            labelIngresaDatos.Text = "Ingresa alias o CBU de la cuenta a transferir";
             // 
             // TxtBoxDatosCuenta
             // 
@@ -105,6 +105,7 @@
             Controls.Add(BtnPegarClipboard);
             Controls.Add(TxtBoxDatosCuenta);
             Controls.Add(labelIngresaDatos);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormTransferencia";
             Text = "FormTransferencia";
             ((System.ComponentModel.ISupportInitialize)TablaContactos).EndInit();
