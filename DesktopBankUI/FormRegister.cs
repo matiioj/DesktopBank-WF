@@ -127,6 +127,12 @@ namespace StudentSystem.WindowsFormsCliente
             TxtContra.Text = "";
         }
 
+        private void botonLogin_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide(); // oculta FormRegister
+        }
     }
 
 }
