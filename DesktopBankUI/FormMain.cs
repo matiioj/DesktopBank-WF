@@ -87,8 +87,8 @@ namespace DesktopBankUI
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            /*FormProfile profileForm = new();
-            openFormInsidePanel(profileForm);*/
+            FormProfile profileForm = new();
+            openFormInsidePanel(profileForm);
         }
 
         private void cardButton_Click(object sender, EventArgs e)

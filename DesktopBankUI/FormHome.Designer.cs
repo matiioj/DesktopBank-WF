@@ -40,7 +40,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(moneySignIcon);
-            flowLayoutPanel1.Location = new Point(219, 78);
+            flowLayoutPanel1.Location = new Point(12, 42);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(360, 45);
             flowLayoutPanel1.TabIndex = 12;
@@ -76,7 +76,7 @@
             recentTransactionsButton.IconColor = Color.Black;
             recentTransactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             recentTransactionsButton.IconSize = 30;
-            recentTransactionsButton.Location = new Point(219, 280);
+            recentTransactionsButton.Location = new Point(15, 177);
             recentTransactionsButton.Name = "recentTransactionsButton";
             recentTransactionsButton.Size = new Size(360, 38);
             recentTransactionsButton.TabIndex = 11;
@@ -96,7 +96,7 @@
             helpButtonPanel.IconColor = Color.Black;
             helpButtonPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             helpButtonPanel.IconSize = 30;
-            helpButtonPanel.Location = new Point(219, 363);
+            helpButtonPanel.Location = new Point(15, 260);
             helpButtonPanel.Name = "helpButtonPanel";
             helpButtonPanel.Size = new Size(360, 38);
             helpButtonPanel.TabIndex = 10;
@@ -109,7 +109,7 @@
             // 
             LabelBienvenido.AutoSize = true;
             LabelBienvenido.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelBienvenido.Location = new Point(281, 36);
+            LabelBienvenido.Location = new Point(12, 9);
             LabelBienvenido.Name = "LabelBienvenido";
             LabelBienvenido.Size = new Size(121, 30);
             LabelBienvenido.TabIndex = 13;
@@ -119,7 +119,7 @@
             // 
             LabelNombreDeUsuario.AutoSize = true;
             LabelNombreDeUsuario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNombreDeUsuario.Location = new Point(408, 36);
+            LabelNombreDeUsuario.Location = new Point(139, 9);
             LabelNombreDeUsuario.Name = "LabelNombreDeUsuario";
             LabelNombreDeUsuario.Size = new Size(22, 30);
             LabelNombreDeUsuario.TabIndex = 14;
@@ -129,7 +129,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 432);
             Controls.Add(LabelNombreDeUsuario);
             Controls.Add(LabelBienvenido);
             Controls.Add(flowLayoutPanel1);
