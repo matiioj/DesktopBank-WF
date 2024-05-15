@@ -99,8 +99,8 @@ namespace DesktopBankUI
 
         private void transferButton_Click(object sender, EventArgs e)
         {
-            /*FormTransfer transferForm = new();
-            openFormInsidePanel(transferForm);*/
+            FormTransferencia transferForm = new();
+            openFormInsidePanel(transferForm);
         }
 
         private void transactionsButton_Click(object sender, EventArgs e)

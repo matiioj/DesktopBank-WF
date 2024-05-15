@@ -33,7 +33,6 @@
             BtnPegarClipboard = new Button();
             label1 = new Label();
             TablaContactos = new DataGridView();
-            botonVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)TablaContactos).BeginInit();
             SuspendLayout();
             // 
@@ -83,23 +82,11 @@
             TablaContactos.Size = new Size(369, 212);
             TablaContactos.TabIndex = 4;
             // 
-            // botonVolver
-            // 
-            botonVolver.Cursor = Cursors.Hand;
-            botonVolver.Location = new Point(39, 392);
-            botonVolver.Name = "botonVolver";
-            botonVolver.Size = new Size(75, 23);
-            botonVolver.TabIndex = 5;
-            botonVolver.Text = "Volver";
-            botonVolver.UseVisualStyleBackColor = true;
-            botonVolver.Click += botonVolver_Click;
-            // 
             // FormTransferencia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(454, 450);
-            Controls.Add(botonVolver);
+            ClientSize = new Size(454, 405);
             Controls.Add(TablaContactos);
             Controls.Add(label1);
             Controls.Add(BtnPegarClipboard);
@@ -120,6 +107,5 @@
         private Button BtnPegarClipboard;
         private Label label1;
         private DataGridView TablaContactos;
-        private Button botonVolver;
     }
 }
