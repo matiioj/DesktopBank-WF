@@ -13,7 +13,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBank.Services", "..\
 		{6C76E8F9-9332-43FD-8D17-57E94A378F62} = {6C76E8F9-9332-43FD-8D17-57E94A378F62}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopBank.DAL", "..\DesktopBank.DAL\DesktopBank.DAL.csproj", "{D9307D2B-2FC3-4997-9778-B2434CD79FAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBank.DAL", "..\DesktopBank.DAL\DesktopBank.DAL.csproj", "{D9307D2B-2FC3-4997-9778-B2434CD79FAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataLayer", "DataLayer", "{0800608C-95C9-4EA4-8C8D-368B74AF9DDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{8D686FFA-F058-4017-A423-8D1BF5FE46AD}"
+	ProjectSection(SolutionItems) = preProject
+		..\DesktopBank.DAL\DBSettings.cs = ..\DesktopBank.DAL\DBSettings.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A2632D94-E710-48EF-96CD-65CC45997D00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Interface", "User Interface", "{33EDC9CC-7452-40C6-8070-7FCC69FE1FEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +51,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6C76E8F9-9332-43FD-8D17-57E94A378F62} = {33EDC9CC-7452-40C6-8070-7FCC69FE1FEE}
+		{276CE156-CD9B-4B09-9DDC-8A2F5F74B3B4} = {8D686FFA-F058-4017-A423-8D1BF5FE46AD}
+		{EBABAF65-134D-4ABE-AF69-23A42622F306} = {A2632D94-E710-48EF-96CD-65CC45997D00}
+		{D9307D2B-2FC3-4997-9778-B2434CD79FAC} = {0800608C-95C9-4EA4-8C8D-368B74AF9DDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1893A2FD-81A3-4D1B-9F01-1F2D788555EC}

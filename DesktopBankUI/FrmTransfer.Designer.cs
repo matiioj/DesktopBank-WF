@@ -1,6 +1,10 @@
 ﻿namespace DesktopBankUI
 {
+<<<<<<< Updated upstream:DesktopBankUI/FrmTransfer.Designer.cs
     partial class FrmTransfer
+=======
+    partial class FormDebitCard
+>>>>>>> Stashed changes:DesktopBankUI/FormDebitCard.Designer.cs
     {
         /// <summary>
         /// Required designer variable.
