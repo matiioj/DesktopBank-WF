@@ -27,7 +27,7 @@ namespace StudentSystem.WindowsFormsCliente
             string correo = TxtCorreo.Text;
             string cuil = TxtCuil.Text;
             string user = TxtUser.Text;
-            string contra = TxtContra.Text;
+            //string contra = TxtContra.Text; No es necesaria la contraseña en el registro
 
             string mensajeError = "";
 
@@ -53,10 +53,17 @@ namespace StudentSystem.WindowsFormsCliente
             {
                 mensajeError += "El campo de usuario no puede estar vacío.\n";
             }
+            
+            //No es necesaria la contraseña en el registro, la primera contraseña va a ser temporal,
+            //luego va a tener que actualizar la contraseña
+
+            /*
             if (string.IsNullOrEmpty(contra))
             {
                 mensajeError += "El campo de contraseña no puede estar vacío.\n";
             }
+            */
+
 
             /*
             Validaciones con Regex:
@@ -124,7 +131,7 @@ namespace StudentSystem.WindowsFormsCliente
             TxtCorreo.Text = "";
             TxtCuil.Text = "";
             TxtUser.Text = "";
-            TxtContra.Text = "";
+            //TxtContra.Text = ""; No es necesaria la contraseña en el registro
         }
 
         private void botonLogin_Click(object sender, EventArgs e)

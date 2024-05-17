@@ -32,8 +32,6 @@
             boxDatos = new GroupBox();
             TxtCuil = new TextBox();
             labelCuil = new Label();
-            TxtContra = new TextBox();
-            labelContra = new Label();
             TxtUser = new TextBox();
             TxtCorreo = new TextBox();
             TxtApellido = new TextBox();
@@ -53,8 +51,6 @@
             // 
             boxDatos.Controls.Add(TxtCuil);
             boxDatos.Controls.Add(labelCuil);
-            boxDatos.Controls.Add(TxtContra);
-            boxDatos.Controls.Add(labelContra);
             boxDatos.Controls.Add(TxtUser);
             boxDatos.Controls.Add(TxtCorreo);
             boxDatos.Controls.Add(TxtApellido);
@@ -89,24 +85,6 @@
             labelCuil.Size = new Size(45, 25);
             labelCuil.TabIndex = 10;
             labelCuil.Text = "Cuil:";
-            // 
-            // TxtContra
-            // 
-            TxtContra.Location = new Point(123, 253);
-            TxtContra.Margin = new Padding(4, 5, 4, 5);
-            TxtContra.Name = "TxtContra";
-            TxtContra.Size = new Size(377, 31);
-            TxtContra.TabIndex = 9;
-            // 
-            // labelContra
-            // 
-            labelContra.AutoSize = true;
-            labelContra.Location = new Point(14, 267);
-            labelContra.Margin = new Padding(4, 0, 4, 0);
-            labelContra.Name = "labelContra";
-            labelContra.Size = new Size(105, 25);
-            labelContra.TabIndex = 8;
-            labelContra.Text = "Contraseña:";
             // 
             // TxtUser
             // 
@@ -261,10 +239,8 @@
         private Label labelApellido;
         private Label labelNombre;
         private Button BtnAceptar;
-        private Label labelContra;
         private TextBox TxtCuil;
         private Label labelCuil;
-        private TextBox TxtContra;
         private Label labelTenesCuenta;
         private Button botonLogin;
     }
