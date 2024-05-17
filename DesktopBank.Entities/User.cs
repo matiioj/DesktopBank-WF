@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace DesktopBank.Entities
 {
-    internal class User
+    public class User
     {
+        public int Id { get; set; }
+
+        public string Name {  get; set; }
+
+        public string Surname { get; set; }
+
+        public string Cuil {  get; set; }
+
+        public string Mail { get; set; }
     }
 }
