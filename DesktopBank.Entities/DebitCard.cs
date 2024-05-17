@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace DesktopBank.Entities
 {
-    internal class DebitCard
+    public class DebitCard
     {
+        public ulong DebitNumber { get; set; }
+
+        public int AssociatedAccountNumber { get; set; }
+
+        public string ExpirationDate { get; set; } //revisar conversion a tipo date para la base
+
+        public int CardVerificationValue { get; set; }
     }
 }
