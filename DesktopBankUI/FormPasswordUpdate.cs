@@ -16,5 +16,10 @@ namespace DesktopBankUI
         {
             InitializeComponent();
         }
+
+        private void FormPasswordUpdate_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
