@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnConfirmar = new Button();
             txtBoxClave = new TextBox();
             txtBoxClaveVerificacion = new TextBox();
-            button2 = new Button();
+            btnCancelar = new Button();
             groupBox1 = new GroupBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // btnConfirmar
             // 
-            button1.Location = new Point(115, 443);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 0;
-            button1.Text = "Confirmar";
-            button1.UseVisualStyleBackColor = true;
+            btnConfirmar.Location = new Point(115, 443);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(112, 34);
+            btnConfirmar.TabIndex = 0;
+            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // txtBoxClave
             // 
@@ -63,21 +63,21 @@
             txtBoxClaveVerificacion.Text = "Ingrese nuevamente su clave";
             txtBoxClaveVerificacion.TextAlign = HorizontalAlignment.Center;
             // 
-            // button2
+            // btnCancelar
             // 
-            button2.Location = new Point(302, 443);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 4;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
+            btnCancelar.Location = new Point(302, 443);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(112, 34);
+            btnCancelar.TabIndex = 4;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(txtBoxClave);
-            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(txtBoxClaveVerificacion);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnConfirmar);
             groupBox1.Location = new Point(68, 43);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(539, 536);
@@ -102,10 +102,10 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnConfirmar;
         private TextBox txtBoxClave;
         private TextBox txtBoxClaveVerificacion;
-        private Button button2;
+        private Button btnCancelar;
         private GroupBox groupBox1;
     }
 }
