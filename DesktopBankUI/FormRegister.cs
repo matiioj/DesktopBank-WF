@@ -1,14 +1,7 @@
 ﻿using DesktopBankUI;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using DesktopBank.Services;
+
 
 namespace StudentSystem.WindowsFormsCliente
 {
@@ -22,6 +15,8 @@ namespace StudentSystem.WindowsFormsCliente
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
+            
+
             string nombre = TxtNombre.Text;
             string apellido = TxtApellido.Text;
             string correo = TxtCorreo.Text;
