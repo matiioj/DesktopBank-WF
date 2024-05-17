@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             panelMenu = new Panel();
             exitButton = new FontAwesome.Sharp.IconButton();
             transactionsButton = new FontAwesome.Sharp.IconButton();
@@ -36,16 +37,17 @@
             profileButton = new FontAwesome.Sharp.IconButton();
             homeButton = new FontAwesome.Sharp.IconButton();
             panelTitle = new Panel();
-            menuButton = new FontAwesome.Sharp.IconButton();
             panelBanner = new Panel();
             minimizeButton = new FontAwesome.Sharp.IconButton();
             maximizeButton = new FontAwesome.Sharp.IconButton();
             restoreButton = new FontAwesome.Sharp.IconButton();
             closeButton = new FontAwesome.Sharp.IconButton();
             panelScreen = new Panel();
+            iconIstic = new PictureBox();
             panelMenu.SuspendLayout();
             panelTitle.SuspendLayout();
             panelBanner.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconIstic).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -62,7 +64,7 @@
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
             panelMenu.Padding = new Padding(0, 0, 0, 25);
-            panelMenu.Size = new Size(160, 600);
+            panelMenu.Size = new Size(143, 600);
             panelMenu.TabIndex = 0;
             // 
             // exitButton
@@ -80,7 +82,7 @@
             exitButton.Location = new Point(0, 540);
             exitButton.Name = "exitButton";
             exitButton.Padding = new Padding(10, 0, 0, 0);
-            exitButton.Size = new Size(160, 35);
+            exitButton.Size = new Size(143, 35);
             exitButton.TabIndex = 8;
             exitButton.Text = "  Exit";
             exitButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -103,7 +105,7 @@
             transactionsButton.Location = new Point(0, 225);
             transactionsButton.Name = "transactionsButton";
             transactionsButton.Padding = new Padding(10, 0, 0, 0);
-            transactionsButton.Size = new Size(160, 35);
+            transactionsButton.Size = new Size(143, 35);
             transactionsButton.TabIndex = 6;
             transactionsButton.Text = "  Transactions";
             transactionsButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -126,7 +128,7 @@
             transferButton.Location = new Point(0, 190);
             transferButton.Name = "transferButton";
             transferButton.Padding = new Padding(10, 0, 0, 0);
-            transferButton.Size = new Size(160, 35);
+            transferButton.Size = new Size(143, 35);
             transferButton.TabIndex = 5;
             transferButton.Text = "  Transfer";
             transferButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -149,7 +151,7 @@
             cardButton.Location = new Point(0, 155);
             cardButton.Name = "cardButton";
             cardButton.Padding = new Padding(10, 0, 0, 0);
-            cardButton.Size = new Size(160, 35);
+            cardButton.Size = new Size(143, 35);
             cardButton.TabIndex = 4;
             cardButton.Text = "  Card";
             cardButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -172,7 +174,7 @@
             profileButton.Location = new Point(0, 120);
             profileButton.Name = "profileButton";
             profileButton.Padding = new Padding(10, 0, 0, 0);
-            profileButton.Size = new Size(160, 35);
+            profileButton.Size = new Size(143, 35);
             profileButton.TabIndex = 3;
             profileButton.Text = "  Profile";
             profileButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -195,7 +197,7 @@
             homeButton.Location = new Point(0, 85);
             homeButton.Name = "homeButton";
             homeButton.Padding = new Padding(10, 0, 0, 0);
-            homeButton.Size = new Size(160, 35);
+            homeButton.Size = new Size(143, 35);
             homeButton.TabIndex = 2;
             homeButton.Text = "  Home";
             homeButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -205,26 +207,12 @@
             // 
             // panelTitle
             // 
-            panelTitle.Controls.Add(menuButton);
+            panelTitle.Controls.Add(iconIstic);
             panelTitle.Dock = DockStyle.Top;
             panelTitle.Location = new Point(0, 0);
             panelTitle.Name = "panelTitle";
-            panelTitle.Size = new Size(160, 85);
+            panelTitle.Size = new Size(143, 85);
             panelTitle.TabIndex = 1;
-            // 
-            // menuButton
-            // 
-            menuButton.FlatAppearance.BorderSize = 0;
-            menuButton.FlatStyle = FlatStyle.Flat;
-            menuButton.IconChar = FontAwesome.Sharp.IconChar.Navicon;
-            menuButton.IconColor = Color.White;
-            menuButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            menuButton.IconSize = 30;
-            menuButton.Location = new Point(100, 12);
-            menuButton.Name = "menuButton";
-            menuButton.Size = new Size(60, 60);
-            menuButton.TabIndex = 0;
-            menuButton.UseVisualStyleBackColor = true;
             // 
             // panelBanner
             // 
@@ -233,9 +221,9 @@
             panelBanner.Controls.Add(restoreButton);
             panelBanner.Controls.Add(closeButton);
             panelBanner.Dock = DockStyle.Top;
-            panelBanner.Location = new Point(160, 0);
+            panelBanner.Location = new Point(143, 0);
             panelBanner.Name = "panelBanner";
-            panelBanner.Size = new Size(640, 60);
+            panelBanner.Size = new Size(657, 60);
             panelBanner.TabIndex = 1;
             panelBanner.MouseDown += panelBanner_MouseDown;
             // 
@@ -249,7 +237,7 @@
             minimizeButton.IconColor = Color.Black;
             minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             minimizeButton.IconSize = 25;
-            minimizeButton.Location = new Point(553, 0);
+            minimizeButton.Location = new Point(574, 0);
             minimizeButton.Name = "minimizeButton";
             minimizeButton.Size = new Size(25, 25);
             minimizeButton.TabIndex = 3;
@@ -266,7 +254,7 @@
             maximizeButton.IconColor = Color.Black;
             maximizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             maximizeButton.IconSize = 25;
-            maximizeButton.Location = new Point(584, 0);
+            maximizeButton.Location = new Point(605, 0);
             maximizeButton.Name = "maximizeButton";
             maximizeButton.Size = new Size(25, 25);
             maximizeButton.TabIndex = 2;
@@ -283,7 +271,7 @@
             restoreButton.IconColor = Color.Black;
             restoreButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             restoreButton.IconSize = 25;
-            restoreButton.Location = new Point(584, 3);
+            restoreButton.Location = new Point(605, 3);
             restoreButton.Name = "restoreButton";
             restoreButton.Size = new Size(25, 25);
             restoreButton.TabIndex = 1;
@@ -301,7 +289,7 @@
             closeButton.IconColor = Color.Black;
             closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             closeButton.IconSize = 25;
-            closeButton.Location = new Point(615, 0);
+            closeButton.Location = new Point(636, 0);
             closeButton.Name = "closeButton";
             closeButton.Size = new Size(25, 25);
             closeButton.TabIndex = 0;
@@ -312,10 +300,21 @@
             // 
             panelScreen.BackColor = Color.White;
             panelScreen.Dock = DockStyle.Fill;
-            panelScreen.Location = new Point(160, 60);
+            panelScreen.Location = new Point(143, 60);
             panelScreen.Name = "panelScreen";
-            panelScreen.Size = new Size(640, 540);
+            panelScreen.Size = new Size(657, 540);
             panelScreen.TabIndex = 2;
+            // 
+            // iconIstic
+            // 
+            iconIstic.Anchor = AnchorStyles.Top;
+            iconIstic.Image = (Image)resources.GetObject("iconIstic.Image");
+            iconIstic.Location = new Point(37, 12);
+            iconIstic.Name = "iconIstic";
+            iconIstic.Size = new Size(62, 64);
+            iconIstic.SizeMode = PictureBoxSizeMode.CenterImage;
+            iconIstic.TabIndex = 0;
+            iconIstic.TabStop = false;
             // 
             // FormMain
             // 
@@ -332,6 +331,7 @@
             panelMenu.ResumeLayout(false);
             panelTitle.ResumeLayout(false);
             panelBanner.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)iconIstic).EndInit();
             ResumeLayout(false);
         }
 
@@ -340,7 +340,6 @@
         private Panel panelMenu;
         private Panel panelBanner;
         private Panel panelScreen;
-        private FontAwesome.Sharp.IconButton menuButton;
         private Panel panelTitle;
         private FontAwesome.Sharp.IconButton homeButton;
         private FontAwesome.Sharp.IconButton exitButton;
@@ -352,5 +351,6 @@
         private FontAwesome.Sharp.IconButton maximizeButton;
         private FontAwesome.Sharp.IconButton restoreButton;
         private FontAwesome.Sharp.IconButton minimizeButton;
+        private PictureBox iconIstic;
     }
 }
