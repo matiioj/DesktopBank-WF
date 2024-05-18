@@ -22,15 +22,11 @@ namespace StudentSystem.WindowsFormsCliente
             string correo = TxtCorreo.Text;
             string cuil = TxtCuil.Text;
             string user = TxtUser.Text;
-            string mensajeError = "";
-            //string contra = TxtContra.Text; No es necesaria la contraseña en el registro
-
-           
+            string mensajeError = "";       
 
             mensajeError+=ValidationEmptyService(mensajeError, nombre, apellido, correo, cuil, user);
             mensajeError+=ValidationMailService(mensajeError, nombre, apellido, correo,cuil);
-            //se valida que ningun campo este vacio o nulo
-          
+     
             //mensaje de error
             if (!string.IsNullOrEmpty(mensajeError))
             {
@@ -50,9 +46,9 @@ namespace StudentSystem.WindowsFormsCliente
                 this.Hide(); // oculta FormRegister
             }
 
-
+            //se valida que ningun campo este vacio o nulo
             //Hay que pasar éstas funciones a la capa servicio, previa referencia de capa UI con la capa DesktopBank.Service.
-             string ValidationEmptyService(string mensajeError, string nombre, string apellido, string correo, string cuil, string user)
+            string ValidationEmptyService(string mensajeError, string nombre, string apellido, string correo, string cuil, string user)
             {
                 if (string.IsNullOrEmpty(nombre))
                 {
