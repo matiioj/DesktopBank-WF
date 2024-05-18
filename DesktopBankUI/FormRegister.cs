@@ -1,6 +1,6 @@
 ﻿using DesktopBankUI;
 using System.Text.RegularExpressions;
-using DesktopBank.Services;
+//using DesktopBank.Services;
 
 
 namespace StudentSystem.WindowsFormsCliente
@@ -22,81 +22,15 @@ namespace StudentSystem.WindowsFormsCliente
             string correo = TxtCorreo.Text;
             string cuil = TxtCuil.Text;
             string user = TxtUser.Text;
+            string mensajeError = "";
             //string contra = TxtContra.Text; No es necesaria la contraseña en el registro
 
-            string mensajeError = "";
+           
 
-
+            mensajeError+=ValidationEmptyService(mensajeError, nombre, apellido, correo, cuil, user);
+            mensajeError+=ValidationMailService(mensajeError, nombre, apellido, correo,cuil);
             //se valida que ningun campo este vacio o nulo
-            if (string.IsNullOrEmpty(nombre))
-            {
-                mensajeError += "El campo de nombre no puede estar vacío.\n";
-            }
-            if (string.IsNullOrEmpty(apellido))
-            {
-                mensajeError += "El campo de apellido no puede estar vacío.\n";
-            }
-            if (string.IsNullOrEmpty(correo))
-            {
-                mensajeError += "El campo de correo electrónico no puede estar vacío.\n";
-            }
-            if (string.IsNullOrEmpty(cuil))
-            {
-                mensajeError += "El campo de CUIL no puede estar vacío.\n";
-            }
-            if (string.IsNullOrEmpty(user))
-            {
-                mensajeError += "El campo de usuario no puede estar vacío.\n";
-            }
-            
-            //No es necesaria la contraseña en el registro, la primera contraseña va a ser temporal,
-            //luego va a tener que actualizar la contraseña
-
-            /*
-            if (string.IsNullOrEmpty(contra))
-            {
-                mensajeError += "El campo de contraseña no puede estar vacío.\n";
-            }
-            */
-
-
-            /*
-            Validaciones con Regex:
-            Regex.IsMatch(): método de la clase Regex en C#
-            que se utiliza para determinar si una cadena de texto
-            coincide con un patrón especificado por una expresión regular.
-            La expresión regular se proporciona como el primer argumento del 
-            método, y la cadena que se desea verificar se proporciona como el 
-            segundo. El método devuelve true si la cadena cumple con el patrón 
-            especificado por la expresión regular, y false en caso contrario.
-            */
-
-            //si ninguna de las variables estaba vacia o nula, se sigue
-            //con las siguientes validaciones
-            if (string.IsNullOrEmpty(mensajeError))
-            {
-
-                if (Regex.IsMatch(nombre, @"\d"))
-                {
-                    mensajeError += "El nombre no debe contener números.\n";
-                }
-                if (Regex.IsMatch(apellido, @"\d"))
-                {
-                    mensajeError += "El apellido no debe contener números.\n";
-                }
-
-                //formato de correo
-                if (!Regex.IsMatch(correo, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
-                {
-                    mensajeError += "El correo electrónico no tiene un formato válido.\n";
-                }
-
-                if (!Regex.IsMatch(cuil, @"^\d{11,11}$"))
-                {
-                    mensajeError += "El CUIL debe contener 11 dígitos numéricos.\n";
-                }
-            }
-
+          
             //mensaje de error
             if (!string.IsNullOrEmpty(mensajeError))
             {
@@ -115,6 +49,86 @@ namespace StudentSystem.WindowsFormsCliente
                 formLogin.Show();
                 this.Hide(); // oculta FormRegister
             }
+
+
+            //Hay que pasar éstas funciones a la capa servicio, previa referencia de capa UI con la capa DesktopBank.Service.
+             string ValidationEmptyService(string mensajeError, string nombre, string apellido, string correo, string cuil, string user)
+            {
+                if (string.IsNullOrEmpty(nombre))
+                {
+                    mensajeError += "El campo de nombre no puede estar vacío.\n";
+                    return mensajeError;
+                }
+                if (string.IsNullOrEmpty(apellido))
+                {
+                    mensajeError += "El campo de apellido no puede estar vacío.\n";
+                    return mensajeError;
+                }
+                if (string.IsNullOrEmpty(correo))
+                {
+                    mensajeError += "El campo de correo electrónico no puede estar vacío.\n";
+                    return mensajeError;
+                }
+                if (string.IsNullOrEmpty(cuil))
+                {
+                    mensajeError += "El campo de CUIL no puede estar vacío.\n";
+                    return mensajeError;
+                }
+                if (string.IsNullOrEmpty(user))
+                {
+                    mensajeError += "El campo de usuario no puede estar vacío.\n";
+                    return mensajeError;
+                }
+                return mensajeError;
+
+            }
+
+            /*
+Validaciones con Regex:
+Regex.IsMatch(): método de la clase Regex en C#
+que se utiliza para determinar si una cadena de texto
+coincide con un patrón especificado por una expresión regular.
+La expresión regular se proporciona como el primer argumento del 
+método, y la cadena que se desea verificar se proporciona como el 
+segundo. El método devuelve true si la cadena cumple con el patrón 
+especificado por la expresión regular, y false en caso contrario.
+*/
+
+            string ValidationMailService(string mensajeError, string nombre, string apellido, string correo, string cuil)
+            {
+                if (string.IsNullOrEmpty(mensajeError))
+                {
+
+                    if (Regex.IsMatch(nombre, @"\d"))
+                    {
+                        mensajeError += "El nombre no debe contener números.\n";
+                        return mensajeError;
+                    }
+                    if (Regex.IsMatch(apellido, @"\d"))
+                    {
+                        mensajeError += "El apellido no debe contener números.\n";
+                        return mensajeError;
+                    }
+
+                    //formato de correo
+                    if (!Regex.IsMatch(correo, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+                    {
+                        mensajeError += "El correo electrónico no tiene un formato válido.\n";
+                        return mensajeError;
+                    }
+
+                    if (!Regex.IsMatch(cuil, @"^\d{11,11}$"))
+                    {
+                        mensajeError += "El CUIL debe contener 11 dígitos numéricos.\n";
+                        return mensajeError;
+                    }
+
+                }
+                return mensajeError;
+
+            }
+
+
         }
 
         //botón para limpiar cuadros
@@ -142,15 +156,14 @@ namespace StudentSystem.WindowsFormsCliente
         }
     }
 
+    //Llama a la pantalla de las materias
+    
+
 }
 
-/*
-   //var Confirmacion = MessageBox.Show(Mensaje, "Confirmar",
-   //    MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
-   //if (Confirmacion == DialogResult.Yes)
-   // {
-        //Llama a la pantalla de las materias
+
+
    //     FrmCarreras frmCarreras = new FrmCarreras();
    //     frmCarreras.Show();
    // }
@@ -160,7 +173,7 @@ namespace StudentSystem.WindowsFormsCliente
     //        MessageBoxButtons.OK, MessageBoxIcon.Error);
    // }
 
-}
+
 
 
     //Validaciones
