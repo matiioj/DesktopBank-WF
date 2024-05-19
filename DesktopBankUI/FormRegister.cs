@@ -89,9 +89,9 @@ namespace StudentSystem.WindowsFormsCliente
                     mensajeError += "El correo electrónico no tiene un formato válido.\n";
                 }
 
-                if (!Regex.IsMatch(cuil, @"^\d{1,11}$"))
+                if (!Regex.IsMatch(cuil, @"^\d{11,11}$"))
                 {
-                    mensajeError += "El CUIL debe contener hasta 11 dígitos numéricos.\n";
+                    mensajeError += "El CUIL debe contener 11 dígitos numéricos.\n";
                 }
             }
 
@@ -127,6 +127,12 @@ namespace StudentSystem.WindowsFormsCliente
             TxtContra.Text = "";
         }
 
+        private void botonLogin_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Hide(); // oculta FormRegister
+        }
     }
 
 }
