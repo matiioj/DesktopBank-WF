@@ -8,18 +8,15 @@ namespace DesktopBankUI
         {
             InitializeComponent();
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void registerLabel_Click(object sender, EventArgs e)
         {
-            FormLogin FormLogin = new FormLogin();
-            FormLogin.Show();
+            FormRegister frmRegister = new();
+            this.Close();
         }
 
         private void opcionSalir_Click(object sender, EventArgs e)
         {
-            FormRegister formRegister = new FormRegister();
-            formRegister.Show();
-            this.Hide(); // oculta FormLogin
+            Application.Exit();
         }
 
         private void botonIniciarSesion_Click(object sender, EventArgs e)

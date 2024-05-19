@@ -38,7 +38,8 @@ namespace DesktopBankUI
             panel3 = new Panel();
             iconoChancho = new PictureBox();
             panelCampos = new Panel();
-            opcionSalir = new Label();
+            exitButton = new Button();
+            registerLabel = new Label();
             botonIniciarSesion = new Button();
             contraseñaIniciarSesion = new FontAwesome.Sharp.IconButton();
             nombreIniciarSesion = new FontAwesome.Sharp.IconButton();
@@ -53,7 +54,7 @@ namespace DesktopBankUI
             // TxtPassword
             // 
             TxtPassword.BackColor = Color.LightCyan;
-            TxtPassword.Location = new Point(163, 74);
+            TxtPassword.Location = new Point(163, 64);
             TxtPassword.Name = "TxtPassword";
             TxtPassword.Size = new Size(172, 23);
             TxtPassword.TabIndex = 3;
@@ -61,7 +62,7 @@ namespace DesktopBankUI
             // TxtUser
             // 
             TxtUser.BackColor = Color.LightCyan;
-            TxtUser.Location = new Point(163, 27);
+            TxtUser.Location = new Point(163, 17);
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(172, 23);
             TxtUser.TabIndex = 2;
@@ -74,7 +75,7 @@ namespace DesktopBankUI
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(382, 213);
+            panel1.Size = new Size(382, 194);
             panel1.TabIndex = 3;
             // 
             // panel3
@@ -98,34 +99,49 @@ namespace DesktopBankUI
             // panelCampos
             // 
             panelCampos.BackColor = Color.Teal;
-            panelCampos.Controls.Add(opcionSalir);
+            panelCampos.Controls.Add(exitButton);
+            panelCampos.Controls.Add(registerLabel);
             panelCampos.Controls.Add(botonIniciarSesion);
             panelCampos.Controls.Add(contraseñaIniciarSesion);
             panelCampos.Controls.Add(TxtPassword);
             panelCampos.Controls.Add(nombreIniciarSesion);
             panelCampos.Controls.Add(TxtUser);
             panelCampos.Dock = DockStyle.Bottom;
-            panelCampos.Location = new Point(0, 254);
+            panelCampos.Location = new Point(0, 262);
             panelCampos.Name = "panelCampos";
-            panelCampos.Size = new Size(382, 176);
+            panelCampos.Size = new Size(382, 188);
             panelCampos.TabIndex = 4;
             // 
-            // opcionSalir
+            // exitButton
             // 
-            opcionSalir.Cursor = Cursors.Hand;
-            opcionSalir.ImageAlign = ContentAlignment.BottomCenter;
-            opcionSalir.Location = new Point(160, 150);
-            opcionSalir.Name = "opcionSalir";
-            opcionSalir.RightToLeft = RightToLeft.No;
-            opcionSalir.Size = new Size(63, 22);
-            opcionSalir.TabIndex = 6;
-            opcionSalir.Text = "Registrate";
-            opcionSalir.Click += opcionSalir_Click;
+            exitButton.Cursor = Cursors.Hand;
+            exitButton.Location = new Point(219, 111);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(95, 32);
+            exitButton.TabIndex = 7;
+            exitButton.Text = "Salir";
+            exitButton.UseVisualStyleBackColor = true;
+            exitButton.Click += opcionSalir_Click;
+            // 
+            // registerLabel
+            // 
+            registerLabel.AutoSize = true;
+            registerLabel.Cursor = Cursors.Hand;
+            registerLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
+            registerLabel.ForeColor = Color.Snow;
+            registerLabel.ImageAlign = ContentAlignment.BottomCenter;
+            registerLabel.Location = new Point(62, 157);
+            registerLabel.Name = "registerLabel";
+            registerLabel.RightToLeft = RightToLeft.No;
+            registerLabel.Size = new Size(169, 15);
+            registerLabel.TabIndex = 6;
+            registerLabel.Text = "¿No tenes cuenta? Registrate";
+            registerLabel.Click += opcionSalir_Click;
             // 
             // botonIniciarSesion
             // 
             botonIniciarSesion.Cursor = Cursors.Hand;
-            botonIniciarSesion.Location = new Point(145, 112);
+            botonIniciarSesion.Location = new Point(62, 111);
             botonIniciarSesion.Name = "botonIniciarSesion";
             botonIniciarSesion.Size = new Size(95, 32);
             botonIniciarSesion.TabIndex = 5;
@@ -143,7 +159,7 @@ namespace DesktopBankUI
             contraseñaIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             contraseñaIniciarSesion.IconSize = 30;
             contraseñaIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            contraseñaIniciarSesion.Location = new Point(38, 63);
+            contraseñaIniciarSesion.Location = new Point(38, 53);
             contraseñaIniciarSesion.Name = "contraseñaIniciarSesion";
             contraseñaIniciarSesion.Size = new Size(119, 41);
             contraseñaIniciarSesion.TabIndex = 4;
@@ -162,7 +178,7 @@ namespace DesktopBankUI
             nombreIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             nombreIniciarSesion.IconSize = 30;
             nombreIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            nombreIniciarSesion.Location = new Point(38, 16);
+            nombreIniciarSesion.Location = new Point(38, 6);
             nombreIniciarSesion.Name = "nombreIniciarSesion";
             nombreIniciarSesion.Size = new Size(119, 41);
             nombreIniciarSesion.TabIndex = 0;
@@ -175,19 +191,19 @@ namespace DesktopBankUI
             // 
             panelIniciarSesion.Controls.Add(tituloIniciarSesion);
             panelIniciarSesion.Dock = DockStyle.Fill;
-            panelIniciarSesion.Location = new Point(0, 213);
+            panelIniciarSesion.Location = new Point(0, 194);
             panelIniciarSesion.Name = "panelIniciarSesion";
-            panelIniciarSesion.Size = new Size(382, 41);
+            panelIniciarSesion.Size = new Size(382, 68);
             panelIniciarSesion.TabIndex = 6;
             // 
             // tituloIniciarSesion
             // 
             tituloIniciarSesion.BackColor = Color.PaleTurquoise;
-            tituloIniciarSesion.Dock = DockStyle.Fill;
+            tituloIniciarSesion.Dock = DockStyle.Top;
             tituloIniciarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tituloIniciarSesion.Location = new Point(0, 0);
             tituloIniciarSesion.Name = "tituloIniciarSesion";
-            tituloIniciarSesion.Size = new Size(382, 41);
+            tituloIniciarSesion.Size = new Size(382, 65);
             tituloIniciarSesion.TabIndex = 0;
             tituloIniciarSesion.Text = "Inicie sesión";
             tituloIniciarSesion.TextAlign = ContentAlignment.MiddleCenter;
@@ -197,7 +213,7 @@ namespace DesktopBankUI
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(382, 430);
+            ClientSize = new Size(382, 450);
             Controls.Add(panelIniciarSesion);
             Controls.Add(panelCampos);
             Controls.Add(panel1);
@@ -225,6 +241,7 @@ namespace DesktopBankUI
         private FontAwesome.Sharp.IconButton nombreIniciarSesion;
         private FontAwesome.Sharp.IconButton contraseñaIniciarSesion;
         private Button botonIniciarSesion;
-        private Label opcionSalir;
+        private Label registerLabel;
+        private Button exitButton;
     }
 }
