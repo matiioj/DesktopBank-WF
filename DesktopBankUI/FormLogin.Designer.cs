@@ -136,7 +136,7 @@ namespace DesktopBankUI
             registerLabel.Size = new Size(169, 15);
             registerLabel.TabIndex = 6;
             registerLabel.Text = "¿No tenes cuenta? Registrate";
-            registerLabel.Click += opcionSalir_Click;
+            registerLabel.Click += registerLabel_Click;
             // 
             // botonIniciarSesion
             // 
