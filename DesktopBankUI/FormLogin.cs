@@ -11,7 +11,8 @@ namespace DesktopBankUI
         private void registerLabel_Click(object sender, EventArgs e)
         {
             FormRegister frmRegister = new();
-            this.Close();
+            frmRegister.Show();
+            this.Hide();
         }
 
         private void opcionSalir_Click(object sender, EventArgs e)
