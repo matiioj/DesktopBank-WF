@@ -1,4 +1,5 @@
 ﻿using DesktopBankUI;
+using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 //using DesktopBank.Services;
 
@@ -22,10 +23,11 @@ namespace StudentSystem.WindowsFormsCliente
             string correo = TxtCorreo.Text;
             string cuil = TxtCuil.Text;
             string user = TxtUser.Text;
+            string password = txtPassword.Text;
             string mensajeError = "";       
 
-            mensajeError+=ValidationEmptyService(mensajeError, nombre, apellido, correo, cuil, user);
-            mensajeError+=ValidationMailService(mensajeError, nombre, apellido, correo,cuil);
+            mensajeError+=ValidationEmptyService(mensajeError, nombre, apellido, correo, cuil, user, password);
+            //mensajeError+=ValidationMailService(mensajeError, nombre, apellido, correo,cuil);
      
             //mensaje de error
             if (!string.IsNullOrEmpty(mensajeError))
@@ -41,6 +43,39 @@ namespace StudentSystem.WindowsFormsCliente
             if (resultado == DialogResult.Yes)
             {
                 //almacenar en BDD aca?
+                    // Datos de conexión a la base de datos
+                    const string connectionString = "Data Source=sql.bsite.net\\MSSQL2016;User ID=nojedaistic_DesktopBank;Password=********;Connect Timeout=30;Encrypt=True";
+
+                    // Datos del usuario a agregar
+       
+                    // Crear la conexión
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open(); // Abrir la conexión
+
+                            // Consulta SQL para insertar un nuevo usuario
+                            string query = $"INSERT INTO Client (ClientName, ClientSurname, ClientCUIL, ClientEmail) VALUES ('{nombre}', '{apellido}', '{cuil}', '{correo}')";
+                            
+
+                            using (SqlCommand command = new SqlCommand(query, connection))
+                            {
+                                command.ExecuteNonQuery(); // Ejecutar la consulta
+                                Console.WriteLine("Usuario agregado correctamente.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error al agregar usuario: {ex.Message}");
+                        }
+                        finally
+                        {
+                            connection.Close(); // Cerrar la conexión
+                        }
+                    }
+             }
+
                 FormLogin formLogin = new FormLogin();
                 formLogin.Show();
                 this.Hide(); // oculta FormRegister
@@ -48,7 +83,7 @@ namespace StudentSystem.WindowsFormsCliente
 
             //se valida que ningun campo este vacio o nulo
             //Hay que pasar éstas funciones a la capa servicio, previa referencia de capa UI con la capa DesktopBank.Service.
-            string ValidationEmptyService(string mensajeError, string nombre, string apellido, string correo, string cuil, string user)
+            string ValidationEmptyService(string mensajeError, string nombre, string apellido, string correo, string cuil, string user, string password)
             {
                 if (string.IsNullOrEmpty(nombre))
                 {
@@ -75,9 +110,14 @@ namespace StudentSystem.WindowsFormsCliente
                     mensajeError += "El campo de usuario no puede estar vacío.\n";
                     return mensajeError;
                 }
+                if (string.IsNullOrEmpty(password))
+                {
+                    mensajeError += "El campo de usuario no puede estar vacío.\n";
+                    return mensajeError;
+                }
                 return mensajeError;
 
-            }
+            
 
             /*
 Validaciones con Regex:

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegister));
             boxDatos = new GroupBox();
-            TxtCuil = new TextBox();
+            label1 = new Label();
             labelCuil = new Label();
             TxtUser = new TextBox();
             TxtCorreo = new TextBox();
@@ -44,12 +44,16 @@
             BtnAceptar = new Button();
             labelTenesCuenta = new Label();
             botonLogin = new Button();
+            txtPassword = new TextBox();
+            TxtCuil = new TextBox();
             boxDatos.SuspendLayout();
             SuspendLayout();
             // 
             // boxDatos
             // 
             boxDatos.Controls.Add(TxtCuil);
+            boxDatos.Controls.Add(txtPassword);
+            boxDatos.Controls.Add(label1);
             boxDatos.Controls.Add(labelCuil);
             boxDatos.Controls.Add(TxtUser);
             boxDatos.Controls.Add(TxtCorreo);
@@ -67,14 +71,15 @@
             boxDatos.TabIndex = 0;
             boxDatos.TabStop = false;
             // 
-            // TxtCuil
+            // label1
             // 
-            TxtCuil.Location = new Point(123, 167);
-            TxtCuil.Margin = new Padding(4, 5, 4, 5);
-            TxtCuil.Name = "TxtCuil";
-            TxtCuil.Size = new Size(377, 31);
-            TxtCuil.TabIndex = 11;
-            TxtCuil.TextChanged += TxtCuil_TextChanged;
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 276);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(105, 25);
+            label1.TabIndex = 12;
+            label1.Text = "Contraseña:";
             // 
             // labelCuil
             // 
@@ -88,7 +93,7 @@
             // 
             // TxtUser
             // 
-            TxtUser.Location = new Point(123, 210);
+            TxtUser.Location = new Point(123, 220);
             TxtUser.Margin = new Padding(4, 5, 4, 5);
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(377, 31);
@@ -206,6 +211,22 @@
             botonLogin.UseVisualStyleBackColor = true;
             botonLogin.Click += botonLogin_Click;
             // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(123, 270);
+            txtPassword.Margin = new Padding(4, 5, 4, 5);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(377, 31);
+            txtPassword.TabIndex = 13;
+            // 
+            // TxtCuil
+            // 
+            TxtCuil.Location = new Point(123, 169);
+            TxtCuil.Margin = new Padding(4, 5, 4, 5);
+            TxtCuil.Name = "TxtCuil";
+            TxtCuil.Size = new Size(377, 31);
+            TxtCuil.TabIndex = 14;
+            // 
             // FormRegister
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -239,9 +260,11 @@
         private Label labelApellido;
         private Label labelNombre;
         private Button BtnAceptar;
-        private TextBox TxtCuil;
         private Label labelCuil;
         private Label labelTenesCuenta;
         private Button botonLogin;
+        private Label label1;
+        private TextBox TxtCuil;
+        private TextBox txtPassword;
     }
 }
