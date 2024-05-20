@@ -23,7 +23,7 @@ namespace DesktopBank.Services
             _accountRepository = accountRepository;
             _unitOfWork = unitOfWork;
         }
-        public async Task<Account> CreateAccountAsync(int userId, int currencyId) 
+        public async Task<Account> CreateAccountAsync(int userId, int currencyId)
         {
             Account account = new Account
             {
@@ -40,7 +40,7 @@ namespace DesktopBank.Services
         }
 
         private readonly Random _random = new Random();
-        //se crea objeto tipo random para generar numeros... random
+            
         public long GenerateCBU()
         {
             long cbu;
@@ -54,31 +54,51 @@ namespace DesktopBank.Services
         public string GenerateAlias()
         {
             string alias;
-            do
+            alias = GenerateAliasString();
+            while (_accountRepository.GetByAlias(alias) != null) 
             {
-                alias = GenerateRandomString(15);
-            } while (_accountRepository.GetByAlias(alias) != null);
+                alias = GenerateAliasString();  
+            }
             return alias;
         }
 
         private long GenerateRandomNumber(int length)
         {
             const string digits = "0123456789";
-            var result = new StringBuilder(length); 
+            var result = new StringBuilder(length);
 
-            for (int i = 0; i < length; i++) 
+            for (int i = 0; i < length; i++)
             {
                 result.Append(digits[_random.Next(digits.Length)]);
             }
 
             return long.Parse(result.ToString());
         }
-
-        private string GenerateRandomString(int length)
+        private List<string> GenerateListForAlias()
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[_random.Next(s.Length)]).ToArray());
+            var list = new List<string> {"CORCHO","FINCA","DORADO","CHARCO","CRUDO", "POZO", "CHANCHO", "PLATA", "PALA", "PICO", "PATO", "CHAPA", "METAL", "MOTO", "CAMPANA" };
+            return list;
+        }
+
+        private string GenerateAliasString() 
+        {
+            var list = GenerateListForAlias();
+            var random = new Random();
+            int index = 0;
+            string alias = "";
+
+            for(int i = 0; i < 3; i++) 
+            {
+                index = random.Next(list.Count);    
+                alias += list[index];
+
+                if (i < 2) 
+                {
+                    alias += ".";
+                }
+            }
+
+            return alias;
         }
     }
 }
