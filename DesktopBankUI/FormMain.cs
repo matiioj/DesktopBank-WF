@@ -20,7 +20,7 @@ namespace DesktopBankUI
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        public FormMain()
+        public FormMain(string username)
         {
             InitializeComponent();
             FormHome formHome = new();

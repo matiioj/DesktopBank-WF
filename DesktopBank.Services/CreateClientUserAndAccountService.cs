@@ -1,14 +1,14 @@
 ﻿using DesktopBank.DAL;
 using DesktopBank.Services;
 
-public class CoordinatorService
+public class CreateClientUserAndAccountService
 {
-    private readonly ClientService _clientService;
-    private readonly UserService _userService;
-    private readonly AccountService _accountService;
+    private readonly CreateClientService _clientService;
+    private readonly CreateUserService _userService;
+    private readonly CreateAccountService _accountService;
     private readonly UnitOfWork _unitOfWork;
 
-    public CoordinatorService(ClientService clientService, UserService userService, AccountService accountService, UnitOfWork unitOfWork)
+    public CreateClientUserAndAccountService(CreateClientService clientService, CreateUserService userService, CreateAccountService accountService, UnitOfWork unitOfWork)
     {
         _clientService = clientService;
         _userService = userService;

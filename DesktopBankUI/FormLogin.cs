@@ -1,12 +1,25 @@
+using Azure.Identity;
+using DesktopBank.BusinessObjects.Interfaces;
+using DesktopBank.DAL;
+using DesktopBank.DAL.Repositories;
+using DesktopBank.Services;
+using Microsoft.IdentityModel.Tokens;
 using StudentSystem.WindowsFormsCliente;
+using System.Windows.Forms.Design;
 
 namespace DesktopBankUI
 {
     public partial class FormLogin : Form
     {
+        private readonly NojedaisticDesktopBankContext _context;
+        private readonly SessionService _sessionService;
+        private readonly UserRepository _userRepository;
         public FormLogin()
         {
-            InitializeComponent();
+            _context = new NojedaisticDesktopBankContext();
+            _userRepository = new UserRepository(_context);
+            _sessionService = new SessionService(_userRepository);
+            InitializeComponent();   
         }
         private void registerLabel_Click(object sender, EventArgs e)
         {
@@ -24,18 +37,19 @@ namespace DesktopBankUI
         {
             var usuarioLogin = TxtUser.Text;
             var contraLogin = TxtPassword.Text;
-            
-            
-            //Buscar en la Lista de Usuarios si el usuario es valido
-            if (usuarioLogin=="asd"&&contraLogin=="asd")
+
+
+            var message = _sessionService.CredentialsChecker(usuarioLogin, contraLogin);
+
+            if (message.IsNullOrEmpty())
             {
-                FormMain formMain = new FormMain();
+                FormMain formMain = new FormMain(usuarioLogin);
                 formMain.Show();
                 this.Hide(); // oculta FormLogin
             }
             else
             {
-                MessageBox.Show("Usuario incorrecto, por favor revise los datos");
+                MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }

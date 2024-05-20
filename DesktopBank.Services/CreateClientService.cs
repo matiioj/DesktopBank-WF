@@ -5,20 +5,21 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.BusinessObjects.Interfaces;
 using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DesktopBank.Services
 {
-    public class ClientService
+    public class CreateClientService
     {
-        private readonly ClientRepository _clientRepository;
+        private readonly IClientRepository _clientRepository;
         private readonly UnitOfWork _unitOfWork;
 
 
 
-        public ClientService(ClientRepository clientRepository, UnitOfWork unitOfWork) 
+        public CreateClientService(IClientRepository clientRepository, UnitOfWork unitOfWork) 
         {
             _clientRepository = clientRepository;
             _unitOfWork = unitOfWork;

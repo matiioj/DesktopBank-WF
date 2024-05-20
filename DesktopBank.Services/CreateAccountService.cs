@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.BusinessObjects.Interfaces;
 using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -12,11 +13,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DesktopBank.Services
 {
-    public class AccountService
+    public class CreateAccountService
     {
-        private readonly AccountRepository _accountRepository;
+        private readonly IAccountRepository _accountRepository;
         private readonly UnitOfWork _unitOfWork;
-        public AccountService(AccountRepository accountRepository, UnitOfWork unitOfWork)
+        public CreateAccountService(IAccountRepository accountRepository, UnitOfWork unitOfWork)
         {
             _accountRepository = accountRepository;
             _unitOfWork = unitOfWork;

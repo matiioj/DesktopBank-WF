@@ -41,6 +41,13 @@ namespace DesktopBank.DAL.Repositories
 
         }
 
+        public User GetUserByUsername(string username)
+        {
+            var user = _context.Users.Include(a => a.Client).FirstOrDefault(a => a.UserName == username);
+            return user;
+
+        }
+
         public IEnumerable<User> GetUsers()
         {
             return _context.Users.Include(a => a.Client).ToList();
