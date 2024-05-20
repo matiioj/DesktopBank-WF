@@ -17,4 +17,9 @@
 	  <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />  
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesktopBank.DAL\DesktopBank.DAL.csproj" />
+	  <ProjectReference Include="..\DesktopBank.BusinessObjects\DesktopBank.BusinessObjects.csproj" />
+  </ItemGroup>
+
 </Project>

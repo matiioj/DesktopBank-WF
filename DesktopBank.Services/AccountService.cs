@@ -18,7 +18,7 @@ namespace DesktopBank.Services
         {
             _accountRepository = accountRepository;
         }
-        public void CrearCuenta(string nombre, string apellido, string correo, string cuil, string user, string contra) 
+        public void CrearCuenta(string nombre, string apellido, string correo, string cuil) 
         {
 
         }
