@@ -11,7 +11,6 @@ namespace DesktopBank.BusinessObjects.Interfaces
     {
         IEnumerable<User> GetUsers();
         User GetUser(int id);
-
         User GetUserByUsername(string name);
         void CreateUser(User user);
         void UpdateUser(User user);

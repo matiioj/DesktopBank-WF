@@ -15,6 +15,7 @@ namespace DesktopBank.Services
 {
     public class CreateAccountService
     {
+        //dependencias
         private readonly IAccountRepository _accountRepository;
         private readonly UnitOfWork _unitOfWork;
         public CreateAccountService(IAccountRepository accountRepository, UnitOfWork unitOfWork)
@@ -38,14 +39,46 @@ namespace DesktopBank.Services
 
         }
 
-        public long GenerateCBU() 
+        private readonly Random _random = new Random();
+        //se crea objeto tipo random para generar numeros... random
+        public long GenerateCBU()
         {
-            return 12345678901; // to do
+            long cbu;
+            do
+            {
+                cbu = GenerateRandomNumber(19);
+            } while (_accountRepository.GetByCbu(cbu) != null);
+            return cbu;
         }
 
         public string GenerateAlias()
         {
-            return "PALO.PICO.PALA"; // to do
+            string alias;
+            do
+            {
+                alias = GenerateRandomString(15);
+            } while (_accountRepository.GetByAlias(alias) != null);
+            return alias;
+        }
+
+        private long GenerateRandomNumber(int length)
+        {
+            const string digits = "0123456789";
+            var result = new StringBuilder(length); 
+
+            for (int i = 0; i < length; i++) 
+            {
+                result.Append(digits[_random.Next(digits.Length)]);
+            }
+
+            return long.Parse(result.ToString());
+        }
+
+        private string GenerateRandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
     }
 }
