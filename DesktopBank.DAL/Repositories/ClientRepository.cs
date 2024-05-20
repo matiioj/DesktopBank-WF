@@ -50,8 +50,3 @@ namespace DesktopBank.DAL.Repositories
         }
     }
 }
-
-
-
-
-//comparar repositorio con user y checkear

@@ -14,7 +14,7 @@ namespace DesktopBank.DAL.Repositories
         private readonly NojedaisticDesktopBankContext _context;
         public AccountRepository(NojedaisticDesktopBankContext context) 
         {
-            _context = context; //constructor
+            _context = context;
         }
         public void Delete(int accountId)
         {
@@ -44,7 +44,7 @@ namespace DesktopBank.DAL.Repositories
                 .FirstOrDefault(a => a.AccountAlias == accountAlias);
         }
 
-        public Account GetByCbu(string accountCbu)
+        public Account GetByCbu(long accountCbu)
         {
             return _context.Accounts
                 .Include(a => a.User)
