@@ -25,6 +25,7 @@ public partial class Account
 
     public virtual Currency AccountCurrencyNavigation { get; set; } = null!;
 
+    //colleccion de objetos (tipo card)
     public virtual ICollection<Card> Cards { get; set; } = new List<Card>();
 
     public virtual ICollection<Operation> OperationDestinationAccounts { get; set; } = new List<Operation>();

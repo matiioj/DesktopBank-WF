@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBank.Services", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBank.DAL", "..\DesktopBank.DAL\DesktopBank.DAL.csproj", "{D9307D2B-2FC3-4997-9778-B2434CD79FAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopBank.BusinessObjects", "..\DesktopBank.BusinessObjects\DesktopBank.BusinessObjects.csproj", "{9911343E-D7F1-416F-8AEA-33006A24FC08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBank.BusinessObjects", "..\DesktopBank.BusinessObjects\DesktopBank.BusinessObjects.csproj", "{9911343E-D7F1-416F-8AEA-33006A24FC08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
