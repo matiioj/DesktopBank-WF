@@ -74,7 +74,7 @@
             TxtCuil.Location = new Point(86, 100);
             TxtCuil.Name = "TxtCuil";
             TxtCuil.Size = new Size(265, 23);
-            TxtCuil.TabIndex = 11;
+            TxtCuil.TabIndex = 4;
             // 
             // labelCuil
             // 
@@ -90,7 +90,7 @@
             TxtContra.Location = new Point(86, 152);
             TxtContra.Name = "TxtContra";
             TxtContra.Size = new Size(265, 23);
-            TxtContra.TabIndex = 9;
+            TxtContra.TabIndex = 6;
             // 
             // labelContra
             // 
@@ -106,28 +106,28 @@
             TxtUser.Location = new Point(86, 126);
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(265, 23);
-            TxtUser.TabIndex = 7;
+            TxtUser.TabIndex = 5;
             // 
             // TxtCorreo
             // 
             TxtCorreo.Location = new Point(86, 73);
             TxtCorreo.Name = "TxtCorreo";
             TxtCorreo.Size = new Size(265, 23);
-            TxtCorreo.TabIndex = 6;
+            TxtCorreo.TabIndex = 3;
             // 
             // TxtApellido
             // 
             TxtApellido.Location = new Point(86, 47);
             TxtApellido.Name = "TxtApellido";
             TxtApellido.Size = new Size(265, 23);
-            TxtApellido.TabIndex = 5;
+            TxtApellido.TabIndex = 2;
             // 
             // TxtNombre
             // 
             TxtNombre.Location = new Point(86, 21);
             TxtNombre.Name = "TxtNombre";
             TxtNombre.Size = new Size(265, 23);
-            TxtNombre.TabIndex = 4;
+            TxtNombre.TabIndex = 1;
             // 
             // labelUsuario
             // 
@@ -173,7 +173,7 @@
             BtnCancelar.Location = new Point(214, 272);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(107, 29);
-            BtnCancelar.TabIndex = 1;
+            BtnCancelar.TabIndex = 8;
             BtnCancelar.Text = "Limpiar";
             BtnCancelar.UseVisualStyleBackColor = true;
             BtnCancelar.Click += BtnCancelar_Click;
@@ -184,7 +184,7 @@
             BtnAceptar.Location = new Point(61, 272);
             BtnAceptar.Name = "BtnAceptar";
             BtnAceptar.Size = new Size(103, 29);
-            BtnAceptar.TabIndex = 2;
+            BtnAceptar.TabIndex = 7;
             BtnAceptar.Text = "Aceptar";
             BtnAceptar.UseVisualStyleBackColor = true;
             BtnAceptar.Click += BtnAceptar_Click;
@@ -204,7 +204,7 @@
             botonLogin.Location = new Point(42, 344);
             botonLogin.Name = "botonLogin";
             botonLogin.Size = new Size(75, 23);
-            botonLogin.TabIndex = 4;
+            botonLogin.TabIndex = 9;
             botonLogin.Text = "Login";
             botonLogin.UseVisualStyleBackColor = true;
             botonLogin.Click += botonLogin_Click;
