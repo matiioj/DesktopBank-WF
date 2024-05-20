@@ -14,21 +14,26 @@ namespace DesktopBank.Services
     public class UserService
     {
         private readonly UserRepository _userRepository;
+        private readonly UnitOfWork _unitOfWork;
 
-        public UserService(UserRepository userRepository)
+        public UserService(UserRepository userRepository, UnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
+            _unitOfWork = unitOfWork;   
         }
 
-        public void CreateUser(string username, string password)
+        public async Task<User> CreateUserAsync(int clientId, string username, string password)
         {
             User newUser = new User
             {
+                ClientId = clientId,
                 UserName = username,
                 UserPassword = password
             };
 
             _userRepository.CreateUser(newUser);
+            await _unitOfWork.SaveChangesAsync();
+            return newUser;
         }
     }
 }

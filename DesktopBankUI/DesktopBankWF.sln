@@ -4,10 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBankUI", "DesktopBankUI.csproj", "{6C76E8F9-9332-43FD-8D17-57E94A378F62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EBABAF65-134D-4ABE-AF69-23A42622F306} = {EBABAF65-134D-4ABE-AF69-23A42622F306}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBank.Services", "..\DesktopBank.Services\DesktopBank.Services.csproj", "{EBABAF65-134D-4ABE-AF69-23A42622F306}"
 	ProjectSection(ProjectDependencies) = postProject
-		{6C76E8F9-9332-43FD-8D17-57E94A378F62} = {6C76E8F9-9332-43FD-8D17-57E94A378F62}
+		{9911343E-D7F1-416F-8AEA-33006A24FC08} = {9911343E-D7F1-416F-8AEA-33006A24FC08}
+		{D9307D2B-2FC3-4997-9778-B2434CD79FAC} = {D9307D2B-2FC3-4997-9778-B2434CD79FAC}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopBank.DAL", "..\DesktopBank.DAL\DesktopBank.DAL.csproj", "{D9307D2B-2FC3-4997-9778-B2434CD79FAC}"

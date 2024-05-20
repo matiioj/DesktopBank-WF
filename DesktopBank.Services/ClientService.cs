@@ -13,14 +13,18 @@ namespace DesktopBank.Services
 {
     public class ClientService
     {
-        private readonly ClientRepository _clientRepository; 
+        private readonly ClientRepository _clientRepository;
+        private readonly UnitOfWork _unitOfWork;
 
-        public ClientService(ClientRepository clientRepository) 
+
+
+        public ClientService(ClientRepository clientRepository, UnitOfWork unitOfWork) 
         {
             _clientRepository = clientRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public void CreateClient(string name, string surname, int cuil, string mail)
+        public async Task<Client> CreateClientAsync(string name, string surname, long cuil, string mail)
         {
             Client newClient = new Client
             {
@@ -31,6 +35,8 @@ namespace DesktopBank.Services
             };
 
             _clientRepository.CreateClient(newClient);
+            await _unitOfWork.SaveChangesAsync();
+            return newClient;
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using DesktopBankUI;
+﻿using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.DAL;
+using DesktopBank.DAL.Repositories;
+using DesktopBank.Services;
+using DesktopBankUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +19,30 @@ namespace StudentSystem.WindowsFormsCliente
     public partial class FormRegister : Form
     {
         // MailService mailService = new MailService();
+        private readonly CoordinatorService _coordinatorService;
+        private readonly NojedaisticDesktopBankContext _context;
+        private readonly ClientRepository _clientRepository;
+        private readonly UserRepository _userRepository;
+        private readonly AccountRepository _accountRepository;
+        private readonly ClientService _clientService;
+        private readonly UserService _userService;
+        private readonly AccountService _accountService;
+        private readonly UnitOfWork _unitOfWork;
         public FormRegister()
         {
             InitializeComponent();
+            _context = new NojedaisticDesktopBankContext();
+            _clientRepository = new ClientRepository(_context);
+            _userRepository = new UserRepository(_context);
+            _accountRepository = new AccountRepository(_context);
+            _unitOfWork = new UnitOfWork(_context);
+            _clientService = new ClientService(_clientRepository, _unitOfWork);
+            _userService = new UserService(_userRepository, _unitOfWork);
+            _accountService = new AccountService(_accountRepository, _unitOfWork);
+            _coordinatorService = new CoordinatorService(_clientService, _userService, _accountService, _unitOfWork);
         }
 
-        private void BtnAceptar_Click(object sender, EventArgs e)
+        private async void BtnAceptar_Click(object sender, EventArgs e)
         {
             string nombre = TxtNombre.Text;
             string apellido = TxtApellido.Text;
@@ -108,10 +130,24 @@ namespace StudentSystem.WindowsFormsCliente
             // si confirma -> FormLogin | almacenación en BDD
             if (resultado == DialogResult.Yes)
             {
-                //almacenar en BDD aca?
-                FormLogin formLogin = new FormLogin();
-                formLogin.Show();
-                this.Hide(); // oculta FormRegister
+                int currencyId = 1;
+                try
+                {
+                    await _coordinatorService.CreateClientUserAndAccountAsync(nombre, apellido, long.Parse(cuil), correo, user, contra, currencyId);
+                    FormLogin formLogin = new FormLogin();
+                    formLogin.Show();
+                    this.Hide(); // oculta FormRegister
+
+                }
+                catch (Exception ex)
+                {
+                    // Maneja la excepción aquí
+                    MessageBox.Show($"Ocurrió un error al guardar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (ex.InnerException != null)
+                    {
+                        MessageBox.Show($"Ocurrió un error al guardar los datos internos: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 

@@ -32,7 +32,8 @@ public partial class NojedaisticDesktopBankContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["sqlBank"]?.ConnectionString); // get from App.Config
+        => optionsBuilder.UseSqlServer("server=sql.bsite.net\\MSSQL2016;user=nojedaistic_DesktopBank;password=;TrustServerCertificate=True;");
+        //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["sqlBank"]?.ConnectionString); // get from App.Config
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
