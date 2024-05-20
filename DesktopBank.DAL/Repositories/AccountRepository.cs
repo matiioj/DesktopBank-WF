@@ -30,7 +30,7 @@ namespace DesktopBank.DAL.Repositories
         {
             return _context.Accounts
                 .Include(a => a.User)
-                .Include(a => a.AccountCurrency)
+                .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .ToList();
         }
@@ -39,7 +39,7 @@ namespace DesktopBank.DAL.Repositories
         {
             return _context.Accounts
                 .Include(a => a.User)
-                .Include(a => a.AccountCurrency)
+                .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .FirstOrDefault(a => a.AccountAlias == accountAlias);
         }
@@ -48,7 +48,7 @@ namespace DesktopBank.DAL.Repositories
         {
             return _context.Accounts
                 .Include(a => a.User)
-                .Include(a => a.AccountCurrency)
+                .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .FirstOrDefault(a => a.AccountCbu == accountCbu);
         }
@@ -57,7 +57,7 @@ namespace DesktopBank.DAL.Repositories
         {
             return _context.Accounts
                 .Include(a => a.User)
-                .Include(a => a.AccountCurrency)
+                .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .Where(a => a.UserId == clientId)
                 .ToList();
@@ -67,7 +67,7 @@ namespace DesktopBank.DAL.Repositories
         {
             return _context.Accounts
                 .Include(a => a.User)
-                .Include(a => a.AccountCurrency)
+                .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .Where(a => a.AccountCurrency == currencyId)
                 .ToList();
@@ -77,7 +77,7 @@ namespace DesktopBank.DAL.Repositories
         {
             return _context.Accounts
                 .Include(a => a.User)
-                .Include(a => a.AccountCurrency)
+                .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .FirstOrDefault(a => a.AccountId == accountId);
         }
@@ -86,7 +86,7 @@ namespace DesktopBank.DAL.Repositories
         {
             return _context.Accounts
                 .Include(a => a.User)
-                .Include(a => a.AccountCurrency)
+                .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .Where(a => a.UserId == userId)
                 .ToList();
