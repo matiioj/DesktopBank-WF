@@ -1,6 +1,6 @@
 ﻿namespace DesktopBankUI
 {
-    partial class FrmCreditCard
+    partial class FormCard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreditCard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCard));
             gBoxTarjetaDeCredito = new GroupBox();
             BtnCopiar = new Button();
             EtqSaldoPesos = new Label();
@@ -56,9 +56,9 @@
             gBoxTarjetaDeCredito.Controls.Add(EtqNombreUsuario);
             gBoxTarjetaDeCredito.Controls.Add(EtqTcNumber);
             gBoxTarjetaDeCredito.Location = new Point(-2, -8);
-            gBoxTarjetaDeCredito.Margin = new Padding(2, 2, 2, 2);
+            gBoxTarjetaDeCredito.Margin = new Padding(2);
             gBoxTarjetaDeCredito.Name = "gBoxTarjetaDeCredito";
-            gBoxTarjetaDeCredito.Padding = new Padding(2, 2, 2, 2);
+            gBoxTarjetaDeCredito.Padding = new Padding(2);
             gBoxTarjetaDeCredito.Size = new Size(1182, 636);
             gBoxTarjetaDeCredito.TabIndex = 0;
             gBoxTarjetaDeCredito.TabStop = false;
@@ -70,7 +70,7 @@
             BtnCopiar.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
             BtnCopiar.ForeColor = SystemColors.HighlightText;
             BtnCopiar.Location = new Point(573, 196);
-            BtnCopiar.Margin = new Padding(2, 2, 2, 2);
+            BtnCopiar.Margin = new Padding(2);
             BtnCopiar.Name = "BtnCopiar";
             BtnCopiar.Size = new Size(160, 43);
             BtnCopiar.TabIndex = 8;
@@ -182,17 +182,18 @@
             EtqTcNumber.TabIndex = 0;
             EtqTcNumber.Text = "XXXX XXXX XXXX XXXX";
             // 
-            // FrmCreditCard
+            // FormCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(784, 611);
             Controls.Add(gBoxTarjetaDeCredito);
             DoubleBuffered = true;
-            Margin = new Padding(2, 2, 2, 2);
-            Name = "FrmCreditCard";
-            Text = "FrmCreditCard";
-            Load += FrmCreditCard_Load;
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
+            Name = "FormCard";
+            Text = "FormCard";
+            Load += FormCard_Load;
             gBoxTarjetaDeCredito.ResumeLayout(false);
             gBoxTarjetaDeCredito.PerformLayout();
             ResumeLayout(false);

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace DesktopBankUI
 {
-    public partial class FrmCreditCard : Form
+    public partial class FormCard : Form
     {
-        public FrmCreditCard()
+        public FormCard()
         {
             InitializeComponent();
         }
 
-        private void FrmCreditCard_Load(object sender, EventArgs e)
+        private void FormCard_Load(object sender, EventArgs e)
         {
 
         }

@@ -11,11 +11,8 @@ namespace DesktopBank.Services
 {
     public class SessionService
     {
-        private readonly IUserRepository _userRepository;
-
-        public SessionService()
-        {
-        }
+        private readonly IUserRepository? _userRepository;
+        private User _currentUser;
 
         public SessionService(IUserRepository userRepository) 
         {
@@ -30,6 +27,7 @@ namespace DesktopBank.Services
             {
                 if (user.UserPassword == password)
                 {
+                    _currentUser = user;
                     return message;
                 }
             }
@@ -37,6 +35,11 @@ namespace DesktopBank.Services
             message += "Los datos no concuerdan con ningun registro existente.";
 
             return message;
+        }
+
+        public User GetUser() 
+        {
+            return _currentUser;
         }
     }
 }

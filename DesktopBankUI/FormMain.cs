@@ -8,25 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using DesktopBank.Services;
 
 namespace DesktopBankUI
 {
     public partial class FormMain : Form
     {
         private int borderSize = 1;
+        private readonly SessionService _sessionService;
 
         // Make a dragable window without border calling Windows API 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        public FormMain(string username)
+        public FormMain(SessionService _sessionService)
         {
             InitializeComponent();
             FormHome formHome = new();
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
+            var currentUser = _sessionService.GetUser();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -93,8 +96,8 @@ namespace DesktopBankUI
 
         private void cardButton_Click(object sender, EventArgs e)
         {
-            /*FormCard cardForm = new();
-            openFormInsidePanel(cardForm);*/
+            FormCard cardForm = new();
+            openFormInsidePanel(cardForm);
         }
 
         private void transferButton_Click(object sender, EventArgs e)

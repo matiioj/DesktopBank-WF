@@ -43,7 +43,7 @@ namespace DesktopBankUI
 
             if (message.IsNullOrEmpty())
             {
-                FormMain formMain = new FormMain(usuarioLogin);
+                FormMain formMain = new FormMain(_sessionService);
                 formMain.Show();
                 this.Hide(); // oculta FormLogin
             }
