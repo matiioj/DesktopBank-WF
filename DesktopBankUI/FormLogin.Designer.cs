@@ -54,17 +54,20 @@ namespace DesktopBankUI
             // TxtPassword
             // 
             TxtPassword.BackColor = Color.LightCyan;
-            TxtPassword.Location = new Point(163, 64);
+            TxtPassword.Location = new Point(233, 107);
+            TxtPassword.Margin = new Padding(4, 5, 4, 5);
             TxtPassword.Name = "TxtPassword";
-            TxtPassword.Size = new Size(172, 23);
+            TxtPassword.PasswordChar = '*';
+            TxtPassword.Size = new Size(244, 31);
             TxtPassword.TabIndex = 3;
             // 
             // TxtUser
             // 
             TxtUser.BackColor = Color.LightCyan;
-            TxtUser.Location = new Point(163, 17);
+            TxtUser.Location = new Point(233, 28);
+            TxtUser.Margin = new Padding(4, 5, 4, 5);
             TxtUser.Name = "TxtUser";
-            TxtUser.Size = new Size(172, 23);
+            TxtUser.Size = new Size(244, 31);
             TxtUser.TabIndex = 2;
             // 
             // panel1
@@ -74,24 +77,27 @@ namespace DesktopBankUI
             panel1.Controls.Add(iconoChancho);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(382, 194);
+            panel1.Size = new Size(546, 323);
             panel1.TabIndex = 3;
             // 
             // panel3
             // 
-            panel3.Location = new Point(0, 209);
+            panel3.Location = new Point(0, 348);
+            panel3.Margin = new Padding(4, 5, 4, 5);
             panel3.Name = "panel3";
-            panel3.Size = new Size(385, 66);
+            panel3.Size = new Size(550, 110);
             panel3.TabIndex = 6;
             // 
             // iconoChancho
             // 
             iconoChancho.BackColor = Color.Teal;
             iconoChancho.Image = Properties.Resources.iconPig;
-            iconoChancho.Location = new Point(107, 31);
+            iconoChancho.Location = new Point(153, 52);
+            iconoChancho.Margin = new Padding(4, 5, 4, 5);
             iconoChancho.Name = "iconoChancho";
-            iconoChancho.Size = new Size(174, 154);
+            iconoChancho.Size = new Size(249, 257);
             iconoChancho.SizeMode = PictureBoxSizeMode.Zoom;
             iconoChancho.TabIndex = 0;
             iconoChancho.TabStop = false;
@@ -107,17 +113,19 @@ namespace DesktopBankUI
             panelCampos.Controls.Add(nombreIniciarSesion);
             panelCampos.Controls.Add(TxtUser);
             panelCampos.Dock = DockStyle.Bottom;
-            panelCampos.Location = new Point(0, 262);
+            panelCampos.Location = new Point(0, 437);
+            panelCampos.Margin = new Padding(4, 5, 4, 5);
             panelCampos.Name = "panelCampos";
-            panelCampos.Size = new Size(382, 188);
+            panelCampos.Size = new Size(546, 313);
             panelCampos.TabIndex = 4;
             // 
             // exitButton
             // 
             exitButton.Cursor = Cursors.Hand;
-            exitButton.Location = new Point(219, 111);
+            exitButton.Location = new Point(313, 185);
+            exitButton.Margin = new Padding(4, 5, 4, 5);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(95, 32);
+            exitButton.Size = new Size(136, 53);
             exitButton.TabIndex = 7;
             exitButton.Text = "Salir";
             exitButton.UseVisualStyleBackColor = true;
@@ -130,10 +138,11 @@ namespace DesktopBankUI
             registerLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             registerLabel.ForeColor = Color.Snow;
             registerLabel.ImageAlign = ContentAlignment.BottomCenter;
-            registerLabel.Location = new Point(62, 157);
+            registerLabel.Location = new Point(89, 262);
+            registerLabel.Margin = new Padding(4, 0, 4, 0);
             registerLabel.Name = "registerLabel";
             registerLabel.RightToLeft = RightToLeft.No;
-            registerLabel.Size = new Size(169, 15);
+            registerLabel.Size = new Size(259, 25);
             registerLabel.TabIndex = 6;
             registerLabel.Text = "¿No tenes cuenta? Registrate";
             registerLabel.Click += registerLabel_Click;
@@ -141,9 +150,10 @@ namespace DesktopBankUI
             // botonIniciarSesion
             // 
             botonIniciarSesion.Cursor = Cursors.Hand;
-            botonIniciarSesion.Location = new Point(62, 111);
+            botonIniciarSesion.Location = new Point(89, 185);
+            botonIniciarSesion.Margin = new Padding(4, 5, 4, 5);
             botonIniciarSesion.Name = "botonIniciarSesion";
-            botonIniciarSesion.Size = new Size(95, 32);
+            botonIniciarSesion.Size = new Size(136, 53);
             botonIniciarSesion.TabIndex = 5;
             botonIniciarSesion.Text = "Iniciar";
             botonIniciarSesion.UseVisualStyleBackColor = true;
@@ -159,9 +169,10 @@ namespace DesktopBankUI
             contraseñaIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             contraseñaIniciarSesion.IconSize = 30;
             contraseñaIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            contraseñaIniciarSesion.Location = new Point(38, 53);
+            contraseñaIniciarSesion.Location = new Point(54, 88);
+            contraseñaIniciarSesion.Margin = new Padding(4, 5, 4, 5);
             contraseñaIniciarSesion.Name = "contraseñaIniciarSesion";
-            contraseñaIniciarSesion.Size = new Size(119, 41);
+            contraseñaIniciarSesion.Size = new Size(170, 68);
             contraseñaIniciarSesion.TabIndex = 4;
             contraseñaIniciarSesion.Text = "Contraseña";
             contraseñaIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
@@ -178,9 +189,10 @@ namespace DesktopBankUI
             nombreIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             nombreIniciarSesion.IconSize = 30;
             nombreIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            nombreIniciarSesion.Location = new Point(38, 6);
+            nombreIniciarSesion.Location = new Point(54, 10);
+            nombreIniciarSesion.Margin = new Padding(4, 5, 4, 5);
             nombreIniciarSesion.Name = "nombreIniciarSesion";
-            nombreIniciarSesion.Size = new Size(119, 41);
+            nombreIniciarSesion.Size = new Size(170, 68);
             nombreIniciarSesion.TabIndex = 0;
             nombreIniciarSesion.Text = "Usuario";
             nombreIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
@@ -191,9 +203,10 @@ namespace DesktopBankUI
             // 
             panelIniciarSesion.Controls.Add(tituloIniciarSesion);
             panelIniciarSesion.Dock = DockStyle.Fill;
-            panelIniciarSesion.Location = new Point(0, 194);
+            panelIniciarSesion.Location = new Point(0, 323);
+            panelIniciarSesion.Margin = new Padding(4, 5, 4, 5);
             panelIniciarSesion.Name = "panelIniciarSesion";
-            panelIniciarSesion.Size = new Size(382, 68);
+            panelIniciarSesion.Size = new Size(546, 114);
             panelIniciarSesion.TabIndex = 6;
             // 
             // tituloIniciarSesion
@@ -202,22 +215,24 @@ namespace DesktopBankUI
             tituloIniciarSesion.Dock = DockStyle.Top;
             tituloIniciarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tituloIniciarSesion.Location = new Point(0, 0);
+            tituloIniciarSesion.Margin = new Padding(4, 0, 4, 0);
             tituloIniciarSesion.Name = "tituloIniciarSesion";
-            tituloIniciarSesion.Size = new Size(382, 65);
+            tituloIniciarSesion.Size = new Size(546, 108);
             tituloIniciarSesion.TabIndex = 0;
             tituloIniciarSesion.Text = "Inicie sesión";
             tituloIniciarSesion.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(382, 450);
+            ClientSize = new Size(546, 750);
             Controls.Add(panelIniciarSesion);
             Controls.Add(panelCampos);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Iniciar sesión";
