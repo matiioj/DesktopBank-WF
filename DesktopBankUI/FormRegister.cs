@@ -1,4 +1,5 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.BusinessObjects.Interfaces;
 using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using DesktopBank.Services;
@@ -22,6 +23,7 @@ namespace StudentSystem.WindowsFormsCliente
         private readonly CreateClientUserAndAccountService _createClientUserAndAccountService;
         private readonly NojedaisticDesktopBankContext _context;
         private readonly ClientRepository _clientRepository;
+        private readonly CurrencyRepository _currencyRepository;
         private readonly UserRepository _userRepository;
         private readonly AccountRepository _accountRepository;
         private readonly CreateClientService _clientService;
@@ -33,6 +35,7 @@ namespace StudentSystem.WindowsFormsCliente
         {
             _context = new NojedaisticDesktopBankContext();
             _clientRepository = new ClientRepository(_context);
+            _currencyRepository = new CurrencyRepository(_context);
             _userRepository = new UserRepository(_context);
             _accountRepository = new AccountRepository(_context);
             _unitOfWork = new UnitOfWork(_context);
@@ -42,6 +45,22 @@ namespace StudentSystem.WindowsFormsCliente
             _createClientUserAndAccountService = new CreateClientUserAndAccountService(_clientService, _userService, _accountService, _unitOfWork);
             _validationService = new();
             InitializeComponent();
+            LoadCurrencies();
+        }
+
+        private void LoadCurrencies()
+        {
+            var currencies = _currencyRepository.GetCurrencies().ToList();
+            if (currencies != null && currencies.Any())
+            {
+                ComboBoxCurrencies.DataSource = currencies;
+                ComboBoxCurrencies.DisplayMember = "CurrencyName";
+                ComboBoxCurrencies.ValueMember = "CurrencyId";
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron monedas en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private async void BtnAceptar_Click(object sender, EventArgs e)
@@ -66,7 +85,7 @@ namespace StudentSystem.WindowsFormsCliente
             // si confirma -> almacenamiento en BD y abre FormLogin
             if (resultado == DialogResult.Yes)
             {
-                int currencyId = 1;
+                int currencyId = (int)ComboBoxCurrencies.SelectedValue; // obtener CurrencyId
                 try
                 {
                     // Transaction, mas de una tabla involucrada 
@@ -88,7 +107,7 @@ namespace StudentSystem.WindowsFormsCliente
         }
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            // Limpiar todos los cuadros de texto
+            // limpiar cuadros texto
             TxtNombre.Text = "";
             TxtApellido.Text = "";
             TxtCorreo.Text = "";
@@ -101,7 +120,7 @@ namespace StudentSystem.WindowsFormsCliente
         {
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
-            this.Hide(); // oculta FormRegister
+            this.Hide();
         }
     }
 

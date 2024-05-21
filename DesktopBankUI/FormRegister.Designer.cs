@@ -46,11 +46,15 @@
             BtnAceptar = new Button();
             labelTenesCuenta = new Label();
             botonLogin = new Button();
+            LabelMoneda = new Label();
+            ComboBoxCurrencies = new ComboBox();
             boxDatos.SuspendLayout();
             SuspendLayout();
             // 
             // boxDatos
             // 
+            boxDatos.Controls.Add(ComboBoxCurrencies);
+            boxDatos.Controls.Add(LabelMoneda);
             boxDatos.Controls.Add(TxtCuil);
             boxDatos.Controls.Add(labelCuil);
             boxDatos.Controls.Add(TxtContra);
@@ -63,9 +67,9 @@
             boxDatos.Controls.Add(labelCorreo);
             boxDatos.Controls.Add(labelApellido);
             boxDatos.Controls.Add(labelNombre);
-            boxDatos.Location = new Point(12, 56);
+            boxDatos.Location = new Point(12, 39);
             boxDatos.Name = "boxDatos";
-            boxDatos.Size = new Size(370, 196);
+            boxDatos.Size = new Size(370, 221);
             boxDatos.TabIndex = 0;
             boxDatos.TabStop = false;
             // 
@@ -95,7 +99,7 @@
             // labelContra
             // 
             labelContra.AutoSize = true;
-            labelContra.Location = new Point(10, 160);
+            labelContra.Location = new Point(10, 157);
             labelContra.Name = "labelContra";
             labelContra.Size = new Size(70, 15);
             labelContra.TabIndex = 8;
@@ -170,7 +174,7 @@
             BtnCancelar.Cursor = Cursors.Hand;
             BtnCancelar.Image = (Image)resources.GetObject("BtnCancelar.Image");
             BtnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCancelar.Location = new Point(214, 272);
+            BtnCancelar.Location = new Point(214, 280);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(107, 29);
             BtnCancelar.TabIndex = 8;
@@ -181,7 +185,7 @@
             // BtnAceptar
             // 
             BtnAceptar.Cursor = Cursors.Hand;
-            BtnAceptar.Location = new Point(61, 272);
+            BtnAceptar.Location = new Point(61, 280);
             BtnAceptar.Name = "BtnAceptar";
             BtnAceptar.Size = new Size(103, 29);
             BtnAceptar.TabIndex = 7;
@@ -192,7 +196,7 @@
             // labelTenesCuenta
             // 
             labelTenesCuenta.AutoSize = true;
-            labelTenesCuenta.Location = new Point(35, 317);
+            labelTenesCuenta.Location = new Point(35, 325);
             labelTenesCuenta.Name = "labelTenesCuenta";
             labelTenesCuenta.Size = new Size(122, 15);
             labelTenesCuenta.TabIndex = 3;
@@ -201,7 +205,7 @@
             // botonLogin
             // 
             botonLogin.Cursor = Cursors.Hand;
-            botonLogin.Location = new Point(42, 344);
+            botonLogin.Location = new Point(42, 352);
             botonLogin.Name = "botonLogin";
             botonLogin.Size = new Size(75, 23);
             botonLogin.TabIndex = 9;
@@ -209,11 +213,28 @@
             botonLogin.UseVisualStyleBackColor = true;
             botonLogin.Click += botonLogin_Click;
             // 
+            // LabelMoneda
+            // 
+            LabelMoneda.AutoSize = true;
+            LabelMoneda.Location = new Point(26, 181);
+            LabelMoneda.Name = "LabelMoneda";
+            LabelMoneda.Size = new Size(54, 15);
+            LabelMoneda.TabIndex = 11;
+            LabelMoneda.Text = "Moneda:";
+            // 
+            // ComboBoxCurrencies
+            // 
+            ComboBoxCurrencies.FormattingEnabled = true;
+            ComboBoxCurrencies.Location = new Point(86, 178);
+            ComboBoxCurrencies.Name = "ComboBoxCurrencies";
+            ComboBoxCurrencies.Size = new Size(265, 23);
+            ComboBoxCurrencies.TabIndex = 12;
+            // 
             // FormRegister
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(399, 395);
+            ClientSize = new Size(399, 407);
             Controls.Add(botonLogin);
             Controls.Add(labelTenesCuenta);
             Controls.Add(BtnAceptar);
@@ -247,5 +268,7 @@
         private TextBox TxtContra;
         private Label labelTenesCuenta;
         private Button botonLogin;
+        private ComboBox ComboBoxCurrencies;
+        private Label LabelMoneda;
     }
 }
