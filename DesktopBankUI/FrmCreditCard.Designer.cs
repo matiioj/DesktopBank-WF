@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreditCard));
             gBoxTarjetaDeCredito = new GroupBox();
             BtnCopiar = new Button();
             EtqSaldoPesos = new Label();
@@ -43,7 +44,7 @@
             // 
             // gBoxTarjetaDeCredito
             // 
-            gBoxTarjetaDeCredito.BackgroundImage = Properties.Resources.Istic_Wallet_Credit_Card;
+            gBoxTarjetaDeCredito.BackgroundImage = (Image)resources.GetObject("gBoxTarjetaDeCredito.BackgroundImage");
             gBoxTarjetaDeCredito.BackgroundImageLayout = ImageLayout.Stretch;
             gBoxTarjetaDeCredito.Controls.Add(BtnCopiar);
             gBoxTarjetaDeCredito.Controls.Add(EtqSaldoPesos);
@@ -54,9 +55,11 @@
             gBoxTarjetaDeCredito.Controls.Add(EtqTxtSaldo);
             gBoxTarjetaDeCredito.Controls.Add(EtqNombreUsuario);
             gBoxTarjetaDeCredito.Controls.Add(EtqTcNumber);
-            gBoxTarjetaDeCredito.Location = new Point(-3, -13);
+            gBoxTarjetaDeCredito.Location = new Point(-2, -8);
+            gBoxTarjetaDeCredito.Margin = new Padding(2, 2, 2, 2);
             gBoxTarjetaDeCredito.Name = "gBoxTarjetaDeCredito";
-            gBoxTarjetaDeCredito.Size = new Size(1688, 1060);
+            gBoxTarjetaDeCredito.Padding = new Padding(2, 2, 2, 2);
+            gBoxTarjetaDeCredito.Size = new Size(1182, 636);
             gBoxTarjetaDeCredito.TabIndex = 0;
             gBoxTarjetaDeCredito.TabStop = false;
             // 
@@ -66,9 +69,10 @@
             BtnCopiar.BackgroundImageLayout = ImageLayout.Center;
             BtnCopiar.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
             BtnCopiar.ForeColor = SystemColors.HighlightText;
-            BtnCopiar.Location = new Point(818, 326);
+            BtnCopiar.Location = new Point(573, 196);
+            BtnCopiar.Margin = new Padding(2, 2, 2, 2);
             BtnCopiar.Name = "BtnCopiar";
-            BtnCopiar.Size = new Size(228, 71);
+            BtnCopiar.Size = new Size(160, 43);
             BtnCopiar.TabIndex = 8;
             BtnCopiar.Text = "COPIAR";
             BtnCopiar.UseVisualStyleBackColor = false;
@@ -80,9 +84,10 @@
             EtqSaldoPesos.BackColor = SystemColors.Window;
             EtqSaldoPesos.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqSaldoPesos.ForeColor = Color.MidnightBlue;
-            EtqSaldoPesos.Location = new Point(833, 618);
+            EtqSaldoPesos.Location = new Point(583, 371);
+            EtqSaldoPesos.Margin = new Padding(2, 0, 2, 0);
             EtqSaldoPesos.Name = "EtqSaldoPesos";
-            EtqSaldoPesos.Size = new Size(141, 73);
+            EtqSaldoPesos.Size = new Size(93, 49);
             EtqSaldoPesos.TabIndex = 7;
             EtqSaldoPesos.Text = "0.00";
             // 
@@ -92,9 +97,10 @@
             EtqCodigoSeguridad.BackColor = SystemColors.Window;
             EtqCodigoSeguridad.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqCodigoSeguridad.ForeColor = Color.MidnightBlue;
-            EtqCodigoSeguridad.Location = new Point(833, 942);
+            EtqCodigoSeguridad.Location = new Point(583, 565);
+            EtqCodigoSeguridad.Margin = new Padding(2, 0, 2, 0);
             EtqCodigoSeguridad.Name = "EtqCodigoSeguridad";
-            EtqCodigoSeguridad.Size = new Size(146, 73);
+            EtqCodigoSeguridad.Size = new Size(97, 49);
             EtqCodigoSeguridad.TabIndex = 6;
             EtqCodigoSeguridad.Text = "XXX";
             // 
@@ -104,9 +110,10 @@
             EtqCvv.BackColor = SystemColors.Window;
             EtqCvv.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqCvv.ForeColor = Color.MidnightBlue;
-            EtqCvv.Location = new Point(693, 942);
+            EtqCvv.Location = new Point(485, 565);
+            EtqCvv.Margin = new Padding(2, 0, 2, 0);
             EtqCvv.Name = "EtqCvv";
-            EtqCvv.Size = new Size(147, 73);
+            EtqCvv.Size = new Size(99, 49);
             EtqCvv.TabIndex = 5;
             EtqCvv.Text = "CVV:";
             // 
@@ -116,9 +123,10 @@
             EtqFechaVencimiento.BackColor = SystemColors.Window;
             EtqFechaVencimiento.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqFechaVencimiento.ForeColor = Color.MidnightBlue;
-            EtqFechaVencimiento.Location = new Point(403, 942);
+            EtqFechaVencimiento.Location = new Point(282, 565);
+            EtqFechaVencimiento.Margin = new Padding(2, 0, 2, 0);
             EtqFechaVencimiento.Name = "EtqFechaVencimiento";
-            EtqFechaVencimiento.Size = new Size(211, 73);
+            EtqFechaVencimiento.Size = new Size(139, 49);
             EtqFechaVencimiento.TabIndex = 4;
             EtqFechaVencimiento.Text = "XX/XX";
             // 
@@ -128,9 +136,10 @@
             EtqTxtVencimiento.BackColor = SystemColors.Window;
             EtqTxtVencimiento.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqTxtVencimiento.ForeColor = Color.MidnightBlue;
-            EtqTxtVencimiento.Location = new Point(79, 942);
+            EtqTxtVencimiento.Location = new Point(55, 565);
+            EtqTxtVencimiento.Margin = new Padding(2, 0, 2, 0);
             EtqTxtVencimiento.Name = "EtqTxtVencimiento";
-            EtqTxtVencimiento.Size = new Size(341, 73);
+            EtqTxtVencimiento.Size = new Size(228, 49);
             EtqTxtVencimiento.TabIndex = 3;
             EtqTxtVencimiento.Text = "Vencimiento:";
             // 
@@ -140,9 +149,10 @@
             EtqTxtSaldo.BackColor = SystemColors.Window;
             EtqTxtSaldo.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqTxtSaldo.ForeColor = Color.MidnightBlue;
-            EtqTxtSaldo.Location = new Point(124, 637);
+            EtqTxtSaldo.Location = new Point(87, 382);
+            EtqTxtSaldo.Margin = new Padding(2, 0, 2, 0);
             EtqTxtSaldo.Name = "EtqTxtSaldo";
-            EtqTxtSaldo.Size = new Size(235, 73);
+            EtqTxtSaldo.Size = new Size(157, 49);
             EtqTxtSaldo.TabIndex = 2;
             EtqTxtSaldo.Text = "Saldo: $";
             // 
@@ -152,9 +162,10 @@
             EtqNombreUsuario.BackColor = SystemColors.Window;
             EtqNombreUsuario.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqNombreUsuario.ForeColor = Color.MidnightBlue;
-            EtqNombreUsuario.Location = new Point(124, 498);
+            EtqNombreUsuario.Location = new Point(87, 299);
+            EtqNombreUsuario.Margin = new Padding(2, 0, 2, 0);
             EtqNombreUsuario.Name = "EtqNombreUsuario";
-            EtqNombreUsuario.Size = new Size(301, 73);
+            EtqNombreUsuario.Size = new Size(200, 49);
             EtqNombreUsuario.TabIndex = 1;
             EtqNombreUsuario.Text = "Propietario";
             // 
@@ -164,19 +175,21 @@
             EtqTcNumber.BackColor = SystemColors.Window;
             EtqTcNumber.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqTcNumber.ForeColor = Color.MidnightBlue;
-            EtqTcNumber.Location = new Point(124, 326);
+            EtqTcNumber.Location = new Point(87, 196);
+            EtqTcNumber.Margin = new Padding(2, 0, 2, 0);
             EtqTcNumber.Name = "EtqTcNumber";
-            EtqTcNumber.Size = new Size(688, 73);
+            EtqTcNumber.Size = new Size(452, 49);
             EtqTcNumber.TabIndex = 0;
             EtqTcNumber.Text = "XXXX XXXX XXXX XXXX";
             // 
             // FrmCreditCard
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1685, 1047);
+            ClientSize = new Size(784, 561);
             Controls.Add(gBoxTarjetaDeCredito);
             DoubleBuffered = true;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FrmCreditCard";
             Text = "FrmCreditCard";
             Load += FrmCreditCard_Load;
