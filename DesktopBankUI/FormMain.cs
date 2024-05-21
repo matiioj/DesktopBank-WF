@@ -25,11 +25,11 @@ namespace DesktopBankUI
         public FormMain(SessionService _sessionService)
         {
             InitializeComponent();
+            var currentUser = _sessionService.GetUser();
             FormHome formHome = new();
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
-            var currentUser = _sessionService.GetUser();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
