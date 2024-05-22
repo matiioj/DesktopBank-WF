@@ -46,9 +46,10 @@
             recentTransactionsButton.IconColor = Color.Black;
             recentTransactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             recentTransactionsButton.IconSize = 30;
-            recentTransactionsButton.Location = new Point(15, 177);
+            recentTransactionsButton.Location = new Point(21, 295);
+            recentTransactionsButton.Margin = new Padding(4, 5, 4, 5);
             recentTransactionsButton.Name = "recentTransactionsButton";
-            recentTransactionsButton.Size = new Size(360, 38);
+            recentTransactionsButton.Size = new Size(514, 63);
             recentTransactionsButton.TabIndex = 11;
             recentTransactionsButton.Text = "  See transactions";
             recentTransactionsButton.TextAlign = ContentAlignment.MiddleRight;
@@ -66,9 +67,10 @@
             helpButtonPanel.IconColor = Color.Black;
             helpButtonPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             helpButtonPanel.IconSize = 30;
-            helpButtonPanel.Location = new Point(15, 260);
+            helpButtonPanel.Location = new Point(21, 433);
+            helpButtonPanel.Margin = new Padding(4, 5, 4, 5);
             helpButtonPanel.Name = "helpButtonPanel";
-            helpButtonPanel.Size = new Size(360, 38);
+            helpButtonPanel.Size = new Size(514, 63);
             helpButtonPanel.TabIndex = 10;
             helpButtonPanel.Text = "  Help";
             helpButtonPanel.TextAlign = ContentAlignment.MiddleRight;
@@ -79,41 +81,47 @@
             // 
             LabelBienvenido.AutoSize = true;
             LabelBienvenido.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelBienvenido.Location = new Point(12, 9);
+            LabelBienvenido.Location = new Point(17, 15);
+            LabelBienvenido.Margin = new Padding(4, 0, 4, 0);
             LabelBienvenido.Name = "LabelBienvenido";
-            LabelBienvenido.Size = new Size(121, 30);
+            LabelBienvenido.Size = new Size(177, 45);
             LabelBienvenido.TabIndex = 13;
             LabelBienvenido.Text = "Bienvenido";
+            LabelBienvenido.Click += LabelBienvenido_Click;
             // 
             // LabelNombreDeUsuario
             // 
             LabelNombreDeUsuario.AutoSize = true;
             LabelNombreDeUsuario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNombreDeUsuario.Location = new Point(139, 9);
+            LabelNombreDeUsuario.Location = new Point(199, 15);
+            LabelNombreDeUsuario.Margin = new Padding(4, 0, 4, 0);
             LabelNombreDeUsuario.Name = "LabelNombreDeUsuario";
-            LabelNombreDeUsuario.Size = new Size(0, 30);
+            LabelNombreDeUsuario.Size = new Size(0, 45);
             LabelNombreDeUsuario.TabIndex = 14;
             // 
             // labelBalance
             // 
             labelBalance.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBalance.Location = new Point(20, 64);
+            labelBalance.Location = new Point(29, 107);
+            labelBalance.Margin = new Padding(4, 0, 4, 0);
             labelBalance.Name = "labelBalance";
-            labelBalance.Size = new Size(240, 45);
+            labelBalance.Size = new Size(343, 75);
             labelBalance.TabIndex = 15;
             labelBalance.Text = "_";
+            labelBalance.Click += labelBalance_Click;
             // 
             // FormHome
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 432);
+            ClientSize = new Size(1143, 720);
             Controls.Add(labelBalance);
             Controls.Add(LabelNombreDeUsuario);
             Controls.Add(LabelBienvenido);
             Controls.Add(recentTransactionsButton);
             Controls.Add(helpButtonPanel);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormHome";
             Text = "FormHome";
             ResumeLayout(false);

@@ -37,17 +37,17 @@
             profileButton = new FontAwesome.Sharp.IconButton();
             homeButton = new FontAwesome.Sharp.IconButton();
             panelTitle = new Panel();
+            iconIstic = new PictureBox();
             panelBanner = new Panel();
             minimizeButton = new FontAwesome.Sharp.IconButton();
             maximizeButton = new FontAwesome.Sharp.IconButton();
             restoreButton = new FontAwesome.Sharp.IconButton();
             closeButton = new FontAwesome.Sharp.IconButton();
             panelScreen = new Panel();
-            iconIstic = new PictureBox();
             panelMenu.SuspendLayout();
             panelTitle.SuspendLayout();
-            panelBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconIstic).BeginInit();
+            panelBanner.SuspendLayout();
             SuspendLayout();
             // 
             // panelMenu
@@ -62,9 +62,10 @@
             panelMenu.Controls.Add(panelTitle);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
+            panelMenu.Margin = new Padding(4, 5, 4, 5);
             panelMenu.Name = "panelMenu";
-            panelMenu.Padding = new Padding(0, 0, 0, 25);
-            panelMenu.Size = new Size(143, 600);
+            panelMenu.Padding = new Padding(0, 0, 0, 42);
+            panelMenu.Size = new Size(204, 1000);
             panelMenu.TabIndex = 0;
             // 
             // exitButton
@@ -79,10 +80,11 @@
             exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             exitButton.IconSize = 30;
             exitButton.ImageAlign = ContentAlignment.MiddleLeft;
-            exitButton.Location = new Point(0, 540);
+            exitButton.Location = new Point(0, 900);
+            exitButton.Margin = new Padding(4, 5, 4, 5);
             exitButton.Name = "exitButton";
-            exitButton.Padding = new Padding(10, 0, 0, 0);
-            exitButton.Size = new Size(143, 35);
+            exitButton.Padding = new Padding(14, 0, 0, 0);
+            exitButton.Size = new Size(204, 58);
             exitButton.TabIndex = 8;
             exitButton.Text = "  Exit";
             exitButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -102,10 +104,11 @@
             transactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             transactionsButton.IconSize = 30;
             transactionsButton.ImageAlign = ContentAlignment.MiddleLeft;
-            transactionsButton.Location = new Point(0, 225);
+            transactionsButton.Location = new Point(0, 374);
+            transactionsButton.Margin = new Padding(4, 5, 4, 5);
             transactionsButton.Name = "transactionsButton";
-            transactionsButton.Padding = new Padding(10, 0, 0, 0);
-            transactionsButton.Size = new Size(143, 35);
+            transactionsButton.Padding = new Padding(14, 0, 0, 0);
+            transactionsButton.Size = new Size(204, 58);
             transactionsButton.TabIndex = 6;
             transactionsButton.Text = "  Transactions";
             transactionsButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -125,10 +128,11 @@
             transferButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             transferButton.IconSize = 30;
             transferButton.ImageAlign = ContentAlignment.MiddleLeft;
-            transferButton.Location = new Point(0, 190);
+            transferButton.Location = new Point(0, 316);
+            transferButton.Margin = new Padding(4, 5, 4, 5);
             transferButton.Name = "transferButton";
-            transferButton.Padding = new Padding(10, 0, 0, 0);
-            transferButton.Size = new Size(143, 35);
+            transferButton.Padding = new Padding(14, 0, 0, 0);
+            transferButton.Size = new Size(204, 58);
             transferButton.TabIndex = 5;
             transferButton.Text = "  Transfer";
             transferButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -148,10 +152,11 @@
             cardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             cardButton.IconSize = 30;
             cardButton.ImageAlign = ContentAlignment.MiddleLeft;
-            cardButton.Location = new Point(0, 155);
+            cardButton.Location = new Point(0, 258);
+            cardButton.Margin = new Padding(4, 5, 4, 5);
             cardButton.Name = "cardButton";
-            cardButton.Padding = new Padding(10, 0, 0, 0);
-            cardButton.Size = new Size(143, 35);
+            cardButton.Padding = new Padding(14, 0, 0, 0);
+            cardButton.Size = new Size(204, 58);
             cardButton.TabIndex = 4;
             cardButton.Text = "  Card";
             cardButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -171,10 +176,11 @@
             profileButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             profileButton.IconSize = 30;
             profileButton.ImageAlign = ContentAlignment.MiddleLeft;
-            profileButton.Location = new Point(0, 120);
+            profileButton.Location = new Point(0, 200);
+            profileButton.Margin = new Padding(4, 5, 4, 5);
             profileButton.Name = "profileButton";
-            profileButton.Padding = new Padding(10, 0, 0, 0);
-            profileButton.Size = new Size(143, 35);
+            profileButton.Padding = new Padding(14, 0, 0, 0);
+            profileButton.Size = new Size(204, 58);
             profileButton.TabIndex = 3;
             profileButton.Text = "  Profile";
             profileButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -194,10 +200,11 @@
             homeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             homeButton.IconSize = 30;
             homeButton.ImageAlign = ContentAlignment.MiddleLeft;
-            homeButton.Location = new Point(0, 85);
+            homeButton.Location = new Point(0, 142);
+            homeButton.Margin = new Padding(4, 5, 4, 5);
             homeButton.Name = "homeButton";
-            homeButton.Padding = new Padding(10, 0, 0, 0);
-            homeButton.Size = new Size(143, 35);
+            homeButton.Padding = new Padding(14, 0, 0, 0);
+            homeButton.Size = new Size(204, 58);
             homeButton.TabIndex = 2;
             homeButton.Text = "  Home";
             homeButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -210,9 +217,22 @@
             panelTitle.Controls.Add(iconIstic);
             panelTitle.Dock = DockStyle.Top;
             panelTitle.Location = new Point(0, 0);
+            panelTitle.Margin = new Padding(4, 5, 4, 5);
             panelTitle.Name = "panelTitle";
-            panelTitle.Size = new Size(143, 85);
+            panelTitle.Size = new Size(204, 142);
             panelTitle.TabIndex = 1;
+            // 
+            // iconIstic
+            // 
+            iconIstic.Anchor = AnchorStyles.Top;
+            iconIstic.Image = (Image)resources.GetObject("iconIstic.Image");
+            iconIstic.Location = new Point(53, 20);
+            iconIstic.Margin = new Padding(4, 5, 4, 5);
+            iconIstic.Name = "iconIstic";
+            iconIstic.Size = new Size(89, 107);
+            iconIstic.SizeMode = PictureBoxSizeMode.CenterImage;
+            iconIstic.TabIndex = 0;
+            iconIstic.TabStop = false;
             // 
             // panelBanner
             // 
@@ -221,9 +241,10 @@
             panelBanner.Controls.Add(restoreButton);
             panelBanner.Controls.Add(closeButton);
             panelBanner.Dock = DockStyle.Top;
-            panelBanner.Location = new Point(143, 0);
+            panelBanner.Location = new Point(204, 0);
+            panelBanner.Margin = new Padding(4, 5, 4, 5);
             panelBanner.Name = "panelBanner";
-            panelBanner.Size = new Size(657, 60);
+            panelBanner.Size = new Size(939, 100);
             panelBanner.TabIndex = 1;
             panelBanner.MouseDown += panelBanner_MouseDown;
             // 
@@ -237,9 +258,10 @@
             minimizeButton.IconColor = Color.Black;
             minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             minimizeButton.IconSize = 25;
-            minimizeButton.Location = new Point(574, 0);
+            minimizeButton.Location = new Point(820, 0);
+            minimizeButton.Margin = new Padding(4, 5, 4, 5);
             minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(25, 25);
+            minimizeButton.Size = new Size(36, 42);
             minimizeButton.TabIndex = 3;
             minimizeButton.UseVisualStyleBackColor = false;
             minimizeButton.Click += minimizeButton_Click;
@@ -254,9 +276,10 @@
             maximizeButton.IconColor = Color.Black;
             maximizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             maximizeButton.IconSize = 25;
-            maximizeButton.Location = new Point(605, 0);
+            maximizeButton.Location = new Point(864, 0);
+            maximizeButton.Margin = new Padding(4, 5, 4, 5);
             maximizeButton.Name = "maximizeButton";
-            maximizeButton.Size = new Size(25, 25);
+            maximizeButton.Size = new Size(36, 42);
             maximizeButton.TabIndex = 2;
             maximizeButton.UseVisualStyleBackColor = false;
             maximizeButton.Click += maximizeButton_Click;
@@ -271,9 +294,10 @@
             restoreButton.IconColor = Color.Black;
             restoreButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             restoreButton.IconSize = 25;
-            restoreButton.Location = new Point(605, 3);
+            restoreButton.Location = new Point(864, 5);
+            restoreButton.Margin = new Padding(4, 5, 4, 5);
             restoreButton.Name = "restoreButton";
-            restoreButton.Size = new Size(25, 25);
+            restoreButton.Size = new Size(36, 42);
             restoreButton.TabIndex = 1;
             restoreButton.UseVisualStyleBackColor = false;
             restoreButton.Visible = false;
@@ -289,9 +313,10 @@
             closeButton.IconColor = Color.Black;
             closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             closeButton.IconSize = 25;
-            closeButton.Location = new Point(636, 0);
+            closeButton.Location = new Point(909, 0);
+            closeButton.Margin = new Padding(4, 5, 4, 5);
             closeButton.Name = "closeButton";
-            closeButton.Size = new Size(25, 25);
+            closeButton.Size = new Size(36, 42);
             closeButton.TabIndex = 0;
             closeButton.UseVisualStyleBackColor = false;
             closeButton.Click += closeButton_Click;
@@ -300,38 +325,30 @@
             // 
             panelScreen.BackColor = Color.White;
             panelScreen.Dock = DockStyle.Fill;
-            panelScreen.Location = new Point(143, 60);
+            panelScreen.Location = new Point(204, 100);
+            panelScreen.Margin = new Padding(4, 5, 4, 5);
             panelScreen.Name = "panelScreen";
-            panelScreen.Size = new Size(657, 540);
+            panelScreen.Size = new Size(939, 900);
             panelScreen.TabIndex = 2;
-            // 
-            // iconIstic
-            // 
-            iconIstic.Anchor = AnchorStyles.Top;
-            iconIstic.Image = (Image)resources.GetObject("iconIstic.Image");
-            iconIstic.Location = new Point(37, 12);
-            iconIstic.Name = "iconIstic";
-            iconIstic.Size = new Size(62, 64);
-            iconIstic.SizeMode = PictureBoxSizeMode.CenterImage;
-            iconIstic.TabIndex = 0;
-            iconIstic.TabStop = false;
+            panelScreen.Paint += panelScreen_Paint;
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 600);
+            ClientSize = new Size(1143, 1000);
             Controls.Add(panelScreen);
             Controls.Add(panelBanner);
             Controls.Add(panelMenu);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panelMenu.ResumeLayout(false);
             panelTitle.ResumeLayout(false);
-            panelBanner.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)iconIstic).EndInit();
+            panelBanner.ResumeLayout(false);
             ResumeLayout(false);
         }
 

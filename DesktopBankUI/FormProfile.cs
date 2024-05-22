@@ -16,5 +16,25 @@ namespace DesktopBankUI
         {
             InitializeComponent();
         }
+
+        private void FormProfile_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelPerfil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelCbu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelContenidoCbu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

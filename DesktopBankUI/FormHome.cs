@@ -15,12 +15,15 @@ namespace DesktopBankUI
     {
         string currencySign;
         string balance;
+        string nombre;
         public FormHome(Account currentAccount)
         {
+            nombre = currentAccount.User.UserName;
             currencySign = currentAccount.AccountCurrencyNavigation.CurrencySign;
             balance = Convert.ToString(currentAccount.AccountBalance);
             InitializeComponent();
             Load_Label();
+            Hello_Label(nombre);
         }
 
         public void Load_Label()
@@ -29,5 +32,18 @@ namespace DesktopBankUI
         }
 
 
+        public void Hello_Label(string nombre)
+        {
+            LabelBienvenido.Text = $"Bienvenido {nombre}";
+        }
+        private void LabelBienvenido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelBalance_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
