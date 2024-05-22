@@ -14,13 +14,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DesktopBank.BusinessObjects.Models;
 
 namespace StudentSystem.WindowsFormsCliente
 {
     public partial class FormRegister : Form
     {
-        MailService mailService = new MailService();
+        // MailService mailService = new MailService();
         private readonly CreateClientUserAndAccountService _createClientUserAndAccountService;
         private readonly NojedaisticDesktopBankContext _context;
         private readonly ClientRepository _clientRepository;
@@ -91,12 +90,6 @@ namespace StudentSystem.WindowsFormsCliente
                 {
                     // Transaction, mas de una tabla involucrada 
                     await _createClientUserAndAccountService.CreateClientUserAndAccountAsync(nombre, apellido, long.Parse(cuil), correo, user, contra, currencyId);
-
-                    MailData mailData = new MailData();
-                    mailData.MailTo = correo;
-                    mailData.Subject = "Su cuenta ha sido creada con éxito";
-                    mailData.Body = $"Le damos la bienvenida señor/a {nombre} como nuevo cliente";
-                    mailService.SendMail(mailData);
                     FormLogin formLogin = new FormLogin();
                     formLogin.Show();
                     this.Hide();

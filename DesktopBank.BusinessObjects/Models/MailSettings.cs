@@ -15,8 +15,6 @@ namespace DesktopBank.BusinessObjects.Models
         public string UserName { get; }
         public string Password { get; }
 
-
-
         public MailSettings(string server, int port, string fromName, string fromEmail, string userName, string password)
         {
             Server = server;

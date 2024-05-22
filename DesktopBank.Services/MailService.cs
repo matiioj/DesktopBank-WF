@@ -1,11 +1,8 @@
-﻿using DesktopBank.DAL;
-using DesktopBank.BusinessObjects.Models;
+﻿using DesktopBank.BusinessObjects.Models;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Net;
 using System.Net.Mail;
-
-
 
 namespace DesktopBank.Services
 {
@@ -13,28 +10,17 @@ namespace DesktopBank.Services
     {
         MailSettings settingsMail;
 
-
-        //Se traen los datos del archivo app.config
         public MailService()
         {
             var Section = (NameValueCollection)ConfigurationManager.GetSection("MailSettings");
-            if (Section != null )
-            {
-                settingsMail = new MailSettings(
+            settingsMail = new MailSettings(
                 Section["Server"], int.Parse(Section["Port"]), Section["FromName"],
-                Section["FromEmail"], Section["UserName"], Section["Password"]);
-            }
-            else
-            {
-                settingsMail = new MailSettings("smtp.gmail.com",587, "ISTIC DesktopBank", "sebastianagnolindiaz@gmail.com", "sebastianagnolindiaz@gmail.com", "khou mygq vzvm ivty");
-            }
-
+                Section["FromEmail"], Section["UserName"], Section["Password"]
+                );
         }
-        
+
         public void SendMail(MailData dataMail)
         {
-
-            //Cuerpo del mail
             var mail = new MailMessage();
             mail.To.Add(dataMail.MailTo);
             mail.Subject = dataMail.Subject;
@@ -42,7 +28,6 @@ namespace DesktopBank.Services
             mail.IsBodyHtml = true;
             mail.Body = dataMail.Body;
 
-            //Conexión con el cliente
             var client = new SmtpClient();
             client.Host = settingsMail.Server;
             client.Port = settingsMail.Port;
@@ -50,7 +35,6 @@ namespace DesktopBank.Services
                 settingsMail.Password);
             client.EnableSsl = true;
 
-            //Se envía el correo
             client.Send(mail);
             client.Dispose();
 
