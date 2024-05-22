@@ -31,7 +31,7 @@ namespace DesktopBankUI
         {
             LabelContenidoAlias.Text = alias;
             LabelContenidoCbu.Text = cbu;
-            LabelContenidoCuil.Text = alias;
+            LabelContenidoCuil.Text = Convert.ToString(CUIL);
         }
         
     }

@@ -18,7 +18,7 @@ namespace DesktopBankUI
         string nombre;
         public FormHome(Account currentAccount)
         {
-            nombre = (currentAccount.User.Client.ClientName).ToUpper();
+            nombre = currentAccount.User.Client.ClientName;
             currencySign = currentAccount.AccountCurrencyNavigation.CurrencySign;
             balance = Convert.ToString(currentAccount.AccountBalance);
 
@@ -29,7 +29,7 @@ namespace DesktopBankUI
         public void Load_Labels()
         {
             labelBalance.Text = currencySign + balance;
-            LabelBienvenido.Text = $"Bienvenido {nombre}";
+            LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
         }
     }
 }
