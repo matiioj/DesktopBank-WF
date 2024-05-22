@@ -9,24 +9,35 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using DesktopBank.Services;
+using DesktopBank.DAL;
+using DesktopBank.DAL.Repositories;
+using DesktopBank.BusinessObjects.Generated.Models;
 
 namespace DesktopBankUI
 {
     public partial class FormMain : Form
     {
         private int borderSize = 1;
-        private readonly SessionService? _sessionService;
+        private readonly AccountInfoService _accountInfoService;
+        private readonly AccountRepository _accountRepository;
+        private readonly NojedaisticDesktopBankContext _context;
+        private readonly Account _currentAccount;
 
         // Make a dragable window without border calling Windows API 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        public FormMain(SessionService? _sessionService)
+        
+        public FormMain(int userId)
         {
+            _context = new NojedaisticDesktopBankContext();
+            _accountRepository = new AccountRepository(_context);
+            _accountInfoService = new AccountInfoService(_context, _accountRepository);
+            _currentAccount = _accountInfoService.GetAccountByUserId(userId);
+
             InitializeComponent();
-            var currentUser = _sessionService.GetUser();
-            FormHome formHome = new();
+            FormHome formHome = new(_currentAccount);
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
@@ -34,9 +45,7 @@ namespace DesktopBankUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //Application.Exit();
-            FormLogin formLogin = new();
-            openFormInsidePanel(formLogin);
+            Application.Exit();
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -84,7 +93,7 @@ namespace DesktopBankUI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            FormHome formHome = new();
+            FormHome formHome = new(_currentAccount);
             openFormInsidePanel(formHome); //abrir en misma ventana
         }
 

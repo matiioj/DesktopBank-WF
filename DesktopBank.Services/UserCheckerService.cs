@@ -12,7 +12,7 @@ namespace DesktopBank.Services
     public class UserCheckerService
     {
         private readonly IUserRepository? _userRepository;
-        private User _currentUser;
+        
 
         public UserCheckerService(IUserRepository userRepository) 
         {
@@ -35,11 +35,6 @@ namespace DesktopBank.Services
             message += "Los datos no concuerdan con ningun registro existente.";
 
             return message;
-        }
-
-        public User GetUser() 
-        {
-            return _currentUser;
         }
     }
 }

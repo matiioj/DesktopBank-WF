@@ -41,9 +41,9 @@ namespace DesktopBankUI
 
 
             var message = _sessionService.CredentialsChecker(usuarioLogin, contraLogin);
-            if (int.TryParse(message, out _))
+            if (int.TryParse(message, out int id))
             {
-                FormMain formMain = new FormMain(int(message));
+                FormMain formMain = new FormMain(id);
                 formMain.Show();
                 this.Hide(); // oculta FormLogin
             }
