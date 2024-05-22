@@ -53,16 +53,6 @@ namespace DesktopBank.DAL.Repositories
                 .FirstOrDefault(a => a.AccountCbu == accountCbu);
         }
 
-        public IEnumerable<Account> GetByClientId(int clientId)
-        {
-            return _context.Accounts
-                .Include(a => a.User)
-                .Include(a => a.AccountCurrencyNavigation)
-                .Include(a => a.Cards)
-                .Where(a => a.UserId == clientId)
-                .ToList();
-        }
-
         public IEnumerable<Account> GetByCurrencyId(int currencyId)
         {
             return _context.Accounts
@@ -82,14 +72,14 @@ namespace DesktopBank.DAL.Repositories
                 .FirstOrDefault(a => a.AccountId == accountId);
         }
 
-        public IEnumerable<Account> GetByUserId(int userId)
+        public Account GetByUserId(int userId)
         {
             return _context.Accounts
                 .Include(a => a.User)
                 .Include(a => a.AccountCurrencyNavigation)
                 .Include(a => a.Cards)
                 .Where(a => a.UserId == userId)
-                .ToList();
+                .FirstOrDefault();
         }
 
         public void Insert(Account account)

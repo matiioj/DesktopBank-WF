@@ -18,10 +18,12 @@ namespace DesktopBank.Services
         //dependencias
         private readonly IAccountRepository _accountRepository;
         private readonly UnitOfWork _unitOfWork;
-        public CreateAccountService(IAccountRepository accountRepository, UnitOfWork unitOfWork)
+        private readonly GenerateNumbersService _generateNumbersService;
+        public CreateAccountService(IAccountRepository accountRepository, UnitOfWork unitOfWork, GenerateNumbersService generateNumbersService)
         {
             _accountRepository = accountRepository;
             _unitOfWork = unitOfWork;
+            _generateNumbersService = generateNumbersService;
         }
         public async Task<Account> CreateAccountAsync(int userId, int currencyId)
         {
@@ -38,15 +40,13 @@ namespace DesktopBank.Services
             return account;
 
         }
-
-        private readonly Random _random = new Random();
-            
+        
         public long GenerateCBU()
         {
             long cbu;
             do
             {
-                cbu = GenerateRandomNumber(19);
+                cbu = _generateNumbersService.GenerateRandomNumber(19);
             } while (_accountRepository.GetByCbu(cbu) != null);
             return cbu;
         }
@@ -62,18 +62,7 @@ namespace DesktopBank.Services
             return alias;
         }
 
-        private long GenerateRandomNumber(int length)
-        {
-            const string digits = "0123456789";
-            var result = new StringBuilder(length);
-
-            for (int i = 0; i < length; i++)
-            {
-                result.Append(digits[_random.Next(digits.Length)]);
-            }
-
-            return long.Parse(result.ToString());
-        }
+        
         private List<string> GenerateListForAlias()
         {
             var list = new List<string> {"CORCHO","FINCA","DORADO","CHARCO","CRUDO", "POZO", "CHANCHO", "PLATA", "PALA", "PICO", "PATO", "CHAPA", "METAL", "MOTO", "CAMPANA" };
