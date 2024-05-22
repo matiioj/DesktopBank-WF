@@ -20,30 +20,40 @@ namespace StudentSystem.WindowsFormsCliente
     public partial class FormRegister : Form
     {
         // MailService mailService = new MailService();
-        private readonly CreateClientUserAndAccountService _createClientUserAndAccountService;
+        
         private readonly NojedaisticDesktopBankContext _context;
-        private readonly ClientRepository _clientRepository;
-        private readonly CurrencyRepository _currencyRepository;
-        private readonly UserRepository _userRepository;
-        private readonly AccountRepository _accountRepository;
+        private readonly IClientRepository _clientRepository;
+        private readonly ICurrencyRepository _currencyRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IAccountRepository _accountRepository;
+        private readonly ICardRepository _cardRepository;
+        private readonly GenerateNumbersService _generateNumbersService;
         private readonly CreateClientService _clientService;
         private readonly CreateUserService _userService;
         private readonly CreateAccountService _accountService;
+        private readonly CreateCardService _cardService;
+        private readonly CreateBankUserEntitiesService _createBankUserEntitiesService;
         private readonly ValidationService _validationService;
         private readonly UnitOfWork _unitOfWork;
         public FormRegister()
         {
             _context = new NojedaisticDesktopBankContext();
+
             _clientRepository = new ClientRepository(_context);
             _currencyRepository = new CurrencyRepository(_context);
             _userRepository = new UserRepository(_context);
             _accountRepository = new AccountRepository(_context);
+            _cardRepository = new CardRepository(_context);
             _unitOfWork = new UnitOfWork(_context);
+
+            _generateNumbersService = new GenerateNumbersService();
             _clientService = new CreateClientService(_clientRepository, _unitOfWork);
             _userService = new CreateUserService(_userRepository, _unitOfWork);
-            _accountService = new CreateAccountService(_accountRepository, _unitOfWork);
-            _createClientUserAndAccountService = new CreateClientUserAndAccountService(_clientService, _userService, _accountService, _unitOfWork);
+            _accountService = new CreateAccountService(_accountRepository, _unitOfWork, _generateNumbersService);
+            _cardService = new CreateCardService(_cardRepository, _unitOfWork, _generateNumbersService);
+            _createBankUserEntitiesService = new CreateBankUserEntitiesService(_clientService, _userService, _accountService, _cardService, _unitOfWork);
             _validationService = new();
+
             InitializeComponent();
             LoadCurrencies();
         }
@@ -89,7 +99,7 @@ namespace StudentSystem.WindowsFormsCliente
                 try
                 {
                     // Transaction, mas de una tabla involucrada 
-                    await _createClientUserAndAccountService.CreateClientUserAndAccountAsync(nombre, apellido, long.Parse(cuil), correo, user, contra, currencyId);
+                    await _createBankUserEntitiesService.CreateBankUserEntitiesAsync(nombre, apellido, long.Parse(cuil), correo, user, contra, currencyId);
                     FormLogin formLogin = new FormLogin();
                     formLogin.Show();
                     this.Hide();
@@ -97,10 +107,10 @@ namespace StudentSystem.WindowsFormsCliente
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ocurrió un error al guardar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Ocurrió un error al registrar el usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (ex.InnerException != null)
                     {
-                        MessageBox.Show($"Ocurrió un error al guardar los datos internos: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

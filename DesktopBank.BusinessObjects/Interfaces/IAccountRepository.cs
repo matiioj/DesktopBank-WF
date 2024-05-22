@@ -16,8 +16,7 @@ namespace DesktopBank.BusinessObjects.Interfaces
         Account GetById(int accountId);
         Account GetByAlias(string accountAlias);
         Account GetByCbu(long accountCbu);
-        IEnumerable<Account> GetByUserId(int userId);
-        IEnumerable<Account> GetByClientId(int clientId);
+        Account GetByUserId(int userId);
         IEnumerable<Account> GetByCurrencyId(int currencyId);
         void Insert(Account account);
         void Update(Account account);

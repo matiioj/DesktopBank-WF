@@ -28,42 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            moneySignIcon = new FontAwesome.Sharp.IconButton();
             recentTransactionsButton = new FontAwesome.Sharp.IconButton();
             helpButtonPanel = new FontAwesome.Sharp.IconButton();
             LabelBienvenido = new Label();
             LabelNombreDeUsuario = new Label();
-            flowLayoutPanel1.SuspendLayout();
+            labelBalance = new Label();
             SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(moneySignIcon);
-            flowLayoutPanel1.Location = new Point(12, 42);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(360, 45);
-            flowLayoutPanel1.TabIndex = 12;
-            // 
-            // moneySignIcon
-            // 
-            moneySignIcon.AutoSize = true;
-            moneySignIcon.Enabled = false;
-            moneySignIcon.FlatAppearance.BorderSize = 0;
-            moneySignIcon.FlatStyle = FlatStyle.Flat;
-            moneySignIcon.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            moneySignIcon.IconChar = FontAwesome.Sharp.IconChar.DollarSign;
-            moneySignIcon.IconColor = Color.Black;
-            moneySignIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            moneySignIcon.IconSize = 25;
-            moneySignIcon.Location = new Point(3, 3);
-            moneySignIcon.Name = "moneySignIcon";
-            moneySignIcon.Size = new Size(75, 40);
-            moneySignIcon.TabIndex = 0;
-            moneySignIcon.Text = "AR";
-            moneySignIcon.TextAlign = ContentAlignment.TopCenter;
-            moneySignIcon.TextImageRelation = TextImageRelation.TextBeforeImage;
-            moneySignIcon.UseVisualStyleBackColor = true;
             // 
             // recentTransactionsButton
             // 
@@ -121,36 +91,40 @@
             LabelNombreDeUsuario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
             LabelNombreDeUsuario.Location = new Point(139, 9);
             LabelNombreDeUsuario.Name = "LabelNombreDeUsuario";
-            LabelNombreDeUsuario.Size = new Size(22, 30);
+            LabelNombreDeUsuario.Size = new Size(0, 30);
             LabelNombreDeUsuario.TabIndex = 14;
-            LabelNombreDeUsuario.Text = "_";
+            // 
+            // labelBalance
+            // 
+            labelBalance.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            labelBalance.Location = new Point(20, 64);
+            labelBalance.Name = "labelBalance";
+            labelBalance.Size = new Size(240, 45);
+            labelBalance.TabIndex = 15;
+            labelBalance.Text = "_";
             // 
             // FormHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 432);
+            Controls.Add(labelBalance);
             Controls.Add(LabelNombreDeUsuario);
             Controls.Add(LabelBienvenido);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(recentTransactionsButton);
             Controls.Add(helpButtonPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormHome";
             Text = "FormHome";
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private FlowLayoutPanel flowLayoutPanel1;
-        private FontAwesome.Sharp.IconButton moneySignIcon;
         private FontAwesome.Sharp.IconButton recentTransactionsButton;
         private FontAwesome.Sharp.IconButton helpButtonPanel;
         private Label LabelBienvenido;
         private Label LabelNombreDeUsuario;
+        private Label labelBalance;
     }
 }
