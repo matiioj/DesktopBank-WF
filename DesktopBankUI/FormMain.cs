@@ -15,14 +15,14 @@ namespace DesktopBankUI
     public partial class FormMain : Form
     {
         private int borderSize = 1;
-        private readonly SessionService _sessionService;
+        private readonly SessionService? _sessionService;
 
         // Make a dragable window without border calling Windows API 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        public FormMain(SessionService _sessionService)
+        public FormMain(SessionService? _sessionService)
         {
             InitializeComponent();
             var currentUser = _sessionService.GetUser();

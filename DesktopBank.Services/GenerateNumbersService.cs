@@ -26,21 +26,21 @@ namespace DesktopBank.Services
             return long.Parse(result.ToString());
         }
 
-        public long GenerateRandomNumberForCVV() // hay que cambiar el tipo byte en bdd, momentaneamente se hace el metodo para guardar igual
+        public long GenerateRandomNumberForCVV() // hay que cambiar el tipo byte a int en bdd, momentaneamente se hace el metodo para guardar igual
         {
             const string digits = "123456789";
             var result = new StringBuilder(3);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 result.Append(digits[_random.Next(digits.Length)]);
+                if(i == 0) 
+                {
+                    result.Append(digits[_random.Next(2)]);
+                }
                 if(i == 1) 
                 {
-                    result.Append(digits[_random.Next(5)]);
-                }
-                if (i == 2) 
-                {
-                    result.Append(digits[_random.Next(5)]);
+                    result.Append(digits[_random.Next(4)]);
                 }
             }
 

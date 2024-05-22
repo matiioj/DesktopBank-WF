@@ -6,19 +6,20 @@ using DesktopBank.Services;
 using Microsoft.IdentityModel.Tokens;
 using StudentSystem.WindowsFormsCliente;
 using System.Windows.Forms.Design;
+using System.Windows.Media.Media3D;
 
 namespace DesktopBankUI
 {
     public partial class FormLogin : Form
     {
         private readonly NojedaisticDesktopBankContext _context;
-        private readonly SessionService _sessionService;
+        private readonly UserCheckerService _sessionService;
         private readonly UserRepository _userRepository;
         public FormLogin()
         {
             _context = new NojedaisticDesktopBankContext();
             _userRepository = new UserRepository(_context);
-            _sessionService = new SessionService(_userRepository);
+            _sessionService = new UserCheckerService(_userRepository);
             InitializeComponent();   
         }
         private void registerLabel_Click(object sender, EventArgs e)
@@ -40,10 +41,9 @@ namespace DesktopBankUI
 
 
             var message = _sessionService.CredentialsChecker(usuarioLogin, contraLogin);
-
-            if (message.IsNullOrEmpty())
+            if (int.TryParse(message, out _))
             {
-                FormMain formMain = new FormMain(_sessionService);
+                FormMain formMain = new FormMain(int(message));
                 formMain.Show();
                 this.Hide(); // oculta FormLogin
             }

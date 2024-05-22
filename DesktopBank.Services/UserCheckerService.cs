@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace DesktopBank.Services
 {
-    public class SessionService
+    public class UserCheckerService
     {
         private readonly IUserRepository? _userRepository;
         private User _currentUser;
 
-        public SessionService(IUserRepository userRepository) 
+        public UserCheckerService(IUserRepository userRepository) 
         {
             _userRepository = userRepository;
         }
@@ -27,7 +27,7 @@ namespace DesktopBank.Services
             {
                 if (user.UserPassword == password)
                 {
-                    _currentUser = user;
+                    message += user.UserId;
                     return message;
                 }
             }

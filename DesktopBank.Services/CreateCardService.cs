@@ -26,12 +26,12 @@ namespace DesktopBank.Services
         {
             Card newCard = new Card
             {
-                CardNumber = name,
-                CardAccountId = surname,
-                CardExpirationDate = cuil,
-                CardCvv = (byte)_generateNumbersService.GenerateRandomNumber(3),
-                TypeOfCard = 0,
-                StatusOfCard = 1,
+                CardNumber = Convert.ToString(_generateNumbersService.GenerateRandomNumber(16)),
+                CardAccountId = accountId,
+                CardExpirationDate = DateTime.Parse("2030-05-31 23:59:59"),
+                CardCvv = (byte)_generateNumbersService.GenerateRandomNumberForCVV(),
+                TypeOfCard = 1, // debit
+                StatusOfCard = 1, // active
                 CardCurrency = (byte)accountCurrency
             };
 

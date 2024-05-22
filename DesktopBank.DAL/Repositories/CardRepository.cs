@@ -10,7 +10,7 @@ using Microsoft.Identity.Client;
 
 namespace DesktopBank.DAL.Repositories
 {
-    internal class CardRepository : ICardRepository
+    public class CardRepository : ICardRepository
     {
         NojedaisticDesktopBankContext _context;
         public CardRepository(NojedaisticDesktopBankContext context) 
