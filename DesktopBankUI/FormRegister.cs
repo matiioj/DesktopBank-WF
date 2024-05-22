@@ -14,12 +14,13 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopBank.BusinessObjects.Models;
 
 namespace StudentSystem.WindowsFormsCliente
 {
     public partial class FormRegister : Form
     {
-        // MailService mailService = new MailService();
+        MailService mailService = new MailService();
         
         private readonly NojedaisticDesktopBankContext _context;
         private readonly IClientRepository _clientRepository;
@@ -100,6 +101,12 @@ namespace StudentSystem.WindowsFormsCliente
                 {
                     // Transaction, mas de una tabla involucrada 
                     await _createBankUserEntitiesService.CreateBankUserEntitiesAsync(nombre, apellido, long.Parse(cuil), correo, user, contra, currencyId);
+                    MailData mailData = new MailData();
+                    mailData.MailTo = correo;
+                    mailData.Subject = "Bienvenido a ISTIC DesktopBank";
+                    mailData.Body = $"Bienvenido señor/a {nombre} como nuevo cliente";
+                    mailService.SendMail(mailData);
+
                     FormLogin formLogin = new FormLogin();
                     formLogin.Show();
                     this.Hide();
