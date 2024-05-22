@@ -87,7 +87,6 @@
             LabelBienvenido.Size = new Size(177, 45);
             LabelBienvenido.TabIndex = 13;
             LabelBienvenido.Text = "Bienvenido";
-            LabelBienvenido.Click += LabelBienvenido_Click;
             // 
             // LabelNombreDeUsuario
             // 
@@ -108,7 +107,7 @@
             labelBalance.Size = new Size(343, 75);
             labelBalance.TabIndex = 15;
             labelBalance.Text = "_";
-            labelBalance.Click += labelBalance_Click;
+            
             // 
             // FormHome
             // 

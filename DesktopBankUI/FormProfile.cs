@@ -15,56 +15,24 @@ namespace DesktopBankUI
     {
         string cbu;
         string alias;
-        int CUIL;
+        long CUIL;
         public FormProfile(Account currentAccount)
         {
             cbu = currentAccount.AccountCbu.ToString();
             alias = currentAccount.AccountAlias;
+            CUIL = currentAccount.User.Client.ClientCuil; 
 
             InitializeComponent();
-            Datos_Usuario();
+            CargarDatos_Usuario();
         }
 
 
-        public void Datos_Usuario()
+        public void CargarDatos_Usuario()
         {
             LabelContenidoAlias.Text = alias;
             LabelContenidoCbu.Text = cbu;
-
+            LabelContenidoCuil.Text = alias;
         }
-        private void FormProfile_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelPerfil_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelCbu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelContenidoCbu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelContenidoCuil_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelContenidoNumCuenta_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LabelContenidoAlias_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

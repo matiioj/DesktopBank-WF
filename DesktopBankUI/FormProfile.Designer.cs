@@ -47,7 +47,7 @@
             LabelPerfil.Size = new Size(134, 65);
             LabelPerfil.TabIndex = 0;
             LabelPerfil.Text = "Perfil";
-            LabelPerfil.Click += LabelPerfil_Click;
+            
             // 
             // LabelCbu
             // 
@@ -59,7 +59,7 @@
             LabelCbu.Size = new Size(119, 65);
             LabelCbu.TabIndex = 1;
             LabelCbu.Text = "CBU";
-            LabelCbu.Click += LabelCbu_Click;
+            
             // 
             // LabelCuil
             // 
@@ -93,7 +93,7 @@
             LabelContenidoCbu.Size = new Size(48, 65);
             LabelContenidoCbu.TabIndex = 5;
             LabelContenidoCbu.Text = "_";
-            LabelContenidoCbu.Click += LabelContenidoCbu_Click;
+            
             // 
             // LabelContenidoAlias
             // 
@@ -105,7 +105,7 @@
             LabelContenidoAlias.Size = new Size(48, 65);
             LabelContenidoAlias.TabIndex = 6;
             LabelContenidoAlias.Text = "_";
-            LabelContenidoAlias.Click += LabelContenidoAlias_Click;
+            
             // 
             // LabelContenidoCuil
             // 
@@ -117,7 +117,7 @@
             LabelContenidoCuil.Size = new Size(48, 65);
             LabelContenidoCuil.TabIndex = 8;
             LabelContenidoCuil.Text = "_";
-            LabelContenidoCuil.Click += LabelContenidoCuil_Click;
+            
             // 
             // FormProfile
             // 
@@ -137,7 +137,7 @@
             Name = "FormProfile";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormProfile";
-            Load += FormProfile_Load;
+            
             ResumeLayout(false);
             PerformLayout();
         }

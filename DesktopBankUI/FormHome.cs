@@ -18,32 +18,18 @@ namespace DesktopBankUI
         string nombre;
         public FormHome(Account currentAccount)
         {
-            nombre = currentAccount.User.UserName;
+            nombre = (currentAccount.User.Client.ClientName).ToUpper();
             currencySign = currentAccount.AccountCurrencyNavigation.CurrencySign;
             balance = Convert.ToString(currentAccount.AccountBalance);
+
             InitializeComponent();
-            Load_Label();
-            Hello_Label(nombre);
+            Load_Labels();
         }
 
-        public void Load_Label()
+        public void Load_Labels()
         {
             labelBalance.Text = currencySign + balance;
-        }
-
-
-        public void Hello_Label(string nombre)
-        {
             LabelBienvenido.Text = $"Bienvenido {nombre}";
-        }
-        private void LabelBienvenido_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelBalance_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
