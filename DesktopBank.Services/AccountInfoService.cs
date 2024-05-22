@@ -25,5 +25,17 @@ namespace DesktopBank.Services
             Account currentAccount = _accountRepository.GetByUserId(userId);
             return currentAccount;
         }
+
+        public Account GetAccountByAlias(string alias) 
+        {
+            Account foundAccount = _accountRepository.GetByAlias(alias);
+            return foundAccount;
+        }
+
+        public Account GetAccountByCbu(long cbu) 
+        {
+            Account foundAccount = _accountRepository.GetByCbu(cbu);
+            return foundAccount;
+        }
     }
 }

@@ -11,6 +11,10 @@ namespace DesktopBank.BusinessObjects.Interfaces
     {
         IEnumerable<Operation> GetOperations();
         Operation GetOperation(int id);
+        IEnumerable<Operation> GetOperationsBySenderCBU(long cbu);
+        IEnumerable<Operation> GetOperationsByReceiverCBU(long cbu);
+        IEnumerable<Operation> GetOperationsByCurrency(int currencyId);
+        IEnumerable<Operation> GetOperationsByOperationCode(int operationCode);
         void CreateOperation(Operation operation);
         void UpdateOperation(Operation operation);
         void DeleteOperation(int id);
