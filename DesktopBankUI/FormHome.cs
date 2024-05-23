@@ -20,13 +20,6 @@ namespace DesktopBankUI
         string currencySign;
         string balance;
         string nombre;
-<<<<<<< HEAD
-        public FormHome(Account currentAccount)
-        {
-            nombre = currentAccount.User.Client.ClientName;
-            currencySign = currentAccount.AccountCurrencyNavigation.CurrencySign;
-            balance = Convert.ToString(currentAccount.AccountBalance);
-=======
         Account _currentAccount;
 
         private readonly AccountInfoService _accountInfoService;
@@ -42,7 +35,6 @@ namespace DesktopBankUI
 
 
 
->>>>>>> origin/operationRepositories
 
             InitializeComponent();
             Load_Labels();
@@ -56,8 +48,6 @@ namespace DesktopBankUI
             labelBalance.Text = currencySign + balance;
             LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
         }
-<<<<<<< HEAD
-=======
 
         private async void depositButton_Click(object sender, EventArgs e)
         {
@@ -108,6 +98,5 @@ namespace DesktopBankUI
                 }
             }
         }
->>>>>>> origin/operationRepositories
     }
 }
