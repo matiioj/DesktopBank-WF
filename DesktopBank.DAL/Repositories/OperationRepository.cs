@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DesktopBank.DAL.Repositories
 {
-    internal class OperationRepository : IOperationRepository
+    public class OperationRepository : IOperationRepository
     {
 
         private readonly NojedaisticDesktopBankContext _context;

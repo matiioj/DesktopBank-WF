@@ -12,6 +12,7 @@ using DesktopBank.Services;
 using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.BusinessObjects.Interfaces;
 
 namespace DesktopBankUI
 {
@@ -22,6 +23,12 @@ namespace DesktopBankUI
         private readonly AccountRepository _accountRepository;
         private readonly NojedaisticDesktopBankContext _context;
         private readonly Account _currentAccount;
+        private readonly DepositBalanceService _depositBalanceService;
+        private readonly ExtractBalanceService _extractBalanceService;
+        private readonly CreateOperationService _createOperationService;
+        private readonly UnitOfWork _unitOfWork;
+        private readonly GenerateNumbersService _generateNumbersService;
+        private readonly IOperationRepository _operationRepository;
 
         // Se utiliza una API de Windows para poder generar una ventana arrastrable 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -32,12 +39,20 @@ namespace DesktopBankUI
         public FormMain(int userId)
         {
             _context = new NojedaisticDesktopBankContext();
+            _unitOfWork = new UnitOfWork(_context);
             _accountRepository = new AccountRepository(_context);
+            _operationRepository = new OperationRepository(_context);
+            
+            _generateNumbersService = new();
+            _createOperationService = new CreateOperationService(_operationRepository, _unitOfWork, _generateNumbersService);
+            _extractBalanceService = new ExtractBalanceService(_accountRepository, _createOperationService, _unitOfWork);
+            _depositBalanceService = new DepositBalanceService(_accountRepository, _createOperationService, _unitOfWork);
             _accountInfoService = new AccountInfoService(_context, _accountRepository);
+
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
 
             InitializeComponent();
-            FormHome formHome = new(_currentAccount);
+            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
@@ -96,7 +111,7 @@ namespace DesktopBankUI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            FormHome formHome = new(_currentAccount);
+            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
             openFormInsidePanel(formHome); //abrir en misma ventana
         }
 
