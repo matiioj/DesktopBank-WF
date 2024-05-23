@@ -70,12 +70,7 @@
             helpButtonPanel.IconColor = Color.Black;
             helpButtonPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             helpButtonPanel.IconSize = 30;
-<<<<<<< HEAD
-            helpButtonPanel.Location = new Point(21, 433);
-            helpButtonPanel.Margin = new Padding(4, 5, 4, 5);
-=======
             helpButtonPanel.Location = new Point(15, 365);
->>>>>>> origin/operationRepositories
             helpButtonPanel.Name = "helpButtonPanel";
             helpButtonPanel.Size = new Size(514, 63);
             helpButtonPanel.TabIndex = 10;
@@ -116,67 +111,14 @@
             labelBalance.Text = "_";
             
             // 
-            // depositButton
-            // 
-            depositButton.BackColor = Color.Gainsboro;
-            depositButton.FlatAppearance.BorderColor = Color.Black;
-            depositButton.FlatStyle = FlatStyle.Flat;
-            depositButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            depositButton.ForeColor = Color.Black;
-            depositButton.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
-            depositButton.IconColor = Color.Black;
-            depositButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            depositButton.IconSize = 30;
-            depositButton.Location = new Point(15, 277);
-            depositButton.Name = "depositButton";
-            depositButton.Size = new Size(360, 38);
-            depositButton.TabIndex = 16;
-            depositButton.Text = "  Deposit";
-            depositButton.TextAlign = ContentAlignment.MiddleRight;
-            depositButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            depositButton.UseVisualStyleBackColor = false;
-            depositButton.Click += depositButton_Click;
-            // 
-            // TxtAmount
-            // 
-            TxtAmount.Location = new Point(15, 248);
-            TxtAmount.Name = "TxtAmount";
-            TxtAmount.Size = new Size(265, 23);
-            TxtAmount.TabIndex = 17;
-            // 
-            // extractButton
-            // 
-            extractButton.BackColor = Color.Gainsboro;
-            extractButton.FlatAppearance.BorderColor = Color.Black;
-            extractButton.FlatStyle = FlatStyle.Flat;
-            extractButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            extractButton.ForeColor = Color.Black;
-            extractButton.IconChar = FontAwesome.Sharp.IconChar.ArrowTurnDown;
-            extractButton.IconColor = Color.Black;
-            extractButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            extractButton.IconSize = 24;
-            extractButton.Location = new Point(15, 321);
-            extractButton.Name = "extractButton";
-            extractButton.Size = new Size(360, 38);
-            extractButton.TabIndex = 18;
-            extractButton.Text = "  Extract";
-            extractButton.TextAlign = ContentAlignment.MiddleRight;
-            extractButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            extractButton.UseVisualStyleBackColor = false;
-            extractButton.Click += extractButton_Click;
-            // 
             // FormHome
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD
-            ClientSize = new Size(1143, 720);
-=======
             ClientSize = new Size(800, 432);
             Controls.Add(extractButton);
             Controls.Add(TxtAmount);
             Controls.Add(depositButton);
->>>>>>> origin/operationRepositories
             Controls.Add(labelBalance);
             Controls.Add(LabelNombreDeUsuario);
             Controls.Add(LabelBienvenido);
