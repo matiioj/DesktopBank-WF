@@ -31,121 +31,113 @@
             LabelPerfil = new Label();
             LabelCbu = new Label();
             LabelCuil = new Label();
-            LabelNumeroDeCuenta = new Label();
             LabelAlias = new Label();
             LabelContenidoCbu = new Label();
             LabelContenidoAlias = new Label();
-            LabelContenidoNumCuenta = new Label();
             LabelContenidoCuil = new Label();
             SuspendLayout();
             // 
             // LabelPerfil
             // 
             LabelPerfil.AutoSize = true;
-            LabelPerfil.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelPerfil.Location = new Point(12, 9);
+            LabelPerfil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelPerfil.Location = new Point(13, 21);
+            LabelPerfil.Margin = new Padding(4, 0, 4, 0);
             LabelPerfil.Name = "LabelPerfil";
-            LabelPerfil.Size = new Size(61, 30);
+            LabelPerfil.Size = new Size(134, 65);
             LabelPerfil.TabIndex = 0;
             LabelPerfil.Text = "Perfil";
+            
             // 
             // LabelCbu
             // 
             LabelCbu.AutoSize = true;
-            LabelCbu.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelCbu.Location = new Point(12, 56);
+            LabelCbu.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelCbu.Location = new Point(13, 248);
+            LabelCbu.Margin = new Padding(4, 0, 4, 0);
             LabelCbu.Name = "LabelCbu";
-            LabelCbu.Size = new Size(45, 25);
+            LabelCbu.Size = new Size(119, 65);
             LabelCbu.TabIndex = 1;
             LabelCbu.Text = "CBU";
+            
             // 
             // LabelCuil
             // 
             LabelCuil.AutoSize = true;
-            LabelCuil.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelCuil.Location = new Point(12, 155);
+            LabelCuil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelCuil.Location = new Point(13, 394);
+            LabelCuil.Margin = new Padding(4, 0, 4, 0);
             LabelCuil.Name = "LabelCuil";
-            LabelCuil.Size = new Size(48, 25);
+            LabelCuil.Size = new Size(127, 65);
             LabelCuil.TabIndex = 2;
             LabelCuil.Text = "CUIL";
-            // 
-            // LabelNumeroDeCuenta
-            // 
-            LabelNumeroDeCuenta.AutoSize = true;
-            LabelNumeroDeCuenta.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNumeroDeCuenta.Location = new Point(12, 120);
-            LabelNumeroDeCuenta.Name = "LabelNumeroDeCuenta";
-            LabelNumeroDeCuenta.Size = new Size(159, 25);
-            LabelNumeroDeCuenta.TabIndex = 3;
-            LabelNumeroDeCuenta.Text = "Numero de cuenta";
             // 
             // LabelAlias
             // 
             LabelAlias.AutoSize = true;
-            LabelAlias.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelAlias.Location = new Point(12, 86);
+            LabelAlias.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelAlias.Location = new Point(13, 318);
+            LabelAlias.Margin = new Padding(4, 0, 4, 0);
             LabelAlias.Name = "LabelAlias";
-            LabelAlias.Size = new Size(49, 25);
+            LabelAlias.Size = new Size(127, 65);
             LabelAlias.TabIndex = 4;
             LabelAlias.Text = "Alias";
             // 
             // LabelContenidoCbu
             // 
             LabelContenidoCbu.AutoSize = true;
-            LabelContenidoCbu.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoCbu.Location = new Point(209, 56);
+            LabelContenidoCbu.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelContenidoCbu.Location = new Point(295, 226);
+            LabelContenidoCbu.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoCbu.Name = "LabelContenidoCbu";
-            LabelContenidoCbu.Size = new Size(19, 25);
+            LabelContenidoCbu.Size = new Size(48, 65);
             LabelContenidoCbu.TabIndex = 5;
             LabelContenidoCbu.Text = "_";
+            
             // 
             // LabelContenidoAlias
             // 
             LabelContenidoAlias.AutoSize = true;
-            LabelContenidoAlias.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoAlias.Location = new Point(209, 86);
+            LabelContenidoAlias.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelContenidoAlias.Location = new Point(295, 294);
+            LabelContenidoAlias.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoAlias.Name = "LabelContenidoAlias";
-            LabelContenidoAlias.Size = new Size(19, 25);
+            LabelContenidoAlias.Size = new Size(48, 65);
             LabelContenidoAlias.TabIndex = 6;
             LabelContenidoAlias.Text = "_";
-            // 
-            // LabelContenidoNumCuenta
-            // 
-            LabelContenidoNumCuenta.AutoSize = true;
-            LabelContenidoNumCuenta.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoNumCuenta.Location = new Point(209, 120);
-            LabelContenidoNumCuenta.Name = "LabelContenidoNumCuenta";
-            LabelContenidoNumCuenta.Size = new Size(19, 25);
-            LabelContenidoNumCuenta.TabIndex = 7;
-            LabelContenidoNumCuenta.Text = "_";
+            
             // 
             // LabelContenidoCuil
             // 
             LabelContenidoCuil.AutoSize = true;
-            LabelContenidoCuil.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoCuil.Location = new Point(209, 155);
+            LabelContenidoCuil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelContenidoCuil.Location = new Point(295, 378);
+            LabelContenidoCuil.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoCuil.Name = "LabelContenidoCuil";
-            LabelContenidoCuil.Size = new Size(19, 25);
+            LabelContenidoCuil.Size = new Size(48, 65);
             LabelContenidoCuil.TabIndex = 8;
             LabelContenidoCuil.Text = "_";
+            
             // 
             // FormProfile
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 411);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(1120, 685);
             Controls.Add(LabelContenidoCuil);
-            Controls.Add(LabelContenidoNumCuenta);
             Controls.Add(LabelContenidoAlias);
             Controls.Add(LabelContenidoCbu);
             Controls.Add(LabelAlias);
-            Controls.Add(LabelNumeroDeCuenta);
             Controls.Add(LabelCuil);
             Controls.Add(LabelCbu);
             Controls.Add(LabelPerfil);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormProfile";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormProfile";
+            
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,11 +147,9 @@
         private Label LabelPerfil;
         private Label LabelCbu;
         private Label LabelCuil;
-        private Label LabelNumeroDeCuenta;
         private Label LabelAlias;
         private Label LabelContenidoCbu;
         private Label LabelContenidoAlias;
-        private Label LabelContenidoNumCuenta;
         private Label LabelContenidoCuil;
     }
 }

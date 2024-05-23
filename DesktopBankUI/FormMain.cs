@@ -12,6 +12,7 @@ using DesktopBank.Services;
 using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.BusinessObjects.Interfaces;
 
 namespace DesktopBankUI
 {
@@ -22,22 +23,36 @@ namespace DesktopBankUI
         private readonly AccountRepository _accountRepository;
         private readonly NojedaisticDesktopBankContext _context;
         private readonly Account _currentAccount;
+        private readonly DepositBalanceService _depositBalanceService;
+        private readonly ExtractBalanceService _extractBalanceService;
+        private readonly CreateOperationService _createOperationService;
+        private readonly UnitOfWork _unitOfWork;
+        private readonly GenerateNumbersService _generateNumbersService;
+        private readonly IOperationRepository _operationRepository;
 
-        // Make a dragable window without border calling Windows API 
+        // Se utiliza una API de Windows para poder generar una ventana arrastrable 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        
+
         public FormMain(int userId)
         {
             _context = new NojedaisticDesktopBankContext();
+            _unitOfWork = new UnitOfWork(_context);
             _accountRepository = new AccountRepository(_context);
+            _operationRepository = new OperationRepository(_context);
+            
+            _generateNumbersService = new();
+            _createOperationService = new CreateOperationService(_operationRepository, _unitOfWork, _generateNumbersService);
+            _extractBalanceService = new ExtractBalanceService(_accountRepository, _createOperationService, _unitOfWork);
+            _depositBalanceService = new DepositBalanceService(_accountRepository, _createOperationService, _unitOfWork);
             _accountInfoService = new AccountInfoService(_context, _accountRepository);
+
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
 
             InitializeComponent();
-            FormHome formHome = new(_currentAccount);
+            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
@@ -80,26 +95,29 @@ namespace DesktopBankUI
 
         private void openFormInsidePanel(Form functionForm)
         {
+            // Verifica si hay algún control dentro del panelScreen
             if (this.panelScreen.Controls.Count > 0)
             {
+                // Si hay algún control, lo elimina (en este caso, el primer control)
                 this.panelScreen.Controls.RemoveAt(0);
             }
-            functionForm.TopLevel = false;
-            functionForm.Dock = DockStyle.Fill;
-            this.panelScreen.Controls.Add(functionForm);
-            this.panelScreen.Tag = functionForm;
-            functionForm.Show();
+            // Configura la ventana que se va a mostrar
+            functionForm.TopLevel = false; // Indica que no es una ventana superior (no tiene marco)
+            functionForm.Dock = DockStyle.Fill; // Rellena todo el espacio del panelScreen
+            this.panelScreen.Controls.Add(functionForm); // Agrega la ventana al panelScreen
+            this.panelScreen.Tag = functionForm; // Asigna la ventana como etiqueta del panelScreen
+            functionForm.Show(); // Muestra la ventana
         }
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            FormHome formHome = new(_currentAccount);
+            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
             openFormInsidePanel(formHome); //abrir en misma ventana
         }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            FormProfile profileForm = new();
+            FormProfile profileForm = new(_currentAccount);
             openFormInsidePanel(profileForm);
         }
 
@@ -119,6 +137,11 @@ namespace DesktopBankUI
         {
             /*FormTransactions transactionsForm = new();
             openFormInsidePanel(transactionsForm);*/
+        }
+
+        private void panelScreen_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

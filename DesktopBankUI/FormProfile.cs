@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopBank.BusinessObjects.Generated.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace DesktopBankUI
 {
     public partial class FormProfile : Form
     {
-        public FormProfile()
+        string cbu;
+        string alias;
+        long CUIL;
+        public FormProfile(Account currentAccount)
         {
+            cbu = currentAccount.AccountCbu.ToString();
+            alias = currentAccount.AccountAlias;
+            CUIL = currentAccount.User.Client.ClientCuil; 
+
             InitializeComponent();
+            CargarDatos_Usuario();
         }
+
+
+        public void CargarDatos_Usuario()
+        {
+            LabelContenidoAlias.Text = alias;
+            LabelContenidoCbu.Text = cbu;
+            LabelContenidoCuil.Text = Convert.ToString(CUIL);
+        }
+        
     }
 }
