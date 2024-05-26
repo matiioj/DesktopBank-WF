@@ -27,5 +27,10 @@ namespace DesktopBankUI
             Clipboard.SetText(EtqTcNumber.Text);
             MessageBox.Show("Su número ha sido copiado con éxito");
         }
+
+        private void gBoxTarjetaDeCredito_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

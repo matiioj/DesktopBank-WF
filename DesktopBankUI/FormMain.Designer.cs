@@ -244,7 +244,7 @@
             panelBanner.Location = new Point(204, 0);
             panelBanner.Margin = new Padding(4, 5, 4, 5);
             panelBanner.Name = "panelBanner";
-            panelBanner.Size = new Size(939, 100);
+            panelBanner.Size = new Size(988, 100);
             panelBanner.TabIndex = 1;
             panelBanner.MouseDown += panelBanner_MouseDown;
             // 
@@ -258,7 +258,7 @@
             minimizeButton.IconColor = Color.Black;
             minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             minimizeButton.IconSize = 25;
-            minimizeButton.Location = new Point(820, 0);
+            minimizeButton.Location = new Point(861, 0);
             minimizeButton.Margin = new Padding(4, 5, 4, 5);
             minimizeButton.Name = "minimizeButton";
             minimizeButton.Size = new Size(36, 42);
@@ -276,7 +276,7 @@
             maximizeButton.IconColor = Color.Black;
             maximizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             maximizeButton.IconSize = 25;
-            maximizeButton.Location = new Point(864, 0);
+            maximizeButton.Location = new Point(905, 0);
             maximizeButton.Margin = new Padding(4, 5, 4, 5);
             maximizeButton.Name = "maximizeButton";
             maximizeButton.Size = new Size(36, 42);
@@ -294,7 +294,7 @@
             restoreButton.IconColor = Color.Black;
             restoreButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             restoreButton.IconSize = 25;
-            restoreButton.Location = new Point(864, 5);
+            restoreButton.Location = new Point(905, 0);
             restoreButton.Margin = new Padding(4, 5, 4, 5);
             restoreButton.Name = "restoreButton";
             restoreButton.Size = new Size(36, 42);
@@ -313,7 +313,7 @@
             closeButton.IconColor = Color.Black;
             closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             closeButton.IconSize = 25;
-            closeButton.Location = new Point(909, 0);
+            closeButton.Location = new Point(949, 0);
             closeButton.Margin = new Padding(4, 5, 4, 5);
             closeButton.Name = "closeButton";
             closeButton.Size = new Size(36, 42);
@@ -328,7 +328,7 @@
             panelScreen.Location = new Point(204, 100);
             panelScreen.Margin = new Padding(4, 5, 4, 5);
             panelScreen.Name = "panelScreen";
-            panelScreen.Size = new Size(939, 900);
+            panelScreen.Size = new Size(988, 900);
             panelScreen.TabIndex = 2;
             panelScreen.Paint += panelScreen_Paint;
             // 
@@ -336,7 +336,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 1000);
+            ClientSize = new Size(1192, 1000);
             Controls.Add(panelScreen);
             Controls.Add(panelBanner);
             Controls.Add(panelMenu);
@@ -366,8 +366,8 @@
         private FontAwesome.Sharp.IconButton profileButton;
         private FontAwesome.Sharp.IconButton closeButton;
         private FontAwesome.Sharp.IconButton maximizeButton;
-        private FontAwesome.Sharp.IconButton restoreButton;
         private FontAwesome.Sharp.IconButton minimizeButton;
         private PictureBox iconIstic;
+        private FontAwesome.Sharp.IconButton restoreButton;
     }
 }

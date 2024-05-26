@@ -52,10 +52,10 @@ namespace DesktopBankUI
             var formDeposit = new FormDeposit(_currentAccount, _depositBalanceService, _accountInfoService);
             try
             {
-                 formDeposit.ShowDialog();
-                 _currentAccount = _accountInfoService.GetAccountByUserId(_currentAccount.UserId);
-                 Load_Labels();
-                
+                formDeposit.ShowDialog();
+                _currentAccount = _accountInfoService.GetAccountByUserId(_currentAccount.UserId);
+                Load_Labels();
+
             }
             catch (Exception ex)
             {
@@ -103,6 +103,11 @@ namespace DesktopBankUI
             {
                 MessageBox.Show($"Ocurrió un error al abrir el formulario de extracción: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void labelBalance_Click(object sender, EventArgs e)
+        {
+
         }
 
         /*
