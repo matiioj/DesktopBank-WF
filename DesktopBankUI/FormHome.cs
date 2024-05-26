@@ -25,6 +25,7 @@ namespace DesktopBankUI
         private readonly AccountInfoService _accountInfoService;
         private readonly DepositBalanceService _depositBalanceService;
         private readonly ExtractBalanceService _extractBalanceService;
+
         public FormHome(Account currentAccount, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService)
         {
             _depositBalanceService = depositBalanceService;
@@ -32,9 +33,6 @@ namespace DesktopBankUI
             _accountInfoService = accountInfoService;
             _currentAccount = currentAccount;
             id = currentAccount.AccountId;
-
-
-
 
             InitializeComponent();
             Load_Labels();
@@ -49,6 +47,22 @@ namespace DesktopBankUI
             LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
         }
 
+        private void depositButton_Click(object sender, EventArgs e)
+        {
+            var formDeposit = new FormDeposit(_currentAccount, _depositBalanceService, _accountInfoService);
+            try
+            {
+                 formDeposit.ShowDialog();
+                 _currentAccount = _accountInfoService.GetAccountByUserId(_currentAccount.UserId);
+                 Load_Labels();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al abrir el formulario de depósito: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /*
         private async void depositButton_Click(object sender, EventArgs e)
         {
             try
@@ -73,7 +87,25 @@ namespace DesktopBankUI
                 }
             }
         }
+        */
 
+        private void extractButton_Click(object sender, EventArgs e)
+        {
+            var formExtract = new FormExtract(_currentAccount, _extractBalanceService, _accountInfoService);
+            try
+            {
+                formExtract.ShowDialog();
+                _currentAccount = _accountInfoService.GetAccountByUserId(_currentAccount.UserId);
+                Load_Labels();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al abrir el formulario de extracción: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /*
         private async void extractButton_Click(object sender, EventArgs e)
         {
             try
@@ -98,5 +130,7 @@ namespace DesktopBankUI
                 }
             }
         }
+        */
+
     }
 }

@@ -34,7 +34,6 @@
             LabelNombreDeUsuario = new Label();
             labelBalance = new Label();
             depositButton = new FontAwesome.Sharp.IconButton();
-            TxtAmount = new TextBox();
             extractButton = new FontAwesome.Sharp.IconButton();
             SuspendLayout();
             // 
@@ -49,7 +48,7 @@
             recentTransactionsButton.IconColor = Color.Black;
             recentTransactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             recentTransactionsButton.IconSize = 30;
-            recentTransactionsButton.Location = new Point(15, 177);
+            recentTransactionsButton.Location = new Point(99, 177);
             recentTransactionsButton.Name = "recentTransactionsButton";
             recentTransactionsButton.Size = new Size(360, 38);
             recentTransactionsButton.TabIndex = 11;
@@ -69,7 +68,7 @@
             helpButtonPanel.IconColor = Color.Black;
             helpButtonPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             helpButtonPanel.IconSize = 30;
-            helpButtonPanel.Location = new Point(15, 365);
+            helpButtonPanel.Location = new Point(99, 337);
             helpButtonPanel.Name = "helpButtonPanel";
             helpButtonPanel.Size = new Size(360, 38);
             helpButtonPanel.TabIndex = 10;
@@ -82,7 +81,7 @@
             // 
             LabelBienvenido.AutoSize = true;
             LabelBienvenido.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelBienvenido.Location = new Point(12, 9);
+            LabelBienvenido.Location = new Point(43, 39);
             LabelBienvenido.Name = "LabelBienvenido";
             LabelBienvenido.Size = new Size(121, 30);
             LabelBienvenido.TabIndex = 13;
@@ -100,7 +99,7 @@
             // labelBalance
             // 
             labelBalance.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBalance.Location = new Point(20, 64);
+            labelBalance.Location = new Point(51, 94);
             labelBalance.Name = "labelBalance";
             labelBalance.Size = new Size(240, 45);
             labelBalance.TabIndex = 15;
@@ -117,7 +116,7 @@
             depositButton.IconColor = Color.Black;
             depositButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             depositButton.IconSize = 30;
-            depositButton.Location = new Point(15, 277);
+            depositButton.Location = new Point(99, 230);
             depositButton.Name = "depositButton";
             depositButton.Size = new Size(360, 38);
             depositButton.TabIndex = 16;
@@ -126,13 +125,6 @@
             depositButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             depositButton.UseVisualStyleBackColor = false;
             depositButton.Click += depositButton_Click;
-            // 
-            // TxtAmount
-            // 
-            TxtAmount.Location = new Point(15, 248);
-            TxtAmount.Name = "TxtAmount";
-            TxtAmount.Size = new Size(265, 23);
-            TxtAmount.TabIndex = 17;
             // 
             // extractButton
             // 
@@ -145,7 +137,7 @@
             extractButton.IconColor = Color.Black;
             extractButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             extractButton.IconSize = 24;
-            extractButton.Location = new Point(15, 321);
+            extractButton.Location = new Point(99, 284);
             extractButton.Name = "extractButton";
             extractButton.Size = new Size(360, 38);
             extractButton.TabIndex = 18;
@@ -161,7 +153,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 432);
             Controls.Add(extractButton);
-            Controls.Add(TxtAmount);
             Controls.Add(depositButton);
             Controls.Add(labelBalance);
             Controls.Add(LabelNombreDeUsuario);
@@ -182,7 +173,6 @@
         private Label LabelNombreDeUsuario;
         private Label labelBalance;
         private FontAwesome.Sharp.IconButton depositButton;
-        private TextBox TxtAmount;
         private FontAwesome.Sharp.IconButton extractButton;
     }
 }
