@@ -1,5 +1,5 @@
-﻿using DesktopBank.BusinessObjects.Generated.Models;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
+using DesktopBank.BusinessObjects.Generated.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +24,7 @@ namespace DesktopBankUI
 
         private readonly AccountInfoService _accountInfoService;
         private readonly DepositBalanceService _depositBalanceService;
-        private readonly ExtractBalanceService _extractBalanceService; 
+        private readonly ExtractBalanceService _extractBalanceService;
         public FormHome(Account currentAccount, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService)
         {
             _depositBalanceService = depositBalanceService;
