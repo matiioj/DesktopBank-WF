@@ -65,7 +65,7 @@ namespace DesktopBank.Services
         
         private List<string> GenerateListForAlias()
         {
-            var list = new List<string> {"CORCHO","FINCA","DORADO","CHARCO","CRUDO", "POZO", "CHANCHO", "PLATA", "PALA", "PICO", "PATO", "CHAPA", "METAL", "MOTO", "CAMPANA" };
+            var list = new List<string> { "CORCHO", "FINCA", "DORADO", "CHARCO", "CRUDO", "POZO", "CHANCHO", "PLATA", "PALA", "PICO", "PATO", "CHAPA", "METAL", "MOTO", "CAMPANA", "TECLA", "TABLA", "KIWI", "FRUTA", "PERA", "BALANZA", "HILO", "CINTO", "COBRE", "IRAN", "TUNICA", "BOLDO", "OVILLO", "INDIGO", "MARCO", "CUENTA", "ARROYO", "FRENO", "REAL", "DELFIN", "MIEL", "BOTE", "ANANA", "DISCO" };
             return list;
         }
 
