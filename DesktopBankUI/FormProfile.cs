@@ -20,7 +20,7 @@ namespace DesktopBankUI
         {
             cbu = currentAccount.AccountCbu.ToString();
             alias = currentAccount.AccountAlias;
-            CUIL = currentAccount.User.Client.ClientCuil; 
+            CUIL = currentAccount.User.Client.ClientCuil;
 
             InitializeComponent();
             CargarDatos_Usuario();
@@ -33,6 +33,15 @@ namespace DesktopBankUI
             LabelContenidoCbu.Text = cbu;
             LabelContenidoCuil.Text = Convert.ToString(CUIL);
         }
-        
+
+        private void LabelContenidoCbu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormProfile_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

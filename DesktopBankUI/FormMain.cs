@@ -123,7 +123,7 @@ namespace DesktopBankUI
 
         private void cardButton_Click(object sender, EventArgs e)
         {
-            FormCard cardForm = new();
+            FormCard cardForm = new(_currentAccount);
             openFormInsidePanel(cardForm);
         }
 

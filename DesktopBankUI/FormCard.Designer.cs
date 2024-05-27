@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCard));
             gBoxTarjetaDeCredito = new GroupBox();
+            EtqApellidoUsuario = new Label();
             BtnCopiar = new Button();
             EtqCodigoSeguridad = new Label();
             EtqCvv = new Label();
@@ -44,6 +45,7 @@
             // 
             gBoxTarjetaDeCredito.BackgroundImage = (Image)resources.GetObject("gBoxTarjetaDeCredito.BackgroundImage");
             gBoxTarjetaDeCredito.BackgroundImageLayout = ImageLayout.Stretch;
+            gBoxTarjetaDeCredito.Controls.Add(EtqApellidoUsuario);
             gBoxTarjetaDeCredito.Controls.Add(BtnCopiar);
             gBoxTarjetaDeCredito.Controls.Add(EtqCodigoSeguridad);
             gBoxTarjetaDeCredito.Controls.Add(EtqCvv);
@@ -57,6 +59,19 @@
             gBoxTarjetaDeCredito.TabIndex = 0;
             gBoxTarjetaDeCredito.TabStop = false;
             gBoxTarjetaDeCredito.Enter += gBoxTarjetaDeCredito_Enter;
+            // 
+            // EtqApellidoUsuario
+            // 
+            EtqApellidoUsuario.AutoSize = true;
+            EtqApellidoUsuario.BackColor = SystemColors.Window;
+            EtqApellidoUsuario.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
+            EtqApellidoUsuario.ForeColor = Color.MidnightBlue;
+            EtqApellidoUsuario.Location = new Point(368, 488);
+            EtqApellidoUsuario.Name = "EtqApellidoUsuario";
+            EtqApellidoUsuario.Size = new Size(227, 73);
+            EtqApellidoUsuario.TabIndex = 9;
+            EtqApellidoUsuario.Text = "Apellido";
+            EtqApellidoUsuario.Click += EtqApellidoUsuario_Click;
             // 
             // BtnCopiar
             // 
@@ -78,7 +93,7 @@
             EtqCodigoSeguridad.BackColor = SystemColors.Window;
             EtqCodigoSeguridad.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqCodigoSeguridad.ForeColor = Color.MidnightBlue;
-            EtqCodigoSeguridad.Location = new Point(850, 670);
+            EtqCodigoSeguridad.Location = new Point(801, 670);
             EtqCodigoSeguridad.Name = "EtqCodigoSeguridad";
             EtqCodigoSeguridad.Size = new Size(146, 73);
             EtqCodigoSeguridad.TabIndex = 6;
@@ -90,7 +105,7 @@
             EtqCvv.BackColor = SystemColors.Window;
             EtqCvv.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
             EtqCvv.ForeColor = Color.MidnightBlue;
-            EtqCvv.Location = new Point(697, 670);
+            EtqCvv.Location = new Point(658, 670);
             EtqCvv.Name = "EtqCvv";
             EtqCvv.Size = new Size(147, 73);
             EtqCvv.TabIndex = 5;
@@ -128,9 +143,9 @@
             EtqNombreUsuario.ForeColor = Color.MidnightBlue;
             EtqNombreUsuario.Location = new Point(60, 488);
             EtqNombreUsuario.Name = "EtqNombreUsuario";
-            EtqNombreUsuario.Size = new Size(301, 73);
+            EtqNombreUsuario.Size = new Size(224, 73);
             EtqNombreUsuario.TabIndex = 1;
-            EtqNombreUsuario.Text = "Propietario";
+            EtqNombreUsuario.Text = "Nombre";
             // 
             // EtqTcNumber
             // 
@@ -170,5 +185,6 @@
         private Label EtqTxtVencimiento;
         private Label EtqNombreUsuario;
         private Label EtqTcNumber;
+        private Label EtqApellidoUsuario;
     }
 }
