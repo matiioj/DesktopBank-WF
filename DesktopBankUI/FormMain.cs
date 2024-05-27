@@ -52,7 +52,7 @@ namespace DesktopBankUI
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
 
             InitializeComponent();
-            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
+            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
@@ -111,7 +111,7 @@ namespace DesktopBankUI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
+            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
             openFormInsidePanel(formHome); //abrir en misma ventana
         }
 

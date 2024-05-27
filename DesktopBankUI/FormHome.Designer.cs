@@ -49,15 +49,15 @@
             recentTransactionsButton.IconColor = Color.Black;
             recentTransactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             recentTransactionsButton.IconSize = 30;
-            recentTransactionsButton.Location = new Point(141, 295);
-            recentTransactionsButton.Margin = new Padding(4, 5, 4, 5);
+            recentTransactionsButton.Location = new Point(99, 177);
             recentTransactionsButton.Name = "recentTransactionsButton";
-            recentTransactionsButton.Size = new Size(514, 63);
+            recentTransactionsButton.Size = new Size(360, 38);
             recentTransactionsButton.TabIndex = 11;
             recentTransactionsButton.Text = "  See transactions";
             recentTransactionsButton.TextAlign = ContentAlignment.MiddleRight;
             recentTransactionsButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             recentTransactionsButton.UseVisualStyleBackColor = false;
+            recentTransactionsButton.Click += recentTransactionsButton_Click;
             // 
             // helpButtonPanel
             // 
@@ -70,10 +70,9 @@
             helpButtonPanel.IconColor = Color.Black;
             helpButtonPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             helpButtonPanel.IconSize = 30;
-            helpButtonPanel.Location = new Point(141, 562);
-            helpButtonPanel.Margin = new Padding(4, 5, 4, 5);
+            helpButtonPanel.Location = new Point(99, 337);
             helpButtonPanel.Name = "helpButtonPanel";
-            helpButtonPanel.Size = new Size(514, 63);
+            helpButtonPanel.Size = new Size(360, 38);
             helpButtonPanel.TabIndex = 10;
             helpButtonPanel.Text = "  Help";
             helpButtonPanel.TextAlign = ContentAlignment.MiddleRight;
@@ -84,10 +83,9 @@
             // 
             LabelBienvenido.AutoSize = true;
             LabelBienvenido.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelBienvenido.Location = new Point(36, 60);
-            LabelBienvenido.Margin = new Padding(4, 0, 4, 0);
+            LabelBienvenido.Location = new Point(25, 36);
             LabelBienvenido.Name = "LabelBienvenido";
-            LabelBienvenido.Size = new Size(196, 48);
+            LabelBienvenido.Size = new Size(134, 32);
             LabelBienvenido.TabIndex = 13;
             LabelBienvenido.Text = "Bienvenido";
             // 
@@ -95,19 +93,17 @@
             // 
             LabelNombreDeUsuario.AutoSize = true;
             LabelNombreDeUsuario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNombreDeUsuario.Location = new Point(199, 15);
-            LabelNombreDeUsuario.Margin = new Padding(4, 0, 4, 0);
+            LabelNombreDeUsuario.Location = new Point(139, 9);
             LabelNombreDeUsuario.Name = "LabelNombreDeUsuario";
-            LabelNombreDeUsuario.Size = new Size(0, 45);
+            LabelNombreDeUsuario.Size = new Size(0, 30);
             LabelNombreDeUsuario.TabIndex = 14;
             // 
             // labelBalance
             // 
             labelBalance.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBalance.Location = new Point(476, 173);
-            labelBalance.Margin = new Padding(4, 0, 4, 0);
+            labelBalance.Location = new Point(333, 104);
             labelBalance.Name = "labelBalance";
-            labelBalance.Size = new Size(343, 75);
+            labelBalance.Size = new Size(240, 45);
             labelBalance.TabIndex = 15;
             labelBalance.Text = "_";
             labelBalance.Click += labelBalance_Click;
@@ -123,10 +119,9 @@
             depositButton.IconColor = Color.Black;
             depositButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             depositButton.IconSize = 30;
-            depositButton.Location = new Point(141, 383);
-            depositButton.Margin = new Padding(4, 5, 4, 5);
+            depositButton.Location = new Point(99, 230);
             depositButton.Name = "depositButton";
-            depositButton.Size = new Size(514, 63);
+            depositButton.Size = new Size(360, 38);
             depositButton.TabIndex = 16;
             depositButton.Text = "  Deposit";
             depositButton.TextAlign = ContentAlignment.MiddleRight;
@@ -145,10 +140,9 @@
             extractButton.IconColor = Color.Black;
             extractButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             extractButton.IconSize = 24;
-            extractButton.Location = new Point(141, 473);
-            extractButton.Margin = new Padding(4, 5, 4, 5);
+            extractButton.Location = new Point(99, 284);
             extractButton.Name = "extractButton";
-            extractButton.Size = new Size(514, 63);
+            extractButton.Size = new Size(360, 38);
             extractButton.TabIndex = 18;
             extractButton.Text = "  Extract";
             extractButton.TextAlign = ContentAlignment.MiddleRight;
@@ -160,17 +154,18 @@
             // 
             etqSaldo.AutoSize = true;
             etqSaldo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            etqSaldo.Location = new Point(36, 173);
+            etqSaldo.Location = new Point(25, 104);
+            etqSaldo.Margin = new Padding(2, 0, 2, 0);
             etqSaldo.Name = "etqSaldo";
-            etqSaldo.Size = new Size(301, 48);
+            etqSaldo.Size = new Size(203, 32);
             etqSaldo.TabIndex = 19;
             etqSaldo.Text = "Saldo disponible: ";
             // 
             // FormHome
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 720);
+            ClientSize = new Size(800, 432);
             Controls.Add(etqSaldo);
             Controls.Add(extractButton);
             Controls.Add(depositButton);
@@ -180,7 +175,6 @@
             Controls.Add(recentTransactionsButton);
             Controls.Add(helpButtonPanel);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 5, 4, 5);
             Name = "FormHome";
             Text = "FormHome";
             ResumeLayout(false);

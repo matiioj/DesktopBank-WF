@@ -35,14 +35,14 @@
             // 
             // TxtAmount
             // 
-            TxtAmount.Location = new Point(19, 80);
+            TxtAmount.Location = new Point(26, 93);
             TxtAmount.Name = "TxtAmount";
             TxtAmount.Size = new Size(265, 23);
             TxtAmount.TabIndex = 18;
             // 
             // BtnDepo
             // 
-            BtnDepo.Location = new Point(114, 118);
+            BtnDepo.Location = new Point(121, 131);
             BtnDepo.Name = "BtnDepo";
             BtnDepo.Size = new Size(75, 23);
             BtnDepo.TabIndex = 19;
@@ -54,7 +54,7 @@
             // 
             labelIngrese.AutoSize = true;
             labelIngrese.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIngrese.Location = new Point(23, 42);
+            labelIngrese.Location = new Point(30, 55);
             labelIngrese.Name = "labelIngrese";
             labelIngrese.Size = new Size(200, 20);
             labelIngrese.TabIndex = 20;
