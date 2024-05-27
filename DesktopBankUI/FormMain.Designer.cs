@@ -330,7 +330,7 @@
             panelScreen.Name = "panelScreen";
             panelScreen.Size = new Size(988, 900);
             panelScreen.TabIndex = 2;
-            panelScreen.Paint += panelScreen_Paint;
+           
             // 
             // FormMain
             // 

@@ -40,15 +40,16 @@
             DataGridTransactions.Location = new Point(12, 33);
             DataGridTransactions.Name = "DataGridTransactions";
             DataGridTransactions.RowTemplate.Height = 25;
-            DataGridTransactions.Size = new Size(443, 369);
+            DataGridTransactions.Size = new Size(587, 369);
             DataGridTransactions.TabIndex = 0;
             // 
             // FormTransactions
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(468, 450);
+            ClientSize = new Size(611, 450);
             Controls.Add(DataGridTransactions);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormTransactions";
             Text = "FormTransactions";
             ((System.ComponentModel.ISupportInitialize)DataGridTransactions).EndInit();

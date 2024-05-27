@@ -92,21 +92,5 @@ namespace DesktopBankUI
 
         }
 
-        private void recentTransactionsButton_Click(object sender, EventArgs e)
-        {
-            var formTransactions = new FormTransactions(_currentAccount, _context, _operationRepository, _accountInfoService);
-            try
-            {
-                formTransactions.ShowDialog();
-                _currentAccount = _accountInfoService.GetAccountByUserId(_currentAccount.UserId);
-                Load_Labels();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ocurrió un error al abrir el formulario de depósito: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
     }
 }

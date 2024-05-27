@@ -93,7 +93,7 @@ namespace DesktopBankUI
             SendMessage(Handle, 0xA1, 0x2, 0);
         }
 
-        private void openFormInsidePanel(Form functionForm)
+        public void openFormInsidePanel(Form functionForm)
         {
             // Verifica si hay algún control dentro del panelScreen
             if (this.panelScreen.Controls.Count > 0)
@@ -135,13 +135,9 @@ namespace DesktopBankUI
 
         private void transactionsButton_Click(object sender, EventArgs e)
         {
-            /*FormTransactions transactionsForm = new();
-            openFormInsidePanel(transactionsForm);*/
+            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService);
+            openFormInsidePanel(transactionsForm);
         }
 
-        private void panelScreen_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

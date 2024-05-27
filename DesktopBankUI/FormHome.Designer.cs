@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            recentTransactionsButton = new FontAwesome.Sharp.IconButton();
             helpButtonPanel = new FontAwesome.Sharp.IconButton();
             LabelBienvenido = new Label();
             LabelNombreDeUsuario = new Label();
@@ -37,27 +36,6 @@
             extractButton = new FontAwesome.Sharp.IconButton();
             etqSaldo = new Label();
             SuspendLayout();
-            // 
-            // recentTransactionsButton
-            // 
-            recentTransactionsButton.BackColor = Color.Gainsboro;
-            recentTransactionsButton.FlatAppearance.BorderColor = Color.Black;
-            recentTransactionsButton.FlatStyle = FlatStyle.Flat;
-            recentTransactionsButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            recentTransactionsButton.ForeColor = Color.Black;
-            recentTransactionsButton.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
-            recentTransactionsButton.IconColor = Color.Black;
-            recentTransactionsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            recentTransactionsButton.IconSize = 30;
-            recentTransactionsButton.Location = new Point(99, 177);
-            recentTransactionsButton.Name = "recentTransactionsButton";
-            recentTransactionsButton.Size = new Size(360, 38);
-            recentTransactionsButton.TabIndex = 11;
-            recentTransactionsButton.Text = "  See transactions";
-            recentTransactionsButton.TextAlign = ContentAlignment.MiddleRight;
-            recentTransactionsButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            recentTransactionsButton.UseVisualStyleBackColor = false;
-            recentTransactionsButton.Click += recentTransactionsButton_Click;
             // 
             // helpButtonPanel
             // 
@@ -172,7 +150,6 @@
             Controls.Add(labelBalance);
             Controls.Add(LabelNombreDeUsuario);
             Controls.Add(LabelBienvenido);
-            Controls.Add(recentTransactionsButton);
             Controls.Add(helpButtonPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormHome";
@@ -182,7 +159,6 @@
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton recentTransactionsButton;
         private FontAwesome.Sharp.IconButton helpButtonPanel;
         private Label LabelBienvenido;
         private Label LabelNombreDeUsuario;

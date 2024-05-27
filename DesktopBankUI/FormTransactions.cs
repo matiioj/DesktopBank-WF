@@ -18,6 +18,7 @@ namespace DesktopBankUI
     public partial class FormTransactions : Form
     {
         int id;
+        long cbu;
         Account _currentAccount;
 
         private readonly NojedaisticDesktopBankContext _context;
@@ -31,17 +32,21 @@ namespace DesktopBankUI
             _context = context;
             _currentAccount = currentAccount;
             id = currentAccount.AccountId;
+            cbu = currentAccount.AccountCbu;
 
             InitializeComponent();
+            LoadTransactions(cbu);
         }
 
-        private void FormTransactions_Load(object sender, EventArgs e)
+
+
+        private void LoadTransactions(long cbu)
         {
             try
             {
                 // Obtener transacciones
-                var sourceTransactions = _operationRepository.GetOperationsBySenderCBU(id);
-                var destinationTransactions = _operationRepository.GetOperationsByReceiverCBU(id);
+                var sourceTransactions = _operationRepository.GetOperationsBySenderCBU(cbu);
+                var destinationTransactions = _operationRepository.GetOperationsByReceiverCBU(cbu);
 
                 // Combinar origen y destino
                 var transactions = sourceTransactions.Union(destinationTransactions);
@@ -49,55 +54,11 @@ namespace DesktopBankUI
                 // Crear lista de objetos para el DataGridView
                 var transactionList = transactions.Select(t => new
                 {
-                    ColumnSource = t.SourceAccount.AccountAlias,
-                    ColumnDestination = t.DestinationAccount.AccountAlias,
-                    ColumnAmount = t.OperationAmount,
-                    ColumnTransaction = t.OperationCode.OperationCode1
-                }).ToList();
-
-                // Mostrar el contenido de la lista en un MessageBox
-                if (transactionList.Count > 0)
-                {
-                    StringBuilder sb = new StringBuilder();
-                    foreach (var transaction in transactionList)
-                    {
-                        sb.AppendLine($"Source: {transaction.ColumnSource}, Destination: {transaction.ColumnDestination}, Amount: {transaction.ColumnAmount}, Transaction: {transaction.ColumnTransaction}");
-                    }
-
-                    MessageBox.Show(sb.ToString(), "Transacciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron transacciones.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                // Asignar la lista como fuente de datos del DataGridView
-                DataGridTransactions.DataSource = transactionList;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar las transacciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void LoadTransactions(int currentAccountId)
-        {
-            try
-            {
-                // Obtener transacciones
-                var sourceTransactions = _operationRepository.GetOperationsBySenderCBU(currentAccountId);
-                var destinationTransactions = _operationRepository.GetOperationsByReceiverCBU(currentAccountId);
-
-                // Combinar origen y destino
-                var transactions = sourceTransactions.Union(destinationTransactions);
-
-                // Crear lista de objetos para el DataGridView
-                var transactionList = transactions.Select(t => new
-                {
-                    ColumnSource = t.SourceAccount.AccountAlias,
-                    ColumnDestination = t.DestinationAccount.AccountAlias,
-                    ColumnAmount = t.OperationAmount,
-                    ColumnTransaction = t.OperationCode.OperationCode1
+                    From = t.SourceAccount.AccountAlias,
+                    To = t.DestinationAccount.AccountAlias,
+                    Amount = t.OperationAmount,
+                    Type = t.OperationCode.OperationCodeDescription,
+                    DateOfOperation = t.OperationDate
                 }).ToList();
 
                 // Verificar si la lista de transacciones está vacía
