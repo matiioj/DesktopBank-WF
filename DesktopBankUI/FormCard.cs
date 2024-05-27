@@ -44,7 +44,10 @@ namespace DesktopBankUI
             foreach (Card card in ListCards)
             {
                 numtc = card.CardNumber;
-                numeroConFormato = string.Join(" ", Enumerable.Range(0, numtc.Length / 4).Select(i => numtc.Substring(i * 4, 4)));
+                numeroConFormato = string.Join(" ", Enumerable.Range(0, numtc.Length / 4).Select(i => numtc.Substring(i * 4, 4))); 
+                //método de la clase string. Join permite concatenar/separar elementos de una lista/array con un carácter. Se separan con "espacio" en este caso.
+                //La clase enumerable brinda métodos para trabajar con colecciones de datos 
+                // select permite transformar los elementos de una secuencia por otros // i es un lambda // substring extrae una subcade de una cadena (de donde, hasta donde)
                 expirationdate = card.CardExpirationDate;
                 mes = expirationdate.ToString("MM");
                 anio = expirationdate.ToString("yy");
@@ -78,7 +81,7 @@ namespace DesktopBankUI
         public void CargarDatos_Tarjeta()
         {
             EtqTcNumber.Text = numeroConFormato;
-            EtqCodigoSeguridad.Text = cvv.ToString("D3");
+            EtqCodigoSeguridad.Text = cvv.ToString("D3"); //D3 da formato y agrega 0 delante hasta completar 3 dígitos en un valor decimal. 
             EtqFechaVencimiento.Text = fechaConFormato;
             EtqNombreUsuario.Text = name;
             EtqApellidoUsuario.Text = surname;
