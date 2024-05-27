@@ -52,7 +52,7 @@ namespace DesktopBankUI
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
 
             InitializeComponent();
-            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
+            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
@@ -93,7 +93,7 @@ namespace DesktopBankUI
             SendMessage(Handle, 0xA1, 0x2, 0);
         }
 
-        private void openFormInsidePanel(Form functionForm)
+        public void openFormInsidePanel(Form functionForm)
         {
             // Verifica si hay algún control dentro del panelScreen
             if (this.panelScreen.Controls.Count > 0)
@@ -111,7 +111,7 @@ namespace DesktopBankUI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            FormHome formHome = new(_currentAccount, _depositBalanceService, _accountInfoService, _extractBalanceService);
+            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
             openFormInsidePanel(formHome); //abrir en misma ventana
         }
 
@@ -135,13 +135,9 @@ namespace DesktopBankUI
 
         private void transactionsButton_Click(object sender, EventArgs e)
         {
-            /*FormTransactions transactionsForm = new();
-            openFormInsidePanel(transactionsForm);*/
+            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService);
+            openFormInsidePanel(transactionsForm);
         }
 
-        private void panelScreen_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
