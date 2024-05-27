@@ -79,7 +79,7 @@
             BtnCopiar.BackgroundImageLayout = ImageLayout.Center;
             BtnCopiar.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
             BtnCopiar.ForeColor = SystemColors.HighlightText;
-            BtnCopiar.Location = new Point(767, 333);
+            BtnCopiar.Location = new Point(658, 334);
             BtnCopiar.Name = "BtnCopiar";
             BtnCopiar.Size = new Size(229, 72);
             BtnCopiar.TabIndex = 8;
@@ -158,6 +158,7 @@
             EtqTcNumber.Size = new Size(688, 73);
             EtqTcNumber.TabIndex = 0;
             EtqTcNumber.Text = "XXXX XXXX XXXX XXXX";
+            EtqTcNumber.Click += EtqTcNumber_Click;
             // 
             // FormCard
             // 

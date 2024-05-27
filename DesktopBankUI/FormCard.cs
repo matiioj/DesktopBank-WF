@@ -25,6 +25,7 @@ namespace DesktopBankUI
         string mes;
         string anio;
         string fechaConFormato;
+        string numeroConFormato;
 
         // Combina el mes y el año en el formato deseado
 
@@ -35,6 +36,7 @@ namespace DesktopBankUI
             mes = string.Empty;
             anio = string.Empty;
             fechaConFormato = string.Empty;
+            numeroConFormato = string.Empty;
             cvv = 0;
             name = string.Empty;
             surname = string.Empty;
@@ -42,6 +44,7 @@ namespace DesktopBankUI
             foreach (Card card in ListCards)
             {
                 numtc = card.CardNumber;
+                numeroConFormato = string.Join(" ", Enumerable.Range(0, numtc.Length / 4).Select(i => numtc.Substring(i * 4, 4)));
                 expirationdate = card.CardExpirationDate;
                 mes = expirationdate.ToString("MM");
                 anio = expirationdate.ToString("yy");
@@ -74,8 +77,8 @@ namespace DesktopBankUI
 
         public void CargarDatos_Tarjeta()
         {
-            EtqTcNumber.Text = numtc;
-            EtqCodigoSeguridad.Text = cvv.ToString();
+            EtqTcNumber.Text = numeroConFormato;
+            EtqCodigoSeguridad.Text = cvv.ToString("D3");
             EtqFechaVencimiento.Text = fechaConFormato;
             EtqNombreUsuario.Text = name;
             EtqApellidoUsuario.Text = surname;
@@ -84,6 +87,11 @@ namespace DesktopBankUI
         }
 
         private void EtqApellidoUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EtqTcNumber_Click(object sender, EventArgs e)
         {
 
         }
