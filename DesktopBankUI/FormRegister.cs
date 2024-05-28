@@ -106,6 +106,7 @@ namespace StudentSystem.WindowsFormsCliente
                     mailData.Subject = "Bienvenido a ISTIC DesktopBank";
                     mailData.Body = $"Bienvenido señor/a {nombre} como nuevo cliente";
                     mailService.SendMail(mailData);
+                    MessageBox.Show("Su usuario ha sido registrado satisfactoriamente");
 
                     FormLogin formLogin = new FormLogin();
                     formLogin.Show();
