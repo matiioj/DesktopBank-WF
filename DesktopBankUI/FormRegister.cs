@@ -143,43 +143,7 @@ namespace StudentSystem.WindowsFormsCliente
 
 }
 
-/*
-   //var Confirmacion = MessageBox.Show(Mensaje, "Confirmar",
-   //    MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
-   //if (Confirmacion == DialogResult.Yes)
-   // {
-        //Llama a la pantalla de las materias
-   //     FrmCarreras frmCarreras = new FrmCarreras();
-   //     frmCarreras.Show();
-   // }
-    //else
-    //{
-    //    MessageBox.Show("Revisa los datos, estan malos", "Error", 
-    //        MessageBoxButtons.OK, MessageBoxIcon.Error);
-   // }
-
-}
-
-
-    //Validaciones
-    /*
-     var newUsuario = new();
-
-
-    // AgregarUsuario(newUsuario);
-
-    MailData mailData = new MailData();
-
-    mailData.MailTo = TxtCorreo.Text;
-    mailData.Subject = "Registro en StudentSystem";
-    mailData.Body = $"Hola aqui va tu clave temporal: {newUsuario.Clave}";
-
-    mailService.SendMail(mailData);
-
-
-    //this.Close();
-*/
 
 
 

@@ -26,7 +26,7 @@ namespace DesktopBank.Services
             }
             else
             {
-                settingsMail = new MailSettings("smtp.gmail.com", 587, "ISTIC DesktopBank", "sebastianagnolindiaz@gmail.com", "sebastianagnolindiaz@gmail.com", "khou mygq vzvm ivty");
+                settingsMail = new MailSettings("smtp.gmail.com", 587, "ISTIC DesktopBank", "isticwallet@gmail.com", "isticwallet@gmail.com", "xszp gygt ihqw pcre");
             }
 
         }
