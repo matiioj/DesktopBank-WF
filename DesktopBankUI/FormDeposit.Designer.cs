@@ -31,22 +31,26 @@
             TxtAmount = new TextBox();
             BtnDepo = new Button();
             labelIngrese = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // TxtAmount
             // 
-            TxtAmount.Location = new Point(26, 93);
+            TxtAmount.Location = new Point(37, 155);
+            TxtAmount.Margin = new Padding(4, 5, 4, 5);
             TxtAmount.Name = "TxtAmount";
-            TxtAmount.Size = new Size(265, 23);
+            TxtAmount.Size = new Size(377, 31);
             TxtAmount.TabIndex = 18;
             // 
             // BtnDepo
             // 
-            BtnDepo.Location = new Point(121, 131);
+            BtnDepo.Location = new Point(149, 213);
+            BtnDepo.Margin = new Padding(4, 5, 4, 5);
             BtnDepo.Name = "BtnDepo";
-            BtnDepo.Size = new Size(75, 23);
+            BtnDepo.Size = new Size(147, 56);
             BtnDepo.TabIndex = 19;
-            BtnDepo.Text = "Deposit";
+            BtnDepo.Text = "Depositar";
             BtnDepo.UseVisualStyleBackColor = true;
             BtnDepo.Click += BtnDepo_Click;
             // 
@@ -54,23 +58,39 @@
             // 
             labelIngrese.AutoSize = true;
             labelIngrese.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIngrese.Location = new Point(30, 55);
+            labelIngrese.ForeColor = SystemColors.ControlLightLight;
+            labelIngrese.Location = new Point(79, 119);
+            labelIngrese.Margin = new Padding(4, 0, 4, 0);
             labelIngrese.Name = "labelIngrese";
-            labelIngrese.Size = new Size(200, 20);
+            labelIngrese.Size = new Size(307, 31);
             labelIngrese.TabIndex = 20;
             labelIngrese.Text = "Ingrese el monto a depositar";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.iconPig;
+            pictureBox1.Location = new Point(176, 29);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(95, 76);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 21;
+            pictureBox1.TabStop = false;
+            // 
             // FormDeposit
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(317, 207);
+            BackColor = Color.Teal;
+            ClientSize = new Size(453, 345);
+            Controls.Add(pictureBox1);
             Controls.Add(labelIngrese);
             Controls.Add(BtnDepo);
             Controls.Add(TxtAmount);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormDeposit";
-            Text = "FormDeposit";
+            Text = "Depositar";
             Load += FormDeposit_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -80,5 +100,6 @@
         private TextBox TxtAmount;
         private Button BtnDepo;
         private Label labelIngrese;
+        private PictureBox pictureBox1;
     }
 }
