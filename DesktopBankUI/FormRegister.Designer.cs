@@ -48,7 +48,9 @@
             BtnAceptar = new Button();
             labelTenesCuenta = new Label();
             botonLogin = new Button();
+            pictureBox1 = new PictureBox();
             boxDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // boxDatos
@@ -67,6 +69,7 @@
             boxDatos.Controls.Add(labelCorreo);
             boxDatos.Controls.Add(labelApellido);
             boxDatos.Controls.Add(labelNombre);
+            boxDatos.ForeColor = SystemColors.ControlLightLight;
             boxDatos.Location = new Point(17, 65);
             boxDatos.Margin = new Padding(4, 5, 4, 5);
             boxDatos.Name = "boxDatos";
@@ -87,6 +90,8 @@
             // LabelMoneda
             // 
             LabelMoneda.AutoSize = true;
+            LabelMoneda.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LabelMoneda.ForeColor = SystemColors.ControlLightLight;
             LabelMoneda.Location = new Point(37, 302);
             LabelMoneda.Margin = new Padding(4, 0, 4, 0);
             LabelMoneda.Name = "LabelMoneda";
@@ -105,6 +110,7 @@
             // labelCuil
             // 
             labelCuil.AutoSize = true;
+            labelCuil.ForeColor = SystemColors.ControlLightLight;
             labelCuil.Location = new Point(70, 180);
             labelCuil.Margin = new Padding(4, 0, 4, 0);
             labelCuil.Name = "labelCuil";
@@ -124,6 +130,7 @@
             // labelContra
             // 
             labelContra.AutoSize = true;
+            labelContra.ForeColor = SystemColors.ControlLightLight;
             labelContra.Location = new Point(14, 262);
             labelContra.Margin = new Padding(4, 0, 4, 0);
             labelContra.Name = "labelContra";
@@ -166,6 +173,7 @@
             // labelUsuario
             // 
             labelUsuario.AutoSize = true;
+            labelUsuario.ForeColor = SystemColors.ControlLightLight;
             labelUsuario.Location = new Point(43, 223);
             labelUsuario.Margin = new Padding(4, 0, 4, 0);
             labelUsuario.Name = "labelUsuario";
@@ -208,7 +216,7 @@
             BtnCancelar.Cursor = Cursors.Hand;
             BtnCancelar.Image = (Image)resources.GetObject("BtnCancelar.Image");
             BtnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCancelar.Location = new Point(306, 467);
+            BtnCancelar.Location = new Point(297, 457);
             BtnCancelar.Margin = new Padding(4, 5, 4, 5);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(153, 48);
@@ -220,7 +228,7 @@
             // BtnAceptar
             // 
             BtnAceptar.Cursor = Cursors.Hand;
-            BtnAceptar.Location = new Point(87, 467);
+            BtnAceptar.Location = new Point(86, 457);
             BtnAceptar.Margin = new Padding(4, 5, 4, 5);
             BtnAceptar.Name = "BtnAceptar";
             BtnAceptar.Size = new Size(147, 48);
@@ -232,7 +240,8 @@
             // labelTenesCuenta
             // 
             labelTenesCuenta.AutoSize = true;
-            labelTenesCuenta.Location = new Point(50, 542);
+            labelTenesCuenta.ForeColor = SystemColors.ControlLightLight;
+            labelTenesCuenta.Location = new Point(237, 576);
             labelTenesCuenta.Margin = new Padding(4, 0, 4, 0);
             labelTenesCuenta.Name = "labelTenesCuenta";
             labelTenesCuenta.Size = new Size(183, 25);
@@ -242,7 +251,7 @@
             // botonLogin
             // 
             botonLogin.Cursor = Cursors.Hand;
-            botonLogin.Location = new Point(60, 587);
+            botonLogin.Location = new Point(297, 610);
             botonLogin.Margin = new Padding(4, 5, 4, 5);
             botonLogin.Name = "botonLogin";
             botonLogin.Size = new Size(107, 38);
@@ -251,11 +260,23 @@
             botonLogin.UseVisualStyleBackColor = true;
             botonLogin.Click += botonLogin_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = DesktopBankUI.Properties.Resources.iconPig;
+            pictureBox1.Location = new Point(427, 576);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 72);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // FormRegister
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Teal;
             ClientSize = new Size(570, 678);
+            Controls.Add(pictureBox1);
             Controls.Add(botonLogin);
             Controls.Add(labelTenesCuenta);
             Controls.Add(BtnAceptar);
@@ -267,6 +288,7 @@
             Text = "Registrese";
             boxDatos.ResumeLayout(false);
             boxDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -292,5 +314,6 @@
         private Button botonLogin;
         private ComboBox ComboBoxCurrencies;
         private Label LabelMoneda;
+        private PictureBox pictureBox1;
     }
 }
