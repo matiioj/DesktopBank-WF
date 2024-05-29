@@ -31,45 +31,65 @@
             labelIngrese = new Label();
             BtnExtract = new Button();
             TxtAmount = new TextBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // labelIngrese
             // 
             labelIngrese.AutoSize = true;
             labelIngrese.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIngrese.Location = new Point(30, 54);
+            labelIngrese.ForeColor = SystemColors.ControlLightLight;
+            labelIngrese.Location = new Point(87, 117);
+            labelIngrese.Margin = new Padding(4, 0, 4, 0);
             labelIngrese.Name = "labelIngrese";
-            labelIngrese.Size = new Size(183, 20);
+            labelIngrese.Size = new Size(281, 31);
             labelIngrese.TabIndex = 23;
             labelIngrese.Text = "Ingrese el monto a extraer";
             // 
             // BtnExtract
             // 
-            BtnExtract.Location = new Point(121, 130);
+            BtnExtract.Location = new Point(136, 212);
+            BtnExtract.Margin = new Padding(4, 5, 4, 5);
             BtnExtract.Name = "BtnExtract";
-            BtnExtract.Size = new Size(75, 23);
+            BtnExtract.Size = new Size(163, 64);
             BtnExtract.TabIndex = 22;
-            BtnExtract.Text = "Extract";
+            BtnExtract.Text = "Extraer";
             BtnExtract.UseVisualStyleBackColor = true;
             BtnExtract.Click += BtnExtract_Click;
             // 
             // TxtAmount
             // 
-            TxtAmount.Location = new Point(26, 92);
+            TxtAmount.Location = new Point(37, 153);
+            TxtAmount.Margin = new Padding(4, 5, 4, 5);
             TxtAmount.Name = "TxtAmount";
-            TxtAmount.Size = new Size(265, 23);
+            TxtAmount.Size = new Size(377, 31);
             TxtAmount.TabIndex = 21;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.iconPig;
+            pictureBox1.Location = new Point(174, 33);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(92, 64);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
             // 
             // FormExtract
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(317, 207);
+            BackColor = Color.Teal;
+            ClientSize = new Size(453, 345);
+            Controls.Add(pictureBox1);
             Controls.Add(labelIngrese);
             Controls.Add(BtnExtract);
             Controls.Add(TxtAmount);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormExtract";
-            Text = "FormExtract";
+            Text = "Extracción";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -79,5 +99,6 @@
         private Label labelIngrese;
         private Button BtnExtract;
         private TextBox TxtAmount;
+        private PictureBox pictureBox1;
     }
 }
