@@ -183,7 +183,7 @@ public partial class NojedaisticDesktopBankContext : DbContext
             entity.Property(e => e.OperationCodeId)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("OperationCodeID");
-            entity.Property(e => e.OperationCode1).HasColumnName("OperationCode");
+            entity.Property(e => e.OperationCodeNumber).HasColumnName("OperationCode");
             entity.Property(e => e.OperationCodeDescription)
                 .HasMaxLength(50)
                 .IsUnicode(false);

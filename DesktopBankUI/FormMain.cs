@@ -13,6 +13,7 @@ using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using DesktopBank.BusinessObjects.Generated.Models;
 using DesktopBank.BusinessObjects.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesktopBankUI
 {
@@ -28,6 +29,7 @@ namespace DesktopBankUI
         private readonly CreateOperationService _createOperationService;
         private readonly UnitOfWork _unitOfWork;
         private readonly GenerateNumbersService _generateNumbersService;
+        private readonly ManageOperationsService _manageOperationsService;
         private readonly IOperationRepository _operationRepository;
 
         // Se utiliza una API de Windows para poder generar una ventana arrastrable 
@@ -43,7 +45,9 @@ namespace DesktopBankUI
             _accountRepository = new AccountRepository(_context);
             _operationRepository = new OperationRepository(_context);
             
+
             _generateNumbersService = new();
+            _manageOperationsService = new ManageOperationsService(_operationRepository, _unitOfWork);
             _createOperationService = new CreateOperationService(_operationRepository, _unitOfWork, _generateNumbersService);
             _extractBalanceService = new ExtractBalanceService(_accountRepository, _createOperationService, _unitOfWork);
             _depositBalanceService = new DepositBalanceService(_accountRepository, _createOperationService, _unitOfWork);
@@ -135,7 +139,7 @@ namespace DesktopBankUI
 
         private void transactionsButton_Click(object sender, EventArgs e)
         {
-            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService);
+            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService, _manageOperationsService);
             openFormInsidePanel(transactionsForm);
         }
 

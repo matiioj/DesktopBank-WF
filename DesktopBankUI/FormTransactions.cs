@@ -24,9 +24,11 @@ namespace DesktopBankUI
         private readonly NojedaisticDesktopBankContext _context;
         private readonly IOperationRepository _operationRepository;
         private readonly AccountInfoService _accountInfoService;
+        private readonly ManageOperationsService _manageOperationsService;
 
-        public FormTransactions(Account currentAccount, NojedaisticDesktopBankContext context, IOperationRepository operationRepository, AccountInfoService accountInfoService)
+        public FormTransactions(Account currentAccount, NojedaisticDesktopBankContext context, IOperationRepository operationRepository, AccountInfoService accountInfoService, ManageOperationsService manageOperationsService)
         {
+            _manageOperationsService = manageOperationsService;
             _accountInfoService = accountInfoService;
             _operationRepository = operationRepository;
             _context = context;
@@ -52,14 +54,14 @@ namespace DesktopBankUI
                 var transactions = sourceTransactions.Union(destinationTransactions);
 
                 // Crear lista de objetos para el DataGridView
+                
                 var transactionList = transactions.Select(t => new
                 {
                     From = (t.SourceAccount.User.Client.ClientName).ToUpper() + " " + (t.SourceAccount.User.Client.ClientSurname).ToUpper(),
                     To = (t.DestinationAccount.User.Client.ClientName).ToUpper() + " " + (t.DestinationAccount.User.Client.ClientSurname).ToUpper(),
-                    Amount = t.OperationAmount,
                     Type = t.OperationCode.OperationCodeDescription,
-                    DateOfOperation = t.OperationDate
-                }).ToList();
+                    Date = t.OperationDate,
+                    Amount = _manageOperationsService.GetSignedAmount(t,cbu)                }).ToList();
 
                 // Verificar si la lista de transacciones está vacía
                 if (transactionList.Count == 0)
