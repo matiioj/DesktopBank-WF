@@ -43,5 +43,11 @@ namespace DesktopBankUI
         {
 
         }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(LabelContenidoCbu.Text);
+            MessageBox.Show("Su número ha sido copiado con éxito");
+        }
     }
 }

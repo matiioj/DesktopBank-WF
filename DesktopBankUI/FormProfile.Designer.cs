@@ -35,6 +35,7 @@
             LabelContenidoCbu = new Label();
             LabelContenidoAlias = new Label();
             LabelContenidoCuil = new Label();
+            btnCopy = new Button();
             SuspendLayout();
             // 
             // LabelPerfil
@@ -85,7 +86,7 @@
             // 
             LabelContenidoCbu.AutoSize = true;
             LabelContenidoCbu.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoCbu.Location = new Point(296, 242);
+            LabelContenidoCbu.Location = new Point(206, 248);
             LabelContenidoCbu.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoCbu.Name = "LabelContenidoCbu";
             LabelContenidoCbu.Size = new Size(48, 65);
@@ -97,7 +98,7 @@
             // 
             LabelContenidoAlias.AutoSize = true;
             LabelContenidoAlias.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoAlias.Location = new Point(296, 308);
+            LabelContenidoAlias.Location = new Point(206, 314);
             LabelContenidoAlias.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoAlias.Name = "LabelContenidoAlias";
             LabelContenidoAlias.Size = new Size(48, 65);
@@ -108,12 +109,25 @@
             // 
             LabelContenidoCuil.AutoSize = true;
             LabelContenidoCuil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoCuil.Location = new Point(296, 393);
+            LabelContenidoCuil.Location = new Point(206, 399);
             LabelContenidoCuil.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoCuil.Name = "LabelContenidoCuil";
             LabelContenidoCuil.Size = new Size(48, 65);
             LabelContenidoCuil.TabIndex = 8;
             LabelContenidoCuil.Text = "_";
+            // 
+            // btnCopy
+            // 
+            btnCopy.BackColor = Color.FromArgb(255, 128, 0);
+            btnCopy.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCopy.ForeColor = SystemColors.ButtonHighlight;
+            btnCopy.Location = new Point(745, 248);
+            btnCopy.Name = "btnCopy";
+            btnCopy.Size = new Size(194, 54);
+            btnCopy.TabIndex = 9;
+            btnCopy.Text = "COPIAR CBU";
+            btnCopy.UseVisualStyleBackColor = false;
+            btnCopy.Click += btnCopy_Click;
             // 
             // FormProfile
             // 
@@ -121,6 +135,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1120, 685);
+            Controls.Add(btnCopy);
             Controls.Add(LabelContenidoCuil);
             Controls.Add(LabelContenidoAlias);
             Controls.Add(LabelContenidoCbu);
@@ -147,5 +162,6 @@
         private Label LabelContenidoCbu;
         private Label LabelContenidoAlias;
         private Label LabelContenidoCuil;
+        private Button btnCopy;
     }
 }
