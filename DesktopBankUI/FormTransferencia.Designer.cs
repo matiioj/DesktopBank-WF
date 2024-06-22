@@ -66,7 +66,7 @@
             BtnPegarClipboard.Name = "BtnPegarClipboard";
             BtnPegarClipboard.Size = new Size(128, 38);
             BtnPegarClipboard.TabIndex = 2;
-            BtnPegarClipboard.Text = "Pegar";
+            BtnPegarClipboard.Text = "Transferir ";
             BtnPegarClipboard.UseVisualStyleBackColor = true;
             BtnPegarClipboard.Click += BtnPegarClipboard_Click;
             // 
@@ -120,6 +120,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "FormTransferencia";
             Text = "FormTransferencia";
+            Load += FormTransferencia_Load;
             ((System.ComponentModel.ISupportInitialize)TablaContactos).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
