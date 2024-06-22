@@ -54,8 +54,8 @@ namespace DesktopBankUI
                 // Crear lista de objetos para el DataGridView
                 var transactionList = transactions.Select(t => new
                 {
-                    From = t.SourceAccount.AccountAlias,
-                    To = t.DestinationAccount.AccountAlias,
+                    From = (t.SourceAccount.User.Client.ClientName).ToUpper() + " " + (t.SourceAccount.User.Client.ClientSurname).ToUpper(),
+                    To = (t.DestinationAccount.User.Client.ClientName).ToUpper() + " " + (t.DestinationAccount.User.Client.ClientSurname).ToUpper(),
                     Amount = t.OperationAmount,
                     Type = t.OperationCode.OperationCodeDescription,
                     DateOfOperation = t.OperationDate
