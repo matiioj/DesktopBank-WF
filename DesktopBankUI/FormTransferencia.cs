@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.Services;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +16,9 @@ namespace DesktopBankUI
 {
     public partial class FormTransferencia : Form
     {
-        public FormTransferencia()
+        Account _currentAccount;
+        private readonly CreateTransferService _createTransferService;
+        public FormTransferencia(Account currentAccount, CreateTransferService createTransferService)
         {
             InitializeComponent();
         }
@@ -33,7 +38,15 @@ namespace DesktopBankUI
 
         private void FormTransferencia_Load(object sender, EventArgs e)
         {
-
+            var datoDeCuenta = TxtBoxDatosCuenta.Text;
+            if (datoDeCuenta.IsNullOrEmpty()) 
+            {
+                MessageBox.Show("Por favor, indique un CBU o Alias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                
+            }
         }
     }
 }
