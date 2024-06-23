@@ -49,5 +49,10 @@ namespace DesktopBankUI
             Clipboard.SetText(LabelContenidoCbu.Text);
             MessageBox.Show("Su número ha sido copiado con éxito");
         }
+
+        private void LabelPerfil_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
