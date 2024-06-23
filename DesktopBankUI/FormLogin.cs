@@ -20,7 +20,7 @@ namespace DesktopBankUI
             _context = new NojedaisticDesktopBankContext();
             _userRepository = new UserRepository(_context);
             _sessionService = new UserCheckerService(_userRepository);
-            InitializeComponent();   
+            InitializeComponent();
         }
         private void registerLabel_Click(object sender, EventArgs e)
         {
@@ -51,7 +51,12 @@ namespace DesktopBankUI
             {
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+        }
+
+        private void tituloIniciarSesion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

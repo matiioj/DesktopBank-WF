@@ -45,6 +45,7 @@ namespace DesktopBankUI
             nombreIniciarSesion = new FontAwesome.Sharp.IconButton();
             panelIniciarSesion = new Panel();
             tituloIniciarSesion = new Label();
+            linkChangePass = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconoChancho).BeginInit();
             panelCampos.SuspendLayout();
@@ -104,7 +105,8 @@ namespace DesktopBankUI
             // 
             // panelCampos
             // 
-            panelCampos.BackColor = Color.Teal;
+            panelCampos.BackColor = Color.FromArgb(14, 102, 85);
+            panelCampos.Controls.Add(linkChangePass);
             panelCampos.Controls.Add(exitButton);
             panelCampos.Controls.Add(registerLabel);
             panelCampos.Controls.Add(botonIniciarSesion);
@@ -138,7 +140,7 @@ namespace DesktopBankUI
             registerLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             registerLabel.ForeColor = Color.Snow;
             registerLabel.ImageAlign = ContentAlignment.BottomCenter;
-            registerLabel.Location = new Point(89, 262);
+            registerLabel.Location = new Point(22, 269);
             registerLabel.Margin = new Padding(4, 0, 4, 0);
             registerLabel.Name = "registerLabel";
             registerLabel.RightToLeft = RightToLeft.No;
@@ -163,9 +165,10 @@ namespace DesktopBankUI
             // 
             contraseñaIniciarSesion.FlatAppearance.BorderSize = 0;
             contraseñaIniciarSesion.FlatStyle = FlatStyle.Flat;
-            contraseñaIniciarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            contraseñaIniciarSesion.Font = new Font("Trebuchet MS", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            contraseñaIniciarSesion.ForeColor = Color.White;
             contraseñaIniciarSesion.IconChar = FontAwesome.Sharp.IconChar.Key;
-            contraseñaIniciarSesion.IconColor = Color.Black;
+            contraseñaIniciarSesion.IconColor = Color.White;
             contraseñaIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             contraseñaIniciarSesion.IconSize = 30;
             contraseñaIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
@@ -184,8 +187,9 @@ namespace DesktopBankUI
             nombreIniciarSesion.FlatAppearance.BorderSize = 0;
             nombreIniciarSesion.FlatStyle = FlatStyle.Flat;
             nombreIniciarSesion.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            nombreIniciarSesion.ForeColor = Color.White;
             nombreIniciarSesion.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
-            nombreIniciarSesion.IconColor = Color.Black;
+            nombreIniciarSesion.IconColor = Color.White;
             nombreIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             nombreIniciarSesion.IconSize = 30;
             nombreIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
@@ -211,9 +215,10 @@ namespace DesktopBankUI
             // 
             // tituloIniciarSesion
             // 
-            tituloIniciarSesion.BackColor = Color.PaleTurquoise;
+            tituloIniciarSesion.BackColor = Color.FromArgb(22, 160, 133);
             tituloIniciarSesion.Dock = DockStyle.Top;
-            tituloIniciarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tituloIniciarSesion.Font = new Font("Trebuchet MS", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            tituloIniciarSesion.ForeColor = Color.White;
             tituloIniciarSesion.Location = new Point(0, 0);
             tituloIniciarSesion.Margin = new Padding(4, 0, 4, 0);
             tituloIniciarSesion.Name = "tituloIniciarSesion";
@@ -221,6 +226,20 @@ namespace DesktopBankUI
             tituloIniciarSesion.TabIndex = 0;
             tituloIniciarSesion.Text = "Inicie sesión";
             tituloIniciarSesion.TextAlign = ContentAlignment.MiddleCenter;
+            tituloIniciarSesion.Click += tituloIniciarSesion_Click;
+            // 
+            // linkChangePass
+            // 
+            linkChangePass.AutoSize = true;
+            linkChangePass.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            linkChangePass.LinkColor = Color.White;
+            linkChangePass.Location = new Point(243, 143);
+            linkChangePass.Name = "linkChangePass";
+            linkChangePass.RightToLeft = RightToLeft.No;
+            linkChangePass.Size = new Size(215, 25);
+            linkChangePass.TabIndex = 8;
+            linkChangePass.TabStop = true;
+            linkChangePass.Text = "¿Olvidó su contraseña?";
             // 
             // FormLogin
             // 
@@ -258,5 +277,6 @@ namespace DesktopBankUI
         private Button botonIniciarSesion;
         private Label registerLabel;
         private Button exitButton;
+        private LinkLabel linkChangePass;
     }
 }
