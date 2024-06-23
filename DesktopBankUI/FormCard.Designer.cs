@@ -28,31 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCard));
             gBoxTarjetaDeCredito = new GroupBox();
-            EtqApellidoUsuario = new Label();
-            BtnCopiar = new Button();
-            EtqCodigoSeguridad = new Label();
-            EtqCvv = new Label();
-            EtqFechaVencimiento = new Label();
-            EtqTxtVencimiento = new Label();
-            EtqNombreUsuario = new Label();
+            groupBox1 = new GroupBox();
             EtqTcNumber = new Label();
+            EtqApellidoUsuario = new Label();
+            EtqNombreUsuario = new Label();
+            BtnCopiar = new Button();
+            EtqTxtVencimiento = new Label();
+            EtqCodigoSeguridad = new Label();
+            EtqFechaVencimiento = new Label();
+            EtqCvv = new Label();
             gBoxTarjetaDeCredito.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // gBoxTarjetaDeCredito
             // 
-            gBoxTarjetaDeCredito.BackgroundImage = (Image)resources.GetObject("gBoxTarjetaDeCredito.BackgroundImage");
             gBoxTarjetaDeCredito.BackgroundImageLayout = ImageLayout.Stretch;
-            gBoxTarjetaDeCredito.Controls.Add(EtqApellidoUsuario);
-            gBoxTarjetaDeCredito.Controls.Add(BtnCopiar);
-            gBoxTarjetaDeCredito.Controls.Add(EtqCodigoSeguridad);
-            gBoxTarjetaDeCredito.Controls.Add(EtqCvv);
-            gBoxTarjetaDeCredito.Controls.Add(EtqFechaVencimiento);
-            gBoxTarjetaDeCredito.Controls.Add(EtqTxtVencimiento);
-            gBoxTarjetaDeCredito.Controls.Add(EtqNombreUsuario);
-            gBoxTarjetaDeCredito.Controls.Add(EtqTcNumber);
+            gBoxTarjetaDeCredito.Controls.Add(groupBox1);
             gBoxTarjetaDeCredito.Location = new Point(-20, -15);
             gBoxTarjetaDeCredito.Name = "gBoxTarjetaDeCredito";
             gBoxTarjetaDeCredito.Size = new Size(1643, 1061);
@@ -60,26 +53,73 @@
             gBoxTarjetaDeCredito.TabStop = false;
             gBoxTarjetaDeCredito.Enter += gBoxTarjetaDeCredito_Enter;
             // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.FromArgb(22, 160, 133);
+            groupBox1.BackgroundImageLayout = ImageLayout.None;
+            groupBox1.Controls.Add(EtqTcNumber);
+            groupBox1.Controls.Add(EtqApellidoUsuario);
+            groupBox1.Controls.Add(EtqNombreUsuario);
+            groupBox1.Controls.Add(BtnCopiar);
+            groupBox1.Controls.Add(EtqTxtVencimiento);
+            groupBox1.Controls.Add(EtqCodigoSeguridad);
+            groupBox1.Controls.Add(EtqFechaVencimiento);
+            groupBox1.Controls.Add(EtqCvv);
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Font = new Font("Segoe Script", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.ForeColor = SystemColors.ButtonHighlight;
+            groupBox1.Location = new Point(56, 50);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(926, 569);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Tú tarjeta";
+            // 
+            // EtqTcNumber
+            // 
+            EtqTcNumber.AutoSize = true;
+            EtqTcNumber.BackColor = Color.FromArgb(22, 160, 133);
+            EtqTcNumber.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
+            EtqTcNumber.ForeColor = SystemColors.ButtonHighlight;
+            EtqTcNumber.Location = new Point(34, 135);
+            EtqTcNumber.Name = "EtqTcNumber";
+            EtqTcNumber.Size = new Size(688, 73);
+            EtqTcNumber.TabIndex = 0;
+            EtqTcNumber.Text = "XXXX XXXX XXXX XXXX";
+            EtqTcNumber.Click += EtqTcNumber_Click;
+            // 
             // EtqApellidoUsuario
             // 
             EtqApellidoUsuario.AutoSize = true;
-            EtqApellidoUsuario.BackColor = SystemColors.Window;
+            EtqApellidoUsuario.BackColor = Color.FromArgb(22, 160, 133);
             EtqApellidoUsuario.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            EtqApellidoUsuario.ForeColor = Color.MidnightBlue;
-            EtqApellidoUsuario.Location = new Point(368, 488);
+            EtqApellidoUsuario.ForeColor = SystemColors.ButtonHighlight;
+            EtqApellidoUsuario.Location = new Point(342, 290);
             EtqApellidoUsuario.Name = "EtqApellidoUsuario";
             EtqApellidoUsuario.Size = new Size(227, 73);
             EtqApellidoUsuario.TabIndex = 9;
             EtqApellidoUsuario.Text = "Apellido";
             EtqApellidoUsuario.Click += EtqApellidoUsuario_Click;
             // 
+            // EtqNombreUsuario
+            // 
+            EtqNombreUsuario.AutoSize = true;
+            EtqNombreUsuario.BackColor = Color.FromArgb(22, 160, 133);
+            EtqNombreUsuario.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
+            EtqNombreUsuario.ForeColor = SystemColors.ButtonHighlight;
+            EtqNombreUsuario.Location = new Point(34, 290);
+            EtqNombreUsuario.Name = "EtqNombreUsuario";
+            EtqNombreUsuario.Size = new Size(224, 73);
+            EtqNombreUsuario.TabIndex = 1;
+            EtqNombreUsuario.Text = "Nombre";
+            // 
             // BtnCopiar
             // 
-            BtnCopiar.BackColor = SystemColors.Highlight;
+            BtnCopiar.BackColor = SystemColors.ButtonHighlight;
             BtnCopiar.BackgroundImageLayout = ImageLayout.Center;
             BtnCopiar.Font = new Font("Comic Sans MS", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            BtnCopiar.ForeColor = SystemColors.HighlightText;
-            BtnCopiar.Location = new Point(658, 334);
+            BtnCopiar.ForeColor = Color.FromArgb(22, 160, 133);
+            BtnCopiar.Location = new Point(632, 136);
             BtnCopiar.Name = "BtnCopiar";
             BtnCopiar.Size = new Size(229, 72);
             BtnCopiar.TabIndex = 8;
@@ -87,78 +127,53 @@
             BtnCopiar.UseVisualStyleBackColor = false;
             BtnCopiar.Click += BtnCopiar_Click;
             // 
-            // EtqCodigoSeguridad
-            // 
-            EtqCodigoSeguridad.AutoSize = true;
-            EtqCodigoSeguridad.BackColor = SystemColors.Window;
-            EtqCodigoSeguridad.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            EtqCodigoSeguridad.ForeColor = Color.MidnightBlue;
-            EtqCodigoSeguridad.Location = new Point(801, 670);
-            EtqCodigoSeguridad.Name = "EtqCodigoSeguridad";
-            EtqCodigoSeguridad.Size = new Size(146, 73);
-            EtqCodigoSeguridad.TabIndex = 6;
-            EtqCodigoSeguridad.Text = "XXX";
-            // 
-            // EtqCvv
-            // 
-            EtqCvv.AutoSize = true;
-            EtqCvv.BackColor = SystemColors.Window;
-            EtqCvv.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            EtqCvv.ForeColor = Color.MidnightBlue;
-            EtqCvv.Location = new Point(658, 670);
-            EtqCvv.Name = "EtqCvv";
-            EtqCvv.Size = new Size(147, 73);
-            EtqCvv.TabIndex = 5;
-            EtqCvv.Text = "CVV:";
-            // 
-            // EtqFechaVencimiento
-            // 
-            EtqFechaVencimiento.AutoSize = true;
-            EtqFechaVencimiento.BackColor = SystemColors.Window;
-            EtqFechaVencimiento.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            EtqFechaVencimiento.ForeColor = Color.MidnightBlue;
-            EtqFechaVencimiento.Location = new Point(384, 670);
-            EtqFechaVencimiento.Name = "EtqFechaVencimiento";
-            EtqFechaVencimiento.Size = new Size(211, 73);
-            EtqFechaVencimiento.TabIndex = 4;
-            EtqFechaVencimiento.Text = "XX/XX";
-            // 
             // EtqTxtVencimiento
             // 
             EtqTxtVencimiento.AutoSize = true;
-            EtqTxtVencimiento.BackColor = SystemColors.Window;
+            EtqTxtVencimiento.BackColor = Color.FromArgb(22, 160, 133);
             EtqTxtVencimiento.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            EtqTxtVencimiento.ForeColor = Color.MidnightBlue;
-            EtqTxtVencimiento.Location = new Point(60, 670);
+            EtqTxtVencimiento.ForeColor = SystemColors.ButtonHighlight;
+            EtqTxtVencimiento.Location = new Point(34, 472);
             EtqTxtVencimiento.Name = "EtqTxtVencimiento";
             EtqTxtVencimiento.Size = new Size(341, 73);
             EtqTxtVencimiento.TabIndex = 3;
             EtqTxtVencimiento.Text = "Vencimiento:";
             // 
-            // EtqNombreUsuario
+            // EtqCodigoSeguridad
             // 
-            EtqNombreUsuario.AutoSize = true;
-            EtqNombreUsuario.BackColor = SystemColors.Window;
-            EtqNombreUsuario.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            EtqNombreUsuario.ForeColor = Color.MidnightBlue;
-            EtqNombreUsuario.Location = new Point(60, 488);
-            EtqNombreUsuario.Name = "EtqNombreUsuario";
-            EtqNombreUsuario.Size = new Size(224, 73);
-            EtqNombreUsuario.TabIndex = 1;
-            EtqNombreUsuario.Text = "Nombre";
+            EtqCodigoSeguridad.AutoSize = true;
+            EtqCodigoSeguridad.BackColor = Color.FromArgb(22, 160, 133);
+            EtqCodigoSeguridad.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
+            EtqCodigoSeguridad.ForeColor = SystemColors.ButtonHighlight;
+            EtqCodigoSeguridad.Location = new Point(775, 472);
+            EtqCodigoSeguridad.Name = "EtqCodigoSeguridad";
+            EtqCodigoSeguridad.Size = new Size(146, 73);
+            EtqCodigoSeguridad.TabIndex = 6;
+            EtqCodigoSeguridad.Text = "XXX";
             // 
-            // EtqTcNumber
+            // EtqFechaVencimiento
             // 
-            EtqTcNumber.AutoSize = true;
-            EtqTcNumber.BackColor = SystemColors.Window;
-            EtqTcNumber.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
-            EtqTcNumber.ForeColor = Color.MidnightBlue;
-            EtqTcNumber.Location = new Point(60, 333);
-            EtqTcNumber.Name = "EtqTcNumber";
-            EtqTcNumber.Size = new Size(688, 73);
-            EtqTcNumber.TabIndex = 0;
-            EtqTcNumber.Text = "XXXX XXXX XXXX XXXX";
-            EtqTcNumber.Click += EtqTcNumber_Click;
+            EtqFechaVencimiento.AutoSize = true;
+            EtqFechaVencimiento.BackColor = Color.FromArgb(22, 160, 133);
+            EtqFechaVencimiento.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
+            EtqFechaVencimiento.ForeColor = SystemColors.ButtonHighlight;
+            EtqFechaVencimiento.Location = new Point(358, 472);
+            EtqFechaVencimiento.Name = "EtqFechaVencimiento";
+            EtqFechaVencimiento.Size = new Size(211, 73);
+            EtqFechaVencimiento.TabIndex = 4;
+            EtqFechaVencimiento.Text = "XX/XX";
+            // 
+            // EtqCvv
+            // 
+            EtqCvv.AutoSize = true;
+            EtqCvv.BackColor = Color.FromArgb(22, 160, 133);
+            EtqCvv.Font = new Font("Comic Sans MS", 26F, FontStyle.Regular, GraphicsUnit.Point);
+            EtqCvv.ForeColor = SystemColors.ButtonHighlight;
+            EtqCvv.Location = new Point(632, 472);
+            EtqCvv.Name = "EtqCvv";
+            EtqCvv.Size = new Size(147, 73);
+            EtqCvv.TabIndex = 5;
+            EtqCvv.Text = "CVV:";
             // 
             // FormCard
             // 
@@ -172,7 +187,8 @@
             Text = "FormCard";
             Load += FormCard_Load;
             gBoxTarjetaDeCredito.ResumeLayout(false);
-            gBoxTarjetaDeCredito.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -187,5 +203,6 @@
         private Label EtqNombreUsuario;
         private Label EtqTcNumber;
         private Label EtqApellidoUsuario;
+        private GroupBox groupBox1;
     }
 }
