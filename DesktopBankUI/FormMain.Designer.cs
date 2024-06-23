@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             panelMenu = new Panel();
+            btnPayService = new FontAwesome.Sharp.IconButton();
             exitButton = new FontAwesome.Sharp.IconButton();
             transactionsButton = new FontAwesome.Sharp.IconButton();
             transferButton = new FontAwesome.Sharp.IconButton();
@@ -44,7 +45,6 @@
             restoreButton = new FontAwesome.Sharp.IconButton();
             closeButton = new FontAwesome.Sharp.IconButton();
             panelScreen = new Panel();
-            btnPayService = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconIstic).BeginInit();
@@ -69,6 +69,30 @@
             panelMenu.Padding = new Padding(0, 0, 0, 42);
             panelMenu.Size = new Size(204, 1000);
             panelMenu.TabIndex = 0;
+            // 
+            // btnPayService
+            // 
+            btnPayService.Dock = DockStyle.Top;
+            btnPayService.FlatAppearance.BorderSize = 0;
+            btnPayService.FlatStyle = FlatStyle.Flat;
+            btnPayService.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPayService.ForeColor = Color.White;
+            btnPayService.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            btnPayService.IconColor = Color.White;
+            btnPayService.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPayService.IconSize = 30;
+            btnPayService.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPayService.Location = new Point(0, 432);
+            btnPayService.Margin = new Padding(4, 5, 4, 5);
+            btnPayService.Name = "btnPayService";
+            btnPayService.Padding = new Padding(14, 0, 0, 0);
+            btnPayService.Size = new Size(204, 58);
+            btnPayService.TabIndex = 9;
+            btnPayService.Text = "Pay Service";
+            btnPayService.TextAlign = ContentAlignment.MiddleLeft;
+            btnPayService.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPayService.UseVisualStyleBackColor = true;
+            btnPayService.Click += btnPayService_Click;
             // 
             // exitButton
             // 
@@ -332,29 +356,7 @@
             panelScreen.Name = "panelScreen";
             panelScreen.Size = new Size(988, 900);
             panelScreen.TabIndex = 2;
-            // 
-            // btnPayService
-            // 
-            btnPayService.Dock = DockStyle.Top;
-            btnPayService.FlatAppearance.BorderSize = 0;
-            btnPayService.FlatStyle = FlatStyle.Flat;
-            btnPayService.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPayService.ForeColor = Color.White;
-            btnPayService.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
-            btnPayService.IconColor = Color.White;
-            btnPayService.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnPayService.IconSize = 30;
-            btnPayService.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPayService.Location = new Point(0, 432);
-            btnPayService.Margin = new Padding(4, 5, 4, 5);
-            btnPayService.Name = "btnPayService";
-            btnPayService.Padding = new Padding(14, 0, 0, 0);
-            btnPayService.Size = new Size(204, 58);
-            btnPayService.TabIndex = 9;
-            btnPayService.Text = "Pay Service";
-            btnPayService.TextAlign = ContentAlignment.MiddleLeft;
-            btnPayService.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnPayService.UseVisualStyleBackColor = true;
+            panelScreen.Paint += panelScreen_Paint;
             // 
             // FormMain
             // 

@@ -44,7 +44,7 @@ namespace DesktopBankUI
             _unitOfWork = new UnitOfWork(_context);
             _accountRepository = new AccountRepository(_context);
             _operationRepository = new OperationRepository(_context);
-            
+
 
             _generateNumbersService = new();
             _manageOperationsService = new ManageOperationsService(_operationRepository, _unitOfWork);
@@ -143,5 +143,15 @@ namespace DesktopBankUI
             openFormInsidePanel(transactionsForm);
         }
 
+        private void btnPayService_Click(object sender, EventArgs e)
+        {
+            FormPayService payService = new();  
+            openFormInsidePanel(payService);
+        }
+
+        private void panelScreen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
