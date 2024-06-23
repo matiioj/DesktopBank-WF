@@ -240,6 +240,7 @@ namespace DesktopBankUI
             linkChangePass.TabIndex = 8;
             linkChangePass.TabStop = true;
             linkChangePass.Text = "¿Olvidó su contraseña?";
+            linkChangePass.LinkClicked += linkChangePass_LinkClicked;
             // 
             // FormLogin
             // 
