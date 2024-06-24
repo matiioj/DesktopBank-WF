@@ -32,7 +32,7 @@ namespace DesktopBankUI
         private readonly ManageOperationsService _manageOperationsService;
         private readonly CheckAccountTransfer _checkAccountTransfer;
         private readonly CreateTransferService _createTransferService;
-        private readonly IOperationRepository _operationRepository;
+        private readonly OperationRepository _operationRepository;
         private readonly IOperationCodeRepository _operationCodeRepository;
 
         // Se utiliza una API de Windows para poder generar una ventana arrastrable 

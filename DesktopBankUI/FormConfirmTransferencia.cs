@@ -17,8 +17,8 @@ namespace DesktopBankUI
             _currentAccount = currentAccount;
             _destinationAccount = destinationAccount;
             InitializeComponent();
-            string nombre = (_destinationAccount.User.Client.ClientName + " " + _destinationAccount.User.Client.ClientName).ToUpper();
-            personToTransferTxt.Text = "Vas a transferirle a \n   " + nombre;
+            string nombre = (_destinationAccount.User.Client.ClientName + " " + _destinationAccount.User.Client.ClientSurname).ToUpper();
+            personToTransferTxt.Text = "Vas a transferirle a \n      " + nombre;
             this.StartPosition = FormStartPosition.CenterParent;
         }
 
