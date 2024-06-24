@@ -35,6 +35,8 @@
             depositButton = new FontAwesome.Sharp.IconButton();
             extractButton = new FontAwesome.Sharp.IconButton();
             etqSaldo = new Label();
+            comboBoxAccounts = new ComboBox();
+            ChangeCurrencyButton = new Button();
             SuspendLayout();
             // 
             // helpButtonPanel
@@ -139,11 +141,31 @@
             etqSaldo.TabIndex = 19;
             etqSaldo.Text = "Saldo disponible: ";
             // 
+            // comboBoxAccounts
+            // 
+            comboBoxAccounts.FormattingEnabled = true;
+            comboBoxAccounts.Location = new Point(521, 264);
+            comboBoxAccounts.Name = "comboBoxAccounts";
+            comboBoxAccounts.Size = new Size(121, 23);
+            comboBoxAccounts.TabIndex = 20;
+            // 
+            // ChangeCurrencyButton
+            // 
+            ChangeCurrencyButton.Location = new Point(520, 233);
+            ChangeCurrencyButton.Name = "ChangeCurrencyButton";
+            ChangeCurrencyButton.Size = new Size(122, 23);
+            ChangeCurrencyButton.TabIndex = 21;
+            ChangeCurrencyButton.Text = "Change currency";
+            ChangeCurrencyButton.UseVisualStyleBackColor = true;
+            ChangeCurrencyButton.Click += ChangeCurrencyButton_Click;
+            // 
             // FormHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 432);
+            Controls.Add(ChangeCurrencyButton);
+            Controls.Add(comboBoxAccounts);
             Controls.Add(etqSaldo);
             Controls.Add(extractButton);
             Controls.Add(depositButton);
@@ -166,5 +188,7 @@
         private FontAwesome.Sharp.IconButton depositButton;
         private FontAwesome.Sharp.IconButton extractButton;
         private Label etqSaldo;
+        private ComboBox comboBoxAccounts;
+        private Button ChangeCurrencyButton;
     }
 }

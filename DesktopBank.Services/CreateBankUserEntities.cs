@@ -19,7 +19,7 @@ public class CreateBankUserEntitiesService
         _createCardService = createCardService;
     }
 
-    public async Task CreateBankUserEntitiesAsync(string clientName, string clientSurname, long clientCuil, string clientEmail, string username, string password, int currencyId)
+    public async Task CreateBankUserEntitiesAsync(string clientName, string clientSurname, long clientCuil, string clientEmail, string username, string password, int primaryCurrencyId, int secondaryCurrencyId)
     {
         using (var transaction = await _unitOfWork.BeginTransactionAsync())
         {
@@ -27,8 +27,15 @@ public class CreateBankUserEntitiesService
             {
                 var client = await _clientService.CreateClientAsync(clientName, clientSurname, clientCuil, clientEmail);
                 var user = await _userService.CreateUserAsync(client.ClientId, username, password);
-                var account = await _accountService.CreateAccountAsync(user.UserId, currencyId);
-                var card = await _createCardService.CreateCardAsync(account.AccountId, account.AccountCurrency);
+
+                // primera cuenta con pesos
+                var account1 = await _accountService.CreateAccountAsync(user.UserId, primaryCurrencyId);
+
+                // segunda cuenta con moneda adicional (dolar)
+                var account2 = await _accountService.CreateAccountAsync(user.UserId, secondaryCurrencyId);
+
+                var card1 = await _createCardService.CreateCardAsync(account1.AccountId, account1.AccountCurrency);
+                var card2 = await _createCardService.CreateCardAsync(account2.AccountId, account2.AccountCurrency);
 
                 await transaction.CommitAsync();
             }

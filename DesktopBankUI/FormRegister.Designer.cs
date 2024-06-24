@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegister));
             boxDatos = new GroupBox();
-            ComboBoxCurrencies = new ComboBox();
-            LabelMoneda = new Label();
             TxtCuil = new TextBox();
             labelCuil = new Label();
             TxtContra = new TextBox();
@@ -55,8 +53,6 @@
             // 
             // boxDatos
             // 
-            boxDatos.Controls.Add(ComboBoxCurrencies);
-            boxDatos.Controls.Add(LabelMoneda);
             boxDatos.Controls.Add(TxtCuil);
             boxDatos.Controls.Add(labelCuil);
             boxDatos.Controls.Add(TxtContra);
@@ -70,144 +66,109 @@
             boxDatos.Controls.Add(labelApellido);
             boxDatos.Controls.Add(labelNombre);
             boxDatos.ForeColor = SystemColors.ControlLightLight;
-            boxDatos.Location = new Point(17, 65);
-            boxDatos.Margin = new Padding(4, 5, 4, 5);
+            boxDatos.Location = new Point(12, 39);
             boxDatos.Name = "boxDatos";
-            boxDatos.Padding = new Padding(4, 5, 4, 5);
-            boxDatos.Size = new Size(529, 368);
+            boxDatos.Size = new Size(370, 201);
             boxDatos.TabIndex = 0;
             boxDatos.TabStop = false;
             // 
-            // ComboBoxCurrencies
-            // 
-            ComboBoxCurrencies.FormattingEnabled = true;
-            ComboBoxCurrencies.Location = new Point(123, 297);
-            ComboBoxCurrencies.Margin = new Padding(4, 5, 4, 5);
-            ComboBoxCurrencies.Name = "ComboBoxCurrencies";
-            ComboBoxCurrencies.Size = new Size(377, 33);
-            ComboBoxCurrencies.TabIndex = 12;
-            // 
-            // LabelMoneda
-            // 
-            LabelMoneda.AutoSize = true;
-            LabelMoneda.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelMoneda.ForeColor = SystemColors.ControlLightLight;
-            LabelMoneda.Location = new Point(37, 302);
-            LabelMoneda.Margin = new Padding(4, 0, 4, 0);
-            LabelMoneda.Name = "LabelMoneda";
-            LabelMoneda.Size = new Size(82, 25);
-            LabelMoneda.TabIndex = 11;
-            LabelMoneda.Text = "Moneda:";
-            // 
             // TxtCuil
             // 
-            TxtCuil.Location = new Point(123, 167);
-            TxtCuil.Margin = new Padding(4, 5, 4, 5);
+            TxtCuil.Location = new Point(86, 100);
             TxtCuil.Name = "TxtCuil";
-            TxtCuil.Size = new Size(377, 31);
+            TxtCuil.Size = new Size(265, 23);
             TxtCuil.TabIndex = 4;
             // 
             // labelCuil
             // 
             labelCuil.AutoSize = true;
             labelCuil.ForeColor = SystemColors.ControlLightLight;
-            labelCuil.Location = new Point(70, 180);
-            labelCuil.Margin = new Padding(4, 0, 4, 0);
+            labelCuil.Location = new Point(49, 108);
             labelCuil.Name = "labelCuil";
-            labelCuil.Size = new Size(45, 25);
+            labelCuil.Size = new Size(31, 15);
             labelCuil.TabIndex = 10;
             labelCuil.Text = "Cuil:";
             // 
             // TxtContra
             // 
-            TxtContra.Location = new Point(123, 253);
-            TxtContra.Margin = new Padding(4, 5, 4, 5);
+            TxtContra.Location = new Point(86, 152);
             TxtContra.Name = "TxtContra";
             TxtContra.PasswordChar = '*';
-            TxtContra.Size = new Size(377, 31);
+            TxtContra.Size = new Size(265, 23);
             TxtContra.TabIndex = 6;
             // 
             // labelContra
             // 
             labelContra.AutoSize = true;
             labelContra.ForeColor = SystemColors.ControlLightLight;
-            labelContra.Location = new Point(14, 262);
-            labelContra.Margin = new Padding(4, 0, 4, 0);
+            labelContra.Location = new Point(10, 157);
             labelContra.Name = "labelContra";
-            labelContra.Size = new Size(105, 25);
+            labelContra.Size = new Size(70, 15);
             labelContra.TabIndex = 8;
             labelContra.Text = "Contraseña:";
             // 
             // TxtUser
             // 
-            TxtUser.Location = new Point(123, 210);
-            TxtUser.Margin = new Padding(4, 5, 4, 5);
+            TxtUser.Location = new Point(86, 126);
             TxtUser.Name = "TxtUser";
-            TxtUser.Size = new Size(377, 31);
+            TxtUser.Size = new Size(265, 23);
             TxtUser.TabIndex = 5;
             // 
             // TxtCorreo
             // 
-            TxtCorreo.Location = new Point(123, 122);
-            TxtCorreo.Margin = new Padding(4, 5, 4, 5);
+            TxtCorreo.Location = new Point(86, 73);
             TxtCorreo.Name = "TxtCorreo";
-            TxtCorreo.Size = new Size(377, 31);
+            TxtCorreo.Size = new Size(265, 23);
             TxtCorreo.TabIndex = 3;
             // 
             // TxtApellido
             // 
-            TxtApellido.Location = new Point(123, 78);
-            TxtApellido.Margin = new Padding(4, 5, 4, 5);
+            TxtApellido.Location = new Point(86, 47);
             TxtApellido.Name = "TxtApellido";
-            TxtApellido.Size = new Size(377, 31);
+            TxtApellido.Size = new Size(265, 23);
             TxtApellido.TabIndex = 2;
             // 
             // TxtNombre
             // 
-            TxtNombre.Location = new Point(123, 35);
-            TxtNombre.Margin = new Padding(4, 5, 4, 5);
+            TxtNombre.Location = new Point(86, 21);
             TxtNombre.Name = "TxtNombre";
-            TxtNombre.Size = new Size(377, 31);
+            TxtNombre.Size = new Size(265, 23);
             TxtNombre.TabIndex = 1;
             // 
             // labelUsuario
             // 
             labelUsuario.AutoSize = true;
             labelUsuario.ForeColor = SystemColors.ControlLightLight;
-            labelUsuario.Location = new Point(43, 223);
-            labelUsuario.Margin = new Padding(4, 0, 4, 0);
+            labelUsuario.Location = new Point(30, 134);
             labelUsuario.Name = "labelUsuario";
-            labelUsuario.Size = new Size(76, 25);
+            labelUsuario.Size = new Size(50, 15);
             labelUsuario.TabIndex = 3;
             labelUsuario.Text = "Usuario:";
             // 
             // labelCorreo
             // 
             labelCorreo.AutoSize = true;
-            labelCorreo.Location = new Point(49, 135);
-            labelCorreo.Margin = new Padding(4, 0, 4, 0);
+            labelCorreo.Location = new Point(34, 81);
             labelCorreo.Name = "labelCorreo";
-            labelCorreo.Size = new Size(70, 25);
+            labelCorreo.Size = new Size(46, 15);
             labelCorreo.TabIndex = 2;
             labelCorreo.Text = "Correo:";
             // 
             // labelApellido
             // 
             labelApellido.AutoSize = true;
-            labelApellido.Location = new Point(37, 92);
-            labelApellido.Margin = new Padding(4, 0, 4, 0);
+            labelApellido.Location = new Point(26, 55);
             labelApellido.Name = "labelApellido";
-            labelApellido.Size = new Size(82, 25);
+            labelApellido.Size = new Size(54, 15);
             labelApellido.TabIndex = 1;
             labelApellido.Text = "Apellido:";
             // 
             // labelNombre
             // 
             labelNombre.AutoSize = true;
-            labelNombre.Location = new Point(37, 48);
-            labelNombre.Margin = new Padding(4, 0, 4, 0);
+            labelNombre.Location = new Point(26, 29);
             labelNombre.Name = "labelNombre";
-            labelNombre.Size = new Size(82, 25);
+            labelNombre.Size = new Size(54, 15);
             labelNombre.TabIndex = 0;
             labelNombre.Text = "Nombre:";
             // 
@@ -216,10 +177,9 @@
             BtnCancelar.Cursor = Cursors.Hand;
             BtnCancelar.Image = (Image)resources.GetObject("BtnCancelar.Image");
             BtnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnCancelar.Location = new Point(297, 457);
-            BtnCancelar.Margin = new Padding(4, 5, 4, 5);
+            BtnCancelar.Location = new Point(208, 274);
             BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(153, 48);
+            BtnCancelar.Size = new Size(107, 29);
             BtnCancelar.TabIndex = 8;
             BtnCancelar.Text = "Limpiar";
             BtnCancelar.UseVisualStyleBackColor = true;
@@ -228,10 +188,9 @@
             // BtnAceptar
             // 
             BtnAceptar.Cursor = Cursors.Hand;
-            BtnAceptar.Location = new Point(86, 457);
-            BtnAceptar.Margin = new Padding(4, 5, 4, 5);
+            BtnAceptar.Location = new Point(60, 274);
             BtnAceptar.Name = "BtnAceptar";
-            BtnAceptar.Size = new Size(147, 48);
+            BtnAceptar.Size = new Size(103, 29);
             BtnAceptar.TabIndex = 7;
             BtnAceptar.Text = "Aceptar";
             BtnAceptar.UseVisualStyleBackColor = true;
@@ -241,20 +200,18 @@
             // 
             labelTenesCuenta.AutoSize = true;
             labelTenesCuenta.ForeColor = SystemColors.ControlLightLight;
-            labelTenesCuenta.Location = new Point(237, 576);
-            labelTenesCuenta.Margin = new Padding(4, 0, 4, 0);
+            labelTenesCuenta.Location = new Point(166, 346);
             labelTenesCuenta.Name = "labelTenesCuenta";
-            labelTenesCuenta.Size = new Size(183, 25);
+            labelTenesCuenta.Size = new Size(122, 15);
             labelTenesCuenta.TabIndex = 3;
             labelTenesCuenta.Text = "¿Ya tenes una cuenta?";
             // 
             // botonLogin
             // 
             botonLogin.Cursor = Cursors.Hand;
-            botonLogin.Location = new Point(297, 610);
-            botonLogin.Margin = new Padding(4, 5, 4, 5);
+            botonLogin.Location = new Point(208, 366);
             botonLogin.Name = "botonLogin";
-            botonLogin.Size = new Size(107, 38);
+            botonLogin.Size = new Size(75, 23);
             botonLogin.TabIndex = 9;
             botonLogin.Text = "Login";
             botonLogin.UseVisualStyleBackColor = true;
@@ -263,26 +220,26 @@
             // pictureBox1
             // 
             pictureBox1.Image = DesktopBankUI.Properties.Resources.iconPig;
-            pictureBox1.Location = new Point(427, 576);
+            pictureBox1.Location = new Point(299, 329);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(90, 72);
+            pictureBox1.Size = new Size(63, 60);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
             // FormRegister
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(570, 678);
+            ClientSize = new Size(399, 407);
             Controls.Add(pictureBox1);
             Controls.Add(botonLogin);
             Controls.Add(labelTenesCuenta);
             Controls.Add(BtnAceptar);
             Controls.Add(BtnCancelar);
             Controls.Add(boxDatos);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "FormRegister";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrese";
@@ -312,8 +269,6 @@
         private TextBox TxtContra;
         private Label labelTenesCuenta;
         private Button botonLogin;
-        private ComboBox ComboBoxCurrencies;
-        private Label LabelMoneda;
         private PictureBox pictureBox1;
     }
 }

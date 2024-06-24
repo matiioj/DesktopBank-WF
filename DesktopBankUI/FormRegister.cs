@@ -56,9 +56,10 @@ namespace StudentSystem.WindowsFormsCliente
             _validationService = new();
 
             InitializeComponent();
-            LoadCurrencies();
+            //LoadCurrencies();
         }
 
+        /*
         private void LoadCurrencies()
         {
             var currencies = _currencyRepository.GetCurrencies().ToList();
@@ -73,6 +74,7 @@ namespace StudentSystem.WindowsFormsCliente
                 MessageBox.Show("No se encontraron monedas en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        */
 
         private async void BtnAceptar_Click(object sender, EventArgs e)
         {
@@ -96,22 +98,25 @@ namespace StudentSystem.WindowsFormsCliente
             // si confirma -> almacenamiento en BD y abre FormLogin
             if (resultado == DialogResult.Yes)
             {
-                int currencyId = (int)ComboBoxCurrencies.SelectedValue; // obtener CurrencyId
+                int pesosCurrencyId = 1; // obtener CurrencyId
+                int dollarCurrencyId = 2; // 1:pesos;2:dolar;3:euro
+
                 try
                 {
-                    // Transaction, mas de una tabla involucrada 
-                    await _createBankUserEntitiesService.CreateBankUserEntitiesAsync(nombre, apellido, long.Parse(cuil), correo, user, contra, currencyId);
-                    MailData mailData = new MailData();
-                    mailData.MailTo = correo;
-                    mailData.Subject = "Bienvenido a ISTIC DesktopBank";
-                    mailData.Body = $"Bienvenido señor/a {nombre} como nuevo cliente";
+                    await _createBankUserEntitiesService.CreateBankUserEntitiesAsync(nombre, apellido, long.Parse(cuil), correo, user, contra, pesosCurrencyId, dollarCurrencyId);
+
+                    MailData mailData = new MailData
+                    {
+                        MailTo = correo,
+                        Subject = "Bienvenido a ISTIC DesktopBank",
+                        Body = $"Bienvenido señor/a {nombre} como nuevo cliente"
+                    };
                     mailService.SendMail(mailData);
                     MessageBox.Show("Su usuario ha sido registrado satisfactoriamente");
 
                     FormLogin formLogin = new FormLogin();
                     formLogin.Show();
                     this.Hide();
-
                 }
                 catch (Exception ex)
                 {
@@ -143,8 +148,3 @@ namespace StudentSystem.WindowsFormsCliente
     }
 
 }
-
-
-
-
-

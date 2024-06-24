@@ -14,7 +14,6 @@ using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using DesktopBank.BusinessObjects.Interfaces;
 
-
 namespace DesktopBankUI
 {
     public partial class FormHome : Form
@@ -43,15 +42,62 @@ namespace DesktopBankUI
 
             InitializeComponent();
             Load_Labels();
+            Load_UserAccounts();
         }
 
         public void Load_Labels()
         {
-            currencySign = _currentAccount.AccountCurrencyNavigation.CurrencySign;
-            nombre = _currentAccount.User.Client.ClientName;
+            if (_currentAccount == null)
+            {
+                // Manejar el caso donde _currentAccount es null
+                MessageBox.Show("No se ha seleccionado ninguna cuenta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            currencySign = _currentAccount.AccountCurrencyNavigation?.CurrencySign ?? "N/D";
+            nombre = _currentAccount.User?.Client?.ClientName ?? "N/D";
             balance = Convert.ToString(_currentAccount.AccountBalance);
             labelBalance.Text = currencySign + balance;
             LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
+        }
+
+        private void Load_UserAccounts()
+        {
+            var accounts = _accountInfoService.GetAllAccountsByUserId(_currentAccount.UserId);
+
+            if (accounts == null || !accounts.Any())
+            {
+                comboBoxAccounts.DataSource = null;
+                comboBoxAccounts.Items.Clear();
+                comboBoxAccounts.Items.Add("No se encontró ninguna cuenta");
+                return;
+            }
+
+            var accountList = accounts.Select(account => new
+            {
+                AccountId = account.AccountId,
+                AccountDescription = $"{GetCurrencyName(account.AccountCurrency)} ({account.AccountCurrency})"
+            }).ToList();
+
+            comboBoxAccounts.DataSource = accountList;
+            comboBoxAccounts.DisplayMember = "AccountDescription";
+            comboBoxAccounts.ValueMember = "AccountId";
+        }
+
+        private string GetCurrencyName(int accountCurrency)
+        {
+            return accountCurrency switch
+            {
+                1 => "Pesos",
+                2 => "Dólar",
+                3 => "Euro",
+                _ => "Desconocida",
+            };
+        }
+
+        private void comboBoxAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Esto se deja vacío si el cambio se hace solo con el botón
         }
 
         private void depositButton_Click(object sender, EventArgs e)
@@ -69,7 +115,6 @@ namespace DesktopBankUI
                 MessageBox.Show($"Ocurrió un error al abrir el formulario de depósito: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void extractButton_Click(object sender, EventArgs e)
         {
@@ -89,8 +134,14 @@ namespace DesktopBankUI
 
         private void labelBalance_Click(object sender, EventArgs e)
         {
-
+            // Este método está vacío, pero lo puedes usar si deseas agregar alguna funcionalidad cuando se hace clic en el label del balance.
         }
 
+        private void ChangeCurrencyButton_Click(object sender, EventArgs e)
+        {
+            var selectedAccountId = (int)comboBoxAccounts.SelectedValue;
+            _currentAccount = _accountInfoService.GetAccountById(selectedAccountId);
+            Load_Labels();
+        }
     }
 }

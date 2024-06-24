@@ -56,6 +56,11 @@ namespace DesktopBank.DAL.Repositories
                 .FirstOrDefault(a => a.AccountCbu == accountCbu);
         }
 
+        public IEnumerable<Account> GetAccountsByUserId(int userId)
+        {
+            return _context.Accounts.Where(a => a.UserId == userId).ToList();
+        }
+
         public IEnumerable<Account> GetByCurrencyId(int currencyId)
         {
             return _context.Accounts

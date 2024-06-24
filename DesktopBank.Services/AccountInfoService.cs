@@ -37,5 +37,18 @@ namespace DesktopBank.Services
             Account foundAccount = _accountRepository.GetByCbu(cbu);
             return foundAccount;
         }
+
+        //agregados 23/6
+
+        public IEnumerable<Account> GetAllAccountsByUserId(int userId)
+        {
+            return _accountRepository.GetAccountsByUserId(userId);
+        }
+
+        public Account GetAccountById(int accountId)
+        {
+            return _accountRepository.GetById(accountId);
+        }
+
     }
 }
