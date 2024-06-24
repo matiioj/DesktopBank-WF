@@ -24,54 +24,27 @@ namespace DesktopBank.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task ExecuteTransfer(Account currentAccount, decimal amount, long cbu)
+        public async Task ExecuteTransfer(Account sourceAccount, decimal amount, Account destinationAccount)
         {
-            var sourceAccount = currentAccount;
-            var destinationAccount = _accountRepository.GetByCbu(cbu);
-
-            if (sourceAccount == null || destinationAccount == null)
+            if (sourceAccount == null ||  destinationAccount == null) 
             {
-                throw new InvalidOperationException("La cuenta no fue encontrada");
-            }
-
-            if (sourceAccount.AccountBalance < amount) 
-            {
-                throw new InvalidOperationException("No posees suficente dinero para realizar esta accion");
-            }
-
-            sourceAccount.AccountBalance -= amount;
-            destinationAccount.AccountBalance += amount;
-
-
-            await _createOperationService.CreateOperationAsync(sourceAccount.AccountId, destinationAccount.AccountId, amount, 3); // transfer
-            _accountRepository.Update(sourceAccount);
-            _accountRepository.Update(destinationAccount);
-            await _unitOfWork.SaveChangesAsync();
-        }
-
-        public async Task ExecuteTransfer(Account currentAccount, decimal amount, string alias)
-        {
-            var sourceAccount = currentAccount;
-            var destinationAccount = _accountRepository.GetByAlias(alias);
-
-            if (sourceAccount == null || destinationAccount == null)
-            {
-                throw new InvalidOperationException("La cuenta no fue encontrada");
+                throw new InvalidOperationException("Ocurrio un error buscando las cuentas");
             }
 
             if (sourceAccount.AccountBalance < amount)
             {
-                throw new InvalidOperationException("No posees suficente dinero para realizar esta accion");
+                throw new InvalidOperationException("No posees suficiente dinero para realizar esta accion");
             }
 
             sourceAccount.AccountBalance -= amount;
             destinationAccount.AccountBalance += amount;
 
-
-            await _createOperationService.CreateOperationAsync(sourceAccount.AccountId, destinationAccount.AccountId, amount, 3); // transfer
+            var operationCode = _operationCodeRepository.GetOperationCodeByNumberCode(3);
+            var transferCode = operationCode.OperationCodeId;
+            await _createOperationService.CreateOperationAsync(sourceAccount.AccountId, destinationAccount.AccountId, amount, transferCode); // transfer
             _accountRepository.Update(sourceAccount);
             _accountRepository.Update(destinationAccount);
             await _unitOfWork.SaveChangesAsync();
         }
-}
+    }   
 }

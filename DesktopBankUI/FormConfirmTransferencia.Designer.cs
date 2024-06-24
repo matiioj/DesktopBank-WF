@@ -29,36 +29,26 @@
         private void InitializeComponent()
         {
             TxtAmount = new TextBox();
-            BtnDepo = new Button();
             labelIngrese = new Label();
             pictureBox1 = new PictureBox();
             personToTransferTxt = new Label();
+            BtnTransferir = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // TxtAmount
             // 
-            TxtAmount.Location = new Point(26, 130);
+            TxtAmount.Location = new Point(41, 203);
             TxtAmount.Name = "TxtAmount";
             TxtAmount.Size = new Size(265, 23);
             TxtAmount.TabIndex = 18;
-            // 
-            // BtnDepo
-            // 
-            BtnDepo.Location = new Point(104, 165);
-            BtnDepo.Name = "BtnDepo";
-            BtnDepo.Size = new Size(103, 34);
-            BtnDepo.TabIndex = 19;
-            BtnDepo.Text = "Depositar";
-            BtnDepo.UseVisualStyleBackColor = true;
-            BtnDepo.Click += BtnDepo_Click;
             // 
             // labelIngrese
             // 
             labelIngrese.AutoSize = true;
             labelIngrese.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelIngrese.ForeColor = SystemColors.ControlLightLight;
-            labelIngrese.Location = new Point(55, 108);
+            labelIngrese.Location = new Point(70, 171);
             labelIngrese.Name = "labelIngrese";
             labelIngrese.Size = new Size(196, 20);
             labelIngrese.TabIndex = 20;
@@ -67,8 +57,8 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.iconPig;
-            pictureBox1.Location = new Point(123, 17);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Location = new Point(137, 29);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(66, 46);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -80,26 +70,34 @@
             personToTransferTxt.AutoSize = true;
             personToTransferTxt.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             personToTransferTxt.ForeColor = SystemColors.ControlLightLight;
-            personToTransferTxt.Location = new Point(55, 78);
+            personToTransferTxt.Location = new Point(70, 98);
             personToTransferTxt.Name = "personToTransferTxt";
-            personToTransferTxt.Size = new Size(196, 20);
+            personToTransferTxt.Size = new Size(0, 20);
             personToTransferTxt.TabIndex = 22;
-            personToTransferTxt.Text = "Ingrese el monto a transferir";
+            // 
+            // BtnTransferir
+            // 
+            BtnTransferir.Location = new Point(117, 249);
+            BtnTransferir.Name = "BtnTransferir";
+            BtnTransferir.Size = new Size(103, 34);
+            BtnTransferir.TabIndex = 23;
+            BtnTransferir.Text = "Transferir";
+            BtnTransferir.UseVisualStyleBackColor = true;
+            BtnTransferir.Click += BtnTransferir_Click;
             // 
             // FormConfirmTransferencia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(317, 207);
+            ClientSize = new Size(334, 311);
+            Controls.Add(BtnTransferir);
             Controls.Add(personToTransferTxt);
             Controls.Add(pictureBox1);
             Controls.Add(labelIngrese);
-            Controls.Add(BtnDepo);
             Controls.Add(TxtAmount);
             Name = "FormConfirmTransferencia";
-            Text = "Depositar";
-            Load += FormDeposit_Load;
+            Text = "Transferir";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -108,9 +106,9 @@
         #endregion
 
         private TextBox TxtAmount;
-        private Button BtnDepo;
         private Label labelIngrese;
         private PictureBox pictureBox1;
         private Label personToTransferTxt;
+        private Button BtnTransferir;
     }
 }

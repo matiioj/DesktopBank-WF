@@ -30,7 +30,10 @@ namespace DesktopBankUI
         private readonly UnitOfWork _unitOfWork;
         private readonly GenerateNumbersService _generateNumbersService;
         private readonly ManageOperationsService _manageOperationsService;
+        private readonly CheckAccountTransfer _checkAccountTransfer;
+        private readonly CreateTransferService _createTransferService;
         private readonly IOperationRepository _operationRepository;
+        private readonly IOperationCodeRepository _operationCodeRepository;
 
         // Se utiliza una API de Windows para poder generar una ventana arrastrable 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -44,7 +47,7 @@ namespace DesktopBankUI
             _unitOfWork = new UnitOfWork(_context);
             _accountRepository = new AccountRepository(_context);
             _operationRepository = new OperationRepository(_context);
-            
+            _operationCodeRepository = new OperationCodeRepository(_context);
 
             _generateNumbersService = new();
             _manageOperationsService = new ManageOperationsService(_operationRepository, _unitOfWork);
@@ -52,6 +55,8 @@ namespace DesktopBankUI
             _extractBalanceService = new ExtractBalanceService(_accountRepository, _createOperationService, _unitOfWork);
             _depositBalanceService = new DepositBalanceService(_accountRepository, _createOperationService, _unitOfWork);
             _accountInfoService = new AccountInfoService(_context, _accountRepository);
+            _checkAccountTransfer = new CheckAccountTransfer(_accountRepository);
+            _createTransferService = new CreateTransferService(_operationCodeRepository, _accountRepository, _createOperationService, _unitOfWork);
 
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
 
@@ -133,7 +138,7 @@ namespace DesktopBankUI
 
         private void transferButton_Click(object sender, EventArgs e)
         {
-            FormTransferencia transferForm = new();
+            FormTransferencia transferForm = new(_currentAccount, _checkAccountTransfer, _createTransferService);
             openFormInsidePanel(transferForm);
         }
 
