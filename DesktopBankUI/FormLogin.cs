@@ -17,13 +17,16 @@ namespace DesktopBankUI
         private readonly UserRepository _userRepository;
         private readonly PasswordHashingService _passwordHashingService;
         private bool showPassword;
+        private readonly CreateReceiptService _createReceiptService;
         public FormLogin()
         {
+            _createReceiptService = new CreateReceiptService();
             _context = new NojedaisticDesktopBankContext();
             _userRepository = new UserRepository(_context);
             _passwordHashingService = new PasswordHashingService();
             _sessionService = new UserCheckerService(_userRepository, _passwordHashingService);
             InitializeComponent();
+            _createReceiptService.CreateReceipt();
         }
         private void registerLabel_Click(object sender, EventArgs e)
         {

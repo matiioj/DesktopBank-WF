@@ -1,3 +1,4 @@
+using QuestPDF.Infrastructure;
 using StudentSystem.WindowsFormsCliente;
 
 namespace DesktopBankUI
@@ -13,6 +14,7 @@ namespace DesktopBankUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            QuestPDF.Settings.License = LicenseType.Community;
             Application.Run(new FormLogin());
         }
     }
