@@ -37,8 +37,9 @@
             LabelContenidoCuil = new Label();
             btnCopy = new Button();
             gbPersonalData = new GroupBox();
-            btnChangeMail = new Button();
             btnChangePassFormPerfil = new Button();
+            btnChangeMail = new Button();
+            btnCopyAlias = new Button();
             gbPersonalData.SuspendLayout();
             SuspendLayout();
             // 
@@ -128,7 +129,7 @@
             btnCopy.ForeColor = SystemColors.ButtonHighlight;
             btnCopy.Location = new Point(771, 425);
             btnCopy.Name = "btnCopy";
-            btnCopy.Size = new Size(194, 54);
+            btnCopy.Size = new Size(230, 54);
             btnCopy.TabIndex = 9;
             btnCopy.Text = "COPIAR CBU";
             btnCopy.UseVisualStyleBackColor = false;
@@ -147,15 +148,6 @@
             gbPersonalData.TabStop = false;
             gbPersonalData.Text = "Datos Personales";
             // 
-            // btnChangeMail
-            // 
-            btnChangeMail.Location = new Point(26, 59);
-            btnChangeMail.Name = "btnChangeMail";
-            btnChangeMail.Size = new Size(386, 51);
-            btnChangeMail.TabIndex = 0;
-            btnChangeMail.Text = "Cambair Mail";
-            btnChangeMail.UseVisualStyleBackColor = true;
-            // 
             // btnChangePassFormPerfil
             // 
             btnChangePassFormPerfil.Location = new Point(509, 59);
@@ -165,12 +157,35 @@
             btnChangePassFormPerfil.Text = "Cambiar Contraseña";
             btnChangePassFormPerfil.UseVisualStyleBackColor = true;
             // 
+            // btnChangeMail
+            // 
+            btnChangeMail.Location = new Point(26, 59);
+            btnChangeMail.Name = "btnChangeMail";
+            btnChangeMail.Size = new Size(386, 51);
+            btnChangeMail.TabIndex = 0;
+            btnChangeMail.Text = "Cambair Mail";
+            btnChangeMail.UseVisualStyleBackColor = true;
+            // 
+            // btnCopyAlias
+            // 
+            btnCopyAlias.BackColor = Color.FromArgb(255, 128, 0);
+            btnCopyAlias.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCopyAlias.ForeColor = SystemColors.ButtonHighlight;
+            btnCopyAlias.Location = new Point(771, 495);
+            btnCopyAlias.Name = "btnCopyAlias";
+            btnCopyAlias.Size = new Size(230, 54);
+            btnCopyAlias.TabIndex = 11;
+            btnCopyAlias.Text = "COPIAR ALIAS";
+            btnCopyAlias.UseVisualStyleBackColor = false;
+            btnCopyAlias.Click += btnCopyAlias_Click;
+            // 
             // FormProfile
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(234, 236, 238);
             ClientSize = new Size(1120, 685);
+            Controls.Add(btnCopyAlias);
             Controls.Add(gbPersonalData);
             Controls.Add(btnCopy);
             Controls.Add(LabelContenidoCuil);
@@ -204,5 +219,6 @@
         private GroupBox gbPersonalData;
         private Button btnChangePassFormPerfil;
         private Button btnChangeMail;
+        private Button btnCopyAlias;
     }
 }

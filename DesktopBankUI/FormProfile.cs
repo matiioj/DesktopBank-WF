@@ -54,5 +54,16 @@ namespace DesktopBankUI
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCopyAlias_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(LabelContenidoAlias.Text);
+            MessageBox.Show("Su Alias ha sido copiado con éxito");
+        }
     }
 }
