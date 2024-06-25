@@ -17,25 +17,19 @@ namespace DesktopBank.Services
             _accountRepository = accountRepository;
         }
 
-        public Account ExecuteChecker(long cbu)
+        public Account ExecuteChecker(string dato)
         {
-            var destinationAccount = _accountRepository.GetByCbu(cbu);
+            var destinationAccount = _accountRepository.GetByAlias(dato);
+            
 
             if (destinationAccount == null)
             {
-                throw new InvalidOperationException("La cuenta no fue encontrada");
-            }
-
-            return destinationAccount;
-        }
-
-        public Account ExecuteChecker(string alias)
-        {
-            var destinationAccount = _accountRepository.GetByAlias(alias);
-
-            if (destinationAccount == null)
-            {
-                throw new InvalidOperationException("La cuenta no fue encontrada");
+                destinationAccount = _accountRepository.GetByCbu(long.Parse(dato));
+                if (destinationAccount == null) 
+                {
+                    throw new InvalidOperationException("La cuenta no fue encontrada");
+                }
+                return destinationAccount;
             }
 
             return destinationAccount;

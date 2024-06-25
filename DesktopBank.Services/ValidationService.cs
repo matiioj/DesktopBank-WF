@@ -37,9 +37,9 @@ namespace DesktopBank.Services
             {
                 mensajeError += "El campo de usuario no puede estar vacío.\n";
             }
-            if (string.IsNullOrEmpty(contra))
+            if (string.IsNullOrEmpty(contra) || (contra).Length < 5)
             {
-                mensajeError += "El campo de contraseña no puede estar vacío.\n";
+                mensajeError += "La contraseña debe ser de minimo 5 caracteres.\n";
             }
 
             /*
