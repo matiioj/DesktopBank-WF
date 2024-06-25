@@ -116,7 +116,7 @@ namespace DesktopBankUI
 
         private void btnMetrogas_Click(object sender, EventArgs e)
         {
-            var datoDeCuenta = "";
+            var datoDeCuenta = "8124986118788514428";
             if (datoDeCuenta.IsNullOrEmpty())
             {
                 MessageBox.Show("Por favor, indique un CBU o Alias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
