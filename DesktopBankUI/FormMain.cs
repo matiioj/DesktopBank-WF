@@ -150,13 +150,20 @@ namespace DesktopBankUI
 
         private void btnPayService_Click(object sender, EventArgs e)
         {
-            FormPayService payService = new();  
+            FormPayService payService = new();
             openFormInsidePanel(payService);
         }
 
         private void panelScreen_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        { 
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Close();
         }
     }
 }
