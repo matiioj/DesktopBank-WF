@@ -130,6 +130,7 @@
             btnAysa.Size = new Size(269, 136);
             btnAysa.TabIndex = 0;
             btnAysa.UseVisualStyleBackColor = true;
+            btnAysa.Click += btnAysa_Click;
             // 
             // FormPayService
             // 
