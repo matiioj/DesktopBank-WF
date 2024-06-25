@@ -100,6 +100,7 @@
             btnAgip.Size = new Size(269, 136);
             btnAgip.TabIndex = 3;
             btnAgip.UseVisualStyleBackColor = true;
+            btnAgip.Click += btnAgip_Click;
             // 
             // btnMetrogas
             // 
