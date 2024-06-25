@@ -205,6 +205,7 @@
             txtCambiarContra.Name = "txtCambiarContra";
             txtCambiarContra.Size = new Size(238, 35);
             txtCambiarContra.TabIndex = 0;
+            txtCambiarContra.TextChanged += txtCambiarContra_TextChanged;
             // 
             // panelAceptarMail
             // 
@@ -301,6 +302,7 @@
             btnChangePassFormPerfil.TabIndex = 1;
             btnChangePassFormPerfil.Text = "Cambiar Contraseña";
             btnChangePassFormPerfil.UseVisualStyleBackColor = true;
+            btnChangePassFormPerfil.Click += btnChangePassFormPerfil_Click;
             // 
             // btnChangeMail
             // 

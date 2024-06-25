@@ -107,7 +107,7 @@ namespace DesktopBank.Services
 
         }
 
-        public string ValidationOnRegisterField(string contra)
+        public string ValidationPassword(string contra)
         {
             string mensajeError = "";
 

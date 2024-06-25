@@ -142,7 +142,7 @@ namespace DesktopBankUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ocurrió un error al registrar el usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Ocurrió un error al modificar su correo electrónico: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (ex.InnerException != null)
                     {
                         MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -158,17 +158,63 @@ namespace DesktopBankUI
 
         private void btnCancelarContra_Click(object sender, EventArgs e)
         {
-            panelCambiarAlias.Visible = false;
+            panelCambiarContra.Visible = false;
         }
 
         private void btnCancelarMail_Click(object sender, EventArgs e)
         {
-            panelCambiarAlias.Visible = false;
+            panelAceptarMail.Visible=false;
         }
 
         private void btnAceptarContra_Click(object sender, EventArgs e)
         {
+            string contraNueva = txtCambiarContra.Text;
 
+            var mensajeError = _validationService.ValidationPassword(contraNueva);
+
+
+            if (!string.IsNullOrEmpty(mensajeError))
+            {
+                MessageBox.Show(mensajeError, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show($"¿Quiere cambiar su contraseña por {contraNueva}?", "Aceptar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                try
+                {
+                    contraNueva = _passwordHashingService.HashPassword(contraNueva);
+                    _account.User.UserPassword = contraNueva;
+                    _accountRepository.Update(_account);
+                    _context.SaveChanges();
+                    MessageBox.Show("Su contraseña se ha actualizado con éxito");
+                    MailData mailData = new MailData();
+                    mailData.MailTo = mail;
+                    mailData.Subject = "Cambio de contraseña ISTIC DesktopBank";
+                    mailData.Body = "Se ha modificado su contraseña";
+                    mailService.SendMail(mailData);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error al modificar su contraseña: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (ex.InnerException != null)
+                    {
+                        MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void txtCambiarContra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnChangePassFormPerfil_Click(object sender, EventArgs e)
+        {
+            panelCambiarContra.Visible = true;
         }
     }
 }
