@@ -26,12 +26,14 @@ namespace DesktopBankUI
         string anio;
         string fechaConFormato;
         string numeroConFormato;
+        private Account _currentAccount;//
 
         // Combina el mes y el año en el formato deseado
 
 
         public FormCard(Account currentAccount)
         {
+            _currentAccount = currentAccount;//
             numtc = string.Empty;
             mes = string.Empty;
             anio = string.Empty;
@@ -97,6 +99,12 @@ namespace DesktopBankUI
         private void EtqTcNumber_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void UpdateAccount(Account newAccount)//
+        {
+            _currentAccount = newAccount;
+            CargarDatos_Tarjeta();
         }
     }
 }

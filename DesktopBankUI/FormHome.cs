@@ -23,6 +23,7 @@ namespace DesktopBankUI
         string balance;
         string nombre;
         Account _currentAccount;
+        private FormMain _parentForm;//
 
         private readonly NojedaisticDesktopBankContext _context;
         private readonly AccountInfoService _accountInfoService;
@@ -30,8 +31,9 @@ namespace DesktopBankUI
         private readonly ExtractBalanceService _extractBalanceService;
         private readonly IOperationRepository _operationRepository;
 
-        public FormHome(Account currentAccount, NojedaisticDesktopBankContext context, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService, IOperationRepository operationRepository)
+        public FormHome(Account currentAccount, FormMain parentForm, NojedaisticDesktopBankContext context, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService, IOperationRepository operationRepository) //FormMain parentForm
         {
+            _parentForm = parentForm;//
             _context = context;
             _currentAccount = currentAccount;
             id = currentAccount.AccountId;
@@ -142,6 +144,16 @@ namespace DesktopBankUI
             var selectedAccountId = (int)comboBoxAccounts.SelectedValue;
             _currentAccount = _accountInfoService.GetAccountById(selectedAccountId);
             Load_Labels();
+
+            _parentForm.UpdateCurrentAccount(_currentAccount);//
+
+        }
+
+        public void UpdateAccount(Account newAccount)//
+        {
+            _currentAccount = newAccount;
+            Load_Labels();
+            Load_UserAccounts();
         }
     }
 }
