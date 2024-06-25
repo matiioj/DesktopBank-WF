@@ -1,6 +1,7 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
 using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
+using DesktopBank.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,9 +19,11 @@ namespace DesktopBankUI
         string cbu;
         string alias;
         long CUIL;
+        string mail;
         NojedaisticDesktopBankContext _context;
         AccountRepository _accountRepository;
         Account _account;
+        private readonly ValidationService _validationService;
         public FormProfile(Account currentAccount, NojedaisticDesktopBankContext context)
         {
 
@@ -95,7 +98,12 @@ namespace DesktopBankUI
             string aliasNuevo = txtCambiarAlias.Text;
             _account.AccountAlias = aliasNuevo;
             _accountRepository.Update(_account);
-            _context.SaveChanges(); 
+            _context.SaveChanges();
+        }
+
+        private void btnAceptarMail_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -276,6 +276,7 @@
             btnAceptarMail.TabIndex = 1;
             btnAceptarMail.Text = "Aceptar";
             btnAceptarMail.UseVisualStyleBackColor = true;
+            btnAceptarMail.Click += btnAceptarMail_Click;
             // 
             // txtCambiarMail
             // 

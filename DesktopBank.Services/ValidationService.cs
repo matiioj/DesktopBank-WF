@@ -82,6 +82,43 @@ namespace DesktopBank.Services
             return mensajeError;
 
         }
-        
+
+        public string ValidateOnRegisterFields(string correo)
+        {
+            string mensajeError = "";
+
+            if (string.IsNullOrEmpty(correo))
+            {
+                mensajeError += "El campo de correo electrónico no puede estar vacío.\n";
+            }
+
+            if (string.IsNullOrEmpty(mensajeError))
+            {
+
+                //formato de correo
+                if (!Regex.IsMatch(correo, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"))
+                {
+                    mensajeError += "El correo electrónico no tiene un formato válido.\n";
+                }
+
+            }
+
+            return mensajeError;
+
+        }
+
+        public string ValidationOnRegisterField(string contra)
+        {
+            string mensajeError = "";
+
+            if (string.IsNullOrEmpty(contra) || (contra).Length < 5)
+            {
+                mensajeError += "La contraseña debe ser de minimo 5 caracteres.\n";
+            }
+
+            return mensajeError;
+
+        }
+
     }
 }
