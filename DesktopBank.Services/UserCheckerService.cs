@@ -1,40 +1,36 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
 using DesktopBank.BusinessObjects.Interfaces;
 using DesktopBank.DAL.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using DesktopBank.Services;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace DesktopBank.Services
+public class UserCheckerService
 {
-    public class UserCheckerService
+    private readonly IUserRepository _userRepository;
+    private readonly PasswordHashingService _passwordHashingService;
+
+    public UserCheckerService(IUserRepository userRepository, PasswordHashingService passwordHashingService) 
     {
-        private readonly IUserRepository? _userRepository;
-        
+        _userRepository = userRepository;
+        _passwordHashingService = passwordHashingService;
+    }
 
-        public UserCheckerService(IUserRepository userRepository) 
+    public string CredentialsChecker(string username, string password)
+    {
+        User user = _userRepository.GetUserByUsername(username);
+        string message = string.Empty;
+        if (user != null)
         {
-            _userRepository = userRepository;
-        }
-
-        public string CredentialsChecker(string username, string password)
-        {
-            User user = _userRepository.GetUserByUsername(username);
-            string message = string.Empty;
-            if (user != null) 
+            var hashedPassword = _passwordHashingService.HashPassword(password);
+            if (user.UserPassword == hashedPassword)
             {
-                if (user.UserPassword == password)
-                {
-                    message += user.UserId;
-                    return message;
-                }
+                message += user.UserId;
+                return message;
             }
-
-            message += "Los datos no concuerdan con ningun registro existente.";
-
-            return message;
         }
+
+        message += "Los datos no concuerdan con ningún registro existente.";
+        return message;
     }
 }

@@ -23,4 +23,10 @@
     <ProjectReference Include="..\DesktopBank.Services\DesktopBank.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="FormConfirmTransferencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
