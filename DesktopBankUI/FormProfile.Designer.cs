@@ -40,6 +40,7 @@
             btnChangePassFormPerfil = new Button();
             btnChangeMail = new Button();
             btnCopyAlias = new Button();
+            button1 = new Button();
             gbPersonalData.SuspendLayout();
             SuspendLayout();
             // 
@@ -138,6 +139,7 @@
             // gbPersonalData
             // 
             gbPersonalData.BackColor = Color.FromArgb(214, 219, 223);
+            gbPersonalData.Controls.Add(button1);
             gbPersonalData.Controls.Add(btnChangePassFormPerfil);
             gbPersonalData.Controls.Add(btnChangeMail);
             gbPersonalData.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -150,9 +152,9 @@
             // 
             // btnChangePassFormPerfil
             // 
-            btnChangePassFormPerfil.Location = new Point(509, 59);
+            btnChangePassFormPerfil.Location = new Point(340, 59);
             btnChangePassFormPerfil.Name = "btnChangePassFormPerfil";
-            btnChangePassFormPerfil.Size = new Size(388, 51);
+            btnChangePassFormPerfil.Size = new Size(305, 51);
             btnChangePassFormPerfil.TabIndex = 1;
             btnChangePassFormPerfil.Text = "Cambiar Contraseña";
             btnChangePassFormPerfil.UseVisualStyleBackColor = true;
@@ -161,7 +163,7 @@
             // 
             btnChangeMail.Location = new Point(26, 59);
             btnChangeMail.Name = "btnChangeMail";
-            btnChangeMail.Size = new Size(386, 51);
+            btnChangeMail.Size = new Size(281, 51);
             btnChangeMail.TabIndex = 0;
             btnChangeMail.Text = "Cambair Mail";
             btnChangeMail.UseVisualStyleBackColor = true;
@@ -178,6 +180,15 @@
             btnCopyAlias.Text = "COPIAR ALIAS";
             btnCopyAlias.UseVisualStyleBackColor = false;
             btnCopyAlias.Click += btnCopyAlias_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(681, 59);
+            button1.Name = "button1";
+            button1.Size = new Size(282, 51);
+            button1.TabIndex = 2;
+            button1.Text = "Cambiar Alias";
+            button1.UseVisualStyleBackColor = true;
             // 
             // FormProfile
             // 
@@ -220,5 +231,6 @@
         private Button btnChangePassFormPerfil;
         private Button btnChangeMail;
         private Button btnCopyAlias;
+        private Button button1;
     }
 }
