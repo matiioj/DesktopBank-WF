@@ -20,16 +20,25 @@ namespace DesktopBank.Services
         public Account ExecuteChecker(string dato)
         {
             var destinationAccount = _accountRepository.GetByAlias(dato);
-            
 
-            if (destinationAccount == null)
-            {
-                destinationAccount = _accountRepository.GetByCbu(long.Parse(dato));
-                if (destinationAccount == null) 
+
+            if (destinationAccount == null) {
+                try
+                {
+                    long parsedDato = long.Parse(dato);
+                    destinationAccount = _accountRepository.GetByCbu(parsedDato);
+
+                    if (destinationAccount == null)
+                    {
+                        throw new InvalidOperationException("La cuenta no fue encontrada");
+                    }
+
+                    return destinationAccount;
+                }
+                catch (FormatException)
                 {
                     throw new InvalidOperationException("La cuenta no fue encontrada");
                 }
-                return destinationAccount;
             }
 
             return destinationAccount;

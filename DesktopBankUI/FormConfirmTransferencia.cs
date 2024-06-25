@@ -35,8 +35,7 @@ namespace DesktopBankUI
                 {
                     try
                     { 
-                        await _createTransferService.ExecuteTransfer(_currentAccount, amount, _destinationAccount);
-                        MessageBox.Show("La transferencia fue realizada");
+                        await _createTransferService.ExecuteTransfer(_currentAccount, amount, _destinationAccount);                       
                         var currentAccountMail = _currentAccount.User.Client.ClientEmail;
                         var destinationAccountMail = _destinationAccount.User.Client.ClientEmail;
                         MailData mailData = new MailData();
@@ -48,6 +47,7 @@ namespace DesktopBankUI
                         mailData.Subject = $"Ha recibido una nueva transferencia de dinero";
                         mailData.Body = $"Ha recibido $ {amount} de {_currentAccount.User.Client.ClientName}";
                         mailService.SendMail(mailData);
+                        MessageBox.Show("Transferencia realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
 
                     }
