@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             menuPay = new MenuStrip();
-            gboxPay = new GroupBox();
-            btnAysa = new Button();
-            btnEdesur = new Button();
-            btnMetrogas = new Button();
-            btnAgip = new Button();
             nUEVOPAGOToolStripMenuItem = new ToolStripMenuItem();
             rECARGASToolStripMenuItem = new ToolStripMenuItem();
             sUBEToolStripMenuItem = new ToolStripMenuItem();
             cELULARToolStripMenuItem = new ToolStripMenuItem();
+            gboxPay = new GroupBox();
+            btnAgip = new Button();
+            btnMetrogas = new Button();
+            btnEdesur = new Button();
+            btnAysa = new Button();
             menuPay.SuspendLayout();
             gboxPay.SuspendLayout();
             SuspendLayout();
@@ -51,56 +51,6 @@
             menuPay.Size = new Size(1096, 33);
             menuPay.TabIndex = 0;
             menuPay.Text = "menuPayService";
-            // 
-            // gboxPay
-            // 
-            gboxPay.Controls.Add(btnAgip);
-            gboxPay.Controls.Add(btnMetrogas);
-            gboxPay.Controls.Add(btnEdesur);
-            gboxPay.Controls.Add(btnAysa);
-            gboxPay.Font = new Font("Cascadia Code Light", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            gboxPay.Location = new Point(77, 170);
-            gboxPay.Name = "gboxPay";
-            gboxPay.Size = new Size(920, 596);
-            gboxPay.TabIndex = 1;
-            gboxPay.TabStop = false;
-            gboxPay.Text = "Pago de servicios";
-            // 
-            // btnAysa
-            // 
-            btnAysa.Location = new Point(129, 131);
-            btnAysa.Name = "btnAysa";
-            btnAysa.Size = new Size(269, 136);
-            btnAysa.TabIndex = 0;
-            btnAysa.Text = "AysA";
-            btnAysa.UseVisualStyleBackColor = true;
-            // 
-            // btnEdesur
-            // 
-            btnEdesur.Location = new Point(499, 131);
-            btnEdesur.Name = "btnEdesur";
-            btnEdesur.Size = new Size(269, 136);
-            btnEdesur.TabIndex = 1;
-            btnEdesur.Text = "EdeSUR";
-            btnEdesur.UseVisualStyleBackColor = true;
-            // 
-            // btnMetrogas
-            // 
-            btnMetrogas.Location = new Point(129, 358);
-            btnMetrogas.Name = "btnMetrogas";
-            btnMetrogas.Size = new Size(269, 136);
-            btnMetrogas.TabIndex = 2;
-            btnMetrogas.Text = "MetroGAS";
-            btnMetrogas.UseVisualStyleBackColor = true;
-            // 
-            // btnAgip
-            // 
-            btnAgip.Location = new Point(499, 358);
-            btnAgip.Name = "btnAgip";
-            btnAgip.Size = new Size(269, 136);
-            btnAgip.TabIndex = 3;
-            btnAgip.Text = "AGIP";
-            btnAgip.UseVisualStyleBackColor = true;
             // 
             // nUEVOPAGOToolStripMenuItem
             // 
@@ -118,14 +68,68 @@
             // sUBEToolStripMenuItem
             // 
             sUBEToolStripMenuItem.Name = "sUBEToolStripMenuItem";
-            sUBEToolStripMenuItem.Size = new Size(270, 34);
+            sUBEToolStripMenuItem.Size = new Size(186, 34);
             sUBEToolStripMenuItem.Text = "SUBE";
             // 
             // cELULARToolStripMenuItem
             // 
             cELULARToolStripMenuItem.Name = "cELULARToolStripMenuItem";
-            cELULARToolStripMenuItem.Size = new Size(270, 34);
+            cELULARToolStripMenuItem.Size = new Size(186, 34);
             cELULARToolStripMenuItem.Text = "CELULAR";
+            // 
+            // gboxPay
+            // 
+            gboxPay.Controls.Add(btnAgip);
+            gboxPay.Controls.Add(btnMetrogas);
+            gboxPay.Controls.Add(btnEdesur);
+            gboxPay.Controls.Add(btnAysa);
+            gboxPay.Font = new Font("Cascadia Code Light", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            gboxPay.Location = new Point(77, 170);
+            gboxPay.Name = "gboxPay";
+            gboxPay.Size = new Size(920, 596);
+            gboxPay.TabIndex = 1;
+            gboxPay.TabStop = false;
+            gboxPay.Text = "Pago de servicios";
+            // 
+            // btnAgip
+            // 
+            btnAgip.BackgroundImage = Properties.Resources.channels4_profile;
+            btnAgip.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAgip.Location = new Point(499, 358);
+            btnAgip.Name = "btnAgip";
+            btnAgip.Size = new Size(269, 136);
+            btnAgip.TabIndex = 3;
+            btnAgip.UseVisualStyleBackColor = true;
+            // 
+            // btnMetrogas
+            // 
+            btnMetrogas.BackgroundImage = Properties.Resources.Metrogas_logo_svg;
+            btnMetrogas.BackgroundImageLayout = ImageLayout.Stretch;
+            btnMetrogas.Location = new Point(129, 358);
+            btnMetrogas.Name = "btnMetrogas";
+            btnMetrogas.Size = new Size(269, 136);
+            btnMetrogas.TabIndex = 2;
+            btnMetrogas.UseVisualStyleBackColor = true;
+            // 
+            // btnEdesur
+            // 
+            btnEdesur.BackgroundImage = Properties.Resources.Edesur_company_logo;
+            btnEdesur.BackgroundImageLayout = ImageLayout.Stretch;
+            btnEdesur.Location = new Point(499, 131);
+            btnEdesur.Name = "btnEdesur";
+            btnEdesur.Size = new Size(269, 136);
+            btnEdesur.TabIndex = 1;
+            btnEdesur.UseVisualStyleBackColor = true;
+            // 
+            // btnAysa
+            // 
+            btnAysa.BackgroundImage = Properties.Resources.unnamed;
+            btnAysa.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAysa.Location = new Point(129, 131);
+            btnAysa.Name = "btnAysa";
+            btnAysa.Size = new Size(269, 136);
+            btnAysa.TabIndex = 0;
+            btnAysa.UseVisualStyleBackColor = true;
             // 
             // FormPayService
             // 
