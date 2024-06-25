@@ -93,6 +93,7 @@
             // 
             // btnAgip
             // 
+            btnAgip.BackgroundImage = Properties.Resources.agip;
             btnAgip.BackgroundImageLayout = ImageLayout.Stretch;
             btnAgip.Location = new Point(499, 358);
             btnAgip.Name = "btnAgip";
@@ -102,7 +103,7 @@
             // 
             // btnMetrogas
             // 
-
+            btnMetrogas.BackgroundImage = Properties.Resources.metrogas;
             btnMetrogas.BackgroundImageLayout = ImageLayout.Stretch;
             btnMetrogas.Location = new Point(129, 358);
             btnMetrogas.Name = "btnMetrogas";
@@ -112,7 +113,7 @@
             // 
             // btnEdesur
             // 
-
+            btnEdesur.BackgroundImage = Properties.Resources.edesur;
             btnEdesur.BackgroundImageLayout = ImageLayout.Stretch;
             btnEdesur.Location = new Point(499, 131);
             btnEdesur.Name = "btnEdesur";
@@ -122,7 +123,7 @@
             // 
             // btnAysa
             // 
-
+            btnAysa.BackgroundImage = Properties.Resources.aysa;
             btnAysa.BackgroundImageLayout = ImageLayout.Stretch;
             btnAysa.Location = new Point(129, 131);
             btnAysa.Name = "btnAysa";
