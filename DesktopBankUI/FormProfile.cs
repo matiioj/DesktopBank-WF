@@ -1,4 +1,6 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.DAL;
+using DesktopBank.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +18,18 @@ namespace DesktopBankUI
         string cbu;
         string alias;
         long CUIL;
-        public FormProfile(Account currentAccount)
+        NojedaisticDesktopBankContext _context;
+        AccountRepository _accountRepository;
+        Account _account;
+        public FormProfile(Account currentAccount, NojedaisticDesktopBankContext context)
         {
+
             cbu = currentAccount.AccountCbu.ToString();
             alias = currentAccount.AccountAlias;
             CUIL = currentAccount.User.Client.ClientCuil;
+            _account = currentAccount;
+            _context = context;
+            _accountRepository = new AccountRepository(_context);
 
             InitializeComponent();
             CargarDatos_Usuario();
@@ -64,6 +73,29 @@ namespace DesktopBankUI
         {
             Clipboard.SetText(LabelContenidoAlias.Text);
             MessageBox.Show("Su Alias ha sido copiado con éxito");
+        }
+
+        private void btnCambiarAlias_Click(object sender, EventArgs e)
+        {
+            panelCambiarAlias.Visible = true;
+        }
+
+        private void panelCambiarAlias_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCancelarAlias_Click(object sender, EventArgs e)
+        {
+            panelCambiarAlias.Visible = false;
+        }
+
+        private void btnAceptarAlias_Click(object sender, EventArgs e)
+        {
+            string aliasNuevo = txtCambiarAlias.Text;
+            _account.AccountAlias = aliasNuevo;
+            _accountRepository.Update(_account);
+            _context.SaveChanges(); 
         }
     }
 }
