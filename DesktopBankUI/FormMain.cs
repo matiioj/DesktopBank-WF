@@ -121,7 +121,7 @@ namespace DesktopBankUI
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            FormProfile profileForm = new(_currentAccount);
+            FormProfile profileForm = new(_currentAccount, _context);
             openFormInsidePanel(profileForm);
         }
 

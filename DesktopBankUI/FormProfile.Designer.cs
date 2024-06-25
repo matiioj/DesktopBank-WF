@@ -37,11 +37,16 @@
             LabelContenidoCuil = new Label();
             btnCopy = new Button();
             gbPersonalData = new GroupBox();
+            panelCambiarAlias = new Panel();
+            btnCancelarAlias = new Button();
+            btnAceptarAlias = new Button();
+            txtCambiarAlias = new TextBox();
+            btnCambiarAlias = new Button();
             btnChangePassFormPerfil = new Button();
             btnChangeMail = new Button();
             btnCopyAlias = new Button();
-            button1 = new Button();
             gbPersonalData.SuspendLayout();
+            panelCambiarAlias.SuspendLayout();
             SuspendLayout();
             // 
             // LabelPerfil
@@ -139,22 +144,72 @@
             // gbPersonalData
             // 
             gbPersonalData.BackColor = Color.FromArgb(214, 219, 223);
-            gbPersonalData.Controls.Add(button1);
+            gbPersonalData.Controls.Add(panelCambiarAlias);
+            gbPersonalData.Controls.Add(btnCambiarAlias);
             gbPersonalData.Controls.Add(btnChangePassFormPerfil);
             gbPersonalData.Controls.Add(btnChangeMail);
             gbPersonalData.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
             gbPersonalData.Location = new Point(50, 113);
             gbPersonalData.Name = "gbPersonalData";
-            gbPersonalData.Size = new Size(991, 151);
+            gbPersonalData.Size = new Size(1000, 248);
             gbPersonalData.TabIndex = 10;
             gbPersonalData.TabStop = false;
             gbPersonalData.Text = "Datos Personales";
             // 
+            // panelCambiarAlias
+            // 
+            panelCambiarAlias.Controls.Add(btnCancelarAlias);
+            panelCambiarAlias.Controls.Add(btnAceptarAlias);
+            panelCambiarAlias.Controls.Add(txtCambiarAlias);
+            panelCambiarAlias.Location = new Point(547, 129);
+            panelCambiarAlias.Name = "panelCambiarAlias";
+            panelCambiarAlias.Size = new Size(421, 113);
+            panelCambiarAlias.TabIndex = 3;
+            panelCambiarAlias.Visible = false;
+            panelCambiarAlias.Paint += panelCambiarAlias_Paint;
+            // 
+            // btnCancelarAlias
+            // 
+            btnCancelarAlias.Location = new Point(224, 70);
+            btnCancelarAlias.Name = "btnCancelarAlias";
+            btnCancelarAlias.Size = new Size(153, 34);
+            btnCancelarAlias.TabIndex = 12;
+            btnCancelarAlias.Text = "Cancelar";
+            btnCancelarAlias.UseVisualStyleBackColor = true;
+            btnCancelarAlias.Click += btnCancelarAlias_Click;
+            // 
+            // btnAceptarAlias
+            // 
+            btnAceptarAlias.Location = new Point(37, 70);
+            btnAceptarAlias.Name = "btnAceptarAlias";
+            btnAceptarAlias.Size = new Size(171, 34);
+            btnAceptarAlias.TabIndex = 1;
+            btnAceptarAlias.Text = "Aceptar";
+            btnAceptarAlias.UseVisualStyleBackColor = true;
+            btnAceptarAlias.Click += btnAceptarAlias_Click;
+            // 
+            // txtCambiarAlias
+            // 
+            txtCambiarAlias.Location = new Point(14, 13);
+            txtCambiarAlias.Name = "txtCambiarAlias";
+            txtCambiarAlias.Size = new Size(390, 35);
+            txtCambiarAlias.TabIndex = 0;
+            // 
+            // btnCambiarAlias
+            // 
+            btnCambiarAlias.Location = new Point(547, 59);
+            btnCambiarAlias.Name = "btnCambiarAlias";
+            btnCambiarAlias.Size = new Size(421, 51);
+            btnCambiarAlias.TabIndex = 2;
+            btnCambiarAlias.Text = "Cambiar Alias";
+            btnCambiarAlias.UseVisualStyleBackColor = true;
+            btnCambiarAlias.Click += btnCambiarAlias_Click;
+            // 
             // btnChangePassFormPerfil
             // 
-            btnChangePassFormPerfil.Location = new Point(340, 59);
+            btnChangePassFormPerfil.Location = new Point(278, 59);
             btnChangePassFormPerfil.Name = "btnChangePassFormPerfil";
-            btnChangePassFormPerfil.Size = new Size(305, 51);
+            btnChangePassFormPerfil.Size = new Size(243, 51);
             btnChangePassFormPerfil.TabIndex = 1;
             btnChangePassFormPerfil.Text = "Cambiar Contraseña";
             btnChangePassFormPerfil.UseVisualStyleBackColor = true;
@@ -163,7 +218,7 @@
             // 
             btnChangeMail.Location = new Point(26, 59);
             btnChangeMail.Name = "btnChangeMail";
-            btnChangeMail.Size = new Size(281, 51);
+            btnChangeMail.Size = new Size(226, 51);
             btnChangeMail.TabIndex = 0;
             btnChangeMail.Text = "Cambair Mail";
             btnChangeMail.UseVisualStyleBackColor = true;
@@ -180,15 +235,6 @@
             btnCopyAlias.Text = "COPIAR ALIAS";
             btnCopyAlias.UseVisualStyleBackColor = false;
             btnCopyAlias.Click += btnCopyAlias_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(681, 59);
-            button1.Name = "button1";
-            button1.Size = new Size(282, 51);
-            button1.TabIndex = 2;
-            button1.Text = "Cambiar Alias";
-            button1.UseVisualStyleBackColor = true;
             // 
             // FormProfile
             // 
@@ -213,6 +259,8 @@
             Text = "FormProfile";
             Load += FormProfile_Load;
             gbPersonalData.ResumeLayout(false);
+            panelCambiarAlias.ResumeLayout(false);
+            panelCambiarAlias.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -231,6 +279,10 @@
         private Button btnChangePassFormPerfil;
         private Button btnChangeMail;
         private Button btnCopyAlias;
-        private Button button1;
+        private Button btnCambiarAlias;
+        private Panel panelCambiarAlias;
+        private Button btnCancelarAlias;
+        private Button btnAceptarAlias;
+        private TextBox txtCambiarAlias;
     }
 }
