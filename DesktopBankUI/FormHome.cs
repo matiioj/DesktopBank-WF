@@ -54,8 +54,8 @@ namespace DesktopBankUI
                 return;
             }
 
-            currencySign = _currentAccount.AccountCurrencyNavigation?.CurrencySign ?? "N/D";
-            nombre = _currentAccount.User?.Client?.ClientName ?? "N/D";
+            currencySign = _currentAccount.AccountCurrencyNavigation.CurrencySign;
+            nombre = _currentAccount.User.Client.ClientName;
             balance = Convert.ToString(_currentAccount.AccountBalance);
             labelBalance.Text = currencySign + balance;
             LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
