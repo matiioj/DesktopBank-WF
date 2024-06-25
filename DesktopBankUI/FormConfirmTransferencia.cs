@@ -1,6 +1,7 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
 using DesktopBank.BusinessObjects.Models;
 using DesktopBank.Services;
+//using Microsoft.Identity.Client.NativeInterop;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -8,6 +9,7 @@ namespace DesktopBankUI
 {
     public partial class FormConfirmTransferencia : Form
     {
+        private MailService mailService = new MailService();
         private Account _currentAccount;
         private Account _destinationAccount;
         private readonly CreateTransferService _createTransferService;
@@ -35,6 +37,17 @@ namespace DesktopBankUI
                     { 
                         await _createTransferService.ExecuteTransfer(_currentAccount, amount, _destinationAccount);
                         MessageBox.Show("La transferencia fue realizada");
+                        var currentAccountMail = _currentAccount.User.Client.ClientEmail;
+                        var destinationAccountMail = _destinationAccount.User.Client.ClientEmail;
+                        MailData mailData = new MailData();
+                        mailData.MailTo = currentAccountMail;
+                        mailData.Subject = "Su transferencia se ha realizado con éxito";
+                        mailData.Body = $"Ha transferido $ {amount} a {_destinationAccount.User.Client.ClientName}";
+                        mailService.SendMail(mailData);
+                        mailData.MailTo = destinationAccountMail;
+                        mailData.Subject = $"Ha recibido una nueva transferencia de dinero";
+                        mailData.Body = $"Ha recibido $ {amount} de {_currentAccount.User.Client.ClientName}";
+                        mailService.SendMail(mailData);
                         this.Close();
 
                     }
