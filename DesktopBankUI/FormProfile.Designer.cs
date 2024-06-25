@@ -45,8 +45,18 @@
             btnChangePassFormPerfil = new Button();
             btnChangeMail = new Button();
             btnCopyAlias = new Button();
+            panelAceptarMail = new Panel();
+            btnCancelarMail = new Button();
+            btnAceptarMail = new Button();
+            txtCambiarMail = new TextBox();
+            panelCambiarContra = new Panel();
+            btnCancelarContra = new Button();
+            btnAceptarContra = new Button();
+            txtCambiarContra = new TextBox();
             gbPersonalData.SuspendLayout();
             panelCambiarAlias.SuspendLayout();
+            panelAceptarMail.SuspendLayout();
+            panelCambiarContra.SuspendLayout();
             SuspendLayout();
             // 
             // LabelPerfil
@@ -133,7 +143,7 @@
             btnCopy.BackColor = Color.FromArgb(255, 128, 0);
             btnCopy.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
             btnCopy.ForeColor = SystemColors.ButtonHighlight;
-            btnCopy.Location = new Point(771, 425);
+            btnCopy.Location = new Point(744, 425);
             btnCopy.Name = "btnCopy";
             btnCopy.Size = new Size(230, 54);
             btnCopy.TabIndex = 9;
@@ -144,6 +154,8 @@
             // gbPersonalData
             // 
             gbPersonalData.BackColor = Color.FromArgb(214, 219, 223);
+            gbPersonalData.Controls.Add(panelCambiarContra);
+            gbPersonalData.Controls.Add(panelAceptarMail);
             gbPersonalData.Controls.Add(panelCambiarAlias);
             gbPersonalData.Controls.Add(btnCambiarAlias);
             gbPersonalData.Controls.Add(btnChangePassFormPerfil);
@@ -151,7 +163,7 @@
             gbPersonalData.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
             gbPersonalData.Location = new Point(50, 113);
             gbPersonalData.Name = "gbPersonalData";
-            gbPersonalData.Size = new Size(1000, 248);
+            gbPersonalData.Size = new Size(924, 248);
             gbPersonalData.TabIndex = 10;
             gbPersonalData.TabStop = false;
             gbPersonalData.Text = "Datos Personales";
@@ -161,18 +173,18 @@
             panelCambiarAlias.Controls.Add(btnCancelarAlias);
             panelCambiarAlias.Controls.Add(btnAceptarAlias);
             panelCambiarAlias.Controls.Add(txtCambiarAlias);
-            panelCambiarAlias.Location = new Point(547, 129);
+            panelCambiarAlias.Location = new Point(615, 129);
             panelCambiarAlias.Name = "panelCambiarAlias";
-            panelCambiarAlias.Size = new Size(421, 113);
+            panelCambiarAlias.Size = new Size(316, 113);
             panelCambiarAlias.TabIndex = 3;
             panelCambiarAlias.Visible = false;
             panelCambiarAlias.Paint += panelCambiarAlias_Paint;
             // 
             // btnCancelarAlias
             // 
-            btnCancelarAlias.Location = new Point(224, 70);
+            btnCancelarAlias.Location = new Point(156, 54);
             btnCancelarAlias.Name = "btnCancelarAlias";
-            btnCancelarAlias.Size = new Size(153, 34);
+            btnCancelarAlias.Size = new Size(135, 34);
             btnCancelarAlias.TabIndex = 12;
             btnCancelarAlias.Text = "Cancelar";
             btnCancelarAlias.UseVisualStyleBackColor = true;
@@ -180,9 +192,9 @@
             // 
             // btnAceptarAlias
             // 
-            btnAceptarAlias.Location = new Point(37, 70);
+            btnAceptarAlias.Location = new Point(14, 54);
             btnAceptarAlias.Name = "btnAceptarAlias";
-            btnAceptarAlias.Size = new Size(171, 34);
+            btnAceptarAlias.Size = new Size(136, 34);
             btnAceptarAlias.TabIndex = 1;
             btnAceptarAlias.Text = "Aceptar";
             btnAceptarAlias.UseVisualStyleBackColor = true;
@@ -192,14 +204,14 @@
             // 
             txtCambiarAlias.Location = new Point(14, 13);
             txtCambiarAlias.Name = "txtCambiarAlias";
-            txtCambiarAlias.Size = new Size(390, 35);
+            txtCambiarAlias.Size = new Size(277, 35);
             txtCambiarAlias.TabIndex = 0;
             // 
             // btnCambiarAlias
             // 
-            btnCambiarAlias.Location = new Point(547, 59);
+            btnCambiarAlias.Location = new Point(618, 59);
             btnCambiarAlias.Name = "btnCambiarAlias";
-            btnCambiarAlias.Size = new Size(421, 51);
+            btnCambiarAlias.Size = new Size(291, 51);
             btnCambiarAlias.TabIndex = 2;
             btnCambiarAlias.Text = "Cambiar Alias";
             btnCambiarAlias.UseVisualStyleBackColor = true;
@@ -207,18 +219,18 @@
             // 
             // btnChangePassFormPerfil
             // 
-            btnChangePassFormPerfil.Location = new Point(278, 59);
+            btnChangePassFormPerfil.Location = new Point(364, 59);
             btnChangePassFormPerfil.Name = "btnChangePassFormPerfil";
-            btnChangePassFormPerfil.Size = new Size(243, 51);
+            btnChangePassFormPerfil.Size = new Size(245, 51);
             btnChangePassFormPerfil.TabIndex = 1;
             btnChangePassFormPerfil.Text = "Cambiar Contraseña";
             btnChangePassFormPerfil.UseVisualStyleBackColor = true;
             // 
             // btnChangeMail
             // 
-            btnChangeMail.Location = new Point(26, 59);
+            btnChangeMail.Location = new Point(17, 59);
             btnChangeMail.Name = "btnChangeMail";
-            btnChangeMail.Size = new Size(226, 51);
+            btnChangeMail.Size = new Size(333, 51);
             btnChangeMail.TabIndex = 0;
             btnChangeMail.Text = "Cambair Mail";
             btnChangeMail.UseVisualStyleBackColor = true;
@@ -228,13 +240,85 @@
             btnCopyAlias.BackColor = Color.FromArgb(255, 128, 0);
             btnCopyAlias.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
             btnCopyAlias.ForeColor = SystemColors.ButtonHighlight;
-            btnCopyAlias.Location = new Point(771, 495);
+            btnCopyAlias.Location = new Point(744, 495);
             btnCopyAlias.Name = "btnCopyAlias";
             btnCopyAlias.Size = new Size(230, 54);
             btnCopyAlias.TabIndex = 11;
             btnCopyAlias.Text = "COPIAR ALIAS";
             btnCopyAlias.UseVisualStyleBackColor = false;
             btnCopyAlias.Click += btnCopyAlias_Click;
+            // 
+            // panelAceptarMail
+            // 
+            panelAceptarMail.Controls.Add(btnCancelarMail);
+            panelAceptarMail.Controls.Add(btnAceptarMail);
+            panelAceptarMail.Controls.Add(txtCambiarMail);
+            panelAceptarMail.Location = new Point(17, 129);
+            panelAceptarMail.Name = "panelAceptarMail";
+            panelAceptarMail.Size = new Size(333, 113);
+            panelAceptarMail.TabIndex = 4;
+            panelAceptarMail.Visible = false;
+            // 
+            // btnCancelarMail
+            // 
+            btnCancelarMail.Location = new Point(182, 54);
+            btnCancelarMail.Name = "btnCancelarMail";
+            btnCancelarMail.Size = new Size(137, 34);
+            btnCancelarMail.TabIndex = 12;
+            btnCancelarMail.Text = "Cancelar";
+            btnCancelarMail.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptarMail
+            // 
+            btnAceptarMail.Location = new Point(14, 54);
+            btnAceptarMail.Name = "btnAceptarMail";
+            btnAceptarMail.Size = new Size(147, 34);
+            btnAceptarMail.TabIndex = 1;
+            btnAceptarMail.Text = "Aceptar";
+            btnAceptarMail.UseVisualStyleBackColor = true;
+            // 
+            // txtCambiarMail
+            // 
+            txtCambiarMail.Location = new Point(14, 13);
+            txtCambiarMail.Name = "txtCambiarMail";
+            txtCambiarMail.Size = new Size(305, 35);
+            txtCambiarMail.TabIndex = 0;
+            // 
+            // panelCambiarContra
+            // 
+            panelCambiarContra.Controls.Add(btnCancelarContra);
+            panelCambiarContra.Controls.Add(btnAceptarContra);
+            panelCambiarContra.Controls.Add(txtCambiarContra);
+            panelCambiarContra.Location = new Point(356, 129);
+            panelCambiarContra.Name = "panelCambiarContra";
+            panelCambiarContra.Size = new Size(267, 113);
+            panelCambiarContra.TabIndex = 5;
+            panelCambiarContra.Visible = false;
+            // 
+            // btnCancelarContra
+            // 
+            btnCancelarContra.Location = new Point(133, 54);
+            btnCancelarContra.Name = "btnCancelarContra";
+            btnCancelarContra.Size = new Size(120, 34);
+            btnCancelarContra.TabIndex = 12;
+            btnCancelarContra.Text = "Cancelar";
+            btnCancelarContra.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptarContra
+            // 
+            btnAceptarContra.Location = new Point(15, 54);
+            btnAceptarContra.Name = "btnAceptarContra";
+            btnAceptarContra.Size = new Size(119, 34);
+            btnAceptarContra.TabIndex = 1;
+            btnAceptarContra.Text = "Aceptar";
+            btnAceptarContra.UseVisualStyleBackColor = true;
+            // 
+            // txtCambiarContra
+            // 
+            txtCambiarContra.Location = new Point(15, 13);
+            txtCambiarContra.Name = "txtCambiarContra";
+            txtCambiarContra.Size = new Size(238, 35);
+            txtCambiarContra.TabIndex = 0;
             // 
             // FormProfile
             // 
@@ -261,6 +345,10 @@
             gbPersonalData.ResumeLayout(false);
             panelCambiarAlias.ResumeLayout(false);
             panelCambiarAlias.PerformLayout();
+            panelAceptarMail.ResumeLayout(false);
+            panelAceptarMail.PerformLayout();
+            panelCambiarContra.ResumeLayout(false);
+            panelCambiarContra.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -284,5 +372,13 @@
         private Button btnCancelarAlias;
         private Button btnAceptarAlias;
         private TextBox txtCambiarAlias;
+        private Panel panelAceptarMail;
+        private Button btnCancelarMail;
+        private Button btnAceptarMail;
+        private TextBox txtCambiarMail;
+        private Panel panelCambiarContra;
+        private Button btnCancelarContra;
+        private Button btnAceptarContra;
+        private TextBox txtCambiarContra;
     }
 }
