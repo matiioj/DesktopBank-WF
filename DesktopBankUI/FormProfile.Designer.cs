@@ -187,6 +187,7 @@
             btnCancelarContra.TabIndex = 12;
             btnCancelarContra.Text = "Cancelar";
             btnCancelarContra.UseVisualStyleBackColor = true;
+            btnCancelarContra.Click += btnCancelarContra_Click;
             // 
             // btnAceptarContra
             // 
@@ -196,6 +197,7 @@
             btnAceptarContra.TabIndex = 1;
             btnAceptarContra.Text = "Aceptar";
             btnAceptarContra.UseVisualStyleBackColor = true;
+            btnAceptarContra.Click += btnAceptarContra_Click;
             // 
             // txtCambiarContra
             // 
@@ -223,6 +225,7 @@
             btnCancelarMail.TabIndex = 12;
             btnCancelarMail.Text = "Cancelar";
             btnCancelarMail.UseVisualStyleBackColor = true;
+            btnCancelarMail.Click += btnCancelarMail_Click;
             // 
             // btnAceptarMail
             // 

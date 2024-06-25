@@ -31,6 +31,7 @@ namespace DesktopBankUI
         AccountRepository _accountRepository;
         Account _account;
         ValidationService _validationService;
+        PasswordHashingService _passwordHashingService;
         public FormProfile(Account currentAccount, NojedaisticDesktopBankContext context)
         {
 
@@ -42,6 +43,7 @@ namespace DesktopBankUI
             _context = context;
             _accountRepository = new AccountRepository(_context);
             _validationService = new();
+            _passwordHashingService = new PasswordHashingService();
 
             InitializeComponent();
             CargarDatos_Usuario();
@@ -151,7 +153,22 @@ namespace DesktopBankUI
 
         private void btnChangeMail_Click(object sender, EventArgs e)
         {
-            panelAceptarMail.Visible = true;   
+            panelAceptarMail.Visible = true;
+        }
+
+        private void btnCancelarContra_Click(object sender, EventArgs e)
+        {
+            panelCambiarAlias.Visible = false;
+        }
+
+        private void btnCancelarMail_Click(object sender, EventArgs e)
+        {
+            panelCambiarAlias.Visible = false;
+        }
+
+        private void btnAceptarContra_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
