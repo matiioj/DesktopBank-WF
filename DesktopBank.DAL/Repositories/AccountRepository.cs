@@ -58,7 +58,12 @@ namespace DesktopBank.DAL.Repositories
 
         public IEnumerable<Account> GetAccountsByUserId(int userId)
         {
-            return _context.Accounts.Where(a => a.UserId == userId).ToList();
+            return _context.Accounts
+                .Include(a => a.User)
+                .Include(a => a.User.Client)
+                .Include(a => a.AccountCurrencyNavigation)
+                .Include(a => a.Cards)
+                .Where(a => a.UserId == userId).ToList();
         }
 
         public IEnumerable<Account> GetByCurrencyId(int currencyId)
