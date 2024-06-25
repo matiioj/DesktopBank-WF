@@ -37,6 +37,14 @@
             LabelContenidoCuil = new Label();
             btnCopy = new Button();
             gbPersonalData = new GroupBox();
+            panelCambiarContra = new Panel();
+            btnCancelarContra = new Button();
+            btnAceptarContra = new Button();
+            txtCambiarContra = new TextBox();
+            panelAceptarMail = new Panel();
+            btnCancelarMail = new Button();
+            btnAceptarMail = new Button();
+            txtCambiarMail = new TextBox();
             panelCambiarAlias = new Panel();
             btnCancelarAlias = new Button();
             btnAceptarAlias = new Button();
@@ -45,18 +53,10 @@
             btnChangePassFormPerfil = new Button();
             btnChangeMail = new Button();
             btnCopyAlias = new Button();
-            panelAceptarMail = new Panel();
-            btnCancelarMail = new Button();
-            btnAceptarMail = new Button();
-            txtCambiarMail = new TextBox();
-            panelCambiarContra = new Panel();
-            btnCancelarContra = new Button();
-            btnAceptarContra = new Button();
-            txtCambiarContra = new TextBox();
             gbPersonalData.SuspendLayout();
-            panelCambiarAlias.SuspendLayout();
-            panelAceptarMail.SuspendLayout();
             panelCambiarContra.SuspendLayout();
+            panelAceptarMail.SuspendLayout();
+            panelCambiarAlias.SuspendLayout();
             SuspendLayout();
             // 
             // LabelPerfil
@@ -168,6 +168,79 @@
             gbPersonalData.TabStop = false;
             gbPersonalData.Text = "Datos Personales";
             // 
+            // panelCambiarContra
+            // 
+            panelCambiarContra.Controls.Add(btnCancelarContra);
+            panelCambiarContra.Controls.Add(btnAceptarContra);
+            panelCambiarContra.Controls.Add(txtCambiarContra);
+            panelCambiarContra.Location = new Point(356, 129);
+            panelCambiarContra.Name = "panelCambiarContra";
+            panelCambiarContra.Size = new Size(267, 113);
+            panelCambiarContra.TabIndex = 5;
+            panelCambiarContra.Visible = false;
+            // 
+            // btnCancelarContra
+            // 
+            btnCancelarContra.Location = new Point(133, 54);
+            btnCancelarContra.Name = "btnCancelarContra";
+            btnCancelarContra.Size = new Size(120, 34);
+            btnCancelarContra.TabIndex = 12;
+            btnCancelarContra.Text = "Cancelar";
+            btnCancelarContra.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptarContra
+            // 
+            btnAceptarContra.Location = new Point(15, 54);
+            btnAceptarContra.Name = "btnAceptarContra";
+            btnAceptarContra.Size = new Size(119, 34);
+            btnAceptarContra.TabIndex = 1;
+            btnAceptarContra.Text = "Aceptar";
+            btnAceptarContra.UseVisualStyleBackColor = true;
+            // 
+            // txtCambiarContra
+            // 
+            txtCambiarContra.Location = new Point(15, 13);
+            txtCambiarContra.Name = "txtCambiarContra";
+            txtCambiarContra.Size = new Size(238, 35);
+            txtCambiarContra.TabIndex = 0;
+            // 
+            // panelAceptarMail
+            // 
+            panelAceptarMail.Controls.Add(btnCancelarMail);
+            panelAceptarMail.Controls.Add(btnAceptarMail);
+            panelAceptarMail.Controls.Add(txtCambiarMail);
+            panelAceptarMail.Location = new Point(17, 129);
+            panelAceptarMail.Name = "panelAceptarMail";
+            panelAceptarMail.Size = new Size(333, 113);
+            panelAceptarMail.TabIndex = 4;
+            panelAceptarMail.Visible = false;
+            // 
+            // btnCancelarMail
+            // 
+            btnCancelarMail.Location = new Point(182, 54);
+            btnCancelarMail.Name = "btnCancelarMail";
+            btnCancelarMail.Size = new Size(137, 34);
+            btnCancelarMail.TabIndex = 12;
+            btnCancelarMail.Text = "Cancelar";
+            btnCancelarMail.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptarMail
+            // 
+            btnAceptarMail.Location = new Point(14, 54);
+            btnAceptarMail.Name = "btnAceptarMail";
+            btnAceptarMail.Size = new Size(147, 34);
+            btnAceptarMail.TabIndex = 1;
+            btnAceptarMail.Text = "Aceptar";
+            btnAceptarMail.UseVisualStyleBackColor = true;
+            btnAceptarMail.Click += btnAceptarMail_Click;
+            // 
+            // txtCambiarMail
+            // 
+            txtCambiarMail.Location = new Point(14, 13);
+            txtCambiarMail.Name = "txtCambiarMail";
+            txtCambiarMail.Size = new Size(305, 35);
+            txtCambiarMail.TabIndex = 0;
+            // 
             // panelCambiarAlias
             // 
             panelCambiarAlias.Controls.Add(btnCancelarAlias);
@@ -234,6 +307,7 @@
             btnChangeMail.TabIndex = 0;
             btnChangeMail.Text = "Cambair Mail";
             btnChangeMail.UseVisualStyleBackColor = true;
+            btnChangeMail.Click += btnChangeMail_Click;
             // 
             // btnCopyAlias
             // 
@@ -247,79 +321,6 @@
             btnCopyAlias.Text = "COPIAR ALIAS";
             btnCopyAlias.UseVisualStyleBackColor = false;
             btnCopyAlias.Click += btnCopyAlias_Click;
-            // 
-            // panelAceptarMail
-            // 
-            panelAceptarMail.Controls.Add(btnCancelarMail);
-            panelAceptarMail.Controls.Add(btnAceptarMail);
-            panelAceptarMail.Controls.Add(txtCambiarMail);
-            panelAceptarMail.Location = new Point(17, 129);
-            panelAceptarMail.Name = "panelAceptarMail";
-            panelAceptarMail.Size = new Size(333, 113);
-            panelAceptarMail.TabIndex = 4;
-            panelAceptarMail.Visible = false;
-            // 
-            // btnCancelarMail
-            // 
-            btnCancelarMail.Location = new Point(182, 54);
-            btnCancelarMail.Name = "btnCancelarMail";
-            btnCancelarMail.Size = new Size(137, 34);
-            btnCancelarMail.TabIndex = 12;
-            btnCancelarMail.Text = "Cancelar";
-            btnCancelarMail.UseVisualStyleBackColor = true;
-            // 
-            // btnAceptarMail
-            // 
-            btnAceptarMail.Location = new Point(14, 54);
-            btnAceptarMail.Name = "btnAceptarMail";
-            btnAceptarMail.Size = new Size(147, 34);
-            btnAceptarMail.TabIndex = 1;
-            btnAceptarMail.Text = "Aceptar";
-            btnAceptarMail.UseVisualStyleBackColor = true;
-            btnAceptarMail.Click += btnAceptarMail_Click;
-            // 
-            // txtCambiarMail
-            // 
-            txtCambiarMail.Location = new Point(14, 13);
-            txtCambiarMail.Name = "txtCambiarMail";
-            txtCambiarMail.Size = new Size(305, 35);
-            txtCambiarMail.TabIndex = 0;
-            // 
-            // panelCambiarContra
-            // 
-            panelCambiarContra.Controls.Add(btnCancelarContra);
-            panelCambiarContra.Controls.Add(btnAceptarContra);
-            panelCambiarContra.Controls.Add(txtCambiarContra);
-            panelCambiarContra.Location = new Point(356, 129);
-            panelCambiarContra.Name = "panelCambiarContra";
-            panelCambiarContra.Size = new Size(267, 113);
-            panelCambiarContra.TabIndex = 5;
-            panelCambiarContra.Visible = false;
-            // 
-            // btnCancelarContra
-            // 
-            btnCancelarContra.Location = new Point(133, 54);
-            btnCancelarContra.Name = "btnCancelarContra";
-            btnCancelarContra.Size = new Size(120, 34);
-            btnCancelarContra.TabIndex = 12;
-            btnCancelarContra.Text = "Cancelar";
-            btnCancelarContra.UseVisualStyleBackColor = true;
-            // 
-            // btnAceptarContra
-            // 
-            btnAceptarContra.Location = new Point(15, 54);
-            btnAceptarContra.Name = "btnAceptarContra";
-            btnAceptarContra.Size = new Size(119, 34);
-            btnAceptarContra.TabIndex = 1;
-            btnAceptarContra.Text = "Aceptar";
-            btnAceptarContra.UseVisualStyleBackColor = true;
-            // 
-            // txtCambiarContra
-            // 
-            txtCambiarContra.Location = new Point(15, 13);
-            txtCambiarContra.Name = "txtCambiarContra";
-            txtCambiarContra.Size = new Size(238, 35);
-            txtCambiarContra.TabIndex = 0;
             // 
             // FormProfile
             // 
@@ -344,12 +345,12 @@
             Text = "FormProfile";
             Load += FormProfile_Load;
             gbPersonalData.ResumeLayout(false);
-            panelCambiarAlias.ResumeLayout(false);
-            panelCambiarAlias.PerformLayout();
-            panelAceptarMail.ResumeLayout(false);
-            panelAceptarMail.PerformLayout();
             panelCambiarContra.ResumeLayout(false);
             panelCambiarContra.PerformLayout();
+            panelAceptarMail.ResumeLayout(false);
+            panelAceptarMail.PerformLayout();
+            panelCambiarAlias.ResumeLayout(false);
+            panelCambiarAlias.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
