@@ -122,7 +122,7 @@ namespace DesktopBankUI
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show($"¿Quiere cambiar su antiguo mail: ${mail} por ${correoNuevo}?", "Aceptar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resultado = MessageBox.Show($"¿Quiere cambiar su antiguo mail: {mail} por {correoNuevo}?", "Aceptar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
             {
