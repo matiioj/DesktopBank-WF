@@ -29,6 +29,7 @@ namespace StudentSystem.WindowsFormsCliente
         private readonly IAccountRepository _accountRepository;
         private readonly ICardRepository _cardRepository;
         private readonly GenerateNumbersService _generateNumbersService;
+        private readonly PasswordHashingService _passwordHashingService;
         private readonly CreateClientService _clientService;
         private readonly CreateUserService _userService;
         private readonly CreateAccountService _accountService;
@@ -48,11 +49,12 @@ namespace StudentSystem.WindowsFormsCliente
             _unitOfWork = new UnitOfWork(_context);
 
             _generateNumbersService = new GenerateNumbersService();
+             _passwordHashingService = new PasswordHashingService();
             _clientService = new CreateClientService(_clientRepository, _unitOfWork);
-            _userService = new CreateUserService(_userRepository, _unitOfWork);
+            _userService = new CreateUserService(_userRepository, _unitOfWork, _passwordHashingService);
             _accountService = new CreateAccountService(_accountRepository, _unitOfWork, _generateNumbersService);
             _cardService = new CreateCardService(_cardRepository, _unitOfWork, _generateNumbersService);
-            _createBankUserEntitiesService = new CreateBankUserEntitiesService(_clientService, _userService, _accountService, _cardService, _unitOfWork);
+            _createBankUserEntitiesService = new CreateBankUserEntitiesService(_clientService, _userService, _accountService, _cardService, _unitOfWork, _passwordHashingService);
             _validationService = new();
 
             InitializeComponent();

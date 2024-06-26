@@ -33,32 +33,81 @@ namespace DesktopBank.DAL.Repositories
 
         public Operation GetOperation(int id)
         {
-            return _context.Operations.Include(a => a.OperationCode).FirstOrDefault(a => a.OperationId == id);
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client)
+                .FirstOrDefault(a => a.OperationId == id);
         }
 
         public IEnumerable<Operation> GetOperations()
         {
-            return _context.Operations.Include(a => a.OperationCode).ToList();
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client)
+                .ToList();
         }
 
         public IEnumerable<Operation> GetOperationsByCurrency(int currencyId)
         {
-            return _context.Operations.Include(a => a.OperationCode).Where(a => a.SourceAccount.AccountCurrency == currencyId).ToList();
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client).
+                Where(a => a.SourceAccount.AccountCurrency == currencyId).ToList();
         }
 
         public IEnumerable<Operation> GetOperationsByOperationCode(int operationCode)
         {
-            return _context.Operations.Include(a => a.OperationCode).Where(a => a.OperationCodeId == operationCode).ToList();
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client)
+                .Where(a => a.OperationCodeId == operationCode).ToList();
         }
 
         public IEnumerable<Operation> GetOperationsByReceiverCBU(long cbu)
         {
-            return _context.Operations.Include(a => a.OperationCode).Where(a => a.DestinationAccount.AccountCbu == cbu).ToList();
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client)
+                .Where(a => a.DestinationAccount.AccountCbu == cbu).ToList();
         }
 
         public IEnumerable<Operation> GetOperationsBySenderCBU(long cbu)
         {
-            return _context.Operations.Include(a => a.OperationCode).Where(a => a.SourceAccount.AccountCbu == cbu).ToList();
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client)
+                .Where(a => a.SourceAccount.AccountCbu == cbu).ToList();
             
         }
 

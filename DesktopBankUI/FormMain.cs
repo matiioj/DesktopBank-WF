@@ -13,6 +13,7 @@ using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using DesktopBank.BusinessObjects.Generated.Models;
 using DesktopBank.BusinessObjects.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesktopBankUI
 {
@@ -28,7 +29,11 @@ namespace DesktopBankUI
         private readonly CreateOperationService _createOperationService;
         private readonly UnitOfWork _unitOfWork;
         private readonly GenerateNumbersService _generateNumbersService;
-        private readonly IOperationRepository _operationRepository;
+        private readonly ManageOperationsService _manageOperationsService;
+        private readonly CheckAccountTransfer _checkAccountTransfer;
+        private readonly CreateTransferService _createTransferService;
+        private readonly OperationRepository _operationRepository;
+        private readonly IOperationCodeRepository _operationCodeRepository;
 
         // Se utiliza una API de Windows para poder generar una ventana arrastrable 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -42,12 +47,16 @@ namespace DesktopBankUI
             _unitOfWork = new UnitOfWork(_context);
             _accountRepository = new AccountRepository(_context);
             _operationRepository = new OperationRepository(_context);
-            
+            _operationCodeRepository = new OperationCodeRepository(_context);
+
             _generateNumbersService = new();
+            _manageOperationsService = new ManageOperationsService(_operationRepository, _unitOfWork);
             _createOperationService = new CreateOperationService(_operationRepository, _unitOfWork, _generateNumbersService);
             _extractBalanceService = new ExtractBalanceService(_accountRepository, _createOperationService, _unitOfWork);
             _depositBalanceService = new DepositBalanceService(_accountRepository, _createOperationService, _unitOfWork);
             _accountInfoService = new AccountInfoService(_context, _accountRepository);
+            _checkAccountTransfer = new CheckAccountTransfer(_accountRepository);
+            _createTransferService = new CreateTransferService(_operationCodeRepository, _accountRepository, _createOperationService, _unitOfWork);
 
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
 
@@ -117,7 +126,7 @@ namespace DesktopBankUI
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            FormProfile profileForm = new(_currentAccount);
+            FormProfile profileForm = new(_currentAccount, _context);
             openFormInsidePanel(profileForm);
         }
 
@@ -129,13 +138,13 @@ namespace DesktopBankUI
 
         private void transferButton_Click(object sender, EventArgs e)
         {
-            FormTransferencia transferForm = new();
+            FormTransferencia transferForm = new(_currentAccount, _checkAccountTransfer, _createTransferService);
             openFormInsidePanel(transferForm);
         }
 
         private void transactionsButton_Click(object sender, EventArgs e)
         {
-            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService);
+            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService, _manageOperationsService);
             openFormInsidePanel(transactionsForm);
         }
 
@@ -165,5 +174,22 @@ namespace DesktopBankUI
             // Actualizar otros formularios de manera similar...
         }
 
+        private void btnPayService_Click(object sender, EventArgs e)
+        {
+            FormPayService payService = new();
+            openFormInsidePanel(payService);
+        }
+
+        private void panelScreen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        { 
+            FormLogin formLogin = new FormLogin();
+            formLogin.Show();
+            this.Close();
+        }
     }
 }

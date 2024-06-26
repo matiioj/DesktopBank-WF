@@ -11,6 +11,8 @@ namespace DesktopBank.BusinessObjects.Interfaces
     {
         IEnumerable<OperationCode> GetOperationCodes();
         OperationCode GetOperationCode(int id);
+
+        OperationCode GetOperationCodeByNumberCode(int code);
         void CreateOperationCode(OperationCode operationCode);
         void UpdateOperationCode(OperationCode operationCode);
         void DeleteOperationCode(int id);

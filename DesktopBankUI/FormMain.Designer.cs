@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             panelMenu = new Panel();
+            btnLogOut = new FontAwesome.Sharp.IconButton();
+            btnPayService = new FontAwesome.Sharp.IconButton();
             exitButton = new FontAwesome.Sharp.IconButton();
             transactionsButton = new FontAwesome.Sharp.IconButton();
             transferButton = new FontAwesome.Sharp.IconButton();
@@ -53,6 +55,8 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.Teal;
+            panelMenu.Controls.Add(btnLogOut);
+            panelMenu.Controls.Add(btnPayService);
             panelMenu.Controls.Add(exitButton);
             panelMenu.Controls.Add(transactionsButton);
             panelMenu.Controls.Add(transferButton);
@@ -67,6 +71,54 @@
             panelMenu.Padding = new Padding(0, 0, 0, 42);
             panelMenu.Size = new Size(204, 1000);
             panelMenu.TabIndex = 0;
+            // 
+            // btnLogOut
+            // 
+            btnLogOut.Dock = DockStyle.Bottom;
+            btnLogOut.FlatAppearance.BorderSize = 0;
+            btnLogOut.FlatStyle = FlatStyle.Flat;
+            btnLogOut.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLogOut.ForeColor = Color.White;
+            btnLogOut.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+            btnLogOut.IconColor = Color.White;
+            btnLogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLogOut.IconSize = 30;
+            btnLogOut.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLogOut.Location = new Point(0, 842);
+            btnLogOut.Margin = new Padding(4, 5, 4, 5);
+            btnLogOut.Name = "btnLogOut";
+            btnLogOut.Padding = new Padding(14, 0, 0, 0);
+            btnLogOut.Size = new Size(204, 58);
+            btnLogOut.TabIndex = 10;
+            btnLogOut.Text = " Log Out";
+            btnLogOut.TextAlign = ContentAlignment.MiddleLeft;
+            btnLogOut.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLogOut.UseVisualStyleBackColor = true;
+            btnLogOut.Click += btnLogOut_Click;
+            // 
+            // btnPayService
+            // 
+            btnPayService.Dock = DockStyle.Top;
+            btnPayService.FlatAppearance.BorderSize = 0;
+            btnPayService.FlatStyle = FlatStyle.Flat;
+            btnPayService.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPayService.ForeColor = Color.White;
+            btnPayService.IconChar = FontAwesome.Sharp.IconChar.ClockRotateLeft;
+            btnPayService.IconColor = Color.White;
+            btnPayService.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnPayService.IconSize = 30;
+            btnPayService.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPayService.Location = new Point(0, 432);
+            btnPayService.Margin = new Padding(4, 5, 4, 5);
+            btnPayService.Name = "btnPayService";
+            btnPayService.Padding = new Padding(14, 0, 0, 0);
+            btnPayService.Size = new Size(204, 58);
+            btnPayService.TabIndex = 9;
+            btnPayService.Text = "Pay Service";
+            btnPayService.TextAlign = ContentAlignment.MiddleLeft;
+            btnPayService.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPayService.UseVisualStyleBackColor = true;
+            btnPayService.Click += btnPayService_Click;
             // 
             // exitButton
             // 
@@ -330,7 +382,7 @@
             panelScreen.Name = "panelScreen";
             panelScreen.Size = new Size(988, 900);
             panelScreen.TabIndex = 2;
-           
+            panelScreen.Paint += panelScreen_Paint;
             // 
             // FormMain
             // 
@@ -369,5 +421,7 @@
         private FontAwesome.Sharp.IconButton minimizeButton;
         private PictureBox iconIstic;
         private FontAwesome.Sharp.IconButton restoreButton;
+        private FontAwesome.Sharp.IconButton btnPayService;
+        private FontAwesome.Sharp.IconButton btnLogOut;
     }
 }

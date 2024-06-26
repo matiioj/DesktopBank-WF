@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace DesktopBank.DAL.Repositories
 {
-    internal class OperationCodeRepository : IOperationCodeRepository
+    public class OperationCodeRepository : BusinessObjects.Interfaces.IOperationCodeRepository
     {
         private readonly NojedaisticDesktopBankContext _context;
 
         public OperationCodeRepository(NojedaisticDesktopBankContext context)
         {
-            _context = context; 
+            _context = context;
         }
 
         public void CreateOperationCode(OperationCode operationCode)
@@ -25,7 +25,7 @@ namespace DesktopBank.DAL.Repositories
 
         public void DeleteOperationCode(int id)
         {
-            var operationCode = _context.OperationCodes.Find(id) ;
+            var operationCode = _context.OperationCodes.Find(id);
             _context.OperationCodes.Remove(operationCode);
             _context.SaveChanges();
         }
@@ -33,6 +33,11 @@ namespace DesktopBank.DAL.Repositories
         public OperationCode GetOperationCode(int id)
         {
             return _context.OperationCodes.Find(id);
+        }
+
+        public OperationCode GetOperationCodeByNumberCode(int code)
+        {
+            return _context.OperationCodes.FirstOrDefault(a => a.OperationCodeNumber == code);
         }
 
         public IEnumerable<OperationCode> GetOperationCodes()

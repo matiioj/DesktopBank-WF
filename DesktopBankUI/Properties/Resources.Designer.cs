@@ -69,5 +69,42 @@ namespace DesktopBankUI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        internal static System.Drawing.Bitmap edesur
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("edesur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap metrogas
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("metrogas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap aysa
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("aysa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap agip
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("agip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
     }
 }

@@ -7,7 +7,7 @@ public partial class OperationCode
 {
     public byte OperationCodeId { get; set; }
 
-    public byte OperationCode1 { get; set; }
+    public byte OperationCodeNumber { get; set; }
 
     public string OperationCodeDescription { get; set; } = null!;
 

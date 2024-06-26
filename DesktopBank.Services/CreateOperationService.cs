@@ -33,8 +33,6 @@ namespace DesktopBank.Services
                 OperationNote = "Sin nota",
                 OperationAmount = amount,
                 OperationCodeId = operationCodeId,
-
-
             };
 
             _operationRepository.CreateOperation(newOperation);
@@ -51,8 +49,6 @@ namespace DesktopBank.Services
                 OperationNote = note,
                 OperationAmount = amount,
                 OperationCodeId = operationCodeId,
-
-
             };
 
             _operationRepository.CreateOperation(newOperation);

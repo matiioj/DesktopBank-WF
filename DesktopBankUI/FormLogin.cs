@@ -15,11 +15,13 @@ namespace DesktopBankUI
         private readonly NojedaisticDesktopBankContext _context;
         private readonly UserCheckerService _sessionService;
         private readonly UserRepository _userRepository;
+        private readonly PasswordHashingService _passwordHashingService;
         public FormLogin()
         {
             _context = new NojedaisticDesktopBankContext();
             _userRepository = new UserRepository(_context);
-            _sessionService = new UserCheckerService(_userRepository);
+            _passwordHashingService = new PasswordHashingService();
+            _sessionService = new UserCheckerService(_userRepository, _passwordHashingService);
             InitializeComponent();   
         }
         private void registerLabel_Click(object sender, EventArgs e)
@@ -51,7 +53,19 @@ namespace DesktopBankUI
             {
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+        }
+
+        private void tituloIniciarSesion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkChangePass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormChangePass frmChangePass = new FormChangePass();    
+            frmChangePass.Show();
+            this.Hide();
         }
     }
 }

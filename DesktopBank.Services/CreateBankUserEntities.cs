@@ -9,14 +9,16 @@ public class CreateBankUserEntitiesService
     private readonly CreateAccountService _accountService;
     private readonly UnitOfWork _unitOfWork;
     private readonly CreateCardService _createCardService;
+    private readonly PasswordHashingService _passwordHashingService;
 
-    public CreateBankUserEntitiesService(CreateClientService clientService, CreateUserService userService, CreateAccountService accountService, CreateCardService createCardService, UnitOfWork unitOfWork)
+    public CreateBankUserEntitiesService(CreateClientService clientService, CreateUserService userService, CreateAccountService accountService, CreateCardService createCardService, UnitOfWork unitOfWork, PasswordHashingService passwordHashingService)
     {
         _clientService = clientService;
         _userService = userService;
         _accountService = accountService;
         _unitOfWork = unitOfWork;
         _createCardService = createCardService;
+        _passwordHashingService = passwordHashingService;
     }
 
     public async Task CreateBankUserEntitiesAsync(string clientName, string clientSurname, long clientCuil, string clientEmail, string username, string password, int primaryCurrencyId, int secondaryCurrencyId)

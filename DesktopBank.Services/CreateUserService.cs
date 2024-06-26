@@ -15,21 +15,25 @@ namespace DesktopBank.Services
     public class CreateUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly PasswordHashingService _passwordHashingService;
         private readonly UnitOfWork _unitOfWork;
 
-        public CreateUserService(IUserRepository userRepository, UnitOfWork unitOfWork)
+        public CreateUserService(IUserRepository userRepository, UnitOfWork unitOfWork, PasswordHashingService passwordHashingService)
         {
             _userRepository = userRepository;
-            _unitOfWork = unitOfWork;   
+            _unitOfWork = unitOfWork;
+            _passwordHashingService = passwordHashingService;
         }
 
         public async Task<User> CreateUserAsync(int clientId, string username, string password)
         {
+            var hashedPassword = _passwordHashingService.HashPassword(password);
+
             User newUser = new User
             {
                 ClientId = clientId,
                 UserName = username,
-                UserPassword = password
+                UserPassword = hashedPassword
             };
 
             _userRepository.CreateUser(newUser);
