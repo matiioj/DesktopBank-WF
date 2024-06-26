@@ -1,5 +1,7 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.BusinessObjects.Interfaces;
 using DesktopBank.BusinessObjects.Models;
+using DesktopBank.DAL.Repositories;
 using DesktopBank.Services;
 //using Microsoft.Identity.Client.NativeInterop;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -9,12 +11,19 @@ namespace DesktopBankUI
 {
     public partial class FormConfirmTransferencia : Form
     {
+        private readonly OperationRepository _operationRepository;
+        private readonly CreateReceiptService _createReceiptService;
+        private readonly FormatToReceiptService _formatToReceiptService;
         private MailService mailService = new MailService();
         private Account _currentAccount;
         private Account _destinationAccount;
         private readonly CreateTransferService _createTransferService;
-        public FormConfirmTransferencia(Account currentAccount, Account destinationAccount, CreateTransferService createTransferService)
+        public FormConfirmTransferencia(Account currentAccount, Account destinationAccount, CreateTransferService createTransferService, OperationRepository operationRepository)
         {
+            _operationRepository = operationRepository;
+            _formatToReceiptService = new(operationRepository);
+            _createReceiptService = new(_formatToReceiptService);
+            
             _createTransferService = createTransferService;
             _currentAccount = currentAccount;
             _destinationAccount = destinationAccount;
@@ -23,6 +32,8 @@ namespace DesktopBankUI
             personToTransferTxt.Text = "Vas a transferirle a \n " + nombre;
             this.StartPosition = FormStartPosition.CenterParent;
         }
+
+
 
 
 
@@ -35,7 +46,8 @@ namespace DesktopBankUI
                 {
                     try
                     { 
-                        await _createTransferService.ExecuteTransfer(_currentAccount, amount, _destinationAccount);                       
+                        await _createTransferService.ExecuteTransfer(_currentAccount, amount, _destinationAccount);
+                        _createReceiptService.CreateReceipt(_currentAccount, _destinationAccount);
                         var currentAccountMail = _currentAccount.User.Client.ClientEmail;
                         var destinationAccountMail = _destinationAccount.User.Client.ClientEmail;
                         MailData mailData = new MailData();

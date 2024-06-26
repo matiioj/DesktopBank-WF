@@ -17,6 +17,7 @@ namespace DesktopBankUI
         private readonly UserRepository _userRepository;
         private readonly PasswordHashingService _passwordHashingService;
         private bool showPassword;
+        
         public FormLogin()
         {
             _context = new NojedaisticDesktopBankContext();

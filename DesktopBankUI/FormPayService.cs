@@ -10,11 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopBank.DAL.Repositories;
 
 namespace DesktopBankUI
 {
     public partial class FormPayService : Form
     {
+        private readonly OperationRepository _operationRepository;
         private Account _currentAccount;
         private readonly CreateTransferService _createTransferService;
         private readonly CheckAccountTransfer _checkAccountTransfer;
@@ -40,7 +42,7 @@ namespace DesktopBankUI
                     var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
                     if (destinationAccount != null)
                     {
-                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService);
+                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
                         formConfirmTransferencia.ShowDialog();
                     }
                 }
@@ -69,7 +71,7 @@ namespace DesktopBankUI
                     var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
                     if (destinationAccount != null)
                     {
-                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService);
+                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
                         formConfirmTransferencia.ShowDialog();
                     }
                 }
@@ -98,7 +100,7 @@ namespace DesktopBankUI
                     var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
                     if (destinationAccount != null)
                     {
-                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService);
+                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
                         formConfirmTransferencia.ShowDialog();
                     }
                 }
@@ -127,7 +129,7 @@ namespace DesktopBankUI
                     var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
                     if (destinationAccount != null)
                     {
-                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService);
+                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
                         formConfirmTransferencia.ShowDialog();
                     }
                 }
