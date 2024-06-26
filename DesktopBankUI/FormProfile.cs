@@ -1,4 +1,5 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,13 @@ namespace DesktopBankUI
         string cbu;
         string alias;
         long CUIL;
-        public FormProfile(Account currentAccount)
+        private readonly AccountStateService _accountStateService;//*
+        public FormProfile(Account currentAccount, AccountStateService accountStateService)
         {
             cbu = currentAccount.AccountCbu.ToString();
             alias = currentAccount.AccountAlias;
             CUIL = currentAccount.User.Client.ClientCuil;
+            _accountStateService = accountStateService;
 
             InitializeComponent();
             CargarDatos_Usuario();

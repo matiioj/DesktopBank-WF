@@ -29,8 +29,9 @@ namespace DesktopBankUI
         private readonly DepositBalanceService _depositBalanceService;
         private readonly ExtractBalanceService _extractBalanceService;
         private readonly IOperationRepository _operationRepository;
+        private readonly AccountStateService _accountStateService; //*
 
-        public FormHome(Account currentAccount, NojedaisticDesktopBankContext context, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService, IOperationRepository operationRepository)
+        public FormHome(Account currentAccount, NojedaisticDesktopBankContext context, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService, IOperationRepository operationRepository, AccountStateService accountStateService) //* (AccountStateService accountStateService)
         {
             _context = context;
             _currentAccount = currentAccount;
@@ -39,6 +40,7 @@ namespace DesktopBankUI
             _depositBalanceService = depositBalanceService;
             _extractBalanceService = extractBalanceService;
             _operationRepository = operationRepository;
+            _accountStateService = accountStateService; //*
 
             InitializeComponent();
             Load_Labels();
@@ -49,7 +51,6 @@ namespace DesktopBankUI
         {
             if (_currentAccount == null)
             {
-                // Manejar el caso donde _currentAccount es null
                 MessageBox.Show("No se ha seleccionado ninguna cuenta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -59,6 +60,7 @@ namespace DesktopBankUI
             balance = Convert.ToString(_currentAccount.AccountBalance);
             labelBalance.Text = currencySign + balance;
             LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
+            
         }
 
         private void Load_UserAccounts()
@@ -95,11 +97,6 @@ namespace DesktopBankUI
             };
         }
 
-        private void comboBoxAccounts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Esto se deja vacío si el cambio se hace solo con el botón
-        }
-
         private void depositButton_Click(object sender, EventArgs e)
         {
             var formDeposit = new FormDeposit(_currentAccount, _depositBalanceService, _accountInfoService);
@@ -132,16 +129,22 @@ namespace DesktopBankUI
             }
         }
 
-        private void labelBalance_Click(object sender, EventArgs e)
-        {
-            // Este método está vacío, pero lo puedes usar si deseas agregar alguna funcionalidad cuando se hace clic en el label del balance.
-        }
-
         private void ChangeCurrencyButton_Click(object sender, EventArgs e)
         {
             var selectedAccountId = (int)comboBoxAccounts.SelectedValue;
             _currentAccount = _accountInfoService.GetAccountById(selectedAccountId);
             Load_Labels();
         }
+
+        private void labelBalance_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBoxAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

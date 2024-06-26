@@ -24,8 +24,9 @@ namespace DesktopBankUI
         private readonly NojedaisticDesktopBankContext _context;
         private readonly IOperationRepository _operationRepository;
         private readonly AccountInfoService _accountInfoService;
+        private readonly AccountStateService _accountStateService;//*
 
-        public FormTransactions(Account currentAccount, NojedaisticDesktopBankContext context, IOperationRepository operationRepository, AccountInfoService accountInfoService)
+        public FormTransactions(Account currentAccount, NojedaisticDesktopBankContext context, IOperationRepository operationRepository, AccountInfoService accountInfoService, AccountStateService accountStateService)
         {
             _accountInfoService = accountInfoService;
             _operationRepository = operationRepository;
@@ -33,6 +34,7 @@ namespace DesktopBankUI
             _currentAccount = currentAccount;
             id = currentAccount.AccountId;
             cbu = currentAccount.AccountCbu;
+            _accountStateService = accountStateService; //*
 
             InitializeComponent();
             LoadTransactions(cbu);

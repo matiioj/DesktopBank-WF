@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -26,12 +27,16 @@ namespace DesktopBankUI
         string anio;
         string fechaConFormato;
         string numeroConFormato;
+        private readonly AccountStateService _accountStateService;//*
+        private Account _currentAccount;//*
 
         // Combina el mes y el año en el formato deseado
 
 
-        public FormCard(Account currentAccount)
+        public FormCard(Account currentAccount, AccountStateService accountStateService)
         {
+            _accountStateService = accountStateService;//*
+            _currentAccount = _accountStateService.GetCurrentAccount(); //*
             numtc = string.Empty;
             mes = string.Empty;
             anio = string.Empty;
@@ -55,15 +60,10 @@ namespace DesktopBankUI
                 cvv = card.CardCvv;
 
             }
-            name = currentAccount.User.Client.ClientName;
-            surname = currentAccount.User.Client.ClientSurname;
+            name = _currentAccount.User.Client.ClientName;
+            surname = _currentAccount.User.Client.ClientSurname;
             InitializeComponent();
             CargarDatos_Tarjeta();
-
-        }
-
-        private void FormCard_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -71,11 +71,6 @@ namespace DesktopBankUI
         {
             Clipboard.SetText(EtqTcNumber.Text);
             MessageBox.Show("Su número ha sido copiado con éxito");
-        }
-
-        private void gBoxTarjetaDeCredito_Enter(object sender, EventArgs e)
-        {
-
         }
 
         public void CargarDatos_Tarjeta()
@@ -95,6 +90,16 @@ namespace DesktopBankUI
         }
 
         private void EtqTcNumber_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gBoxTarjetaDeCredito_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormCard_Load(object sender, EventArgs e)
         {
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopBank.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopBank.BusinessObjects.Generated.Models;
 
 namespace DesktopBankUI
 {
     public partial class FormTransferencia : Form
     {
-        public FormTransferencia()
+        private readonly AccountStateService _accountStateService;//*
+        private Account _currentAccount;
+        public FormTransferencia(AccountStateService accountStateService)
         {
+
+            _accountStateService = accountStateService;
+            _currentAccount = _accountStateService.GetCurrentAccount();
+
             InitializeComponent();
         }
 

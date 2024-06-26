@@ -15,11 +15,13 @@ namespace DesktopBankUI
         private readonly NojedaisticDesktopBankContext _context;
         private readonly UserCheckerService _sessionService;
         private readonly UserRepository _userRepository;
+        private readonly AccountStateService _accountStateService;
         public FormLogin()
         {
             _context = new NojedaisticDesktopBankContext();
             _userRepository = new UserRepository(_context);
             _sessionService = new UserCheckerService(_userRepository);
+            _accountStateService = new AccountStateService();
             InitializeComponent();   
         }
         private void registerLabel_Click(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace DesktopBankUI
             var message = _sessionService.CredentialsChecker(usuarioLogin, contraLogin);
             if (int.TryParse(message, out int id))
             {
-                FormMain formMain = new FormMain(id);
+                FormMain formMain = new FormMain(id, _accountStateService);
                 formMain.Show();
                 this.Hide(); // oculta FormLogin
             }

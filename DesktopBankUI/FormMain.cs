@@ -19,6 +19,7 @@ namespace DesktopBankUI
     public partial class FormMain : Form
     {
         private int borderSize = 1;
+        private readonly AccountStateService _accountStateService; //*
         private readonly AccountInfoService _accountInfoService;
         private readonly AccountRepository _accountRepository;
         private readonly NojedaisticDesktopBankContext _context;
@@ -36,9 +37,10 @@ namespace DesktopBankUI
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        public FormMain(int userId)
+        public FormMain(int userId, AccountStateService accountStateService) //* (AccountStateService accountStateService)
         {
             _context = new NojedaisticDesktopBankContext();
+            _accountStateService = accountStateService; //*
             _unitOfWork = new UnitOfWork(_context);
             _accountRepository = new AccountRepository(_context);
             _operationRepository = new OperationRepository(_context);
@@ -50,9 +52,10 @@ namespace DesktopBankUI
             _accountInfoService = new AccountInfoService(_context, _accountRepository);
 
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
+            _accountStateService.SetCurrentAccount(_currentAccount); //*
 
             InitializeComponent();
-            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
+            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository, _accountStateService); //*(_accountStateService)
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
@@ -111,31 +114,31 @@ namespace DesktopBankUI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
+            FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository, _accountStateService);//*(_accountStateService)
             openFormInsidePanel(formHome); //abrir en misma ventana
         }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            FormProfile profileForm = new(_currentAccount);
+            FormProfile profileForm = new(_currentAccount, _accountStateService);//*(_accountStateService)
             openFormInsidePanel(profileForm);
         }
 
         private void cardButton_Click(object sender, EventArgs e)
         {
-            FormCard cardForm = new(_currentAccount);
+            FormCard cardForm = new(_currentAccount, _accountStateService);//*(_accountStateService)
             openFormInsidePanel(cardForm);
         }
 
         private void transferButton_Click(object sender, EventArgs e)
         {
-            FormTransferencia transferForm = new();
+            FormTransferencia transferForm = new(_accountStateService); //*(_accountStateService)
             openFormInsidePanel(transferForm);
         }
 
         private void transactionsButton_Click(object sender, EventArgs e)
         {
-            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService);
+            FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService, _accountStateService);//*(_accountStateService)
             openFormInsidePanel(transactionsForm);
         }
 
