@@ -16,12 +16,11 @@ namespace DesktopBank.Services
     {
         private readonly NojedaisticDesktopBankContext _context;
         private readonly AccountRepository _accountRepository;
-        private readonly IOperationRepository _operationRepository;
-        public AccountInfoService(NojedaisticDesktopBankContext context, AccountRepository accountRepository, OperationRepository operationRepository)  
+        
+        public AccountInfoService(NojedaisticDesktopBankContext context, AccountRepository accountRepository)  
         {
             _context = context;
             _accountRepository = accountRepository;
-            _operationRepository = operationRepository;
         }
 
         public Account GetAccountByUserId(int userId) 

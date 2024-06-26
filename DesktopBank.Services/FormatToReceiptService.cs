@@ -1,5 +1,6 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
 using DesktopBank.BusinessObjects.Interfaces;
+using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,28 +13,29 @@ namespace DesktopBank.Services
 {
     public class FormatToReceiptService
     {
-        private readonly IOperationRepository _operationRepository;
+        private readonly NojedaisticDesktopBankContext _context;
+        private readonly OperationRepository _operationRepository;
 
         public FormatToReceiptService(OperationRepository operationRepository) 
         {
-            _operationRepository = operationRepository;
+            _context = new();
+            _operationRepository = new(_context);
         }
 
         public Dictionary<string, string> GenerateTransferReceiptData(Account sourceAccount, Account destinationAccount)
         {
             Dictionary<string, string> transferData = new();
-
             var operation = _operationRepository.GetLastOperationBySenderCBU(sourceAccount.AccountCbu);
             var operationDate = operation.OperationDate.ToString("dd-MM-yyyy HH:mm", CultureInfo.InvariantCulture);
             var operationNumber = $"{operation.OperationId}";
             var operationNote = operation.OperationNote;
             var operationAmount = $"{operation.OperationAmount}";
 
-            var senderName = $"{sourceAccount.User.Client.ClientName} {sourceAccount.User.Client.ClientName}";
+            var senderName = $"{sourceAccount.User.Client.ClientName} {sourceAccount.User.Client.ClientSurname}";
             var senderCUIL = FormatCuil($"{sourceAccount.User.Client.ClientCuil}");
             var senderCBU = $"{sourceAccount.AccountCbu}";
 
-            var receiverName = $"{destinationAccount.User.Client.ClientName} {sourceAccount.User.Client.ClientName}";
+            var receiverName = $"{destinationAccount.User.Client.ClientName} {destinationAccount.User.Client.ClientSurname}";
             var receiverCUIL = FormatCuil($"{destinationAccount.User.Client.ClientCuil}");
             var receiverCBU = $"{destinationAccount.AccountCbu}";
 

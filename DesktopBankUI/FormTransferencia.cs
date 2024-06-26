@@ -1,4 +1,6 @@
 ﻿using DesktopBank.BusinessObjects.Generated.Models;
+using DesktopBank.BusinessObjects.Interfaces;
+using DesktopBank.DAL.Repositories;
 using DesktopBank.Services;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -20,8 +22,10 @@ namespace DesktopBankUI
         private Account _currentAccount;
         private readonly CreateTransferService _createTransferService;
         private readonly CheckAccountTransfer _checkAccountTransfer;
-        public FormTransferencia(Account currentAccount, CheckAccountTransfer checkAccountTransfer, CreateTransferService createTransferService)
+        private readonly OperationRepository _operationRepository;
+        public FormTransferencia(Account currentAccount, CheckAccountTransfer checkAccountTransfer, CreateTransferService createTransferService, OperationRepository operationRepository)
         {
+            _operationRepository = operationRepository;
             _createTransferService = createTransferService;
             _currentAccount = currentAccount;
             _checkAccountTransfer = checkAccountTransfer;
@@ -42,7 +46,7 @@ namespace DesktopBankUI
                     var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
                     if (destinationAccount != null)
                     {
-                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService);
+                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
                         formConfirmTransferencia.ShowDialog();
                     }
                 }

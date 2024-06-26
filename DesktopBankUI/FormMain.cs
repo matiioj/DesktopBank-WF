@@ -32,6 +32,9 @@ namespace DesktopBankUI
         private readonly ManageOperationsService _manageOperationsService;
         private readonly CheckAccountTransfer _checkAccountTransfer;
         private readonly CreateTransferService _createTransferService;
+        private readonly CreateReceiptService _createReceiptService;
+        private readonly FormatToReceiptService _formatToReceiptService;
+
         private readonly OperationRepository _operationRepository;
         private readonly IOperationCodeRepository _operationCodeRepository;
 
@@ -48,7 +51,8 @@ namespace DesktopBankUI
             _accountRepository = new AccountRepository(_context);
             _operationRepository = new OperationRepository(_context);
             _operationCodeRepository = new OperationCodeRepository(_context);
-
+            _formatToReceiptService = new(_operationRepository);
+            _createReceiptService = new(_formatToReceiptService);
             _generateNumbersService = new();
             _manageOperationsService = new ManageOperationsService(_operationRepository, _unitOfWork);
             _createOperationService = new CreateOperationService(_operationRepository, _unitOfWork, _generateNumbersService);
@@ -138,7 +142,7 @@ namespace DesktopBankUI
 
         private void transferButton_Click(object sender, EventArgs e)
         {
-            FormTransferencia transferForm = new(_currentAccount, _checkAccountTransfer, _createTransferService);
+            FormTransferencia transferForm = new(_currentAccount, _checkAccountTransfer, _createTransferService, _operationRepository);
             openFormInsidePanel(transferForm);
         }
 
