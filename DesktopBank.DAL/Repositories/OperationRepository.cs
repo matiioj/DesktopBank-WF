@@ -44,6 +44,36 @@ namespace DesktopBank.DAL.Repositories
                 .FirstOrDefault(a => a.OperationId == id);
         }
 
+        public Operation GetLastOperationBySenderCBU(long cbu)
+        {
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client)
+                .Where(a => a.SourceAccount.AccountCbu == cbu)
+                .OrderByDescending(a => a.OperationDate) // Replace 'Date' with your actual timestamp field
+                .FirstOrDefault();
+        }
+
+        public Operation GetLastOperationByReceiverCBU(long cbu)
+        {
+            return _context.Operations
+                .Include(a => a.OperationCode)
+                .Include(a => a.SourceAccount)
+                .Include(a => a.SourceAccount.User)
+                .Include(a => a.SourceAccount.User.Client)
+                .Include(a => a.DestinationAccount)
+                .Include(a => a.DestinationAccount.User)
+                .Include(a => a.DestinationAccount.User.Client)
+                .Where(a => a.DestinationAccount.AccountCbu == cbu)
+                .OrderByDescending(a => a.OperationDate) 
+                .FirstOrDefault();
+        }
+
         public IEnumerable<Operation> GetOperations()
         {
             return _context.Operations

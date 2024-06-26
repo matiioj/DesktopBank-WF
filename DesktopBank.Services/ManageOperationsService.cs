@@ -25,7 +25,7 @@ namespace DesktopBank.Services
         {
             if (t.OperationCode.OperationCodeNumber == 3)
             {
-                return t.SourceAccount.AccountCbu == cbu ? -t.OperationAmount : t.OperationAmount;
+                return t.SourceAccount.AccountCbu == cbu ? -t.OperationAmount : +t.OperationAmount;
             }
             else if (t.OperationCode.OperationCodeNumber == 2)
             {
@@ -33,7 +33,7 @@ namespace DesktopBank.Services
             }
             else if (t.OperationCode.OperationCodeNumber == 1)
             {
-                return t.OperationAmount; 
+                return +t.OperationAmount; 
             }
             else if (t.OperationCode.OperationCodeNumber == 4) { 
                 return -t.OperationAmount;

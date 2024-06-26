@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DesktopBank.BusinessObjects.Generated.Models;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -11,8 +12,14 @@ namespace DesktopBank.Services
 {
     public class CreateReceiptService
     {
-        public CreateReceiptService()
+        private readonly FormatToReceiptService _formatToReceiptService;
+        private readonly Account _sourceAccount;
+        private readonly Account _destinationAccount;
+        public CreateReceiptService(FormatToReceiptService formatToReceiptService, Account sourceAccount, Account destinationAccount)
         {
+            _formatToReceiptService = formatToReceiptService;
+            _sourceAccount = sourceAccount;
+            _destinationAccount = destinationAccount;
         }
 
 
@@ -21,13 +28,11 @@ namespace DesktopBank.Services
         {
             // Define the relative path to the image
             string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..", "..", "..", "DesktopBankUI", "Resources", "istic_logo.png");
-
-            // Normalize the path to make it absolute
             string absoluteImagePath = Path.GetFullPath(imagePath);
-
-            
-            // Load the image from the relative directory
             byte[] imageBytes = File.ReadAllBytes(absoluteImagePath);
+
+            var transferData = _formatToReceiptService.GenerateTransferReceiptData(_sourceAccount, _destinationAccount);
+
 
             Document.Create(container =>
             {
@@ -54,8 +59,8 @@ namespace DesktopBank.Services
                             // Amount and Date Section
                             column.Item().Border(1).BorderColor(Colors.Grey.Lighten1).Padding(10).Row(row =>
                             {
-                                row.RelativeItem().Text("$2.394,71").SemiBold().FontSize(32).FontColor(Colors.Black);
-                                row.ConstantItem(200).AlignRight().Text("06/05/2024 · 09:49 h");
+                                row.RelativeItem().Text(transferData["OperationAmount"]).SemiBold().FontSize(32).FontColor(Colors.Black);
+                                row.ConstantItem(200).AlignRight().Text(transferData["OperationDate"]);
                             });
 
                             column.Spacing(20);
@@ -66,9 +71,9 @@ namespace DesktopBank.Services
                                 info.Item().Text(text =>
                                 {
                                     text.Span("De: ").SemiBold();
-                                    text.Line("MATIAS OJEDA").Bold();
-                                    text.Line("CUIT xx-xxxxxxxx-x");
-                                    text.Line("CBU 0140043211532952033258");
+                                    text.Line(transferData["SenderName"]).Bold();
+                                    text.Line(transferData["SenderCUIL"]);
+                                    text.Line(transferData["SenderCBU"]);
                                     text.Line("Cuenta en DesktopBank");
                                 });
 
@@ -77,9 +82,9 @@ namespace DesktopBank.Services
                                 info.Item().Text(text =>
                                 {
                                     text.Span("Para: ").SemiBold();
-                                    text.Line("MATIAS OJEDA").Bold();
-                                    text.Line("CUIT xx-xxxxxxxx-x");
-                                    text.Line("CBU 0140043211532952033258");
+                                    text.Line(transferData["ReceiverName"]).Bold();
+                                    text.Line(transferData["ReceiverCUIL"]);
+                                    text.Line(transferData["ReceiverCBU"]);
                                     text.Line("Cuenta en DesktopBank");
                                 });
                             });
@@ -93,7 +98,7 @@ namespace DesktopBank.Services
                                 {
                                     text.Span("Nota").Bold();
                                     text.Line("");
-                                    text.Line("Sin nota");
+                                    text.Line(transferData["OperationNote"]);
                                 });
 
                                 concept.Spacing(10);
@@ -102,14 +107,14 @@ namespace DesktopBank.Services
                                 {
                                     text.Span("N° de operación").Bold();
                                     text.Line("");
-                                    text.Line("33577093552");
+                                    text.Line(transferData["OperationNumber"]);
                                 });
                             });
                         });
 
                 });
             })
-        .GeneratePdf("D:\\Relocate\\Desktop\\prueba.pdf");
+        .GeneratePdf("C:\\Users\\Franco Sistemas\\Desktop\\prueba.pdf");
 
         }
 
