@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            helpButtonPanel = new FontAwesome.Sharp.IconButton();
             LabelBienvenido = new Label();
             LabelNombreDeUsuario = new Label();
             labelBalance = new Label();
@@ -39,33 +38,14 @@
             ChangeCurrencyButton = new Button();
             SuspendLayout();
             // 
-            // helpButtonPanel
-            // 
-            helpButtonPanel.BackColor = Color.Gainsboro;
-            helpButtonPanel.FlatAppearance.BorderColor = Color.Black;
-            helpButtonPanel.FlatStyle = FlatStyle.Flat;
-            helpButtonPanel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            helpButtonPanel.ForeColor = Color.Black;
-            helpButtonPanel.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
-            helpButtonPanel.IconColor = Color.Black;
-            helpButtonPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            helpButtonPanel.IconSize = 30;
-            helpButtonPanel.Location = new Point(99, 337);
-            helpButtonPanel.Name = "helpButtonPanel";
-            helpButtonPanel.Size = new Size(360, 38);
-            helpButtonPanel.TabIndex = 10;
-            helpButtonPanel.Text = "  Help";
-            helpButtonPanel.TextAlign = ContentAlignment.MiddleRight;
-            helpButtonPanel.TextImageRelation = TextImageRelation.ImageBeforeText;
-            helpButtonPanel.UseVisualStyleBackColor = false;
-            // 
             // LabelBienvenido
             // 
             LabelBienvenido.AutoSize = true;
             LabelBienvenido.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelBienvenido.Location = new Point(25, 36);
+            LabelBienvenido.Location = new Point(36, 60);
+            LabelBienvenido.Margin = new Padding(4, 0, 4, 0);
             LabelBienvenido.Name = "LabelBienvenido";
-            LabelBienvenido.Size = new Size(134, 32);
+            LabelBienvenido.Size = new Size(196, 48);
             LabelBienvenido.TabIndex = 13;
             LabelBienvenido.Text = "Bienvenido";
             // 
@@ -73,17 +53,19 @@
             // 
             LabelNombreDeUsuario.AutoSize = true;
             LabelNombreDeUsuario.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelNombreDeUsuario.Location = new Point(139, 9);
+            LabelNombreDeUsuario.Location = new Point(199, 15);
+            LabelNombreDeUsuario.Margin = new Padding(4, 0, 4, 0);
             LabelNombreDeUsuario.Name = "LabelNombreDeUsuario";
-            LabelNombreDeUsuario.Size = new Size(0, 30);
+            LabelNombreDeUsuario.Size = new Size(0, 45);
             LabelNombreDeUsuario.TabIndex = 14;
             // 
             // labelBalance
             // 
             labelBalance.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBalance.Location = new Point(264, 104);
+            labelBalance.Location = new Point(377, 173);
+            labelBalance.Margin = new Padding(4, 0, 4, 0);
             labelBalance.Name = "labelBalance";
-            labelBalance.Size = new Size(240, 45);
+            labelBalance.Size = new Size(343, 75);
             labelBalance.TabIndex = 15;
             labelBalance.Text = "_";
             labelBalance.Click += labelBalance_Click;
@@ -99,9 +81,10 @@
             depositButton.IconColor = Color.Black;
             depositButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             depositButton.IconSize = 30;
-            depositButton.Location = new Point(99, 230);
+            depositButton.Location = new Point(45, 383);
+            depositButton.Margin = new Padding(4, 5, 4, 5);
             depositButton.Name = "depositButton";
-            depositButton.Size = new Size(360, 38);
+            depositButton.Size = new Size(402, 63);
             depositButton.TabIndex = 16;
             depositButton.Text = "  Deposit";
             depositButton.TextAlign = ContentAlignment.MiddleRight;
@@ -120,9 +103,10 @@
             extractButton.IconColor = Color.Black;
             extractButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             extractButton.IconSize = 24;
-            extractButton.Location = new Point(99, 284);
+            extractButton.Location = new Point(496, 383);
+            extractButton.Margin = new Padding(4, 5, 4, 5);
             extractButton.Name = "extractButton";
-            extractButton.Size = new Size(360, 38);
+            extractButton.Size = new Size(407, 63);
             extractButton.TabIndex = 18;
             extractButton.Text = "  Extract";
             extractButton.TextAlign = ContentAlignment.MiddleRight;
@@ -134,28 +118,25 @@
             // 
             etqSaldo.AutoSize = true;
             etqSaldo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            etqSaldo.Location = new Point(25, 104);
-            etqSaldo.Margin = new Padding(2, 0, 2, 0);
+            etqSaldo.Location = new Point(36, 173);
             etqSaldo.Name = "etqSaldo";
-            etqSaldo.Size = new Size(203, 32);
+            etqSaldo.Size = new Size(301, 48);
             etqSaldo.TabIndex = 19;
             etqSaldo.Text = "Saldo disponible: ";
             // 
             // comboBoxAccounts
             // 
             comboBoxAccounts.FormattingEnabled = true;
-            comboBoxAccounts.Location = new Point(545, 98);
-            comboBoxAccounts.Margin = new Padding(2);
+            comboBoxAccounts.Location = new Point(1067, 143);
             comboBoxAccounts.Name = "comboBoxAccounts";
-            comboBoxAccounts.Size = new Size(106, 23);
+            comboBoxAccounts.Size = new Size(150, 33);
             comboBoxAccounts.TabIndex = 20;
             // 
             // ChangeCurrencyButton
             // 
-            ChangeCurrencyButton.Location = new Point(545, 51);
-            ChangeCurrencyButton.Margin = new Padding(2);
+            ChangeCurrencyButton.Location = new Point(1067, 65);
             ChangeCurrencyButton.Name = "ChangeCurrencyButton";
-            ChangeCurrencyButton.Size = new Size(106, 32);
+            ChangeCurrencyButton.Size = new Size(151, 53);
             ChangeCurrencyButton.TabIndex = 21;
             ChangeCurrencyButton.Text = "Change currency";
             ChangeCurrencyButton.UseVisualStyleBackColor = true;
@@ -163,10 +144,10 @@
             // 
             // FormHome
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 239, 243);
-            ClientSize = new Size(800, 432);
+            ClientSize = new Size(1329, 720);
             Controls.Add(ChangeCurrencyButton);
             Controls.Add(comboBoxAccounts);
             Controls.Add(etqSaldo);
@@ -175,8 +156,8 @@
             Controls.Add(labelBalance);
             Controls.Add(LabelNombreDeUsuario);
             Controls.Add(LabelBienvenido);
-            Controls.Add(helpButtonPanel);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormHome";
             Text = "FormHome";
             ResumeLayout(false);
@@ -184,7 +165,6 @@
         }
 
         #endregion
-        private FontAwesome.Sharp.IconButton helpButtonPanel;
         private Label LabelBienvenido;
         private Label LabelNombreDeUsuario;
         private Label labelBalance;

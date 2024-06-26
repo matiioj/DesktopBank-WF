@@ -84,7 +84,7 @@
             gboxPay.Controls.Add(btnEdesur);
             gboxPay.Controls.Add(btnAysa);
             gboxPay.Font = new Font("Cascadia Code Light", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            gboxPay.Location = new Point(77, 170);
+            gboxPay.Location = new Point(146, 101);
             gboxPay.Name = "gboxPay";
             gboxPay.Size = new Size(920, 596);
             gboxPay.TabIndex = 1;

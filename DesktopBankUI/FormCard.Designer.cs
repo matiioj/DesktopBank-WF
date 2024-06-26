@@ -68,9 +68,9 @@
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Font = new Font("Segoe Script", 16F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = SystemColors.ButtonHighlight;
-            groupBox1.Location = new Point(56, 50);
+            groupBox1.Location = new Point(93, 85);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(926, 569);
+            groupBox1.Size = new Size(957, 571);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             groupBox1.Text = "Tú tarjeta";

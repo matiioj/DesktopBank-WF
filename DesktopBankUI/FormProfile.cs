@@ -163,7 +163,7 @@ namespace DesktopBankUI
 
         private void btnCancelarMail_Click(object sender, EventArgs e)
         {
-            panelAceptarMail.Visible=false;
+            panelAceptarMail.Visible = false;
         }
 
         private void btnAceptarContra_Click(object sender, EventArgs e)
@@ -215,6 +215,11 @@ namespace DesktopBankUI
         private void btnChangePassFormPerfil_Click(object sender, EventArgs e)
         {
             panelCambiarContra.Visible = true;
+        }
+
+        private void gbPersonalData_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
