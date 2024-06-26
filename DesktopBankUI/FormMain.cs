@@ -23,7 +23,7 @@ namespace DesktopBankUI
         private readonly AccountInfoService _accountInfoService;
         private readonly AccountRepository _accountRepository;
         private readonly NojedaisticDesktopBankContext _context;
-        private readonly Account _currentAccount;
+        private /*readonly*/ Account _currentAccount;
         private readonly DepositBalanceService _depositBalanceService;
         private readonly ExtractBalanceService _extractBalanceService;
         private readonly CreateOperationService _createOperationService;
@@ -55,7 +55,11 @@ namespace DesktopBankUI
             _accountStateService.SetCurrentAccount(_currentAccount); //*
 
             InitializeComponent();
+<<<<<<< HEAD
             FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository, _accountStateService); //*(_accountStateService)
+=======
+            FormHome formHome = new(_currentAccount, this, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
+>>>>>>> d775a51a11ed76ccb6f4e3345dc54731928bca5d
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
@@ -114,7 +118,11 @@ namespace DesktopBankUI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             FormHome formHome = new(_currentAccount, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository, _accountStateService);//*(_accountStateService)
+=======
+            FormHome formHome = new(_currentAccount, this, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
+>>>>>>> d775a51a11ed76ccb6f4e3345dc54731928bca5d
             openFormInsidePanel(formHome); //abrir en misma ventana
         }
 
@@ -140,6 +148,32 @@ namespace DesktopBankUI
         {
             FormTransactions transactionsForm = new(_currentAccount, _context, _operationRepository, _accountInfoService, _accountStateService);//*(_accountStateService)
             openFormInsidePanel(transactionsForm);
+        }
+
+        public void UpdateCurrentAccount(Account newAccount)//
+        {
+            _currentAccount = newAccount;
+            // Actualizar todas las ventanas abiertas
+            UpdateAllForms();
+        }
+
+        private void UpdateAllForms()//
+        {
+            // Actualizar FormHome si está abierto
+            var formHome = panelScreen.Controls.OfType<FormHome>().FirstOrDefault();
+            if (formHome != null)
+            {
+                formHome.UpdateAccount(_currentAccount);
+            }
+
+            // Actualizar FormCard si está abierto
+            var formCard = panelScreen.Controls.OfType<FormCard>().FirstOrDefault();
+            if (formCard != null)
+            {
+                formCard.UpdateAccount(_currentAccount);
+            }
+
+            // Actualizar otros formularios de manera similar...
         }
 
     }

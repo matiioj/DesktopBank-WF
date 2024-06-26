@@ -23,6 +23,7 @@ namespace DesktopBankUI
         string balance;
         string nombre;
         Account _currentAccount;
+        private FormMain _parentForm;//
 
         private readonly NojedaisticDesktopBankContext _context;
         private readonly AccountInfoService _accountInfoService;
@@ -31,8 +32,13 @@ namespace DesktopBankUI
         private readonly IOperationRepository _operationRepository;
         private readonly AccountStateService _accountStateService; //*
 
+<<<<<<< HEAD
         public FormHome(Account currentAccount, NojedaisticDesktopBankContext context, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService, IOperationRepository operationRepository, AccountStateService accountStateService) //* (AccountStateService accountStateService)
+=======
+        public FormHome(Account currentAccount, FormMain parentForm, NojedaisticDesktopBankContext context, DepositBalanceService depositBalanceService, AccountInfoService accountInfoService, ExtractBalanceService extractBalanceService, IOperationRepository operationRepository) //FormMain parentForm
+>>>>>>> d775a51a11ed76ccb6f4e3345dc54731928bca5d
         {
+            _parentForm = parentForm;//
             _context = context;
             _currentAccount = currentAccount;
             id = currentAccount.AccountId;
@@ -55,8 +61,8 @@ namespace DesktopBankUI
                 return;
             }
 
-            currencySign = _currentAccount.AccountCurrencyNavigation?.CurrencySign ?? "N/D";
-            nombre = _currentAccount.User?.Client?.ClientName ?? "N/D";
+            currencySign = _currentAccount.AccountCurrencyNavigation.CurrencySign;
+            nombre = _currentAccount.User.Client.ClientName;
             balance = Convert.ToString(_currentAccount.AccountBalance);
             labelBalance.Text = currencySign + balance;
             LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
@@ -134,6 +140,16 @@ namespace DesktopBankUI
             var selectedAccountId = (int)comboBoxAccounts.SelectedValue;
             _currentAccount = _accountInfoService.GetAccountById(selectedAccountId);
             Load_Labels();
+
+            _parentForm.UpdateCurrentAccount(_currentAccount);//
+
+        }
+
+        public void UpdateAccount(Account newAccount)//
+        {
+            _currentAccount = newAccount;
+            Load_Labels();
+            Load_UserAccounts();
         }
 
         private void labelBalance_Click(object sender, EventArgs e)

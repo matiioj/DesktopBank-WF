@@ -58,7 +58,10 @@ namespace DesktopBank.DAL.Repositories
 
         public IEnumerable<Account> GetAccountsByUserId(int userId)
         {
+<<<<<<< HEAD
             //return _context.Accounts.Where(a => a.UserId == userId).ToList();
+=======
+>>>>>>> d775a51a11ed76ccb6f4e3345dc54731928bca5d
             return _context.Accounts
                 .Include(a => a.User)
                 .Include(a => a.User.Client)

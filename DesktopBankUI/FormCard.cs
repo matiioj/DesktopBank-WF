@@ -27,16 +27,24 @@ namespace DesktopBankUI
         string anio;
         string fechaConFormato;
         string numeroConFormato;
+<<<<<<< HEAD
         private readonly AccountStateService _accountStateService;//*
         private Account _currentAccount;//*
+=======
+        private Account _currentAccount;//
+>>>>>>> d775a51a11ed76ccb6f4e3345dc54731928bca5d
 
         // Combina el mes y el año en el formato deseado
 
 
         public FormCard(Account currentAccount, AccountStateService accountStateService)
         {
+<<<<<<< HEAD
             _accountStateService = accountStateService;//*
             _currentAccount = _accountStateService.GetCurrentAccount(); //*
+=======
+            _currentAccount = currentAccount;//
+>>>>>>> d775a51a11ed76ccb6f4e3345dc54731928bca5d
             numtc = string.Empty;
             mes = string.Empty;
             anio = string.Empty;
@@ -94,6 +102,7 @@ namespace DesktopBankUI
 
         }
 
+<<<<<<< HEAD
         private void gBoxTarjetaDeCredito_Enter(object sender, EventArgs e)
         {
 
@@ -102,6 +111,12 @@ namespace DesktopBankUI
         private void FormCard_Load(object sender, EventArgs e)
         {
 
+=======
+        public void UpdateAccount(Account newAccount)//
+        {
+            _currentAccount = newAccount;
+            CargarDatos_Tarjeta();
+>>>>>>> d775a51a11ed76ccb6f4e3345dc54731928bca5d
         }
     }
 }
