@@ -1,6 +1,5 @@
 ﻿using DesktopBank.Services;
 using DesktopBank.BusinessObjects.Generated.Models;
-using DesktopBank.Services;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;

@@ -23,7 +23,7 @@ namespace DesktopBankUI
         string balance;
         string nombre;
         Account _currentAccount;
-        private FormMain _parentForm;//
+        private FormMain _parentForm;
 
         private readonly NojedaisticDesktopBankContext _context;
         private readonly AccountInfoService _accountInfoService;
@@ -45,6 +45,7 @@ namespace DesktopBankUI
             InitializeComponent();
             Load_Labels();
             Load_UserAccounts();
+            comboBoxAccounts.SelectedIndex = _currentAccount.AccountCurrency - 1;
         }
 
         public void Load_Labels()
@@ -56,6 +57,7 @@ namespace DesktopBankUI
                 return;
             }
 
+
             currencySign = _currentAccount.AccountCurrencyNavigation.CurrencySign;
             nombre = _currentAccount.User.Client.ClientName;
             balance = Convert.ToString(_currentAccount.AccountBalance);
@@ -65,6 +67,7 @@ namespace DesktopBankUI
 
         private void Load_UserAccounts()
         {
+            int currentCurrency = _currentAccount.AccountCurrency;
             var accounts = _accountInfoService.GetAllAccountsByUserId(_currentAccount.UserId);
 
             if (accounts == null || !accounts.Any())
@@ -78,12 +81,16 @@ namespace DesktopBankUI
             var accountList = accounts.Select(account => new
             {
                 AccountId = account.AccountId,
+                AccountCurrency = $"{account.AccountCurrency}",
                 AccountDescription = $"{GetCurrencyName(account.AccountCurrency)} ({account.AccountCurrency})"
             }).ToList();
 
             comboBoxAccounts.DataSource = accountList;
+            comboBoxAccounts.SelectedIndex = currentCurrency - 1;
             comboBoxAccounts.DisplayMember = "AccountDescription";
             comboBoxAccounts.ValueMember = "AccountId";
+
+
         }
 
         private string GetCurrencyName(int accountCurrency)
@@ -136,7 +143,7 @@ namespace DesktopBankUI
 
         private void labelBalance_Click(object sender, EventArgs e)
         {
-            // Este método está vacío, pero lo puedes usar si deseas agregar alguna funcionalidad cuando se hace clic en el label del balance.
+
         }
 
         private void ChangeCurrencyButton_Click(object sender, EventArgs e)
