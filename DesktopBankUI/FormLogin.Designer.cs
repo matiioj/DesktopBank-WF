@@ -38,6 +38,8 @@ namespace DesktopBankUI
             panel3 = new Panel();
             iconoChancho = new PictureBox();
             panelCampos = new Panel();
+            pbShowHide = new PictureBox();
+            linkChangePass = new LinkLabel();
             exitButton = new Button();
             registerLabel = new Label();
             botonIniciarSesion = new Button();
@@ -45,10 +47,10 @@ namespace DesktopBankUI
             nombreIniciarSesion = new FontAwesome.Sharp.IconButton();
             panelIniciarSesion = new Panel();
             tituloIniciarSesion = new Label();
-            linkChangePass = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconoChancho).BeginInit();
             panelCampos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbShowHide).BeginInit();
             panelIniciarSesion.SuspendLayout();
             SuspendLayout();
             // 
@@ -101,6 +103,7 @@ namespace DesktopBankUI
             // panelCampos
             // 
             panelCampos.BackColor = Color.FromArgb(14, 102, 85);
+            panelCampos.Controls.Add(pbShowHide);
             panelCampos.Controls.Add(linkChangePass);
             panelCampos.Controls.Add(exitButton);
             panelCampos.Controls.Add(registerLabel);
@@ -110,10 +113,36 @@ namespace DesktopBankUI
             panelCampos.Controls.Add(nombreIniciarSesion);
             panelCampos.Controls.Add(TxtUser);
             panelCampos.Dock = DockStyle.Bottom;
-            panelCampos.Location = new Point(0, 254);
+            panelCampos.Location = new Point(0, 425);
+            panelCampos.Margin = new Padding(4, 5, 4, 5);
             panelCampos.Name = "panelCampos";
-            panelCampos.Size = new Size(382, 196);
+            panelCampos.Size = new Size(546, 325);
             panelCampos.TabIndex = 4;
+            // 
+            // pbShowHide
+            // 
+            pbShowHide.Image = Properties.Resources.showBlue;
+            pbShowHide.Location = new Point(484, 107);
+            pbShowHide.Name = "pbShowHide";
+            pbShowHide.Size = new Size(40, 31);
+            pbShowHide.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbShowHide.TabIndex = 9;
+            pbShowHide.TabStop = false;
+            pbShowHide.Click += pbShowHide_Click;
+            // 
+            // linkChangePass
+            // 
+            linkChangePass.AutoSize = true;
+            linkChangePass.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            linkChangePass.LinkColor = Color.White;
+            linkChangePass.Location = new Point(243, 143);
+            linkChangePass.Name = "linkChangePass";
+            linkChangePass.RightToLeft = RightToLeft.No;
+            linkChangePass.Size = new Size(215, 25);
+            linkChangePass.TabIndex = 8;
+            linkChangePass.TabStop = true;
+            linkChangePass.Text = "¿Olvidó su contraseña?";
+            linkChangePass.LinkClicked += linkChangePass_LinkClicked;
             // 
             // exitButton
             // 
@@ -200,7 +229,7 @@ namespace DesktopBankUI
             panelIniciarSesion.Dock = DockStyle.Fill;
             panelIniciarSesion.Location = new Point(0, 194);
             panelIniciarSesion.Name = "panelIniciarSesion";
-            panelIniciarSesion.Size = new Size(382, 60);
+            panelIniciarSesion.Size = new Size(546, 102);
             panelIniciarSesion.TabIndex = 6;
             // 
             // tituloIniciarSesion
@@ -217,29 +246,17 @@ namespace DesktopBankUI
             tituloIniciarSesion.TextAlign = ContentAlignment.MiddleCenter;
             tituloIniciarSesion.Click += tituloIniciarSesion_Click;
             // 
-            // linkChangePass
-            // 
-            linkChangePass.AutoSize = true;
-            linkChangePass.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            linkChangePass.LinkColor = Color.White;
-            linkChangePass.Location = new Point(243, 143);
-            linkChangePass.Name = "linkChangePass";
-            linkChangePass.RightToLeft = RightToLeft.No;
-            linkChangePass.Size = new Size(215, 25);
-            linkChangePass.TabIndex = 8;
-            linkChangePass.TabStop = true;
-            linkChangePass.Text = "¿Olvidó su contraseña?";
-            linkChangePass.LinkClicked += linkChangePass_LinkClicked;
-            // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(382, 450);
+            BackgroundImageLayout = ImageLayout.None;
+            ClientSize = new Size(546, 750);
             Controls.Add(panelIniciarSesion);
             Controls.Add(panelCampos);
             Controls.Add(panel1);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormLogin";
             StartPosition = FormStartPosition.CenterScreen;
@@ -248,6 +265,7 @@ namespace DesktopBankUI
             ((System.ComponentModel.ISupportInitialize)iconoChancho).EndInit();
             panelCampos.ResumeLayout(false);
             panelCampos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbShowHide).EndInit();
             panelIniciarSesion.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -267,5 +285,6 @@ namespace DesktopBankUI
         private Label registerLabel;
         private Button exitButton;
         private LinkLabel linkChangePass;
+        private PictureBox pbShowHide;
     }
 }

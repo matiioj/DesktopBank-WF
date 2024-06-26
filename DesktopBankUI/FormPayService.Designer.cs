@@ -100,6 +100,7 @@
             btnAgip.Size = new Size(269, 136);
             btnAgip.TabIndex = 3;
             btnAgip.UseVisualStyleBackColor = true;
+            btnAgip.Click += btnAgip_Click;
             // 
             // btnMetrogas
             // 
@@ -110,6 +111,7 @@
             btnMetrogas.Size = new Size(269, 136);
             btnMetrogas.TabIndex = 2;
             btnMetrogas.UseVisualStyleBackColor = true;
+            btnMetrogas.Click += btnMetrogas_Click;
             // 
             // btnEdesur
             // 
@@ -120,6 +122,7 @@
             btnEdesur.Size = new Size(269, 136);
             btnEdesur.TabIndex = 1;
             btnEdesur.UseVisualStyleBackColor = true;
+            btnEdesur.Click += btnEdesur_Click;
             // 
             // btnAysa
             // 
@@ -130,6 +133,7 @@
             btnAysa.Size = new Size(269, 136);
             btnAysa.TabIndex = 0;
             btnAysa.UseVisualStyleBackColor = true;
+            btnAysa.Click += btnAysa_Click;
             // 
             // FormPayService
             // 

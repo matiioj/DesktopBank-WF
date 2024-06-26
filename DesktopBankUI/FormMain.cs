@@ -176,7 +176,7 @@ namespace DesktopBankUI
 
         private void btnPayService_Click(object sender, EventArgs e)
         {
-            FormPayService payService = new();
+            FormPayService payService = new(_currentAccount, _checkAccountTransfer, _createTransferService);
             openFormInsidePanel(payService);
         }
 

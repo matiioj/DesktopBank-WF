@@ -105,6 +105,39 @@ namespace DesktopBankUI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        internal static System.Drawing.Bitmap showBlue
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("showBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
 
+        internal static System.Drawing.Bitmap hideBlue
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("hideBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap show
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap hide
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("hide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
