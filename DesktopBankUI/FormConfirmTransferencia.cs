@@ -23,7 +23,7 @@ namespace DesktopBankUI
             _operationRepository = operationRepository;
             _formatToReceiptService = new(operationRepository);
             _createReceiptService = new(_formatToReceiptService);
-            
+
             _createTransferService = createTransferService;
             _currentAccount = currentAccount;
             _destinationAccount = destinationAccount;
@@ -45,9 +45,9 @@ namespace DesktopBankUI
                 if (amount > 0)
                 {
                     try
-                    { 
+                    {
                         await _createTransferService.ExecuteTransfer(_currentAccount, amount, _destinationAccount);
-                        _createReceiptService.CreateReceipt(_currentAccount, _destinationAccount);
+                        //_createReceiptService.CreateReceipt(_currentAccount, _destinationAccount);
                         var currentAccountMail = _currentAccount.User.Client.ClientEmail;
                         var destinationAccountMail = _destinationAccount.User.Client.ClientEmail;
                         MailData mailData = new MailData();
@@ -60,7 +60,7 @@ namespace DesktopBankUI
                         mailData.Body = $"Ha recibido $ {amount} de {_currentAccount.User.Client.ClientName}";
                         mailService.SendMail(mailData);
                         MessageBox.Show("Transferencia realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        //this.Close();
 
                     }
                     catch (Exception ex)
@@ -82,6 +82,18 @@ namespace DesktopBankUI
             {
                 MessageBox.Show("Introduzca un valor válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnGuardarComprobante_Click(object sender, EventArgs e)
+        {
+            
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string route = saveFileDialog1.FileName;
+                _createReceiptService.CreateReceipt(_currentAccount, _destinationAccount, route);
+                this.Close();
+            }
+            
         }
     }
 }
