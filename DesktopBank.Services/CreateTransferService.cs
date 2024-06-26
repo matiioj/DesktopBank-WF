@@ -26,14 +26,17 @@ namespace DesktopBank.Services
 
         public async Task ExecuteTransfer(Account sourceAccount, decimal amount, Account destinationAccount)
         {
-            if (sourceAccount == null ||  destinationAccount == null) 
+            if (sourceAccount == null || destinationAccount == null)
             {
-                throw new InvalidOperationException("Ocurrio un error buscando las cuentas");
+                throw new InvalidOperationException("Ocurrió un error buscando las cuentas");
             }
-
+            if (sourceAccount.AccountCurrency != destinationAccount.AccountCurrency)
+            {
+                throw new InvalidOperationException("No se permite transferir entre cuentas con distintas monedas.");
+            }
             if (sourceAccount.AccountBalance < amount)
             {
-                throw new InvalidOperationException("No posees suficiente dinero para realizar esta accion");
+                throw new InvalidOperationException("No posees suficiente dinero para realizar esta acción");
             }
 
             sourceAccount.AccountBalance -= amount;

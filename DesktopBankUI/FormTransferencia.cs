@@ -32,7 +32,7 @@ namespace DesktopBankUI
             InitializeComponent();
         }
 
-        private void BtnTransfer_Click(object sender, EventArgs e)
+        private async void BtnTransfer_Click(object sender, EventArgs e)
         {
             var datoDeCuenta = TxtBoxDatosCuenta.Text;
             if (datoDeCuenta.IsNullOrEmpty())
@@ -46,6 +46,12 @@ namespace DesktopBankUI
                     var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
                     if (destinationAccount != null)
                     {
+                        if (_currentAccount.AccountCurrency != destinationAccount.AccountCurrency)
+                        {
+                            MessageBox.Show("No se permite transferir entre cuentas con distintas monedas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
                         formConfirmTransferencia.ShowDialog();
                     }
