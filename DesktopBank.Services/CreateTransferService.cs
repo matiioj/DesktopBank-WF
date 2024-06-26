@@ -30,6 +30,10 @@ namespace DesktopBank.Services
             {
                 throw new InvalidOperationException("Ocurrió un error buscando las cuentas");
             }
+            //asegura que no se puedan realizar transferencias 
+            //entre cuentas con diferentes monedas a nivel de logica de negocio, 
+            //asegurando que la restricción se aplique incluso si se omite la verificación 
+            //en la interfaz de usuario.
             if (sourceAccount.AccountCurrency != destinationAccount.AccountCurrency)
             {
                 throw new InvalidOperationException("No se permite transferir entre cuentas con distintas monedas.");

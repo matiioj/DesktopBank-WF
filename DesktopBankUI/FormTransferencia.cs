@@ -46,6 +46,8 @@ namespace DesktopBankUI
                     var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
                     if (destinationAccount != null)
                     {
+                        //compara el AccountCurrency de la cuenta actual (_currentAccount) 
+                        //con el de la cuenta de destino (destinationAccount) 
                         if (_currentAccount.AccountCurrency != destinationAccount.AccountCurrency)
                         {
                             MessageBox.Show("No se permite transferir entre cuentas con distintas monedas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

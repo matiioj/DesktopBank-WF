@@ -48,6 +48,7 @@ namespace DesktopBankUI
             comboBoxAccounts.SelectedIndex = _currentAccount.AccountCurrency - 1;
         }
 
+        //carga y muestra la info de la cuenta actual 
         public void Load_Labels()
         {
             if (_currentAccount == null)
@@ -65,6 +66,8 @@ namespace DesktopBankUI
             LabelBienvenido.Text = $"Bienvenido {nombre.ToUpper()}";
         }
 
+        //carga todas las cuentas del usuario en el comboBox
+        //formatea la descripción de cada cuenta para mostrar
         private void Load_UserAccounts()
         {
             int currentCurrency = _currentAccount.AccountCurrency;
@@ -93,6 +96,7 @@ namespace DesktopBankUI
 
         }
 
+        //convierte el codigo numerico de la moneda a su nombre correspondiente
         private string GetCurrencyName(int accountCurrency)
         {
             return accountCurrency switch
@@ -104,10 +108,12 @@ namespace DesktopBankUI
             };
         }
 
+        /*
         private void comboBoxAccounts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Esto se deja vacío si el cambio se hace solo con el botón
+
         }
+        */
 
         private void depositButton_Click(object sender, EventArgs e)
         {
@@ -146,6 +152,8 @@ namespace DesktopBankUI
 
         }
 
+        //cambia la cuenta actual a la seleccionada en el comboBox
+        //actualiza las etiquetas y notifica al formulario
         private void ChangeCurrencyButton_Click(object sender, EventArgs e)
         {
             var selectedAccountId = (int)comboBoxAccounts.SelectedValue;
@@ -156,6 +164,8 @@ namespace DesktopBankUI
 
         }
 
+        //actualiza la cuenta actual con una nueva
+        //recarga las etiquetas y la lista de cuenta
         public void UpdateAccount(Account newAccount)//
         {
             _currentAccount = newAccount;

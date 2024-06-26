@@ -24,6 +24,8 @@ namespace DesktopBankUI
         private readonly AccountRepository _accountRepository;
         private readonly NojedaisticDesktopBankContext _context;
         private /*readonly*/ Account _currentAccount;
+        //no puede ser readonly porque se modifica después de su inicializacion
+        //en el metodo UpdateCurrentAccount
         private readonly DepositBalanceService _depositBalanceService;
         private readonly ExtractBalanceService _extractBalanceService;
         private readonly CreateOperationService _createOperationService;
@@ -174,8 +176,6 @@ namespace DesktopBankUI
             {
                 formCard.UpdateAccount(_currentAccount);
             }
-
-            // Actualizar otros formularios de manera similar...
         }
 
         private void btnPayService_Click(object sender, EventArgs e)
