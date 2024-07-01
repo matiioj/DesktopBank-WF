@@ -120,5 +120,22 @@ namespace DesktopBank.Services
 
         }
 
+        public string ExtractDuplicateField(string innerMessage)
+        {
+            if (innerMessage.Contains("UQ__Users")) 
+            {
+                return "nombre de usuario"; 
+            }
+            else if (innerMessage.Contains("UQ__Client__AD48A6FFD7AEDBB2"))
+            {
+                return "correo"; 
+            }
+            else if (innerMessage.Contains("UQ__Client__BFF6AAB7D53D2FB2"))
+            {
+                return "CUIL"; 
+            }
+            return "campo";
+        }
+
     }
 }

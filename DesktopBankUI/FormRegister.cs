@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopBank.BusinessObjects.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudentSystem.WindowsFormsCliente
 {
@@ -120,6 +121,30 @@ namespace StudentSystem.WindowsFormsCliente
                     formLogin.Show();
                     this.Hide();
                 }
+                catch (DbUpdateException ex)
+                {
+                    if (ex.InnerException != null)
+                    {
+                        var innerMessage = ex.InnerException.Message;
+
+                        if (innerMessage.Contains("Violation of UNIQUE KEY constraint"))
+                        {
+                            var duplicateField = _validationService.ExtractDuplicateField(innerMessage);
+                            MessageBox.Show($"El {duplicateField} ya está registrado. Por favor, use un {duplicateField} diferente.", "Error de registro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Ocurrió un error al registrar el usuario: {innerMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Ocurrió un error al registrar el usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    FormLogin formLogin = new FormLogin();
+                    formLogin.Show();
+                    this.Close();
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Ocurrió un error al registrar el usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -127,6 +152,9 @@ namespace StudentSystem.WindowsFormsCliente
                     {
                         MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    FormLogin formLogin = new FormLogin();
+                    formLogin.Show();
+                    this.Close();
                 }
             }
         }
