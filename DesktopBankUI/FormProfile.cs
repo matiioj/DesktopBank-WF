@@ -130,7 +130,7 @@ namespace DesktopBankUI
             {
                 try
                 {
-                    _account.AccountAlias = correoNuevo;
+                    _account.User.Client.ClientEmail = correoNuevo;
                     _accountRepository.Update(_account);
                     _context.SaveChanges();
                     MessageBox.Show("Su correo se ha actualizado con éxito");
