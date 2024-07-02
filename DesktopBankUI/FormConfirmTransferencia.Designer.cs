@@ -35,15 +35,15 @@
             BtnTransferir = new Button();
             saveFileDialog1 = new SaveFileDialog();
             btnGuardarComprobante = new Button();
+            availableBalanceTxt = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // TxtAmount
             // 
-            TxtAmount.Location = new Point(145, 325);
-            TxtAmount.Margin = new Padding(4, 5, 4, 5);
+            TxtAmount.Location = new Point(102, 240);
             TxtAmount.Name = "TxtAmount";
-            TxtAmount.Size = new Size(423, 31);
+            TxtAmount.Size = new Size(297, 23);
             TxtAmount.TabIndex = 18;
             // 
             // labelIngrese
@@ -51,19 +51,19 @@
             labelIngrese.AutoSize = true;
             labelIngrese.Font = new Font("Trebuchet MS", 14F, FontStyle.Regular, GraphicsUnit.Point);
             labelIngrese.ForeColor = SystemColors.ControlLightLight;
-            labelIngrese.Location = new Point(145, 284);
-            labelIngrese.Margin = new Padding(4, 0, 4, 0);
+            labelIngrese.Location = new Point(102, 215);
             labelIngrese.Name = "labelIngrese";
-            labelIngrese.Size = new Size(371, 36);
+            labelIngrese.Size = new Size(253, 24);
             labelIngrese.TabIndex = 20;
             labelIngrese.Text = "Ingrese el monto a transferir";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.iconPig;
-            pictureBox1.Location = new Point(305, 12);
+            pictureBox1.Location = new Point(214, 7);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(94, 77);
+            pictureBox1.Size = new Size(66, 46);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 21;
             pictureBox1.TabStop = false;
@@ -73,18 +73,16 @@
             personToTransferTxt.AutoSize = true;
             personToTransferTxt.Font = new Font("Trebuchet MS", 14F, FontStyle.Regular, GraphicsUnit.Point);
             personToTransferTxt.ForeColor = SystemColors.ControlLightLight;
-            personToTransferTxt.Location = new Point(89, 143);
-            personToTransferTxt.Margin = new Padding(4, 0, 4, 0);
+            personToTransferTxt.Location = new Point(102, 140);
             personToTransferTxt.Name = "personToTransferTxt";
-            personToTransferTxt.Size = new Size(0, 36);
+            personToTransferTxt.Size = new Size(0, 24);
             personToTransferTxt.TabIndex = 22;
             // 
             // BtnTransferir
             // 
-            BtnTransferir.Location = new Point(145, 366);
-            BtnTransferir.Margin = new Padding(4, 5, 4, 5);
+            BtnTransferir.Location = new Point(102, 265);
             BtnTransferir.Name = "BtnTransferir";
-            BtnTransferir.Size = new Size(147, 66);
+            BtnTransferir.Size = new Size(103, 40);
             BtnTransferir.TabIndex = 23;
             BtnTransferir.Text = "Transferir";
             BtnTransferir.UseVisualStyleBackColor = true;
@@ -92,28 +90,37 @@
             // 
             // btnGuardarComprobante
             // 
-            btnGuardarComprobante.Location = new Point(350, 366);
-            btnGuardarComprobante.Margin = new Padding(4, 5, 4, 5);
+            btnGuardarComprobante.Location = new Point(245, 265);
             btnGuardarComprobante.Name = "btnGuardarComprobante";
-            btnGuardarComprobante.Size = new Size(218, 66);
+            btnGuardarComprobante.Size = new Size(153, 40);
             btnGuardarComprobante.TabIndex = 24;
             btnGuardarComprobante.Text = "Guardar Último Comprobante";
             btnGuardarComprobante.UseVisualStyleBackColor = true;
             btnGuardarComprobante.Click += btnGuardarComprobante_Click;
             // 
+            // availableBalanceTxt
+            // 
+            availableBalanceTxt.AutoSize = true;
+            availableBalanceTxt.Font = new Font("Trebuchet MS", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            availableBalanceTxt.ForeColor = SystemColors.ControlLightLight;
+            availableBalanceTxt.Location = new Point(102, 65);
+            availableBalanceTxt.Name = "availableBalanceTxt";
+            availableBalanceTxt.Size = new Size(0, 24);
+            availableBalanceTxt.TabIndex = 25;
+            // 
             // FormConfirmTransferencia
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
-            ClientSize = new Size(699, 518);
+            ClientSize = new Size(489, 336);
+            Controls.Add(availableBalanceTxt);
             Controls.Add(btnGuardarComprobante);
             Controls.Add(BtnTransferir);
             Controls.Add(personToTransferTxt);
             Controls.Add(pictureBox1);
             Controls.Add(labelIngrese);
             Controls.Add(TxtAmount);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "FormConfirmTransferencia";
             Text = "Transferir";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -130,5 +137,6 @@
         private Button BtnTransferir;
         private SaveFileDialog saveFileDialog1;
         private Button btnGuardarComprobante;
+        private Label availableBalanceTxt;
     }
 }

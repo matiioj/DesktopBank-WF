@@ -5,6 +5,7 @@ using DesktopBank.DAL.Repositories;
 using DesktopBank.Services;
 //using Microsoft.Identity.Client.NativeInterop;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Windows.Automation;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DesktopBankUI
@@ -28,8 +29,11 @@ namespace DesktopBankUI
             _currentAccount = currentAccount;
             _destinationAccount = destinationAccount;
             InitializeComponent();
+            decimal saldo = _currentAccount.AccountBalance;
+            string saldoDisponible = "Saldo disponible: " + _currentAccount.AccountCurrencyNavigation.CurrencySign + saldo;
             string nombre = (_destinationAccount.User.Client.ClientName + " " + _destinationAccount.User.Client.ClientSurname).ToUpper();
-            personToTransferTxt.Text = "Vas a transferirle a \n " + nombre;
+            availableBalanceTxt.Text = saldoDisponible;
+            personToTransferTxt.Text = "Vas a transferirle a\n" + nombre;
             this.StartPosition = FormStartPosition.CenterParent;
         }
 
@@ -86,14 +90,14 @@ namespace DesktopBankUI
 
         private void btnGuardarComprobante_Click(object sender, EventArgs e)
         {
-            
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string route = saveFileDialog1.FileName;
                 _createReceiptService.CreateReceipt(_currentAccount, _destinationAccount, route);
                 this.Close();
             }
-            
+
         }
     }
 }
