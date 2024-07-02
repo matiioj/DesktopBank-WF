@@ -121,9 +121,9 @@ namespace DesktopBankUI
             try
             {
                 formDeposit.ShowDialog();
-                _currentAccount = _accountInfoService.GetAccountByUserId(_currentAccount.UserId);
+                _currentAccount = _accountInfoService.GetAccountById(_currentAccount.AccountId);
                 Load_Labels();
-
+                _parentForm.UpdateCurrentAccount(_currentAccount);
             }
             catch (Exception ex)
             {
@@ -137,9 +137,10 @@ namespace DesktopBankUI
             try
             {
                 formExtract.ShowDialog();
-                _currentAccount = _accountInfoService.GetAccountByUserId(_currentAccount.UserId);
+                // Actualiza la cuenta actual usando su ID
+                _currentAccount = _accountInfoService.GetAccountById(_currentAccount.AccountId);
                 Load_Labels();
-
+                _parentForm.UpdateCurrentAccount(_currentAccount);
             }
             catch (Exception ex)
             {
