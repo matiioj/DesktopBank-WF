@@ -131,6 +131,7 @@
             comboBoxAccounts.Name = "comboBoxAccounts";
             comboBoxAccounts.Size = new Size(150, 33);
             comboBoxAccounts.TabIndex = 20;
+            comboBoxAccounts.SelectedIndexChanged += comboBoxAccounts_SelectedIndexChanged;
             // 
             // ChangeCurrencyButton
             // 

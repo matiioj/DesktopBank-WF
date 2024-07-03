@@ -40,6 +40,8 @@ namespace DesktopBankUI
         private readonly OperationRepository _operationRepository;
         private readonly IOperationCodeRepository _operationCodeRepository;
 
+        public string SelectedAccountType { get; set; }
+
         // Se utiliza una API de Windows para poder generar una ventana arrastrable 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -157,6 +159,7 @@ namespace DesktopBankUI
         public void UpdateCurrentAccount(Account newAccount)//
         {
             _currentAccount = newAccount;
+            etqTypeAccount.Text = SelectedAccountType;
             // Actualizar todas las ventanas abiertas
             UpdateAllForms();
         }
@@ -178,6 +181,8 @@ namespace DesktopBankUI
             }
         }
 
+
+
         private void btnPayService_Click(object sender, EventArgs e)
         {
             FormPayService payService = new(_currentAccount, _checkAccountTransfer, _createTransferService);
@@ -190,10 +195,20 @@ namespace DesktopBankUI
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
-        { 
+        {
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
             this.Close();
+        }
+
+        private void panelBanner_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void etqTypeAccount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

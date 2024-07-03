@@ -159,8 +159,9 @@ namespace DesktopBankUI
         {
             var selectedAccountId = (int)comboBoxAccounts.SelectedValue;
             _currentAccount = _accountInfoService.GetAccountById(selectedAccountId);
+            string _etqTypeAccount = comboBoxAccounts.SelectedValue.ToString();
             Load_Labels();
-
+            _parentForm.SelectedAccountType = _etqTypeAccount;
             _parentForm.UpdateCurrentAccount(_currentAccount);//
 
         }
@@ -172,6 +173,11 @@ namespace DesktopBankUI
             _currentAccount = newAccount;
             Load_Labels();
             Load_UserAccounts();
+        }
+
+        private void comboBoxAccounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }

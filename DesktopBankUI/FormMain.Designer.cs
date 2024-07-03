@@ -40,6 +40,8 @@
             panelTitle = new Panel();
             iconIstic = new PictureBox();
             panelBanner = new Panel();
+            etqTypeAccount = new Label();
+            etqAccountStatic = new Label();
             minimizeButton = new FontAwesome.Sharp.IconButton();
             maximizeButton = new FontAwesome.Sharp.IconButton();
             restoreButton = new FontAwesome.Sharp.IconButton();
@@ -287,6 +289,8 @@
             // 
             // panelBanner
             // 
+            panelBanner.Controls.Add(etqTypeAccount);
+            panelBanner.Controls.Add(etqAccountStatic);
             panelBanner.Controls.Add(minimizeButton);
             panelBanner.Controls.Add(maximizeButton);
             panelBanner.Controls.Add(restoreButton);
@@ -297,7 +301,28 @@
             panelBanner.Name = "panelBanner";
             panelBanner.Size = new Size(1289, 100);
             panelBanner.TabIndex = 1;
+            panelBanner.Paint += panelBanner_Paint;
             panelBanner.MouseDown += panelBanner_MouseDown;
+            // 
+            // etqTypeAccount
+            // 
+            etqTypeAccount.AutoSize = true;
+            etqTypeAccount.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            etqTypeAccount.Location = new Point(376, 20);
+            etqTypeAccount.Name = "etqTypeAccount";
+            etqTypeAccount.Size = new Size(0, 37);
+            etqTypeAccount.TabIndex = 5;
+            etqTypeAccount.Click += etqTypeAccount_Click;
+            // 
+            // etqAccountStatic
+            // 
+            etqAccountStatic.AutoSize = true;
+            etqAccountStatic.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            etqAccountStatic.Location = new Point(7, 20);
+            etqAccountStatic.Name = "etqAccountStatic";
+            etqAccountStatic.Size = new Size(257, 37);
+            etqAccountStatic.TabIndex = 4;
+            etqAccountStatic.Text = "Type Account : ";
             // 
             // minimizeButton
             // 
@@ -400,6 +425,7 @@
             panelTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)iconIstic).EndInit();
             panelBanner.ResumeLayout(false);
+            panelBanner.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -422,5 +448,7 @@
         private FontAwesome.Sharp.IconButton restoreButton;
         private FontAwesome.Sharp.IconButton btnPayService;
         private FontAwesome.Sharp.IconButton btnLogOut;
+        private Label etqAccountStatic;
+        private Label etqTypeAccount;
     }
 }
