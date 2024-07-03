@@ -3,6 +3,7 @@ using DesktopBank.BusinessObjects.Interfaces;
 using DesktopBank.DAL;
 using DesktopBank.DAL.Repositories;
 using DesktopBank.Services;
+using DesktopBank.BusinessObjects.Generated.Models;
 using Microsoft.IdentityModel.Tokens;
 using StudentSystem.WindowsFormsCliente;
 using System.Windows.Forms.Design;
@@ -16,6 +17,7 @@ namespace DesktopBankUI
         private readonly UserCheckerService _sessionService;
         private readonly UserRepository _userRepository;
         private readonly PasswordHashingService _passwordHashingService;
+
         private bool showPassword;
         
         public FormLogin()
@@ -42,6 +44,7 @@ namespace DesktopBankUI
         {
             var usuarioLogin = TxtUser.Text;
             var contraLogin = TxtPassword.Text;
+
 
 
             var message = _sessionService.CredentialsChecker(usuarioLogin, contraLogin);

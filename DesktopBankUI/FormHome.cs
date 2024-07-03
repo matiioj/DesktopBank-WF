@@ -42,6 +42,10 @@ namespace DesktopBankUI
             _extractBalanceService = extractBalanceService;
             _operationRepository = operationRepository;
 
+            string _etqTypeAccount = _currentAccount.AccountCurrencyNavigation.CurrencyName;
+            _parentForm.SelectedAccountType = _etqTypeAccount;
+            _parentForm.UpdateCurrentAccount(_currentAccount);
+
             InitializeComponent();
             Load_Labels();
             Load_UserAccounts();
@@ -159,8 +163,7 @@ namespace DesktopBankUI
         {
             var selectedAccountId = (int)comboBoxAccounts.SelectedValue;
             _currentAccount = _accountInfoService.GetAccountById(selectedAccountId);
-            string _etqTypeAccount = comboBoxAccounts.SelectedValue.ToString();
-            Load_Labels();
+            string _etqTypeAccount = _currentAccount.AccountCurrencyNavigation.CurrencyName;
             _parentForm.SelectedAccountType = _etqTypeAccount;
             _parentForm.UpdateCurrentAccount(_currentAccount);//
 

@@ -67,9 +67,9 @@ namespace DesktopBankUI
             _createTransferService = new CreateTransferService(_operationCodeRepository, _accountRepository, _createOperationService, _unitOfWork);
 
             _currentAccount = _accountInfoService.GetAccountByUserId(userId);
-
             InitializeComponent();
             FormHome formHome = new(_currentAccount, this, _context, _depositBalanceService, _accountInfoService, _extractBalanceService, _operationRepository);
+
             openFormInsidePanel(formHome);
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.Teal;
