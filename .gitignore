@@ -12,6 +12,7 @@
 # App Configuration
 *.config
 appsettings.json
+DesktopBankUI/appsettings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
