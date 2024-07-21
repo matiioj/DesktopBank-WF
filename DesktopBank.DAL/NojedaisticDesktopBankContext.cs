@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DesktopBank.BusinessObjects.Generated.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace DesktopBank.DAL;
 
@@ -32,9 +33,17 @@ public partial class NojedaisticDesktopBankContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("server=sql.bsite.net\\MSSQL2016;user=nojedaistic_DesktopBank;password=;TrustServerCertificate=True;");
-        //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["sqlBank"]?.ConnectionString); // get from App.Config
-
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            var configuration = builder.Build();
+            var connectionString = configuration.GetConnectionString("sqlBank");
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>(entity =>
