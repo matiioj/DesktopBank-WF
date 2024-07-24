@@ -19,7 +19,7 @@ namespace DesktopBankUI
         private readonly PasswordHashingService _passwordHashingService;
 
         private bool showPassword;
-        
+
         public FormLogin()
         {
             _context = new NojedaisticDesktopBankContext();
@@ -73,17 +73,21 @@ namespace DesktopBankUI
             this.Hide();
         }
 
-        private void pbShowHide_Click(object sender, EventArgs e)
+        
+        private void panelCampos_Paint(object sender, PaintEventArgs e)
         {
-            showPassword = !showPassword;
-            if (showPassword)
+
+        }
+
+        private void chBoxShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBoxShowPass.Checked)
             {
                 TxtPassword.PasswordChar = '\0';
-                pbShowHide.Image = DesktopBankUI.Properties.Resources.hideBlue;
             }
-            else {
-                TxtPassword.PasswordChar = '*';
-                pbShowHide.Image = DesktopBankUI.Properties.Resources.showBlue;
+            else
+            {
+                TxtPassword.PasswordChar = '*';               
             }
         }
     }

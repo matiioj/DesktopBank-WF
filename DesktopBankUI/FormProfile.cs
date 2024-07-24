@@ -221,5 +221,10 @@ namespace DesktopBankUI
         {
 
         }
+
+        private void txtCambiarMail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

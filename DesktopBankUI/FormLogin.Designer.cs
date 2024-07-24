@@ -38,7 +38,7 @@ namespace DesktopBankUI
             panel3 = new Panel();
             iconoChancho = new PictureBox();
             panelCampos = new Panel();
-            pbShowHide = new PictureBox();
+            chBoxShowPass = new CheckBox();
             linkChangePass = new LinkLabel();
             exitButton = new Button();
             registerLabel = new Label();
@@ -50,14 +50,13 @@ namespace DesktopBankUI
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconoChancho).BeginInit();
             panelCampos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbShowHide).BeginInit();
             panelIniciarSesion.SuspendLayout();
             SuspendLayout();
             // 
             // TxtPassword
             // 
             TxtPassword.BackColor = Color.LightCyan;
-            TxtPassword.Location = new Point(233, 107);
+            TxtPassword.Location = new Point(205, 112);
             TxtPassword.Margin = new Padding(4, 5, 4, 5);
             TxtPassword.Name = "TxtPassword";
             TxtPassword.PasswordChar = '*';
@@ -67,7 +66,7 @@ namespace DesktopBankUI
             // TxtUser
             // 
             TxtUser.BackColor = Color.LightCyan;
-            TxtUser.Location = new Point(233, 28);
+            TxtUser.Location = new Point(205, 41);
             TxtUser.Margin = new Padding(4, 5, 4, 5);
             TxtUser.Name = "TxtUser";
             TxtUser.Size = new Size(244, 31);
@@ -108,7 +107,7 @@ namespace DesktopBankUI
             // panelCampos
             // 
             panelCampos.BackColor = Color.FromArgb(14, 102, 85);
-            panelCampos.Controls.Add(pbShowHide);
+            panelCampos.Controls.Add(chBoxShowPass);
             panelCampos.Controls.Add(linkChangePass);
             panelCampos.Controls.Add(exitButton);
             panelCampos.Controls.Add(registerLabel);
@@ -123,24 +122,26 @@ namespace DesktopBankUI
             panelCampos.Name = "panelCampos";
             panelCampos.Size = new Size(546, 325);
             panelCampos.TabIndex = 4;
+            panelCampos.Paint += panelCampos_Paint;
             // 
-            // pbShowHide
+            // chBoxShowPass
             // 
-            pbShowHide.Image = Properties.Resources.showBlue;
-            pbShowHide.Location = new Point(484, 107);
-            pbShowHide.Name = "pbShowHide";
-            pbShowHide.Size = new Size(40, 31);
-            pbShowHide.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbShowHide.TabIndex = 9;
-            pbShowHide.TabStop = false;
-            pbShowHide.Click += pbShowHide_Click;
+            chBoxShowPass.AutoSize = true;
+            chBoxShowPass.ForeColor = SystemColors.ControlLightLight;
+            chBoxShowPass.Location = new Point(461, 112);
+            chBoxShowPass.Name = "chBoxShowPass";
+            chBoxShowPass.Size = new Size(82, 29);
+            chBoxShowPass.TabIndex = 10;
+            chBoxShowPass.Text = "Show";
+            chBoxShowPass.UseVisualStyleBackColor = true;
+            chBoxShowPass.CheckedChanged += chBoxShowPass_CheckedChanged;
             // 
             // linkChangePass
             // 
             linkChangePass.AutoSize = true;
             linkChangePass.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
             linkChangePass.LinkColor = Color.White;
-            linkChangePass.Location = new Point(243, 143);
+            linkChangePass.Location = new Point(247, 156);
             linkChangePass.Name = "linkChangePass";
             linkChangePass.RightToLeft = RightToLeft.No;
             linkChangePass.Size = new Size(215, 25);
@@ -152,7 +153,7 @@ namespace DesktopBankUI
             // exitButton
             // 
             exitButton.Cursor = Cursors.Hand;
-            exitButton.Location = new Point(313, 185);
+            exitButton.Location = new Point(313, 210);
             exitButton.Margin = new Padding(4, 5, 4, 5);
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(136, 53);
@@ -168,7 +169,7 @@ namespace DesktopBankUI
             registerLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             registerLabel.ForeColor = Color.Snow;
             registerLabel.ImageAlign = ContentAlignment.BottomCenter;
-            registerLabel.Location = new Point(22, 269);
+            registerLabel.Location = new Point(13, 281);
             registerLabel.Margin = new Padding(4, 0, 4, 0);
             registerLabel.Name = "registerLabel";
             registerLabel.RightToLeft = RightToLeft.No;
@@ -180,7 +181,7 @@ namespace DesktopBankUI
             // botonIniciarSesion
             // 
             botonIniciarSesion.Cursor = Cursors.Hand;
-            botonIniciarSesion.Location = new Point(89, 185);
+            botonIniciarSesion.Location = new Point(89, 210);
             botonIniciarSesion.Margin = new Padding(4, 5, 4, 5);
             botonIniciarSesion.Name = "botonIniciarSesion";
             botonIniciarSesion.Size = new Size(136, 53);
@@ -200,10 +201,10 @@ namespace DesktopBankUI
             contraseñaIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             contraseñaIniciarSesion.IconSize = 30;
             contraseñaIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            contraseñaIniciarSesion.Location = new Point(54, 88);
+            contraseñaIniciarSesion.Location = new Point(35, 102);
             contraseñaIniciarSesion.Margin = new Padding(4, 5, 4, 5);
             contraseñaIniciarSesion.Name = "contraseñaIniciarSesion";
-            contraseñaIniciarSesion.Size = new Size(170, 68);
+            contraseñaIniciarSesion.Size = new Size(162, 68);
             contraseñaIniciarSesion.TabIndex = 4;
             contraseñaIniciarSesion.Text = "Contraseña";
             contraseñaIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
@@ -221,10 +222,10 @@ namespace DesktopBankUI
             nombreIniciarSesion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             nombreIniciarSesion.IconSize = 30;
             nombreIniciarSesion.ImageAlign = ContentAlignment.MiddleLeft;
-            nombreIniciarSesion.Location = new Point(54, 10);
+            nombreIniciarSesion.Location = new Point(35, 24);
             nombreIniciarSesion.Margin = new Padding(4, 5, 4, 5);
             nombreIniciarSesion.Name = "nombreIniciarSesion";
-            nombreIniciarSesion.Size = new Size(170, 68);
+            nombreIniciarSesion.Size = new Size(122, 68);
             nombreIniciarSesion.TabIndex = 0;
             nombreIniciarSesion.Text = "Usuario";
             nombreIniciarSesion.TextAlign = ContentAlignment.MiddleLeft;
@@ -252,7 +253,7 @@ namespace DesktopBankUI
             tituloIniciarSesion.Name = "tituloIniciarSesion";
             tituloIniciarSesion.Size = new Size(546, 108);
             tituloIniciarSesion.TabIndex = 0;
-            tituloIniciarSesion.Text = "Inicie sesión";
+            tituloIniciarSesion.Text = "Iniciar sesión";
             tituloIniciarSesion.TextAlign = ContentAlignment.MiddleCenter;
             tituloIniciarSesion.Click += tituloIniciarSesion_Click;
             // 
@@ -276,7 +277,6 @@ namespace DesktopBankUI
             ((System.ComponentModel.ISupportInitialize)iconoChancho).EndInit();
             panelCampos.ResumeLayout(false);
             panelCampos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pbShowHide).EndInit();
             panelIniciarSesion.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -296,6 +296,6 @@ namespace DesktopBankUI
         private Label registerLabel;
         private Button exitButton;
         private LinkLabel linkChangePass;
-        private PictureBox pbShowHide;
+        private CheckBox chBoxShowPass;
     }
 }

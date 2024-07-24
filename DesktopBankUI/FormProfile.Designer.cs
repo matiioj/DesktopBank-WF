@@ -63,9 +63,10 @@
             // 
             LabelPerfil.AutoSize = true;
             LabelPerfil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelPerfil.Location = new Point(0, 9);
+            LabelPerfil.Location = new Point(0, 15);
+            LabelPerfil.Margin = new Padding(4, 0, 4, 0);
             LabelPerfil.Name = "LabelPerfil";
-            LabelPerfil.Size = new Size(91, 45);
+            LabelPerfil.Size = new Size(134, 65);
             LabelPerfil.TabIndex = 0;
             LabelPerfil.Text = "Perfil";
             LabelPerfil.Click += LabelPerfil_Click;
@@ -74,9 +75,10 @@
             // 
             LabelCbu.AutoSize = true;
             LabelCbu.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelCbu.Location = new Point(11, 259);
+            LabelCbu.Location = new Point(16, 432);
+            LabelCbu.Margin = new Padding(4, 0, 4, 0);
             LabelCbu.Name = "LabelCbu";
-            LabelCbu.Size = new Size(80, 45);
+            LabelCbu.Size = new Size(119, 65);
             LabelCbu.TabIndex = 1;
             LabelCbu.Text = "CBU";
             // 
@@ -84,9 +86,10 @@
             // 
             LabelCuil.AutoSize = true;
             LabelCuil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelCuil.Location = new Point(11, 346);
+            LabelCuil.Location = new Point(16, 577);
+            LabelCuil.Margin = new Padding(4, 0, 4, 0);
             LabelCuil.Name = "LabelCuil";
-            LabelCuil.Size = new Size(86, 45);
+            LabelCuil.Size = new Size(127, 65);
             LabelCuil.TabIndex = 2;
             LabelCuil.Text = "CUIL";
             // 
@@ -94,9 +97,10 @@
             // 
             LabelAlias.AutoSize = true;
             LabelAlias.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelAlias.Location = new Point(11, 301);
+            LabelAlias.Location = new Point(16, 502);
+            LabelAlias.Margin = new Padding(4, 0, 4, 0);
             LabelAlias.Name = "LabelAlias";
-            LabelAlias.Size = new Size(87, 45);
+            LabelAlias.Size = new Size(127, 65);
             LabelAlias.TabIndex = 4;
             LabelAlias.Text = "Alias";
             // 
@@ -104,9 +108,10 @@
             // 
             LabelContenidoCbu.AutoSize = true;
             LabelContenidoCbu.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoCbu.Location = new Point(146, 259);
+            LabelContenidoCbu.Location = new Point(209, 432);
+            LabelContenidoCbu.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoCbu.Name = "LabelContenidoCbu";
-            LabelContenidoCbu.Size = new Size(33, 45);
+            LabelContenidoCbu.Size = new Size(48, 65);
             LabelContenidoCbu.TabIndex = 5;
             LabelContenidoCbu.Text = "_";
             LabelContenidoCbu.Click += LabelContenidoCbu_Click;
@@ -115,9 +120,10 @@
             // 
             LabelContenidoAlias.AutoSize = true;
             LabelContenidoAlias.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoAlias.Location = new Point(146, 299);
+            LabelContenidoAlias.Location = new Point(209, 498);
+            LabelContenidoAlias.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoAlias.Name = "LabelContenidoAlias";
-            LabelContenidoAlias.Size = new Size(33, 45);
+            LabelContenidoAlias.Size = new Size(48, 65);
             LabelContenidoAlias.TabIndex = 6;
             LabelContenidoAlias.Text = "_";
             // 
@@ -125,9 +131,10 @@
             // 
             LabelContenidoCuil.AutoSize = true;
             LabelContenidoCuil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            LabelContenidoCuil.Location = new Point(146, 350);
+            LabelContenidoCuil.Location = new Point(209, 583);
+            LabelContenidoCuil.Margin = new Padding(4, 0, 4, 0);
             LabelContenidoCuil.Name = "LabelContenidoCuil";
-            LabelContenidoCuil.Size = new Size(33, 45);
+            LabelContenidoCuil.Size = new Size(48, 65);
             LabelContenidoCuil.TabIndex = 8;
             LabelContenidoCuil.Text = "_";
             // 
@@ -136,10 +143,9 @@
             btnCopy.BackColor = Color.FromArgb(255, 128, 0);
             btnCopy.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
             btnCopy.ForeColor = SystemColors.ButtonHighlight;
-            btnCopy.Location = new Point(678, 259);
-            btnCopy.Margin = new Padding(2);
+            btnCopy.Location = new Point(969, 432);
             btnCopy.Name = "btnCopy";
-            btnCopy.Size = new Size(161, 32);
+            btnCopy.Size = new Size(230, 53);
             btnCopy.TabIndex = 9;
             btnCopy.Text = "COPIAR CBU";
             btnCopy.UseVisualStyleBackColor = false;
@@ -155,11 +161,9 @@
             gbPersonalData.Controls.Add(btnChangePassFormPerfil);
             gbPersonalData.Controls.Add(btnChangeMail);
             gbPersonalData.Font = new Font("Trebuchet MS", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            gbPersonalData.Location = new Point(11, 72);
-            gbPersonalData.Margin = new Padding(2);
+            gbPersonalData.Location = new Point(16, 120);
             gbPersonalData.Name = "gbPersonalData";
-            gbPersonalData.Padding = new Padding(2);
-            gbPersonalData.Size = new Size(865, 163);
+            gbPersonalData.Size = new Size(1236, 272);
             gbPersonalData.TabIndex = 10;
             gbPersonalData.TabStop = false;
             gbPersonalData.Text = "Datos Personales";
@@ -170,19 +174,17 @@
             panelCambiarContra.Controls.Add(btnCancelarContra);
             panelCambiarContra.Controls.Add(btnAceptarContra);
             panelCambiarContra.Controls.Add(txtCambiarContra);
-            panelCambiarContra.Location = new Point(318, 77);
-            panelCambiarContra.Margin = new Padding(2);
+            panelCambiarContra.Location = new Point(454, 128);
             panelCambiarContra.Name = "panelCambiarContra";
-            panelCambiarContra.Size = new Size(239, 82);
+            panelCambiarContra.Size = new Size(341, 137);
             panelCambiarContra.TabIndex = 5;
             panelCambiarContra.Visible = false;
             // 
             // btnCancelarContra
             // 
-            btnCancelarContra.Location = new Point(144, 42);
-            btnCancelarContra.Margin = new Padding(2);
+            btnCancelarContra.Location = new Point(206, 70);
             btnCancelarContra.Name = "btnCancelarContra";
-            btnCancelarContra.Size = new Size(84, 30);
+            btnCancelarContra.Size = new Size(120, 50);
             btnCancelarContra.TabIndex = 12;
             btnCancelarContra.Text = "Cancelar";
             btnCancelarContra.UseVisualStyleBackColor = true;
@@ -190,10 +192,9 @@
             // 
             // btnAceptarContra
             // 
-            btnAceptarContra.Location = new Point(10, 42);
-            btnAceptarContra.Margin = new Padding(2);
+            btnAceptarContra.Location = new Point(14, 70);
             btnAceptarContra.Name = "btnAceptarContra";
-            btnAceptarContra.Size = new Size(83, 30);
+            btnAceptarContra.Size = new Size(119, 50);
             btnAceptarContra.TabIndex = 1;
             btnAceptarContra.Text = "Aceptar";
             btnAceptarContra.UseVisualStyleBackColor = true;
@@ -201,10 +202,9 @@
             // 
             // txtCambiarContra
             // 
-            txtCambiarContra.Location = new Point(8, 8);
-            txtCambiarContra.Margin = new Padding(2);
+            txtCambiarContra.Location = new Point(11, 13);
             txtCambiarContra.Name = "txtCambiarContra";
-            txtCambiarContra.Size = new Size(220, 26);
+            txtCambiarContra.Size = new Size(313, 35);
             txtCambiarContra.TabIndex = 0;
             txtCambiarContra.TextChanged += txtCambiarContra_TextChanged;
             // 
@@ -213,19 +213,17 @@
             panelAceptarMail.Controls.Add(btnCancelarMail);
             panelAceptarMail.Controls.Add(btnAceptarMail);
             panelAceptarMail.Controls.Add(txtCambiarMail);
-            panelAceptarMail.Location = new Point(12, 77);
-            panelAceptarMail.Margin = new Padding(2);
+            panelAceptarMail.Location = new Point(17, 128);
             panelAceptarMail.Name = "panelAceptarMail";
-            panelAceptarMail.Size = new Size(281, 82);
+            panelAceptarMail.Size = new Size(401, 137);
             panelAceptarMail.TabIndex = 4;
             panelAceptarMail.Visible = false;
             // 
             // btnCancelarMail
             // 
-            btnCancelarMail.Location = new Point(148, 42);
-            btnCancelarMail.Margin = new Padding(2);
+            btnCancelarMail.Location = new Point(211, 70);
             btnCancelarMail.Name = "btnCancelarMail";
-            btnCancelarMail.Size = new Size(123, 30);
+            btnCancelarMail.Size = new Size(176, 50);
             btnCancelarMail.TabIndex = 12;
             btnCancelarMail.Text = "Cancelar";
             btnCancelarMail.UseVisualStyleBackColor = true;
@@ -233,10 +231,9 @@
             // 
             // btnAceptarMail
             // 
-            btnAceptarMail.Location = new Point(10, 42);
-            btnAceptarMail.Margin = new Padding(2);
+            btnAceptarMail.Location = new Point(14, 70);
             btnAceptarMail.Name = "btnAceptarMail";
-            btnAceptarMail.Size = new Size(123, 30);
+            btnAceptarMail.Size = new Size(176, 50);
             btnAceptarMail.TabIndex = 1;
             btnAceptarMail.Text = "Aceptar";
             btnAceptarMail.UseVisualStyleBackColor = true;
@@ -244,31 +241,29 @@
             // 
             // txtCambiarMail
             // 
-            txtCambiarMail.Location = new Point(10, 8);
-            txtCambiarMail.Margin = new Padding(2);
+            txtCambiarMail.Location = new Point(14, 13);
             txtCambiarMail.Name = "txtCambiarMail";
-            txtCambiarMail.Size = new Size(261, 26);
+            txtCambiarMail.Size = new Size(371, 35);
             txtCambiarMail.TabIndex = 0;
+            txtCambiarMail.TextChanged += txtCambiarMail_TextChanged;
             // 
             // panelCambiarAlias
             // 
             panelCambiarAlias.Controls.Add(btnCancelarAlias);
             panelCambiarAlias.Controls.Add(btnAceptarAlias);
             panelCambiarAlias.Controls.Add(txtCambiarAlias);
-            panelCambiarAlias.Location = new Point(561, 77);
-            panelCambiarAlias.Margin = new Padding(2);
+            panelCambiarAlias.Location = new Point(801, 128);
             panelCambiarAlias.Name = "panelCambiarAlias";
-            panelCambiarAlias.Size = new Size(300, 82);
+            panelCambiarAlias.Size = new Size(429, 137);
             panelCambiarAlias.TabIndex = 3;
             panelCambiarAlias.Visible = false;
             panelCambiarAlias.Paint += panelCambiarAlias_Paint;
             // 
             // btnCancelarAlias
             // 
-            btnCancelarAlias.Location = new Point(177, 42);
-            btnCancelarAlias.Margin = new Padding(2);
+            btnCancelarAlias.Location = new Point(253, 70);
             btnCancelarAlias.Name = "btnCancelarAlias";
-            btnCancelarAlias.Size = new Size(108, 30);
+            btnCancelarAlias.Size = new Size(154, 50);
             btnCancelarAlias.TabIndex = 12;
             btnCancelarAlias.Text = "Cancelar";
             btnCancelarAlias.UseVisualStyleBackColor = true;
@@ -276,10 +271,9 @@
             // 
             // btnAceptarAlias
             // 
-            btnAceptarAlias.Location = new Point(37, 42);
-            btnAceptarAlias.Margin = new Padding(2);
+            btnAceptarAlias.Location = new Point(53, 70);
             btnAceptarAlias.Name = "btnAceptarAlias";
-            btnAceptarAlias.Size = new Size(104, 30);
+            btnAceptarAlias.Size = new Size(149, 50);
             btnAceptarAlias.TabIndex = 1;
             btnAceptarAlias.Text = "Aceptar";
             btnAceptarAlias.UseVisualStyleBackColor = true;
@@ -287,18 +281,16 @@
             // 
             // txtCambiarAlias
             // 
-            txtCambiarAlias.Location = new Point(37, 8);
-            txtCambiarAlias.Margin = new Padding(2);
+            txtCambiarAlias.Location = new Point(53, 13);
             txtCambiarAlias.Name = "txtCambiarAlias";
-            txtCambiarAlias.Size = new Size(248, 26);
+            txtCambiarAlias.Size = new Size(353, 35);
             txtCambiarAlias.TabIndex = 0;
             // 
             // btnCambiarAlias
             // 
-            btnCambiarAlias.Location = new Point(608, 35);
-            btnCambiarAlias.Margin = new Padding(2);
+            btnCambiarAlias.Location = new Point(869, 58);
             btnCambiarAlias.Name = "btnCambiarAlias";
-            btnCambiarAlias.Size = new Size(228, 31);
+            btnCambiarAlias.Size = new Size(326, 52);
             btnCambiarAlias.TabIndex = 2;
             btnCambiarAlias.Text = "Cambiar Alias";
             btnCambiarAlias.UseVisualStyleBackColor = true;
@@ -306,10 +298,9 @@
             // 
             // btnChangePassFormPerfil
             // 
-            btnChangePassFormPerfil.Location = new Point(318, 35);
-            btnChangePassFormPerfil.Margin = new Padding(2);
+            btnChangePassFormPerfil.Location = new Point(454, 58);
             btnChangePassFormPerfil.Name = "btnChangePassFormPerfil";
-            btnChangePassFormPerfil.Size = new Size(239, 31);
+            btnChangePassFormPerfil.Size = new Size(341, 52);
             btnChangePassFormPerfil.TabIndex = 1;
             btnChangePassFormPerfil.Text = "Cambiar Contraseña";
             btnChangePassFormPerfil.UseVisualStyleBackColor = true;
@@ -317,10 +308,9 @@
             // 
             // btnChangeMail
             // 
-            btnChangeMail.Location = new Point(12, 35);
-            btnChangeMail.Margin = new Padding(2);
+            btnChangeMail.Location = new Point(17, 58);
             btnChangeMail.Name = "btnChangeMail";
-            btnChangeMail.Size = new Size(272, 31);
+            btnChangeMail.Size = new Size(389, 52);
             btnChangeMail.TabIndex = 0;
             btnChangeMail.Text = "Cambiar Mail";
             btnChangeMail.UseVisualStyleBackColor = true;
@@ -331,10 +321,9 @@
             btnCopyAlias.BackColor = Color.FromArgb(255, 128, 0);
             btnCopyAlias.Font = new Font("Cascadia Code", 14F, FontStyle.Regular, GraphicsUnit.Point);
             btnCopyAlias.ForeColor = SystemColors.ButtonHighlight;
-            btnCopyAlias.Location = new Point(678, 299);
-            btnCopyAlias.Margin = new Padding(2);
+            btnCopyAlias.Location = new Point(969, 498);
             btnCopyAlias.Name = "btnCopyAlias";
-            btnCopyAlias.Size = new Size(161, 32);
+            btnCopyAlias.Size = new Size(230, 53);
             btnCopyAlias.TabIndex = 11;
             btnCopyAlias.Text = "COPIAR ALIAS";
             btnCopyAlias.UseVisualStyleBackColor = false;
@@ -342,10 +331,10 @@
             // 
             // FormProfile
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(234, 236, 238);
-            ClientSize = new Size(887, 426);
+            ClientSize = new Size(1267, 710);
             Controls.Add(btnCopyAlias);
             Controls.Add(gbPersonalData);
             Controls.Add(btnCopy);
@@ -357,6 +346,7 @@
             Controls.Add(LabelCbu);
             Controls.Add(LabelPerfil);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FormProfile";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormProfile";
