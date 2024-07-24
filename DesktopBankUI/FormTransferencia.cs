@@ -30,6 +30,7 @@ namespace DesktopBankUI
             _currentAccount = currentAccount;
             _checkAccountTransfer = checkAccountTransfer;
             InitializeComponent();
+            LoadContactosRecientes(_currentAccount.AccountCbu);
         }
 
         private async void BtnTransfer_Click(object sender, EventArgs e)
@@ -79,7 +80,90 @@ namespace DesktopBankUI
 
         private void FormTransferencia_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void LoadContactosRecientes(long cbu)
+        {
+            try
+            {
+                // Obtener transacciones
+                var sourceTransactions = _operationRepository.GetOperationsBySenderCBU(cbu);
+
+                var transactions = sourceTransactions
+                    .Where(t => t.SourceAccount.AccountCbu != t.DestinationAccount.AccountCbu)
+                    .OrderByDescending(t => t.OperationDate);
+
+
+                var recientesList = transactions.Select(t => new
+                {
+                    Name = t.DestinationAccount.User.Client.ClientName.ToUpper() + " " + t.DestinationAccount.User.Client.ClientSurname.ToUpper(),
+                    CBU = t.SourceAccount.AccountCbu
+                })
+                    .Distinct()
+                    .ToList();
+
+                if (recientesList.Count == 0)
+                {
+                    labelRecientes.Visible = false;
+                    listaRecientes.Visible = false;
+                }
+                else
+                {
+                    // Asignar la lista como fuente de datos del DataGridView
+                    listaRecientes.DataSource = recientesList;
+                    listaRecientes.DisplayMember = "Name";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción mostrando un mensaje de error
+                MessageBox.Show($"Error al cargar las transacciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ListaRecientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listaRecientes.SelectedItem != null)
+            {
+                // Obtener el objeto seleccionado
+                var selectedContact = listaRecientes.SelectedItem as dynamic;
+                string selectedCBU = Convert.ToString(selectedContact.CBU);
+
+                var datoDeCuenta = selectedCBU;
+
+
+                if (datoDeCuenta.IsNullOrEmpty())
+                {
+                    MessageBox.Show("Por favor, indique un CBU o Alias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    try
+                    {
+                        var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
+                        if (destinationAccount != null)
+                        {
+                            if (_currentAccount.AccountCurrency != destinationAccount.AccountCurrency)
+                            {
+                                MessageBox.Show("No se permite transferir entre cuentas con distintas monedas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
+                            formConfirmTransferencia.ShowDialog();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (ex.InnerException != null)
+                        {
+                            MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
         }
     }
 }
