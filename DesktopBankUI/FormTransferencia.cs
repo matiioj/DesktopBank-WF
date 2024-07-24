@@ -42,31 +42,7 @@ namespace DesktopBankUI
             }
             else
             {
-                try
-                {
-                    var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
-                    if (destinationAccount != null)
-                    {
-                        //compara el AccountCurrency de la cuenta actual (_currentAccount) 
-                        //con el de la cuenta de destino (destinationAccount) 
-                        if (_currentAccount.AccountCurrency != destinationAccount.AccountCurrency)
-                        {
-                            MessageBox.Show("No se permite transferir entre cuentas con distintas monedas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
-                        formConfirmTransferencia.ShowDialog();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (ex.InnerException != null)
-                    {
-                        MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                GenerateTransferWindow(datoDeCuenta);
             }
         }
 
@@ -132,37 +108,33 @@ namespace DesktopBankUI
                 string selectedCBU = Convert.ToString(selectedContact.CBU);
                 listaRecientes.ClearSelected();
                 var datoDeCuenta = selectedCBU;
+                GenerateTransferWindow(datoDeCuenta);
+            }
+        }
 
-
-                if (datoDeCuenta.IsNullOrEmpty())
+        private void GenerateTransferWindow(string datoDeCuenta) 
+        {
+            try
+            {
+                var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
+                if (destinationAccount != null)
                 {
-                    MessageBox.Show("Por favor, indique un CBU o Alias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (_currentAccount.AccountCurrency != destinationAccount.AccountCurrency)
+                    {
+                        MessageBox.Show("No se permite transferir entre cuentas con distintas monedas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
+                    formConfirmTransferencia.ShowDialog();
                 }
-                else
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (ex.InnerException != null)
                 {
-                    try
-                    {
-                        var destinationAccount = (_checkAccountTransfer.ExecuteChecker(datoDeCuenta));
-                        if (destinationAccount != null)
-                        {
-                            if (_currentAccount.AccountCurrency != destinationAccount.AccountCurrency)
-                            {
-                                MessageBox.Show("No se permite transferir entre cuentas con distintas monedas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
-
-                            FormConfirmTransferencia formConfirmTransferencia = new(_currentAccount, destinationAccount, _createTransferService, _operationRepository);
-                            formConfirmTransferencia.ShowDialog();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if (ex.InnerException != null)
-                        {
-                            MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
