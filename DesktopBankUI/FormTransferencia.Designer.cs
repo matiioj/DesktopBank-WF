@@ -96,7 +96,7 @@
             listaRecientes.Name = "listaRecientes";
             listaRecientes.Size = new Size(369, 229);
             listaRecientes.TabIndex = 6;
-            listaRecientes.SelectedIndexChanged += ListaRecientes_SelectedIndexChanged;
+            listaRecientes.MouseClick += ListaRecientes_MouseClick;
             // 
             // FormTransferencia
             // 

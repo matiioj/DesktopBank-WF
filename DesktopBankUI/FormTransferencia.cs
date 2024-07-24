@@ -98,7 +98,7 @@ namespace DesktopBankUI
                 var recientesList = transactions.Select(t => new
                 {
                     Name = t.DestinationAccount.User.Client.ClientName.ToUpper() + " " + t.DestinationAccount.User.Client.ClientSurname.ToUpper(),
-                    CBU = t.SourceAccount.AccountCbu
+                    CBU = t.DestinationAccount.AccountCbu
                 })
                     .Distinct()
                     .ToList();
@@ -122,14 +122,15 @@ namespace DesktopBankUI
             }
         }
 
-        private void ListaRecientes_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListaRecientes_MouseClick(object sender, MouseEventArgs e)
         {
-            if (listaRecientes.SelectedItem != null)
+            int index = listaRecientes.IndexFromPoint(e.Location);
+            if (index != ListBox.NoMatches)
             {
-                // Obtener el objeto seleccionado
-                var selectedContact = listaRecientes.SelectedItem as dynamic;
-                string selectedCBU = Convert.ToString(selectedContact.CBU);
 
+                var selectedContact = listaRecientes.Items[index] as dynamic;
+                string selectedCBU = Convert.ToString(selectedContact.CBU);
+                listaRecientes.ClearSelected();
                 var datoDeCuenta = selectedCBU;
 
 
