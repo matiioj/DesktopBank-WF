@@ -5,6 +5,7 @@ using DesktopBank.DAL.Repositories;
 using DesktopBank.Services;
 //using Microsoft.Identity.Client.NativeInterop;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Globalization;
 using System.Windows.Automation;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -90,15 +91,19 @@ namespace DesktopBankUI
 
         private void btnGuardarComprobante_Click(object sender, EventArgs e)
         {
+            var operation = _operationRepository.GetLastOperationBySenderCBU(_currentAccount.AccountCbu);
+            int operationId = operation.OperationId;
+            var operationDate = operation.OperationDate.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+            saveFileDialog1.FileName = $"{operationDate.Replace("-", "")}_{operationId}.pdf";
+            saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf";
+            saveFileDialog1.DefaultExt = "pdf";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string route = saveFileDialog1.FileName;
-                int operationId = _operationRepository.GetLastOperationBySenderCBU(_currentAccount.AccountCbu).OperationId;
                 _createReceiptService.CreateReceipt(operationId, route);
                 this.Close();
             }
-
         }
     }
 }

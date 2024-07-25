@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopBank.BusinessObjects.Interfaces;
 using Microsoft.Win32;
+using System.Globalization;
 
 namespace DesktopBankUI
 {
@@ -106,13 +107,20 @@ namespace DesktopBankUI
                 DateTime date = Convert.ToDateTime(clickedRow.Cells["Date"].Value);
                 decimal amount = Convert.ToDecimal(clickedRow.Cells["Amount"].Value);
 
-                MessageBox.Show($"Transaction Details:\nFrom: {from}\nTo: {to}\nType: {type}\nDate: {date}\nAmount: {amount}", "Transaction Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                GuardarComprobante(Convert.ToInt32(id));
+                var result = MessageBox.Show($"Transaction Details:\nFrom: {from}\nTo: {to}\nType: {type}\nDate: {date}\nAmount: {amount}\n\nDo you want to save the receipt?", "Confirm Receipt", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    GuardarComprobante(Convert.ToInt32(id));
+                }
             }
         }
 
         private void GuardarComprobante(int operationId)
         {
+            var operationDate = _operationRepository.GetOperation(operationId).OperationDate.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+            saveFileDialog1.FileName = $"{operationDate.Replace("-", "")}_{operationId}.pdf";
+            saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf";
+            saveFileDialog1.DefaultExt = "pdf";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string route = saveFileDialog1.FileName;
