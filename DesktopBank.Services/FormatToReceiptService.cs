@@ -22,22 +22,22 @@ namespace DesktopBank.Services
             _operationRepository = new(_context);
         }
 
-        public Dictionary<string, string> GenerateTransferReceiptData(Account sourceAccount, Account destinationAccount)
+        public Dictionary<string, string> GenerateTransferReceiptData(int id)
         {
             Dictionary<string, string> transferData = new();
-            var operation = _operationRepository.GetLastOperationBySenderCBU(sourceAccount.AccountCbu);
+            var operation = _operationRepository.GetOperation(id);
             var operationDate = operation.OperationDate.ToString("dd-MM-yyyy HH:mm", CultureInfo.InvariantCulture);
             var operationNumber = $"{operation.OperationId}";
             var operationNote = operation.OperationNote;
             var operationAmount = $"{operation.OperationAmount}";
 
-            var senderName = $"{sourceAccount.User.Client.ClientName} {sourceAccount.User.Client.ClientSurname}";
-            var senderCUIL = FormatCuil($"{sourceAccount.User.Client.ClientCuil}");
-            var senderCBU = $"{sourceAccount.AccountCbu}";
+            var senderName = $"{operation.SourceAccount.User.Client.ClientName} {operation.SourceAccount.User.Client.ClientSurname}";
+            var senderCUIL = FormatCuil($"{operation.SourceAccount.User.Client.ClientCuil}");
+            var senderCBU = $"{operation.SourceAccount.AccountCbu}";
 
-            var receiverName = $"{destinationAccount.User.Client.ClientName} {destinationAccount.User.Client.ClientSurname}";
-            var receiverCUIL = FormatCuil($"{destinationAccount.User.Client.ClientCuil}");
-            var receiverCBU = $"{destinationAccount.AccountCbu}";
+            var receiverName = $"{operation.DestinationAccount.User.Client.ClientName} {operation.DestinationAccount.User.Client.ClientSurname}";
+            var receiverCUIL = FormatCuil($"{operation.DestinationAccount.User.Client.ClientCuil}");
+            var receiverCBU = $"{operation.DestinationAccount.AccountCbu}";
 
             transferData.Add("OperationDate", operationDate);
             transferData.Add("OperationNumber", operationNumber);

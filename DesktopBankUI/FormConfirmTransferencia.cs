@@ -94,7 +94,8 @@ namespace DesktopBankUI
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string route = saveFileDialog1.FileName;
-                _createReceiptService.CreateReceipt(_currentAccount, _destinationAccount, route);
+                int operationId = _operationRepository.GetLastOperationBySenderCBU(_currentAccount.AccountCbu).OperationId;
+                _createReceiptService.CreateReceipt(operationId, route);
                 this.Close();
             }
 

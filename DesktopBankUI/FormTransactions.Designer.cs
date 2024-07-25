@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            saveFileDialog1 = new SaveFileDialog();
             DataGridTransactions = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)DataGridTransactions).BeginInit();
             SuspendLayout();
@@ -42,6 +43,7 @@
             DataGridTransactions.RowTemplate.Height = 25;
             DataGridTransactions.Size = new Size(587, 369);
             DataGridTransactions.TabIndex = 0;
+            DataGridTransactions.CellClick += DataGridTransactions_CellClick;
             // 
             // FormTransactions
             // 
@@ -59,5 +61,6 @@
         #endregion
 
         private DataGridView DataGridTransactions;
+        private SaveFileDialog saveFileDialog1;
     }
 }
