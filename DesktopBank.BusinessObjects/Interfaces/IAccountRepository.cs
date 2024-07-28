@@ -15,6 +15,8 @@ namespace DesktopBank.BusinessObjects.Interfaces
         IEnumerable<Account> GetAll();
         Account GetById(int accountId);
         Account GetByAlias(string accountAlias);
+
+        Account GetByEmail(string email);   
         Account GetByCbu(long accountCbu);
         Account GetByUserId(int userId);
         IEnumerable<Account> GetAccountsByUserId(int userId);

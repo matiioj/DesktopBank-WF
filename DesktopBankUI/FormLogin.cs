@@ -68,7 +68,7 @@ namespace DesktopBankUI
 
         private void linkChangePass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormChangePass frmChangePass = new FormChangePass();
+            FormChangePass frmChangePass = new FormChangePass(_context);
             frmChangePass.Show();
             this.Hide();
         }

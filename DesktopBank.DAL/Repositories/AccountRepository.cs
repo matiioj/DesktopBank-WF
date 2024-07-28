@@ -46,6 +46,15 @@ namespace DesktopBank.DAL.Repositories
                 .FirstOrDefault(a => a.AccountAlias == accountAlias);
         }
 
+        public Account GetByEmail(string email)
+        {
+            return _context.Accounts
+                .Include(a => a.User)
+                .Include(a => a.User.Client)
+                .FirstOrDefault(a => a.User.Client.ClientEmail == email);
+        }
+
+
         public Account GetByCbu(long accountCbu)
         {
             return _context.Accounts

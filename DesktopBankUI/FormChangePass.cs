@@ -1,5 +1,8 @@
 ﻿using DesktopBank.BusinessObjects.Models;
+using DesktopBank.DAL;
+using DesktopBank.DAL.Repositories;
 using DesktopBank.Services;
+using DesktopBank.BusinessObjects.Generated.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,10 +18,18 @@ namespace DesktopBankUI
 {
     public partial class FormChangePass : Form
     {
-        ValidationService _validationService;
-        MailService mailService = new MailService();
-        public FormChangePass()
+        private readonly ValidationService _validationService;
+        private readonly MailService mailService = new MailService();
+        private readonly NojedaisticDesktopBankContext _context;
+        private readonly AccountRepository _accountRepository;
+        private readonly Account _account;
+        private readonly PasswordHashingService _passwordHashingService;
+
+        public FormChangePass(NojedaisticDesktopBankContext context)
         {
+            _context = context;
+            _accountRepository = new AccountRepository(_context);
+            _passwordHashingService = new PasswordHashingService();
             _validationService = new();
             InitializeComponent();
         }
@@ -43,6 +54,12 @@ namespace DesktopBankUI
         private void btnEnviarCode_Click(object sender, EventArgs e)
         {
             string validarMail = txtMailChangePass.Text;
+            
+            Account _account = null;
+
+            string mailConfirmado;
+
+            string code;
 
             var mensajeError = _validationService.ValidateOnRegisterFields(validarMail);
 
@@ -52,33 +69,46 @@ namespace DesktopBankUI
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show($"¿Enviar código de reestablecimiento de contraseña al correo: {validarMail}?", "Aceptar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.Yes)
+            _account = _accountRepository.GetByEmail(validarMail);
+            if(_account != null)
             {
-                try
+                DialogResult resultado = MessageBox.Show($"¿Enviar código de reestablecimiento de contraseña al correo: {_account.User.Client.ClientEmail}?", "Aceptar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
-                    string code = new Random().Next().ToString();
-
-                    //_account.User.Client.ClientEmail = correoNuevo;
-                    //_accountRepository.Update(_account);
-                    //_context.SaveChanges();
-                    //MessageBox.Show("Su correo se ha actualizado con éxito");
-                    MailData mailData = new MailData();
-                    mailData.MailTo = validarMail;
-                    mailData.Subject = "Código de restablecimiento de contraseña";
-                    mailData.Body = $"Su código de restablecimiento de la contraseña es: {code}";
-                    mailService.SendMail(mailData);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Ocurrió un error al enviar el código de restablecimiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (ex.InnerException != null)
+                    try
                     {
-                        MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        code = new Random().Next().ToString();
+
+                        //_account.User.Client.ClientEmail = correoNuevo;
+                        //_accountRepository.Update(_account);
+                        //_context.SaveChanges();
+                        //MessageBox.Show("Su correo se ha actualizado con éxito");
+                        MailData mailData = new MailData();
+                        mailData.MailTo = validarMail;
+                        mailData.Subject = "Código de restablecimiento de contraseña";
+                        mailData.Body = $"Su código de restablecimiento de la contraseña es: {code}";
+                        mailService.SendMail(mailData);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ocurrió un error al enviar el código de restablecimiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (ex.InnerException != null)
+                        {
+                            MessageBox.Show($"Error: " + ex.InnerException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
+            else
+            {
+                mensajeError = "El correo no corresponde a un usuario registrado";
+                MessageBox.Show(mensajeError, "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+
+
         }
     }
 }
