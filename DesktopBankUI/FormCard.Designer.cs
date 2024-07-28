@@ -30,6 +30,7 @@
         {
             gBoxTarjetaDeCredito = new GroupBox();
             groupBox1 = new GroupBox();
+            picBoxTc = new PictureBox();
             EtqTcNumber = new Label();
             EtqApellidoUsuario = new Label();
             EtqNombreUsuario = new Label();
@@ -40,6 +41,7 @@
             EtqCvv = new Label();
             gBoxTarjetaDeCredito.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picBoxTc).BeginInit();
             SuspendLayout();
             // 
             // gBoxTarjetaDeCredito
@@ -57,6 +59,7 @@
             // 
             groupBox1.BackColor = Color.FromArgb(22, 160, 133);
             groupBox1.BackgroundImageLayout = ImageLayout.None;
+            groupBox1.Controls.Add(picBoxTc);
             groupBox1.Controls.Add(EtqTcNumber);
             groupBox1.Controls.Add(EtqApellidoUsuario);
             groupBox1.Controls.Add(EtqNombreUsuario);
@@ -74,6 +77,17 @@
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
             groupBox1.Text = "Tú tarjeta";
+            // 
+            // picBoxTc
+            // 
+            picBoxTc.Image = Properties.Resources.visadebit;
+            picBoxTc.Location = new Point(721, 257);
+            picBoxTc.Name = "picBoxTc";
+            picBoxTc.Size = new Size(140, 143);
+            picBoxTc.SizeMode = PictureBoxSizeMode.Zoom;
+            picBoxTc.TabIndex = 10;
+            picBoxTc.TabStop = false;
+            picBoxTc.Click += picBoxTc_Click;
             // 
             // EtqTcNumber
             // 
@@ -189,6 +203,7 @@
             gBoxTarjetaDeCredito.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picBoxTc).EndInit();
             ResumeLayout(false);
         }
 
@@ -204,5 +219,6 @@
         private Label EtqTcNumber;
         private Label EtqApellidoUsuario;
         private GroupBox groupBox1;
+        private PictureBox picBoxTc;
     }
 }

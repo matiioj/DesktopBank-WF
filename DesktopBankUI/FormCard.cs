@@ -46,7 +46,7 @@ namespace DesktopBankUI
             foreach (Card card in ListCards)
             {
                 numtc = card.CardNumber;
-                numeroConFormato = string.Join(" ", Enumerable.Range(0, numtc.Length / 4).Select(i => numtc.Substring(i * 4, 4))); 
+                numeroConFormato = string.Join(" ", Enumerable.Range(0, numtc.Length / 4).Select(i => numtc.Substring(i * 4, 4)));
                 //método de la clase string. Join permite concatenar/separar elementos de una lista/array con un carácter. Se separan con "espacio" en este caso.
                 //La clase enumerable brinda métodos para trabajar con colecciones de datos 
                 // select permite transformar los elementos de una secuencia por otros // i es un lambda // substring extrae una subcade de una cadena (de donde, hasta donde)
@@ -89,6 +89,19 @@ namespace DesktopBankUI
             EtqApellidoUsuario.Text = surname;
 
 
+            if(_currentAccount.AccountCurrency != 1)
+            {
+                picBoxTc.Image = DesktopBankUI.Properties.Resources.visa;
+                picBoxTc.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                picBoxTc.Image = DesktopBankUI.Properties.Resources.visadebit;
+                picBoxTc.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+
+
+
         }
 
         private void EtqApellidoUsuario_Click(object sender, EventArgs e)
@@ -105,6 +118,11 @@ namespace DesktopBankUI
         {
             _currentAccount = newAccount;
             CargarDatos_Tarjeta();
+        }
+
+        private void picBoxTc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
