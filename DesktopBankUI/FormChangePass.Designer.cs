@@ -53,6 +53,7 @@
             btnEnviarCode.TabIndex = 0;
             btnEnviarCode.Text = "Enviar código";
             btnEnviarCode.UseVisualStyleBackColor = true;
+            btnEnviarCode.Click += btnEnviarCode_Click;
             // 
             // etqInsertarCodigo
             // 
@@ -80,6 +81,7 @@
             txtMailChangePass.Name = "txtMailChangePass";
             txtMailChangePass.Size = new Size(535, 31);
             txtMailChangePass.TabIndex = 4;
+            txtMailChangePass.TextChanged += txtMailChangePass_TextChanged;
             // 
             // btnCancelarChP
             // 
