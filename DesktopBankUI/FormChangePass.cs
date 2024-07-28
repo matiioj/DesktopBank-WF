@@ -123,7 +123,7 @@ namespace DesktopBankUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnChangePassConfirm_Click(object sender, EventArgs e)
         {
             string firstValidationPass = txtPassFirstValidation.Text; 
             string secondValidationPass = txtPassSecondValidation.Text;

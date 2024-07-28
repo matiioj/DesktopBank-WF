@@ -31,6 +31,12 @@
             btnEnviarCode = new Button();
             etqInsertarCodigo = new Label();
             panel1 = new Panel();
+            panelNewPass = new Panel();
+            btnChangePassConfirm = new Button();
+            txtPassSecondValidation = new TextBox();
+            txtPassFirstValidation = new TextBox();
+            etqPassSecondValidation = new Label();
+            etqPassFirstValidation = new Label();
             txtMailChangePass = new TextBox();
             etqUserChP = new Label();
             panelCode = new Panel();
@@ -38,16 +44,10 @@
             txtCode = new TextBox();
             btnCancelarChP = new Button();
             pictureBox1 = new PictureBox();
-            panelNewPass = new Panel();
-            etqPassFirstValidation = new Label();
-            etqPassSecondValidation = new Label();
-            txtPassFirstValidation = new TextBox();
-            txtPassSecondValidation = new TextBox();
-            button1 = new Button();
             panel1.SuspendLayout();
+            panelNewPass.SuspendLayout();
             panelCode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panelNewPass.SuspendLayout();
             SuspendLayout();
             // 
             // btnEnviarCode
@@ -83,6 +83,65 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(932, 579);
             panel1.TabIndex = 3;
+            // 
+            // panelNewPass
+            // 
+            panelNewPass.Controls.Add(btnChangePassConfirm);
+            panelNewPass.Controls.Add(txtPassSecondValidation);
+            panelNewPass.Controls.Add(txtPassFirstValidation);
+            panelNewPass.Controls.Add(etqPassSecondValidation);
+            panelNewPass.Controls.Add(etqPassFirstValidation);
+            panelNewPass.Location = new Point(58, 17);
+            panelNewPass.Name = "panelNewPass";
+            panelNewPass.Size = new Size(812, 535);
+            panelNewPass.TabIndex = 6;
+            panelNewPass.Visible = false;
+            // 
+            // btnChangePassConfirm
+            // 
+            btnChangePassConfirm.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            btnChangePassConfirm.ForeColor = Color.Black;
+            btnChangePassConfirm.Location = new Point(314, 375);
+            btnChangePassConfirm.Name = "btnChangePassConfirm";
+            btnChangePassConfirm.Size = new Size(199, 59);
+            btnChangePassConfirm.TabIndex = 4;
+            btnChangePassConfirm.Text = "Confirmar";
+            btnChangePassConfirm.UseVisualStyleBackColor = true;
+            btnChangePassConfirm.Click += btnChangePassConfirm_Click;
+            // 
+            // txtPassSecondValidation
+            // 
+            txtPassSecondValidation.Location = new Point(227, 280);
+            txtPassSecondValidation.Name = "txtPassSecondValidation";
+            txtPassSecondValidation.Size = new Size(367, 31);
+            txtPassSecondValidation.TabIndex = 3;
+            // 
+            // txtPassFirstValidation
+            // 
+            txtPassFirstValidation.Location = new Point(227, 111);
+            txtPassFirstValidation.Name = "txtPassFirstValidation";
+            txtPassFirstValidation.Size = new Size(367, 31);
+            txtPassFirstValidation.TabIndex = 2;
+            // 
+            // etqPassSecondValidation
+            // 
+            etqPassSecondValidation.AutoSize = true;
+            etqPassSecondValidation.Font = new Font("Trebuchet MS", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            etqPassSecondValidation.Location = new Point(96, 194);
+            etqPassSecondValidation.Name = "etqPassSecondValidation";
+            etqPassSecondValidation.Size = new Size(659, 49);
+            etqPassSecondValidation.TabIndex = 1;
+            etqPassSecondValidation.Text = "Ingrese nuevamente su contraseña:";
+            // 
+            // etqPassFirstValidation
+            // 
+            etqPassFirstValidation.AutoSize = true;
+            etqPassFirstValidation.Font = new Font("Trebuchet MS", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            etqPassFirstValidation.Location = new Point(237, 29);
+            etqPassFirstValidation.Name = "etqPassFirstValidation";
+            etqPassFirstValidation.Size = new Size(357, 49);
+            etqPassFirstValidation.TabIndex = 0;
+            etqPassFirstValidation.Text = "Contraseña nueva:";
             // 
             // txtMailChangePass
             // 
@@ -155,65 +214,6 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
-            // panelNewPass
-            // 
-            panelNewPass.Controls.Add(button1);
-            panelNewPass.Controls.Add(txtPassSecondValidation);
-            panelNewPass.Controls.Add(txtPassFirstValidation);
-            panelNewPass.Controls.Add(etqPassSecondValidation);
-            panelNewPass.Controls.Add(etqPassFirstValidation);
-            panelNewPass.Location = new Point(58, 17);
-            panelNewPass.Name = "panelNewPass";
-            panelNewPass.Size = new Size(812, 535);
-            panelNewPass.TabIndex = 6;
-            panelNewPass.Visible = false;
-            // 
-            // etqPassFirstValidation
-            // 
-            etqPassFirstValidation.AutoSize = true;
-            etqPassFirstValidation.Font = new Font("Trebuchet MS", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            etqPassFirstValidation.Location = new Point(237, 29);
-            etqPassFirstValidation.Name = "etqPassFirstValidation";
-            etqPassFirstValidation.Size = new Size(357, 49);
-            etqPassFirstValidation.TabIndex = 0;
-            etqPassFirstValidation.Text = "Contraseña nueva:";
-            // 
-            // etqPassSecondValidation
-            // 
-            etqPassSecondValidation.AutoSize = true;
-            etqPassSecondValidation.Font = new Font("Trebuchet MS", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            etqPassSecondValidation.Location = new Point(96, 194);
-            etqPassSecondValidation.Name = "etqPassSecondValidation";
-            etqPassSecondValidation.Size = new Size(659, 49);
-            etqPassSecondValidation.TabIndex = 1;
-            etqPassSecondValidation.Text = "Ingrese nuevamente su contraseña:";
-            // 
-            // txtPassFirstValidation
-            // 
-            txtPassFirstValidation.Location = new Point(227, 111);
-            txtPassFirstValidation.Name = "txtPassFirstValidation";
-            txtPassFirstValidation.Size = new Size(367, 31);
-            txtPassFirstValidation.TabIndex = 2;
-            // 
-            // txtPassSecondValidation
-            // 
-            txtPassSecondValidation.Location = new Point(227, 280);
-            txtPassSecondValidation.Name = "txtPassSecondValidation";
-            txtPassSecondValidation.Size = new Size(367, 31);
-            txtPassSecondValidation.TabIndex = 3;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(314, 375);
-            button1.Name = "button1";
-            button1.Size = new Size(199, 59);
-            button1.TabIndex = 4;
-            button1.Text = "Confirmar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // FormChangePass
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -230,11 +230,11 @@
             Load += FormChangePass_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panelNewPass.ResumeLayout(false);
+            panelNewPass.PerformLayout();
             panelCode.ResumeLayout(false);
             panelCode.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panelNewPass.ResumeLayout(false);
-            panelNewPass.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -255,6 +255,6 @@
         private TextBox txtPassSecondValidation;
         private TextBox txtPassFirstValidation;
         private Label etqPassSecondValidation;
-        private Button button1;
+        private Button btnChangePassConfirm;
     }
 }
