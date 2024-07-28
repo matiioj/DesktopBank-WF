@@ -160,6 +160,8 @@ namespace DesktopBankUI
         {
             _currentAccount = newAccount;
             etqTypeAccount.Text = SelectedAccountType;
+            etqNameUserOfAccount.Text = _currentAccount.User.Client.ClientName;
+            etqSurnameOfAccount.Text = _currentAccount.User.Client.ClientSurname;
             // Actualizar todas las ventanas abiertas
             UpdateAllForms();
         }
@@ -207,6 +209,21 @@ namespace DesktopBankUI
         }
 
         private void etqTypeAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void etqAccountStatic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void etqNameUserOfAccount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void etqSurnameOfAccount_Click(object sender, EventArgs e)
         {
 
         }
