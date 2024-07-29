@@ -31,10 +31,9 @@
             labelIngresaDatos = new Label();
             TxtBoxDatosCuenta = new TextBox();
             BtnTransfer = new Button();
-            label1 = new Label();
-            TablaContactos = new DataGridView();
+            labelRecientes = new Label();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)TablaContactos).BeginInit();
+            listaRecientes = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -67,38 +66,37 @@
             BtnTransfer.UseVisualStyleBackColor = true;
             BtnTransfer.Click += BtnTransfer_Click;
             // 
-            // label1
+            // labelRecientes
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(40, 137);
-            label1.Name = "label1";
-            label1.Size = new Size(230, 21);
-            label1.TabIndex = 3;
-            label1.Text = "Selecciona uno de tus contactos";
-            // 
-            // TablaContactos
-            // 
-            TablaContactos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TablaContactos.Location = new Point(40, 165);
-            TablaContactos.Name = "TablaContactos";
-            TablaContactos.ReadOnly = true;
-            TablaContactos.RowHeadersWidth = 62;
-            TablaContactos.RowTemplate.Height = 25;
-            TablaContactos.Size = new Size(369, 212);
-            TablaContactos.TabIndex = 4;
+            labelRecientes.AutoSize = true;
+            labelRecientes.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelRecientes.ForeColor = SystemColors.ControlLightLight;
+            labelRecientes.Location = new Point(40, 137);
+            labelRecientes.Name = "labelRecientes";
+            labelRecientes.Size = new Size(245, 21);
+            labelRecientes.TabIndex = 3;
+            labelRecientes.Text = "Selecciona dentro de tus recientes";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.iconPig;
             pictureBox1.Location = new Point(198, 13);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(61, 47);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            // 
+            // listaRecientes
+            // 
+            listaRecientes.FormattingEnabled = true;
+            listaRecientes.ItemHeight = 15;
+            listaRecientes.Location = new Point(40, 165);
+            listaRecientes.Name = "listaRecientes";
+            listaRecientes.Size = new Size(369, 229);
+            listaRecientes.TabIndex = 6;
+            listaRecientes.MouseClick += ListaRecientes_MouseClick;
             // 
             // FormTransferencia
             // 
@@ -106,9 +104,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Teal;
             ClientSize = new Size(454, 405);
+            Controls.Add(listaRecientes);
             Controls.Add(pictureBox1);
-            Controls.Add(TablaContactos);
-            Controls.Add(label1);
+            Controls.Add(labelRecientes);
             Controls.Add(BtnTransfer);
             Controls.Add(TxtBoxDatosCuenta);
             Controls.Add(labelIngresaDatos);
@@ -116,7 +114,6 @@
             Name = "FormTransferencia";
             Text = "FormTransferencia";
             Load += FormTransferencia_Load;
-            ((System.ComponentModel.ISupportInitialize)TablaContactos).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -127,8 +124,8 @@
         private Label labelIngresaDatos;
         private TextBox TxtBoxDatosCuenta;
         private Button BtnTransfer;
-        private Label label1;
-        private DataGridView TablaContactos;
+        private Label labelRecientes;
         private PictureBox pictureBox1;
+        private ListBox listaRecientes;
     }
 }

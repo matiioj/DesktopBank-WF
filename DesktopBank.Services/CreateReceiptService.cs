@@ -21,7 +21,7 @@ namespace DesktopBank.Services
 
 
 
-        public void CreateReceipt(Account currentAccount, Account destinationAccount, string route)
+        public void CreateReceipt(int operationId, string route)
         {
             // Define the relative path to the image
             string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..","..", "..", "..", "DesktopBankUI", "Resources", "istic_logo.png");
@@ -29,7 +29,7 @@ namespace DesktopBank.Services
             byte[] imageBytes = File.ReadAllBytes(absoluteImagePath);
             string _route = route;
 
-            var transferData = _formatToReceiptService.GenerateTransferReceiptData(currentAccount, destinationAccount);
+            var transferData = _formatToReceiptService.GenerateTransferReceiptData(operationId);
 
 
             Document.Create(container =>
