@@ -23,25 +23,35 @@ namespace DesktopBank.Services
 
         public decimal GetSignedAmount(Operation t, long cbu)
         {
-            if (t.OperationCode.OperationCodeNumber == 3)
+            // verifica código de operación
+            if (t.OperationCode.OperationCodeNumber == 3) // transferencia
             {
-                return t.SourceAccount.AccountCbu == cbu ? -t.OperationAmount : +t.OperationAmount;
+                // si el CBU es el del origen resta el monto
+                // si el CBU es el del destino suma el monto
+                return t.SourceAccount.AccountCbu == cbu ? -t.OperationAmount : t.OperationAmount;
             }
-            else if (t.OperationCode.OperationCodeNumber == 2)
+            else if (t.OperationCode.OperationCodeNumber == 2) // retiro
             {
+                // resta el monto
                 return -t.OperationAmount;
             }
-            else if (t.OperationCode.OperationCodeNumber == 1)
+            else if (t.OperationCode.OperationCodeNumber == 1) // depósito
             {
-                return +t.OperationAmount; 
+                // suma el monto
+                return t.OperationAmount;
             }
-            else if (t.OperationCode.OperationCodeNumber == 4) { 
+            else if (t.OperationCode.OperationCodeNumber == 4) // otro tipo de operación
+            {
+                // resta el monto
                 return -t.OperationAmount;
             }
             else
             {
-                return t.OperationAmount; 
+                // default: si código de operación no coincide con ninguno de los anteriores
+                return t.OperationAmount;
             }
         }
+
+        
     }
 }

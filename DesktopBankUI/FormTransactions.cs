@@ -30,6 +30,10 @@ namespace DesktopBankUI
         private readonly CreateReceiptService _createReceiptService;
         private readonly FormatToReceiptService _formatToReceiptService;
 
+        private int _depositCount;
+        private int _withdrawalCount;
+        private int _transferCount;
+
         public FormTransactions(Account currentAccount, NojedaisticDesktopBankContext context, OperationRepository operationRepository, AccountInfoService accountInfoService, ManageOperationsService manageOperationsService)
         {
             _formatToReceiptService = new(operationRepository);
@@ -46,8 +50,6 @@ namespace DesktopBankUI
             LoadTransactions(cbu);
         }
 
-
-
         private void LoadTransactions(long cbu)
         {
             try
@@ -56,11 +58,15 @@ namespace DesktopBankUI
                 var sourceTransactions = _operationRepository.GetOperationsBySenderCBU(cbu);
                 var destinationTransactions = _operationRepository.GetOperationsByReceiverCBU(cbu);
 
-                // Combinar origen y destino
-                var transactions = sourceTransactions.Union(destinationTransactions).OrderByDescending(t => t.OperationDate);
+                // Combinar origen y destino eliminando duplicados
+                var transactions = sourceTransactions.Union(destinationTransactions, new OperationComparer()).OrderByDescending(t => t.OperationDate);
+
+                // Contar transacciones de cada tipo
+                _transferCount = transactions.Count(t => t.OperationCode.OperationCodeNumber == 3);
+                _depositCount = transactions.Count(t => t.OperationCode.OperationCodeNumber == 1);
+                _withdrawalCount = transactions.Count(t => t.OperationCode.OperationCodeNumber == 2);
 
                 // Crear lista de objetos para el DataGridView
-
                 var transactionList = transactions.Select(t => new
                 {
                     Id = t.OperationId,
@@ -70,22 +76,24 @@ namespace DesktopBankUI
                     Date = t.OperationDate,
                     Amount = _manageOperationsService.GetSignedAmount(t, cbu)
                 }).ToList();
-                // Verificar si la lista de transacciones está vacía
 
+                // Verificar si la lista de transacciones está vacía
                 if (transactionList.Count == 0)
                 {
-                    // Si la lista está vacía, mostrar un mensaje o realizar alguna acción
                     MessageBox.Show("No se encontraron transacciones.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    // Asignar la lista como fuente de datos del DataGridView
                     DataGridTransactions.DataSource = transactionList;
                 }
+
+                // Mostrar los valores calculados en controles del formulario
+                lblDepositTotal.Text = $"Número de depósitos: {_depositCount}";
+                lblWithdrawalTotal.Text = $"Número de retiros: {_withdrawalCount}";
+                lblTransferCount.Text = $"Número de transferencias: {_transferCount}";
             }
             catch (Exception ex)
             {
-                // Manejar la excepción mostrando un mensaje de error
                 MessageBox.Show($"Error al cargar las transacciones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -126,7 +134,6 @@ namespace DesktopBankUI
                 string route = saveFileDialog1.FileName;
                 _createReceiptService.CreateReceipt(operationId, route);
             }
-
         }
     }
 }
